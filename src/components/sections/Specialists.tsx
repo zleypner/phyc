@@ -21,21 +21,6 @@ const specialists = [
       'Especializado en lesiones deportivas y casos ortopédicos complejos, aportando enfoques de tratamiento innovadores a cada paciente.',
   },
   {
-    name: 'Msc. Jairo Alvarado Pérez',
-    role: 'Especialista Senior en Rehabilitación',
-    credentials: 'M.Sc. en Ciencias de la Rehabilitación',
-    experience: '8+ años de experiencia clínica',
-    specialty: 'Rehabilitación Avanzada y Terapia TECAR',
-    certifications: [
-      'Maestría en Rehabilitación',
-      'Especialista en Terapia TECAR',
-      'Práctica Basada en Evidencia',
-    ],
-    image: '/specialists/jairo.png',
-    description:
-      'Experto en modalidades terapéuticas avanzadas con un enfoque respaldado por investigación para casos de rehabilitación complejos.',
-  },
-  {
     name: 'Yamilah Solano',
     role: 'Fisioterapeuta',
     credentials: 'Lic. en Fisioterapia',
