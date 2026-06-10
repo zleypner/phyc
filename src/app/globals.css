@@ -6,12 +6,18 @@
    ============================================ */
 
 :root {
-  /* Brand Colors */
+  /* Brand Colors - Healthcare Teal */
   --primary: #1E88A8;
   --primary-light: #35B7C8;
   --primary-dark: #0E3A4A;
   --accent: #5EEAD4;
   --whatsapp: #25D366;
+
+  /* Wellness Accent Colors (UI/UX Pro Max recommendation) */
+  --wellness-green: #10B981;
+  --wellness-green-light: #34D399;
+  --wellness-soft: #ECFDF5;
+  --wellness-cta: #059669;
 
   /* Neutral Colors */
   --background: #F4F7F8;
@@ -59,13 +65,17 @@
   --container-wide: 1280px;
   --content-max: 680px;
 
-  /* Card Styles */
+  /* Card Styles - Neumorphism-inspired (UI/UX Pro Max) */
   --card-radius: 1.75rem;         /* 28px */
   --card-radius-sm: 1rem;         /* 16px */
   --card-radius-lg: 2rem;         /* 32px */
   --card-shadow: 0 4px 20px rgba(14, 58, 74, 0.08);
   --card-shadow-hover: 0 12px 40px rgba(14, 58, 74, 0.12);
   --card-shadow-strong: 0 20px 50px rgba(14, 58, 74, 0.15);
+
+  /* Neumorphism Shadows (soft, wellness feel) */
+  --shadow-neu-light: -5px -5px 15px rgba(255, 255, 255, 0.8), 5px 5px 15px rgba(14, 58, 74, 0.08);
+  --shadow-neu-pressed: inset 2px 2px 5px rgba(14, 58, 74, 0.1), inset -2px -2px 5px rgba(255, 255, 255, 0.9);
 
   /* Button Styles */
   --btn-height: 3.25rem;          /* 52px */
@@ -97,13 +107,14 @@
   --color-primary-light: var(--primary-light);
   --color-primary-dark: var(--primary-dark);
   --color-accent: var(--accent);
+  --color-wellness: var(--wellness-green);
   --color-background: var(--background);
   --color-surface: var(--surface);
   --color-text: var(--text);
   --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-lora);
+  --font-body: var(--font-raleway);
 }
 
 /* ============================================
@@ -124,15 +135,16 @@ html {
 body {
   background: var(--background);
   color: var(--text);
-  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  font-family: var(--font-raleway), system-ui, -apple-system, sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
 }
 
 /* ============================================
-   TYPOGRAPHY
+   TYPOGRAPHY - Lora for headings (wellness mood)
    ============================================ */
 h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-lora), Georgia, serif;
   line-height: 1.15;
   font-weight: 700;
   color: var(--primary-dark);
@@ -505,5 +517,86 @@ select:focus-visible {
 @media (min-width: 1024px) {
   .grid-gap-cards {
     gap: var(--space-10);
+  }
+}
+
+/* ============================================
+   NEUMORPHISM CARD STYLES
+   ============================================ */
+.card-neu {
+  background: var(--background);
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow-neu-light);
+  transition: all var(--transition-base);
+}
+
+.card-neu:hover {
+  box-shadow: var(--card-shadow-hover);
+}
+
+.card-neu-pressed {
+  box-shadow: var(--shadow-neu-pressed);
+}
+
+/* ============================================
+   WELLNESS ACCENT UTILITIES
+   ============================================ */
+.text-wellness {
+  color: var(--wellness-green);
+}
+
+.bg-wellness {
+  background-color: var(--wellness-green);
+}
+
+.bg-wellness-soft {
+  background-color: var(--wellness-soft);
+}
+
+/* ============================================
+   ACCESSIBILITY - Reduced Motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-float,
+  .animate-pulse-soft,
+  .animate-pulse,
+  .animate-spin,
+  .animate-bounce {
+    animation: none !important;
+  }
+}
+
+/* ============================================
+   SKELETON LOADING STATES (UX Guideline)
+   ============================================ */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--surface-secondary) 25%,
+    var(--background) 50%,
+    var(--surface-secondary) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+    background: var(--surface-secondary);
   }
 }

@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Award, GraduationCap, Briefcase, Calendar } from 'lucide-react';
+import { Award, GraduationCap, Briefcase, Calendar, CheckCircle } from 'lucide-react';
 import Image from 'next/image';
 
 const specialists = [
@@ -118,9 +118,10 @@ export default function Specialists() {
                   {/* Divider */}
                   <div className="h-px bg-[rgba(15,23,42,0.08)] mb-6" />
 
-                  {/* Credentials Grid */}
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-                    <div className="flex items-center gap-3">
+                  {/* Credentials Grid with Vertical Dividers */}
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-0 mb-6">
+                    {/* Credential 1 */}
+                    <div className="flex items-center gap-3 sm:pr-4 sm:border-r sm:border-[rgba(15,23,42,0.08)]">
                       <div className="w-10 h-10 rounded-xl bg-[#1E88A8]/10 flex items-center justify-center flex-shrink-0">
                         <GraduationCap size={20} className="text-[#1E88A8]" />
                       </div>
@@ -128,7 +129,8 @@ export default function Specialists() {
                         {specialist.credentials}
                       </span>
                     </div>
-                    <div className="flex items-center gap-3">
+                    {/* Credential 2 */}
+                    <div className="flex items-center gap-3 sm:px-4 sm:border-r sm:border-[rgba(15,23,42,0.08)]">
                       <div className="w-10 h-10 rounded-xl bg-[#1E88A8]/10 flex items-center justify-center flex-shrink-0">
                         <Briefcase size={20} className="text-[#1E88A8]" />
                       </div>
@@ -136,7 +138,8 @@ export default function Specialists() {
                         {specialist.experience}
                       </span>
                     </div>
-                    <div className="flex items-center gap-3">
+                    {/* Credential 3 */}
+                    <div className="flex items-center gap-3 sm:pl-4">
                       <div className="w-10 h-10 rounded-xl bg-[#1E88A8]/10 flex items-center justify-center flex-shrink-0">
                         <Award size={20} className="text-[#1E88A8]" />
                       </div>
@@ -146,13 +149,14 @@ export default function Specialists() {
                     </div>
                   </div>
 
-                  {/* Certifications */}
+                  {/* Certifications with Checkmarks */}
                   <div className="flex flex-wrap gap-2.5">
                     {specialist.certifications.map((cert) => (
                       <span
                         key={cert}
-                        className="inline-flex items-center px-3 py-2 rounded-full text-sm font-medium bg-[#1E88A8]/8 text-[#0E3A4A] transition-colors hover:bg-[#1E88A8]/12"
+                        className="inline-flex items-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium bg-[#F4F7F8] text-[#475569] border border-[rgba(15,23,42,0.06)] transition-colors hover:bg-[#1E88A8]/10 hover:text-[#0E3A4A]"
                       >
+                        <CheckCircle size={14} className="text-[#1E88A8]" />
                         {cert}
                       </span>
                     ))}

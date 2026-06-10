@@ -1,15 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Lora, Raleway } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Wellness-focused typography pairing (recommended by UI/UX Pro Max)
+// Lora: Elegant serif for headings - calm, health, wellness mood
+const lora = Lora({
+  variable: "--font-lora",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// Raleway: Clean sans-serif for body - modern, professional, readable
+const raleway = Raleway({
+  variable: "--font-raleway",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -154,8 +161,8 @@ export default function RootLayout({
 
   return (
     <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} scroll-smooth`}
+      lang="es"
+      className={`${lora.variable} ${raleway.variable} scroll-smooth`}
     >
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
