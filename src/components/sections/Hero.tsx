@@ -2,9 +2,9 @@
 
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Calendar, CheckCircle, ArrowDown } from 'lucide-react';
-import Link from 'next/link';
+import { Calendar, ArrowRight, ArrowDown, Award, Users, Activity, ClipboardList } from 'lucide-react';
 
+// WhatsApp SVG Icon
 const WhatsAppIcon = ({ size = 24, className = '' }: { size?: number; className?: string }) => (
   <svg
     width={size}
@@ -17,11 +17,12 @@ const WhatsAppIcon = ({ size = 24, className = '' }: { size?: number; className?
   </svg>
 );
 
+// Trust badges data with icons
 const trustBadges = [
-  '9+ Años de Experiencia',
-  'Especialistas Certificados',
-  'Expertos en Rehabilitación Deportiva',
-  'Planes de Tratamiento Personalizados',
+  { text: '9+ Años de Experiencia', icon: Award },
+  { text: 'Especialistas Certificados', icon: Users },
+  { text: 'Expertos en Rehabilitación Deportiva', icon: Activity },
+  { text: 'Planes de Tratamiento Personalizados', icon: ClipboardList },
 ];
 
 export default function Hero() {
@@ -47,18 +48,18 @@ export default function Hero() {
         className="absolute inset-0 z-0"
       >
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0E3A4A]/90 via-[#1E88A8]/80 to-[#35B7C8]/70 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0E3A4A]/95 via-[#1E88A8]/85 to-[#35B7C8]/75 z-10" />
 
         {/* Background pattern */}
         <div
-          className="absolute inset-0 opacity-10"
+          className="absolute inset-0 opacity-[0.07]"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }}
         />
 
-        {/* Abstract medical imagery background */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0E3A4A] via-transparent to-transparent z-20" />
+        {/* Bottom gradient for depth */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0E3A4A]/50 via-transparent to-transparent z-20" />
       </motion.div>
 
       {/* Floating decorative elements */}
@@ -86,6 +87,7 @@ export default function Hero() {
         }}
         className="absolute bottom-1/4 left-8 md:left-24 w-52 h-52 rounded-full bg-[#35B7C8]/15 blur-3xl z-10"
       />
+
       {/* Subtle floating medical crosses */}
       <motion.div
         animate={{
@@ -111,14 +113,16 @@ export default function Hero() {
       </motion.div>
 
       {/* Content */}
-      <motion.div style={{ opacity }} className="container-custom relative z-30">
-        <div className="max-w-4xl mx-auto text-center">
+      <motion.div style={{ opacity }} className="relative z-30 w-full py-24 md:py-32">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto text-center">
+
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/95 text-sm mb-6"
+            className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-medium mb-8"
           >
             <span className="w-2.5 h-2.5 rounded-full bg-[#35B7C8] animate-pulse" />
             Centro de Rehabilitación Líder en Costa Rica
@@ -129,12 +133,12 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight text-shadow"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-8 leading-[1.1] tracking-tight"
           >
             Recupera Tu Movimiento.
             <br />
-            <span className="bg-gradient-to-r from-[#5EEAD4] to-[#38BDF8] bg-clip-text text-transparent">
-              Recupera Tu Vida.
+            <span className="bg-gradient-to-r from-[#5EEAD4] via-[#22D3EE] to-[#38BDF8] bg-clip-text text-transparent">
+              Vive Sin Dolor.
             </span>
           </motion.h1>
 
@@ -143,10 +147,12 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-white/85 mb-10 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-white/90 mb-10 max-w-[720px] mx-auto leading-relaxed"
           >
-            Fisioterapia personalizada, rehabilitación deportiva y tratamientos basados en evidencia
-            diseñados para ayudarte a moverte sin dolor y volver a lo que amas.
+            Fisioterapia personalizada y rehabilitación deportiva con tratamientos
+            basados en evidencia para ayudarte a{' '}
+            <span className="text-[#5EEAD4] font-medium">moverte sin dolor</span>{' '}
+            y volver a lo que amas.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -154,36 +160,33 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-16"
           >
-            <motion.div
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+            {/* Primary Button - Agendar Cita */}
+            <a
+              href="#contact"
+              className="group relative inline-flex items-center justify-center gap-2.5 min-w-[240px] w-full sm:w-auto max-w-[320px] h-14 sm:h-[56px] px-6 bg-white text-[#0E3A4A] rounded-2xl font-semibold text-base shadow-lg shadow-black/10 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-xl hover:shadow-black/15 hover:bg-[#F8FAFB] active:translate-y-0 active:shadow-md"
+              aria-label="Agendar una cita"
             >
-              <Link
-                href="#contact"
-                className="inline-flex items-center justify-center gap-2 bg-white text-[#0E3A4A] px-8 py-4 rounded-full font-semibold hover:bg-[#F4F7F8] transition-colors shadow-lg w-full sm:w-auto"
-              >
-                <Calendar size={20} />
-                Agendar Cita
-              </Link>
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+              <Calendar size={20} className="flex-shrink-0" />
+              <span>Agendar Cita</span>
+              <ArrowRight
+                size={18}
+                className="flex-shrink-0 transition-transform duration-300 ease-out group-hover:translate-x-1"
+              />
+            </a>
+
+            {/* Secondary Button - WhatsApp */}
+            <a
+              href="https://wa.me/50689680947"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-flex items-center justify-center gap-2.5 min-w-[260px] w-full sm:w-auto max-w-[320px] h-14 sm:h-[56px] px-6 bg-[#25D366] text-white rounded-2xl font-semibold text-base shadow-lg shadow-[#25D366]/25 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#25D366]/35 hover:bg-[#22C55E] active:translate-y-0 active:shadow-md"
+              aria-label="Chatear por WhatsApp"
             >
-              <a
-                href="https://wa.me/50689680947"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#20BA5C] transition-colors shadow-lg w-full sm:w-auto"
-              >
-                <WhatsAppIcon size={20} />
-                Chatear por WhatsApp
-              </a>
-            </motion.div>
+              <WhatsAppIcon size={20} className="flex-shrink-0" />
+              <span>Chatear por WhatsApp</span>
+            </a>
           </motion.div>
 
           {/* Trust Badges */}
@@ -191,21 +194,29 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-wrap justify-center gap-x-6 gap-y-3"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 max-w-4xl mx-auto"
           >
-            {trustBadges.map((badge, index) => (
-              <motion.div
-                key={badge}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
-                className="flex items-center gap-2 text-white/80 text-sm"
-              >
-                <CheckCircle size={16} className="text-[#35B7C8]" />
-                <span>{badge}</span>
-              </motion.div>
-            ))}
+            {trustBadges.map((badge, index) => {
+              const IconComponent = badge.icon;
+              return (
+                <motion.div
+                  key={badge.text}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
+                  className="group flex flex-col items-center gap-3 p-4 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-300 ease-out hover:bg-white/10 hover:-translate-y-0.5"
+                >
+                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center transition-all duration-300 group-hover:bg-[#35B7C8]/20 group-hover:scale-105">
+                    <IconComponent size={22} className="text-[#5EEAD4]" />
+                  </div>
+                  <span className="text-white/90 text-sm sm:text-[15px] font-medium text-center leading-snug">
+                    {badge.text}
+                  </span>
+                </motion.div>
+              );
+            })}
           </motion.div>
+          </div>
         </div>
       </motion.div>
 
@@ -213,21 +224,23 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 0.6 }}
+        transition={{ delay: 1.2, duration: 0.6 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30"
       >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="flex flex-col items-center gap-2 text-white/60"
+        <motion.a
+          href="#services"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+          className="flex flex-col items-center gap-2 text-white/60 hover:text-white/80 transition-colors duration-300 cursor-pointer"
+          aria-label="Desplazarse hacia abajo"
         >
-          <span className="text-xs uppercase tracking-wider">Desliza</span>
+          <span className="text-xs uppercase tracking-widest font-medium">Descubre más</span>
           <ArrowDown size={20} />
-        </motion.div>
+        </motion.a>
       </motion.div>
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F4F7F8] to-transparent z-20" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F4F7F8] to-transparent z-20 pointer-events-none" />
     </section>
   );
 }

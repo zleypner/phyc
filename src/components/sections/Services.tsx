@@ -123,17 +123,17 @@ export default function Services() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-12 md:mb-16"
+          className="text-center max-w-[680px] mx-auto mb-12 md:mb-16 lg:mb-20"
         >
-          <span className="inline-block px-4 py-2 rounded-full bg-[#1E88A8]/10 text-[#1E88A8] text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-2 rounded-full bg-[#1E88A8]/10 text-[#1E88A8] text-sm font-semibold uppercase tracking-wide mb-4">
             Nuestros Servicios
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0E3A4A] mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#0E3A4A] mb-5 leading-tight">
             Atención Integral para Tu Recuperación
           </h2>
-          <p className="text-lg text-[#6B7280]">
-            Desde rehabilitación deportiva hasta bienestar preventivo, ofrecemos un espectro completo
-            de tratamientos basados en evidencia para ayudarte a alcanzar una salud óptima.
+          <p className="text-lg text-[#475569] leading-relaxed">
+            Desde rehabilitación deportiva hasta bienestar preventivo, ofrecemos tratamientos
+            basados en evidencia para ayudarte a alcanzar una salud óptima.
           </p>
         </motion.div>
 
@@ -147,15 +147,15 @@ export default function Services() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <div
-                className={`relative overflow-hidden rounded-3xl p-6 lg:p-8 cursor-pointer transition-all duration-500 ${
+                className={`relative overflow-hidden rounded-[24px] p-6 lg:p-8 cursor-pointer transition-all duration-300 ease-out ${
                   activeGroup === group.id
                     ? 'bg-gradient-to-br ' + group.color
-                    : 'bg-[#F4F7F8] hover:bg-[#E8ECEE]'
+                    : 'bg-[#F8FAFC] hover:bg-[#F1F5F9] border border-[rgba(15,23,42,0.06)]'
                 }`}
                 onClick={() => setActiveGroup(activeGroup === group.id ? null : group.id)}
               >
                 {/* Header */}
-                <div className="flex items-start justify-between mb-6">
+                <div className="flex items-start justify-between mb-5">
                   <div className="flex items-center gap-4">
                     <div
                       className={`w-14 h-14 lg:w-16 lg:h-16 rounded-2xl flex items-center justify-center transition-colors ${
@@ -166,20 +166,20 @@ export default function Services() {
                     >
                       <group.icon
                         size={28}
-                        className={activeGroup === group.id ? 'text-white' : 'text-white'}
+                        className="text-white"
                       />
                     </div>
                     <div>
                       <h3
-                        className={`text-xl font-bold transition-colors ${
+                        className={`text-xl lg:text-2xl font-bold transition-colors leading-tight ${
                           activeGroup === group.id ? 'text-white' : 'text-[#0E3A4A]'
                         }`}
                       >
                         {group.title}
                       </h3>
                       <p
-                        className={`text-sm transition-colors ${
-                          activeGroup === group.id ? 'text-white/80' : 'text-[#6B7280]'
+                        className={`text-sm lg:text-base mt-1 transition-colors leading-relaxed ${
+                          activeGroup === group.id ? 'text-white/85' : 'text-[#475569]'
                         }`}
                       >
                         {group.description}
@@ -189,8 +189,10 @@ export default function Services() {
                   <motion.div
                     animate={{ rotate: activeGroup === group.id ? 90 : 0 }}
                     transition={{ duration: 0.3 }}
+                    className="flex-shrink-0 mt-1"
                   >
                     <ArrowRight
+                      size={22}
                       className={activeGroup === group.id ? 'text-white' : 'text-[#1E88A8]'}
                     />
                   </motion.div>
@@ -204,7 +206,7 @@ export default function Services() {
                       animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="space-y-4"
+                      className="space-y-4 mt-6"
                     >
                       {group.services.map((service, sIndex) => (
                         <motion.div
@@ -212,21 +214,21 @@ export default function Services() {
                           initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ duration: 0.3, delay: sIndex * 0.1 }}
-                          className="bg-white/10 backdrop-blur-sm rounded-xl p-5"
+                          className="bg-white/10 backdrop-blur-sm rounded-2xl p-5"
                         >
-                          <h4 className="font-semibold text-white mb-2">
+                          <h4 className="font-semibold text-white text-lg mb-2">
                             {service.name}
                           </h4>
-                          <p className="text-white/80 text-sm mb-3">
+                          <p className="text-white/85 text-sm leading-relaxed mb-4">
                             {service.description}
                           </p>
                           <div className="flex flex-wrap gap-2">
                             {service.benefits.map((benefit) => (
                               <span
                                 key={benefit}
-                                className="inline-flex items-center gap-1.5 text-xs bg-white/20 text-white px-3 py-1.5 rounded-full"
+                                className="inline-flex items-center gap-1.5 text-sm bg-white/20 text-white px-3 py-1.5 rounded-full font-medium"
                               >
-                                <CheckCircle size={12} />
+                                <CheckCircle size={14} />
                                 {benefit}
                               </span>
                             ))}
@@ -239,11 +241,11 @@ export default function Services() {
 
                 {/* Preview when collapsed */}
                 {activeGroup !== group.id && (
-                  <div className="flex flex-wrap gap-2 mt-4">
+                  <div className="flex flex-wrap gap-2 mt-5 pt-5 border-t border-[rgba(15,23,42,0.06)]">
                     {group.services.map((service) => (
                       <span
                         key={service.name}
-                        className="text-xs bg-white/80 text-[#0E3A4A] px-3 py-1.5 rounded-full"
+                        className="text-sm bg-white text-[#0E3A4A] px-3 py-2 rounded-full font-medium shadow-sm"
                       >
                         {service.name}
                       </span>
@@ -260,11 +262,14 @@ export default function Services() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-center mt-12"
+          className="text-center mt-12 md:mt-16"
         >
-          <a href="#contact" className="btn-primary inline-flex items-center gap-2">
+          <a
+            href="#contact"
+            className="inline-flex items-center justify-center gap-2.5 h-14 px-7 bg-gradient-to-r from-[#1E88A8] to-[#35B7C8] text-white rounded-2xl font-semibold text-base shadow-[0_4px_14px_rgba(30,136,168,0.35)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(30,136,168,0.45)]"
+          >
             Agenda una Consulta
-            <ArrowRight size={18} />
+            <ArrowRight size={20} />
           </a>
         </motion.div>
       </div>

@@ -48,8 +48,8 @@ export default function Header() {
         }`}
       >
         <div className="container-custom">
-          <nav className="flex items-center justify-between">
-            {/* Logo */}
+          <nav className="flex items-center justify-between lg:grid lg:grid-cols-3 lg:gap-4">
+            {/* Logo - Left */}
             <Link href="/" className="flex items-center gap-3">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
@@ -74,11 +74,11 @@ export default function Header() {
               </motion.div>
             </Link>
 
-            {/* Desktop Navigation */}
+            {/* Desktop Navigation - Center */}
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="hidden lg:flex items-center gap-8"
+              className="hidden lg:flex items-center justify-center gap-8"
             >
               {navItems.map((item) => (
                 <Link
@@ -98,11 +98,11 @@ export default function Header() {
               ))}
             </motion.div>
 
-            {/* CTA Buttons */}
+            {/* CTA Buttons - Right */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="flex items-center gap-4"
+              className="flex items-center justify-end gap-4"
             >
               {/* Phone - Desktop */}
               <a

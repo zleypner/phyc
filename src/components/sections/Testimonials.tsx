@@ -99,15 +99,15 @@ export default function Testimonials() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-[680px] mx-auto mb-12 md:mb-16 lg:mb-20"
         >
-          <span className="inline-block px-4 py-2 rounded-full bg-[#1E88A8]/10 text-[#1E88A8] text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-2 rounded-full bg-[#1E88A8]/10 text-[#1E88A8] text-sm font-semibold uppercase tracking-wide mb-4">
             Casos de Éxito
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0E3A4A] mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#0E3A4A] mb-5 leading-tight">
             Lo Que Dicen Nuestros Pacientes
           </h2>
-          <p className="text-lg text-[#6B7280]">
+          <p className="text-lg text-[#475569] leading-relaxed">
             Historias reales de pacientes reales que han experimentado la diferencia Physical Care.
           </p>
         </motion.div>

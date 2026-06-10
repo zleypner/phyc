@@ -91,28 +91,28 @@ export default function Contact() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-[680px] mx-auto mb-12 md:mb-16 lg:mb-20"
         >
-          <span className="inline-block px-4 py-2 rounded-full bg-[#1E88A8]/10 text-[#1E88A8] text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-2 rounded-full bg-[#1E88A8]/10 text-[#1E88A8] text-sm font-semibold uppercase tracking-wide mb-4">
             Contacto
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0E3A4A] mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#0E3A4A] mb-5 leading-tight">
             Comience Su Recuperación Hoy
           </h2>
-          <p className="text-lg text-[#6B7280]">
+          <p className="text-lg text-[#475569] leading-relaxed">
             ¿Listo para dar el primer paso? Contáctenos para programar su cita
             o realizar cualquier consulta sobre nuestros servicios.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 xl:gap-12">
           {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <div className="bg-gradient-to-br from-[#0E3A4A] to-[#1E88A8] rounded-3xl p-8 md:p-10 text-white h-full">
+            <div className="bg-gradient-to-br from-[#0E3A4A] to-[#1E88A8] rounded-[28px] p-6 sm:p-8 lg:p-10 text-white h-full shadow-[0_4px_20px_rgba(14,58,74,0.15)]">
               <h3 className="text-2xl font-bold mb-6">Póngase en Contacto</h3>
 
               {/* Contact details */}
@@ -208,7 +208,7 @@ export default function Contact() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="bg-[#F4F7F8] rounded-3xl p-8 md:p-10">
+            <div className="bg-white rounded-[28px] border border-[rgba(15,23,42,0.08)] shadow-[0_4px_20px_rgba(14,58,74,0.08)] p-6 sm:p-8 lg:p-10">
               <h3 className="text-2xl font-bold text-[#0E3A4A] mb-6">
                 Programar una Cita
               </h3>
