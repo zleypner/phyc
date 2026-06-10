@@ -1,0 +1,246 @@
+'use client';
+
+import { useRef, useState, useEffect } from 'react';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+
+const testimonials = [
+  {
+    id: 1,
+    name: 'Carlos Mendoza',
+    role: 'Maratonista',
+    condition: 'Recuperación de Lesión de Rodilla',
+    rating: 5,
+    image: null,
+    text: 'Después de mi lesión de rodilla, pensé que mis días de correr habían terminado. El equipo de Physical Care no solo me ayudó a recuperarme, sino que mejoró mi rendimiento. Su programa de retorno al deporte fue exactamente lo que necesitaba.',
+  },
+  {
+    id: 2,
+    name: 'María Fernández',
+    role: 'Profesional de Oficina',
+    condition: 'Dolor de Espalda Crónico',
+    rating: 5,
+    image: null,
+    text: 'Años de trabajo de escritorio me dejaron con dolor de espalda crónico. Physical Care identificó las causas raíz y me dio soluciones prácticas. Finalmente entiendo cómo manejar mi condición y vivir sin dolor.',
+  },
+  {
+    id: 3,
+    name: 'Roberto Jiménez',
+    role: 'Entrenador de Fútbol',
+    condition: 'Recuperación de Cirugía de Hombro',
+    rating: 5,
+    image: null,
+    text: 'La rehabilitación post-cirugía fue desafiante, pero los especialistas hicieron el proceso manejable. Su experiencia y apoyo me ayudaron a recuperar la función completa más rápido de lo esperado.',
+  },
+  {
+    id: 4,
+    name: 'Ana Patricia Soto',
+    role: 'Instructora de Yoga',
+    condition: 'Fascitis Plantar',
+    rating: 5,
+    image: null,
+    text: 'Como instructora de yoga, el dolor de pie era devastador para mi carrera. La terapia de ondas de choque y el plan de tratamiento personalizado en Physical Care resolvió mi fascitis plantar completamente. ¡Altamente recomendado!',
+  },
+  {
+    id: 5,
+    name: 'Diego Vargas',
+    role: 'Atleta de CrossFit',
+    condition: 'Rehabilitación Deportiva',
+    rating: 5,
+    image: null,
+    text: 'El equipo entiende a los atletas. No solo trataron mi lesión—me ayudaron a volver más fuerte. El enfoque de entrenamiento funcional fue perfecto para mis objetivos de CrossFit.',
+  },
+];
+
+export default function Testimonials() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 300 : -300,
+      opacity: 0,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+    },
+    exit: (direction: number) => ({
+      x: direction < 0 ? 300 : -300,
+      opacity: 0,
+    }),
+  };
+
+  const nextSlide = () => {
+    setDirection(1);
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevSlide = () => {
+    setDirection(-1);
+    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  // Auto-advance carousel
+  useEffect(() => {
+    const timer = setInterval(nextSlide, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const currentTestimonial = testimonials[currentIndex];
+
+  return (
+    <section ref={ref} id="testimonials" className="section-padding bg-white">
+      <div className="container-custom">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
+          <span className="inline-block px-4 py-2 rounded-full bg-[#1E88A8]/10 text-[#1E88A8] text-sm font-medium mb-4">
+            Casos de Éxito
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0E3A4A] mb-6">
+            Lo Que Dicen Nuestros Pacientes
+          </h2>
+          <p className="text-lg text-[#6B7280]">
+            Historias reales de pacientes reales que han experimentado la diferencia Physical Care.
+          </p>
+        </motion.div>
+
+        {/* Testimonial Carousel */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="relative max-w-4xl mx-auto"
+        >
+          {/* Main testimonial card */}
+          <div className="relative bg-[#F4F7F8] rounded-3xl p-8 md:p-12 overflow-hidden">
+            {/* Quote icon */}
+            <Quote
+              size={120}
+              className="absolute top-4 right-4 text-[#1E88A8]/5"
+            />
+
+            <AnimatePresence mode="wait" custom={direction}>
+              <motion.div
+                key={currentTestimonial.id}
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.4 }}
+                className="relative z-10"
+              >
+                {/* Stars */}
+                <div className="flex gap-1 mb-6">
+                  {[...Array(currentTestimonial.rating)].map((_, i) => (
+                    <Star
+                      key={i}
+                      size={20}
+                      className="text-yellow-400 fill-yellow-400"
+                    />
+                  ))}
+                </div>
+
+                {/* Testimonial text */}
+                <blockquote className="text-xl md:text-2xl text-[#0E3A4A] mb-8 leading-relaxed">
+                  &quot;{currentTestimonial.text}&quot;
+                </blockquote>
+
+                {/* Author */}
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#1E88A8] to-[#35B7C8] flex items-center justify-center text-white font-bold text-xl">
+                    {currentTestimonial.name.charAt(0)}
+                  </div>
+                  <div>
+                    <p className="font-semibold text-[#0E3A4A]">
+                      {currentTestimonial.name}
+                    </p>
+                    <p className="text-sm text-[#6B7280]">
+                      {currentTestimonial.role}
+                    </p>
+                    <p className="text-xs text-[#1E88A8]">
+                      {currentTestimonial.condition}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Navigation buttons */}
+          <div className="flex justify-center items-center gap-4 mt-8">
+            <button
+              onClick={prevSlide}
+              className="w-12 h-12 rounded-full bg-white border border-[#E5E7EB] flex items-center justify-center hover:bg-[#1E88A8] hover:text-white hover:border-[#1E88A8] transition-colors"
+              aria-label="Previous testimonial"
+            >
+              <ChevronLeft size={20} />
+            </button>
+
+            {/* Dots */}
+            <div className="flex gap-2">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => {
+                    setDirection(index > currentIndex ? 1 : -1);
+                    setCurrentIndex(index);
+                  }}
+                  className={`w-2 h-2 rounded-full transition-all ${
+                    index === currentIndex
+                      ? 'w-8 bg-[#1E88A8]'
+                      : 'bg-[#E5E7EB] hover:bg-[#1E88A8]/50'
+                  }`}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={nextSlide}
+              className="w-12 h-12 rounded-full bg-white border border-[#E5E7EB] flex items-center justify-center hover:bg-[#1E88A8] hover:text-white hover:border-[#1E88A8] transition-colors"
+              aria-label="Next testimonial"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
+        </motion.div>
+
+        {/* Trust badges */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="flex flex-wrap justify-center gap-8 mt-16"
+        >
+          <div className="flex items-center gap-2 text-[#6B7280]">
+            <div className="flex">
+              {[...Array(5)].map((_, i) => (
+                <Star
+                  key={i}
+                  size={16}
+                  className="text-yellow-400 fill-yellow-400"
+                />
+              ))}
+            </div>
+            <span className="font-medium">4.9/5 Calificación Promedio</span>
+          </div>
+          <div className="text-[#6B7280]">
+            <span className="font-semibold text-[#0E3A4A]">450+</span> Pacientes Satisfechos
+          </div>
+          <div className="text-[#6B7280]">
+            <span className="font-semibold text-[#0E3A4A]">98%</span> Nos Recomendarían
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
