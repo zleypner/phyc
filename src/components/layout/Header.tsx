@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
@@ -18,15 +19,17 @@ const WhatsAppIcon = ({ size = 24, className = '' }: { size?: number; className?
 );
 
 const navItems = [
-  { href: '#home', label: 'Inicio' },
-  { href: '#services', label: 'Servicios' },
+  { href: '/', label: 'Inicio' },
+  { href: '/#conditions', label: 'Servicios' },
   { href: '/blog', label: 'Blog' },
-  { href: '#contact', label: 'Contacto' },
+  { href: '/#contact', label: 'Contacto' },
 ];
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,11 +40,14 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // On non-homepage routes, always show solid header style
+  const showSolidHeader = isScrolled || !isHomePage;
+
   return (
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
+          showSolidHeader
             ? 'glass shadow-lg py-3'
             : 'bg-transparent py-4'
         }`}
@@ -60,12 +66,12 @@ export default function Header() {
                 </div>
                 <div className="hidden sm:block">
                   <p className={`font-bold text-lg leading-tight transition-colors duration-300 ${
-                    isScrolled ? 'text-[#0E3A4A]' : 'text-white'
+                    showSolidHeader ? 'text-[#0E3A4A]' : 'text-white'
                   }`}>
                     Physical Care
                   </p>
                   <p className={`text-xs transition-colors duration-300 ${
-                    isScrolled ? 'text-[#6B7280]' : 'text-white/70'
+                    showSolidHeader ? 'text-[#6B7280]' : 'text-white/70'
                   }`}>
                     Fisioterapia
                   </p>
@@ -84,14 +90,14 @@ export default function Header() {
                   key={item.href}
                   href={item.href}
                   className={`font-semibold transition-colors duration-300 relative group py-2 ${
-                    isScrolled
+                    showSolidHeader
                       ? 'text-[#0E3A4A] hover:text-[#1E88A8]'
                       : 'text-white hover:text-white/85'
                   }`}
                 >
                   {item.label}
                   <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
-                    isScrolled ? 'bg-[#1E88A8]' : 'bg-white'
+                    showSolidHeader ? 'bg-[#1E88A8]' : 'bg-white'
                   }`} />
                 </Link>
               ))}
@@ -119,7 +125,7 @@ export default function Header() {
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className={`lg:hidden w-11 h-11 flex items-center justify-center rounded-xl transition-colors duration-300 ${
-                  isScrolled
+                  showSolidHeader
                     ? 'text-[#0E3A4A] hover:bg-[#F4F7F8]'
                     : 'text-white hover:bg-white/10'
                 }`}
