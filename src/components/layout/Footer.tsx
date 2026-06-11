@@ -61,7 +61,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#0E3A4A] text-white">
       {/* Main Footer */}
-      <div className="container-custom py-16 lg:py-20">
+      <div className="container py-16 lg:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
           {/* Brand Column */}
           <div className="lg:col-span-2">
@@ -174,7 +174,7 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
-        <div className="container-custom py-6">
+        <div className="container py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-white/50 text-sm">
               © {new Date().getFullYear()} Physical Care Fisioterapia. Todos los derechos reservados.

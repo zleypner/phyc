@@ -94,7 +94,7 @@ export default function Conditions() {
 
   return (
     <section ref={ref} id="conditions" className="section-padding bg-[#F4F7F8]">
-      <div className="container-custom">
+      <div className="container">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

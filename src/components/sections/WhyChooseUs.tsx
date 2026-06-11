@@ -63,7 +63,7 @@ export default function WhyChooseUs() {
 
   return (
     <section ref={ref} id="why-us" className="section-padding bg-[#F4F7F8]">
-      <div className="container-custom">
+      <div className="container">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column - Content */}
           <motion.div

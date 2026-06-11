@@ -50,7 +50,7 @@ export default function MedicalTourism() {
 
   return (
     <section ref={ref} className="section-padding bg-[#F4F7F8]">
-      <div className="container-custom">
+      <div className="container">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Column - Image/Visual */}
           <motion.div

@@ -98,26 +98,27 @@ export default function PainMap() {
   };
 
   return (
-    <section ref={ref} id="pain-map" className="section-padding bg-white relative overflow-hidden">
-      {/* Decorative background shapes */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#1E88A8]/5 rounded-full blur-3xl -z-10" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#35B7C8]/5 rounded-full blur-3xl -z-10" />
+    <section ref={ref} id="pain-map" className="section-padding bg-white relative">
+      {/* Decorative background shapes - contained within viewport */}
+      <div className="absolute top-0 right-0 w-72 h-72 bg-[#1E88A8]/5 rounded-full blur-3xl pointer-events-none" style={{ zIndex: 0 }} />
+      <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#35B7C8]/5 rounded-full blur-3xl pointer-events-none" style={{ zIndex: 0 }} />
 
-      <div className="container-custom">
+      <div className="container relative" style={{ zIndex: 1 }}>
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <span className="inline-block px-4 py-2 rounded-full bg-[#1E88A8]/10 text-[#1E88A8] text-sm font-medium mb-4">
+          <p className="text-[#1E88A8] text-sm md:text-base font-medium uppercase tracking-wider mb-2">
             Autoevaluación Rápida
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0E3A4A] mb-6">
+          </p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0E3A4A] mb-4">
             ¿Dónde Sientes Molestia o Dolor?
           </h2>
-          <p className="text-lg text-[#6B7280]">
+          <div className="w-24 h-0.5 bg-[#1E88A8] mx-auto mb-4"></div>
+          <p className="text-base md:text-lg text-[#475569] leading-relaxed max-w-3xl mx-auto">
             Selecciona la zona afectada para comprender mejor tus síntomas y ver nuestra recomendación de tratamiento personalizado basado en evidencia.
           </p>
         </motion.div>
@@ -126,7 +127,7 @@ export default function PainMap() {
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
           {/* Left Column: Anatomical Selectors */}
           <div className="lg:col-span-5 flex flex-col justify-center gap-4">
-            <h3 className="text-xl font-bold text-[#0E3A4A] mb-2 px-2 flex items-center gap-2">
+            <h3 className="text-xl font-bold text-[#0E3A4A] mb-2 flex items-center gap-2">
               <Activity className="text-[#1E88A8]" size={20} />
               Selecciona una Zona Corporal
             </h3>
@@ -134,18 +135,16 @@ export default function PainMap() {
               {painAreas.map((area) => {
                 const isActive = selectedArea.id === area.id;
                 return (
-                  <motion.button
+                  <button
                     key={area.id}
                     onClick={() => setSelectedArea(area)}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className={`text-left p-5 rounded-2xl border transition-all flex items-center justify-between cursor-pointer ${
+                    className={`text-left p-5 rounded-2xl border transition-all duration-200 flex items-center justify-between cursor-pointer ${
                       isActive
-                        ? 'bg-[#0E3A4A] border-[#0E3A4A] text-white shadow-lg'
-                        : 'bg-[#F4F7F8] border-[#E5E7EB] text-[#0E3A4A] hover:bg-[#E8ECEE] hover:border-[#D1D5DB]'
+                        ? 'bg-[#0E3A4A] border-[#0E3A4A] text-white shadow-lg shadow-[#0E3A4A]/20'
+                        : 'bg-[#F4F7F8] border-[#E5E7EB] text-[#0E3A4A] hover:bg-[#E8ECEE] hover:border-[#D1D5DB] hover:shadow-md'
                     }`}
                   >
-                    <div>
+                    <div className="min-w-0 flex-1">
                       <p className={`font-semibold text-lg ${isActive ? 'text-white' : 'text-[#0E3A4A]'}`}>
                         {area.name}
                       </p>
@@ -153,8 +152,8 @@ export default function PainMap() {
                         Plan recomendado: {area.mappedService}
                       </p>
                     </div>
-                    <ChevronRight size={18} className={isActive ? 'text-[#35B7C8]' : 'text-[#9CA3AF]'} />
-                  </motion.button>
+                    <ChevronRight size={18} className={`flex-shrink-0 ml-2 ${isActive ? 'text-[#35B7C8]' : 'text-[#9CA3AF]'}`} />
+                  </button>
                 );
               })}
             </div>
@@ -224,18 +223,16 @@ export default function PainMap() {
 
               {/* Action Button */}
               <div className="mt-8 border-t border-[#E5E7EB] pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="text-left">
+                <div className="text-left sm:text-left w-full sm:w-auto">
                   <p className="text-xs text-[#9CA3AF]">Servicio sugerido para agendar</p>
                   <p className="font-bold text-[#0E3A4A]">{selectedArea.mappedService}</p>
                 </div>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.98 }}
+                <button
                   onClick={handleBookAppointment}
-                  className="w-full sm:w-auto btn-primary shadow-lg shadow-[#1E88A8]/20 cursor-pointer"
+                  className="w-full sm:w-auto btn btn-primary cursor-pointer"
                 >
                   Agendar Cita Para Esta Zona &rarr;
-                </motion.button>
+                </button>
               </div>
             </div>
           </div>

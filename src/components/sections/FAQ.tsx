@@ -54,7 +54,7 @@ export default function FAQ() {
 
   return (
     <section ref={ref} id="faq" className="section-padding bg-[#F4F7F8]">
-      <div className="container-custom">
+      <div className="container">
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Left Column - Header */}
           <motion.div

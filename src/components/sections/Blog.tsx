@@ -75,7 +75,7 @@ export default function Blog() {
 
   return (
     <section ref={ref} id="blog" className="section-padding bg-white">
-      <div className="container-custom">
+      <div className="container">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

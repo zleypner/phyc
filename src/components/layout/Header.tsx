@@ -47,7 +47,7 @@ export default function Header() {
             : 'bg-transparent py-4'
         }`}
       >
-        <div className="container-custom">
+        <div className="container">
           <nav className="flex items-center justify-between lg:grid lg:grid-cols-3 lg:gap-4">
             {/* Logo - Left */}
             <Link href="/" className="flex items-center gap-3">

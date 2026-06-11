@@ -1,104 +1,193 @@
 @import "tailwindcss";
 
 /* ============================================
-   DESIGN SYSTEM - Physical Care Fisioterapia
-   Premium, Clinical, Modern, Trustworthy
+   DESIGN SYSTEM - Physical Care
+   Escala 4px | Contraste AA | Mobile-first
    ============================================ */
 
 :root {
-  /* Brand Colors - Healthcare Teal */
-  --primary: #1E88A8;
-  --primary-light: #35B7C8;
-  --primary-dark: #0E3A4A;
-  --accent: #5EEAD4;
-  --whatsapp: #25D366;
+  /* ==========================================
+     SPACING SCALE (4px base)
+     ========================================== */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-9: 36px;
+  --space-10: 40px;
+  --space-11: 44px;
+  --space-12: 48px;
+  --space-14: 56px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-28: 112px;
+  --space-32: 128px;
 
-  /* Wellness Accent Colors (UI/UX Pro Max recommendation) */
+  /* Legacy aliases for compatibility */
+  --space-xs: var(--space-2);
+  --space-sm: var(--space-4);
+  --space-md: var(--space-6);
+  --space-lg: var(--space-10);
+  --space-xl: var(--space-16);
+  --space-2xl: var(--space-24);
+  --space-3xl: var(--space-32);
+
+  /* ==========================================
+     SECTION PADDING (geosite-style: compact)
+     ========================================== */
+  --section-padding-mobile: 64px;
+  --section-padding-desktop: 96px;
+
+  /* ==========================================
+     CONTAINER SYSTEM (geosite-style)
+     ========================================== */
+  --container-max: 1280px;
+  --content-max: 1024px;
+  --text-max: 800px;
+  --paragraph-max: 65ch;
+  --hero-max: 1024px;
+
+  /* ==========================================
+     BRAND COLORS
+     ========================================== */
+  --color-primary: #1E88A8;
+  --color-primary-light: #35B7C8;
+  --color-primary-dark: #0E3A4A;
+  --color-accent: #5EEAD4;
+  --color-whatsapp: #25D366;
+
+  /* Legacy aliases */
+  --primary: var(--color-primary);
+  --primary-light: var(--color-primary-light);
+  --primary-dark: var(--color-primary-dark);
+  --accent: var(--color-accent);
+  --whatsapp: var(--color-whatsapp);
+
+  /* Wellness Accents */
   --wellness-green: #10B981;
   --wellness-green-light: #34D399;
   --wellness-soft: #ECFDF5;
-  --wellness-cta: #059669;
 
-  /* Neutral Colors */
-  --background: #F4F7F8;
-  --background-white: #FFFFFF;
-  --surface: #FFFFFF;
-  --surface-secondary: #F8FAFC;
-  --border: rgba(15, 23, 42, 0.08);
-  --border-light: rgba(15, 23, 42, 0.05);
+  /* ==========================================
+     NEUTRAL COLORS
+     ========================================== */
+  --color-background: #FAFBFC;
+  --color-background-alt: #F4F7F8;
+  --color-surface: #FFFFFF;
+  --color-surface-secondary: #F8FAFC;
+  --color-border: rgba(15, 23, 42, 0.06);
+  --color-border-strong: rgba(15, 23, 42, 0.12);
 
-  /* Text Colors */
-  --text: #0F172A;
-  --text-secondary: #475569;
-  --text-muted: #94A3B8;
-  --text-light: #6B7280;
+  /* Legacy aliases */
+  --background: var(--color-background);
+  --background-alt: var(--color-background-alt);
+  --surface: var(--color-surface);
+  --surface-secondary: var(--color-surface-secondary);
+  --border: var(--color-border);
+  --border-strong: var(--color-border-strong);
 
-  /* Spacing Scale - 8px Base Grid */
-  --space-1: 0.25rem;   /* 4px */
-  --space-2: 0.5rem;    /* 8px */
-  --space-3: 0.75rem;   /* 12px */
-  --space-4: 1rem;      /* 16px */
-  --space-5: 1.25rem;   /* 20px */
-  --space-6: 1.5rem;    /* 24px */
-  --space-8: 2rem;      /* 32px */
-  --space-10: 2.5rem;   /* 40px */
-  --space-12: 3rem;     /* 48px */
-  --space-14: 3.5rem;   /* 56px */
-  --space-16: 4rem;     /* 64px */
-  --space-20: 5rem;     /* 80px */
-  --space-24: 6rem;     /* 96px */
-  --space-28: 7rem;     /* 112px */
-  --space-32: 8rem;     /* 128px */
+  /* ==========================================
+     TEXT COLORS (AA contrast verified)
+     ========================================== */
+  --color-text: #0F172A;
+  --color-text-secondary: #334155;
+  --color-text-muted: #475569;
+  --color-text-light: #64748B;
+  --color-text-inverse: #FFFFFF;
 
-  /* Section Padding - Responsive */
-  --section-py-mobile: 3rem;      /* 48px */
-  --section-py-tablet: 4rem;      /* 64px */
-  --section-py-desktop: 6rem;     /* 96px */
-  --section-py-large: 7rem;       /* 112px */
+  /* Legacy aliases */
+  --text: var(--color-text);
+  --text-secondary: var(--color-text-secondary);
+  --text-muted: var(--color-text-muted);
+  --text-light: var(--color-text-light);
 
-  --section-px-mobile: 1.25rem;   /* 20px */
-  --section-px-tablet: 1.5rem;    /* 24px */
-  --section-px-desktop: 2rem;     /* 32px */
+  /* ==========================================
+     BORDER RADIUS
+     ========================================== */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-full: 9999px;
 
-  /* Container */
-  --container-max: 1200px;
-  --container-wide: 1280px;
-  --content-max: 680px;
+  /* ==========================================
+     SHADOWS
+     ========================================== */
+  --shadow-sm: 0 1px 3px rgba(14, 58, 74, 0.04), 0 1px 2px rgba(14, 58, 74, 0.06);
+  --shadow-md: 0 4px 16px rgba(14, 58, 74, 0.08);
+  --shadow-lg: 0 8px 32px rgba(14, 58, 74, 0.1);
+  --shadow-xl: 0 16px 48px rgba(14, 58, 74, 0.12);
 
-  /* Card Styles - Neumorphism-inspired (UI/UX Pro Max) */
-  --card-radius: 1.75rem;         /* 28px */
-  --card-radius-sm: 1rem;         /* 16px */
-  --card-radius-lg: 2rem;         /* 32px */
-  --card-shadow: 0 4px 20px rgba(14, 58, 74, 0.08);
-  --card-shadow-hover: 0 12px 40px rgba(14, 58, 74, 0.12);
-  --card-shadow-strong: 0 20px 50px rgba(14, 58, 74, 0.15);
+  /* ==========================================
+     TYPOGRAPHY SCALE (Premium, restrained)
+     ========================================== */
+  /* H1: 72px desktop, 56px tablet, 40px mobile */
+  --h1-desktop: 72px;
+  --h1-tablet: 56px;
+  --h1-mobile: 40px;
 
-  /* Neumorphism Shadows (soft, wellness feel) */
-  --shadow-neu-light: -5px -5px 15px rgba(255, 255, 255, 0.8), 5px 5px 15px rgba(14, 58, 74, 0.08);
-  --shadow-neu-pressed: inset 2px 2px 5px rgba(14, 58, 74, 0.1), inset -2px -2px 5px rgba(255, 255, 255, 0.9);
+  /* H2: 56px desktop, 40px tablet, 32px mobile */
+  --h2-desktop: 56px;
+  --h2-tablet: 40px;
+  --h2-mobile: 32px;
 
-  /* Button Styles */
-  --btn-height: 3.25rem;          /* 52px */
-  --btn-height-lg: 3.5rem;        /* 56px */
-  --btn-radius: 0.875rem;         /* 14px */
-  --btn-radius-lg: 1rem;          /* 16px */
-  --btn-px: 1.5rem;               /* 24px */
-  --btn-px-lg: 1.75rem;           /* 28px */
+  /* H3: 32px desktop, 28px tablet, 24px mobile */
+  --h3-desktop: 32px;
+  --h3-tablet: 28px;
+  --h3-mobile: 24px;
 
-  /* Typography */
-  --heading-xl: clamp(2rem, 5vw, 3.5rem);      /* 32px - 56px */
-  --heading-lg: clamp(1.75rem, 4vw, 2.75rem);  /* 28px - 44px */
-  --heading-md: clamp(1.5rem, 3vw, 2rem);      /* 24px - 32px */
-  --body-lg: 1.125rem;            /* 18px */
-  --body-md: 1rem;                /* 16px */
-  --body-sm: 0.875rem;            /* 14px */
+  /* H4: 24px desktop */
+  --h4-desktop: 24px;
+  --h4-tablet: 22px;
+  --h4-mobile: 20px;
 
-  /* Transitions */
+  /* Body: 20px desktop, 18px tablet, 16px mobile */
+  --body-desktop: 20px;
+  --body-tablet: 18px;
+  --body-mobile: 16px;
+
+  --body-sm: 15px;
+  --body-xs: 14px;
+
+  /* Line heights */
+  --lh-heading: 1.2;
+  --lh-body: 1.7;
+
+  /* ==========================================
+     CARD SYSTEM
+     ========================================== */
+  --card-padding: 40px;
+  --card-padding-sm: 32px;
+  --card-radius: 24px;
+  --card-radius-lg: 32px;
+  --card-gap: 32px;
+  --card-shadow: 0 4px 24px rgba(14, 58, 74, 0.06);
+  --card-shadow-hover: 0 12px 48px rgba(14, 58, 74, 0.1);
+
+  /* ==========================================
+     BUTTON SYSTEM
+     ========================================== */
+  --btn-height: 52px;
+  --btn-height-lg: 56px;
+  --btn-radius: 14px;
+  --btn-px: 28px;
+
+  /* ==========================================
+     TRANSITIONS
+     ========================================== */
   --transition-fast: 150ms ease;
   --transition-base: 300ms ease-out;
   --transition-slow: 500ms ease-out;
 
-  /* Touch Target */
+  /* ==========================================
+     TOUCH TARGETS
+     ========================================== */
   --touch-target: 44px;
 }
 
@@ -136,153 +225,322 @@ body {
   background: var(--background);
   color: var(--text);
   font-family: var(--font-raleway), system-ui, -apple-system, sans-serif;
-  line-height: 1.6;
+  font-size: var(--body-mobile);
+  line-height: var(--lh-body);
   overflow-x: hidden;
 }
 
+@media (min-width: 768px) {
+  body {
+    font-size: var(--body-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    font-size: var(--body-desktop);
+  }
+}
+
 /* ============================================
-   TYPOGRAPHY - Lora for headings (wellness mood)
+   TYPOGRAPHY - Premium Scale
    ============================================ */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-lora), Georgia, serif;
-  line-height: 1.15;
-  font-weight: 700;
+  line-height: var(--lh-heading);
+  font-weight: 600;
   color: var(--primary-dark);
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: var(--h1-mobile);
+}
+
+h2 {
+  font-size: var(--h2-mobile);
+}
+
+h3 {
+  font-size: var(--h3-mobile);
+}
+
+h4 {
+  font-size: var(--h4-mobile);
+}
+
+@media (min-width: 768px) {
+  h1 { font-size: var(--h1-tablet); }
+  h2 { font-size: var(--h2-tablet); }
+  h3 { font-size: var(--h3-tablet); }
+  h4 { font-size: var(--h4-tablet); }
+}
+
+@media (min-width: 1024px) {
+  h1 { font-size: var(--h1-desktop); }
+  h2 { font-size: var(--h2-desktop); }
+  h3 { font-size: var(--h3-desktop); }
+  h4 { font-size: var(--h4-desktop); }
 }
 
 p {
-  line-height: 1.7;
+  line-height: var(--lh-body);
   color: var(--text-secondary);
+  max-width: var(--paragraph-max);
 }
 
 /* ============================================
-   SCROLLBAR
+   CONTAINER SYSTEM
    ============================================ */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--background);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--primary);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-dark);
-}
-
-/* ============================================
-   SECTION LAYOUT
-   ============================================ */
-.section-padding {
-  padding: var(--section-py-mobile) var(--section-px-mobile);
-}
-
-@media (min-width: 768px) {
-  .section-padding {
-    padding: var(--section-py-tablet) var(--section-px-tablet);
-  }
-}
-
-@media (min-width: 1024px) {
-  .section-padding {
-    padding: var(--section-py-desktop) var(--section-px-desktop);
-  }
-}
-
-@media (min-width: 1280px) {
-  .section-padding {
-    padding: var(--section-py-large) var(--section-px-desktop);
-  }
-}
-
-/* Container */
-.container-custom {
+.container {
   width: 100%;
   max-width: var(--container-max);
-  margin: 0 auto;
-  padding: 0 var(--section-px-mobile);
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 32px);
+}
+
+.container-wide {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 32px);
+}
+
+.container-custom {
+  width: 100%;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 32px);
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: var(--text-max);
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 32px);
+}
+
+/* ============================================
+   SECTION SPACING (geosite-style: py-16 md:py-24)
+   ============================================ */
+.section-padding {
+  padding-top: var(--section-padding-mobile);
+  padding-bottom: var(--section-padding-mobile);
 }
 
 @media (min-width: 768px) {
-  .container-custom {
-    padding: 0 var(--section-px-tablet);
-  }
-}
-
-@media (min-width: 1024px) {
-  .container-custom {
-    padding: 0 var(--section-px-desktop);
+  .section-padding {
+    padding-top: var(--section-padding-desktop);
+    padding-bottom: var(--section-padding-desktop);
   }
 }
 
 /* ============================================
-   SECTION HEADER - Consistent Pattern
+   SECTION HEADER (geosite-style: mb-12 md:mb-16)
    ============================================ */
 .section-header {
   text-align: center;
-  max-width: var(--content-max);
-  margin: 0 auto var(--space-12);
+  max-width: 48rem;
+  margin-inline: auto;
+  margin-bottom: 48px;
 }
 
 @media (min-width: 768px) {
   .section-header {
-    margin-bottom: var(--space-16);
+    margin-bottom: 64px;
+  }
+}
+
+.section-header .badge,
+.section-header .section-eyebrow {
+  margin-bottom: 8px;
+}
+
+.section-header h2,
+.section-header .section-title {
+  text-wrap: balance;
+  margin-bottom: 16px;
+}
+
+.section-header p,
+.section-header .section-subtitle {
+  text-wrap: balance;
+  max-width: 48rem;
+  margin-inline: auto;
+  color: var(--color-text-secondary);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+  .section-header p,
+  .section-header .section-subtitle {
+    font-size: 18px;
   }
 }
 
 .section-eyebrow {
   display: inline-block;
-  padding: var(--space-2) var(--space-4);
-  border-radius: 9999px;
-  background: rgba(30, 136, 168, 0.1);
-  color: var(--primary);
-  font-size: var(--body-sm);
-  font-weight: 600;
+  color: var(--color-primary);
+  font-size: 14px;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: var(--space-4);
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
 }
 
 .section-title {
-  font-size: var(--heading-lg);
-  color: var(--primary-dark);
-  margin-bottom: var(--space-4);
-  line-height: 1.1;
-}
-
-@media (min-width: 768px) {
-  .section-title {
-    margin-bottom: var(--space-6);
-  }
+  margin-bottom: 16px;
 }
 
 .section-subtitle {
-  font-size: var(--body-lg);
-  color: var(--text-secondary);
+  font-size: 16px;
+  color: var(--color-text-secondary);
   line-height: 1.7;
-  max-width: var(--content-max);
-  margin: 0 auto;
+  max-width: 48rem;
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .section-subtitle {
+    font-size: 18px;
+  }
+}
+
+/* ============================================
+   CARD SYSTEM (geosite-style: p-6 md:p-8)
+   ============================================ */
+.card {
+  background: var(--color-surface);
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  padding: 24px;
+  transition: all 300ms ease-out;
+}
+
+@media (min-width: 768px) {
+  .card {
+    padding: 32px;
+  }
+}
+
+.card-hover:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.card-sm {
+  padding: 16px;
+  border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+  .card-sm {
+    padding: 24px;
+  }
+}
+
+.card-lg {
+  padding: 32px;
+  border-radius: 16px;
+}
+
+@media (min-width: 768px) {
+  .card-lg {
+    padding: 48px;
+  }
+}
+
+/* ============================================
+   BUTTON SYSTEM
+   ============================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: var(--radius-full);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 300ms ease-out;
+  cursor: pointer;
+  border: none;
+  min-height: 44px;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.btn-lg {
+  padding: 16px 32px;
+  font-size: 16px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  color: var(--color-text-inverse);
+  box-shadow: 0 4px 16px rgba(30, 136, 168, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(30, 136, 168, 0.4);
+}
+
+.btn-secondary {
+  background: var(--color-surface);
+  color: var(--color-primary-dark);
+  border: 1px solid var(--color-border-strong);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover {
+  background: var(--color-background-alt);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-white {
+  background: var(--color-surface);
+  color: var(--color-primary-dark);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.btn-white:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.btn-whatsapp {
+  background: var(--color-whatsapp);
+  color: var(--color-text-inverse);
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+  background: #22C55E;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
 }
 
 /* ============================================
    GLASS EFFECTS
    ============================================ */
 .glass {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .glass-dark {
   background: rgba(14, 58, 74, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -297,147 +555,61 @@ p {
   background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
 }
 
-.gradient-text {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* ============================================
-   CARD STYLES
-   ============================================ */
-.card {
-  background: var(--surface);
-  border-radius: var(--card-radius);
-  border: 1px solid var(--border);
-  box-shadow: var(--card-shadow);
-  overflow: hidden;
-  transition: all var(--transition-base);
-}
-
-.card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--card-shadow-hover);
-}
-
-.card-interactive {
-  cursor: pointer;
-}
-
-.card-interactive:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--card-shadow-strong);
-}
-
-/* ============================================
-   BUTTON STYLES
-   ============================================ */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-2);
-  height: var(--btn-height);
-  padding: 0 var(--btn-px);
-  border-radius: var(--btn-radius);
-  font-size: var(--body-md);
-  font-weight: 600;
-  text-decoration: none;
-  transition: all var(--transition-base);
-  cursor: pointer;
-  border: none;
-  min-height: var(--touch-target);
-}
-
-.btn-lg {
-  height: var(--btn-height-lg);
-  padding: 0 var(--btn-px-lg);
-  border-radius: var(--btn-radius-lg);
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-  color: white;
-  box-shadow: 0 4px 14px rgba(30, 136, 168, 0.35);
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(30, 136, 168, 0.45);
-}
-
-.btn-primary:active {
-  transform: translateY(0);
-}
-
-.btn-secondary {
-  background: transparent;
-  color: var(--primary);
-  border: 2px solid var(--primary);
-}
-
-.btn-secondary:hover {
-  background: var(--primary);
-  color: white;
-  transform: translateY(-2px);
-}
-
-.btn-white {
-  background: white;
-  color: var(--primary-dark);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-}
-
-.btn-white:hover {
-  background: var(--surface-secondary);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
-.btn-whatsapp {
-  background: var(--whatsapp);
-  color: white;
-  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
-}
-
-.btn-whatsapp:hover {
-  background: #22C55E;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
-}
-
-/* Full width button on mobile */
-@media (max-width: 639px) {
-  .btn-full-mobile {
-    width: 100%;
-    max-width: 320px;
-  }
-}
-
 /* ============================================
    BADGE / PILL STYLES
    ============================================ */
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-1);
-  padding: var(--space-2) var(--space-3);
-  border-radius: 9999px;
-  font-size: var(--body-sm);
-  font-weight: 500;
-  background: rgba(30, 136, 168, 0.1);
-  color: var(--primary);
-  transition: all var(--transition-fast);
-}
-
-.badge-sm {
-  padding: 6px 10px;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
   font-size: 13px;
+  font-weight: 600;
+  background: rgba(30, 136, 168, 0.08);
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.badge:hover {
-  background: rgba(30, 136, 168, 0.15);
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* ============================================
+   FOCUS STYLES - Accessibility
+   ============================================ */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   SELECTION COLOR
+   ============================================ */
+::selection {
+  background: var(--primary-light);
+  color: white;
 }
 
 /* ============================================
@@ -462,98 +634,6 @@ p {
 }
 
 /* ============================================
-   UTILITIES
-   ============================================ */
-.text-shadow {
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.text-balance {
-  text-wrap: balance;
-}
-
-/* ============================================
-   FOCUS STYLES - Accessibility
-   ============================================ */
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible,
-select:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
-}
-
-/* ============================================
-   SELECTION COLOR
-   ============================================ */
-::selection {
-  background: var(--primary-light);
-  color: white;
-}
-
-/* ============================================
-   DIVIDER
-   ============================================ */
-.divider {
-  height: 1px;
-  background: var(--border);
-  margin: var(--space-6) 0;
-}
-
-/* ============================================
-   RESPONSIVE GRID GAP UTILITIES
-   ============================================ */
-.grid-gap-cards {
-  gap: var(--space-6);
-}
-
-@media (min-width: 768px) {
-  .grid-gap-cards {
-    gap: var(--space-8);
-  }
-}
-
-@media (min-width: 1024px) {
-  .grid-gap-cards {
-    gap: var(--space-10);
-  }
-}
-
-/* ============================================
-   NEUMORPHISM CARD STYLES
-   ============================================ */
-.card-neu {
-  background: var(--background);
-  border-radius: var(--card-radius);
-  box-shadow: var(--shadow-neu-light);
-  transition: all var(--transition-base);
-}
-
-.card-neu:hover {
-  box-shadow: var(--card-shadow-hover);
-}
-
-.card-neu-pressed {
-  box-shadow: var(--shadow-neu-pressed);
-}
-
-/* ============================================
-   WELLNESS ACCENT UTILITIES
-   ============================================ */
-.text-wellness {
-  color: var(--wellness-green);
-}
-
-.bg-wellness {
-  background-color: var(--wellness-green);
-}
-
-.bg-wellness-soft {
-  background-color: var(--wellness-soft);
-}
-
-/* ============================================
    ACCESSIBILITY - Reduced Motion
    ============================================ */
 @media (prefers-reduced-motion: reduce) {
@@ -565,38 +645,23 @@ select:focus-visible {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-
-  .animate-float,
-  .animate-pulse-soft,
-  .animate-pulse,
-  .animate-spin,
-  .animate-bounce {
-    animation: none !important;
-  }
 }
 
 /* ============================================
-   SKELETON LOADING STATES (UX Guideline)
+   UTILITY CLASSES
    ============================================ */
-.skeleton {
-  background: linear-gradient(
-    90deg,
-    var(--surface-secondary) 25%,
-    var(--background) 50%,
-    var(--surface-secondary) 75%
-  );
-  background-size: 200% 100%;
-  animation: skeleton-loading 1.5s ease-in-out infinite;
+.text-balance {
+  text-wrap: balance;
 }
 
-@keyframes skeleton-loading {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+.max-w-paragraph {
+  max-width: var(--paragraph-max);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .skeleton {
-    animation: none;
-    background: var(--surface-secondary);
-  }
+.max-w-text {
+  max-width: var(--text-max);
+}
+
+.max-w-hero {
+  max-width: var(--hero-max);
 }

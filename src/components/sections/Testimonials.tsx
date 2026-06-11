@@ -11,8 +11,7 @@ const testimonials = [
     role: 'Maratonista',
     condition: 'Recuperación de Lesión de Rodilla',
     rating: 5,
-    image: null,
-    text: 'Después de mi lesión de rodilla, pensé que mis días de correr habían terminado. El equipo de Physical Care no solo me ayudó a recuperarme, sino que mejoró mi rendimiento. Su programa de retorno al deporte fue exactamente lo que necesitaba.',
+    text: 'Después de mi lesión de rodilla, pensé que mis días de correr habían terminado. El equipo de Physical Care no solo me ayudó a recuperarme, sino que mejoró mi rendimiento.',
   },
   {
     id: 2,
@@ -20,8 +19,7 @@ const testimonials = [
     role: 'Profesional de Oficina',
     condition: 'Dolor de Espalda Crónico',
     rating: 5,
-    image: null,
-    text: 'Años de trabajo de escritorio me dejaron con dolor de espalda crónico. Physical Care identificó las causas raíz y me dio soluciones prácticas. Finalmente entiendo cómo manejar mi condición y vivir sin dolor.',
+    text: 'Años de trabajo de escritorio me dejaron con dolor de espalda crónico. Physical Care identificó las causas raíz y me dio soluciones prácticas. Finalmente vivo sin dolor.',
   },
   {
     id: 3,
@@ -29,8 +27,7 @@ const testimonials = [
     role: 'Entrenador de Fútbol',
     condition: 'Recuperación de Cirugía de Hombro',
     rating: 5,
-    image: null,
-    text: 'La rehabilitación post-cirugía fue desafiante, pero los especialistas hicieron el proceso manejable. Su experiencia y apoyo me ayudaron a recuperar la función completa más rápido de lo esperado.',
+    text: 'La rehabilitación post-cirugía fue desafiante, pero los especialistas hicieron el proceso manejable. Recuperé la función completa más rápido de lo esperado.',
   },
   {
     id: 4,
@@ -38,8 +35,7 @@ const testimonials = [
     role: 'Instructora de Yoga',
     condition: 'Fascitis Plantar',
     rating: 5,
-    image: null,
-    text: 'Como instructora de yoga, el dolor de pie era devastador para mi carrera. La terapia de ondas de choque y el plan de tratamiento personalizado en Physical Care resolvió mi fascitis plantar completamente. ¡Altamente recomendado!',
+    text: 'Como instructora de yoga, el dolor de pie era devastador para mi carrera. La terapia de ondas de choque resolvió mi fascitis plantar completamente.',
   },
   {
     id: 5,
@@ -47,8 +43,7 @@ const testimonials = [
     role: 'Atleta de CrossFit',
     condition: 'Rehabilitación Deportiva',
     rating: 5,
-    image: null,
-    text: 'El equipo entiende a los atletas. No solo trataron mi lesión—me ayudaron a volver más fuerte. El enfoque de entrenamiento funcional fue perfecto para mis objetivos de CrossFit.',
+    text: 'El equipo entiende a los atletas. No solo trataron mi lesión—me ayudaron a volver más fuerte. El enfoque de entrenamiento funcional fue perfecto.',
   },
 ];
 
@@ -60,7 +55,7 @@ export default function Testimonials() {
 
   const slideVariants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? 300 : -300,
+      x: direction > 0 ? 100 : -100,
       opacity: 0,
     }),
     center: {
@@ -68,7 +63,7 @@ export default function Testimonials() {
       opacity: 1,
     },
     exit: (direction: number) => ({
-      x: direction < 0 ? 300 : -300,
+      x: direction < 0 ? 100 : -100,
       opacity: 0,
     }),
   };
@@ -93,38 +88,39 @@ export default function Testimonials() {
 
   return (
     <section ref={ref} id="testimonials" className="section-padding bg-white">
-      <div className="container-custom">
+      <div className="container">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-[680px] mx-auto mb-12 md:mb-16 lg:mb-20"
+          className="text-center mb-12 md:mb-16"
         >
-          <span className="inline-block px-4 py-2 rounded-full bg-[#1E88A8]/10 text-[#1E88A8] text-sm font-semibold uppercase tracking-wide mb-4">
+          <p className="text-[#1E88A8] text-sm md:text-base font-medium uppercase tracking-wider mb-2">
             Casos de Éxito
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#0E3A4A] mb-5 leading-tight">
+          </p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0E3A4A] mb-4">
             Lo Que Dicen Nuestros Pacientes
           </h2>
-          <p className="text-lg text-[#475569] leading-relaxed">
-            Historias reales de pacientes reales que han experimentado la diferencia Physical Care.
+          <div className="w-24 h-0.5 bg-[#1E88A8] mx-auto mb-4"></div>
+          <p className="text-base md:text-lg text-[#475569] leading-relaxed max-w-3xl mx-auto">
+            Historias reales de pacientes que han experimentado la diferencia Physical Care.
           </p>
         </motion.div>
 
-        {/* Testimonial Carousel */}
+        {/* Testimonial Carousel - Tighter composition */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="relative max-w-4xl mx-auto"
+          className="relative max-w-[900px] mx-auto"
         >
           {/* Main testimonial card */}
-          <div className="relative bg-[#F4F7F8] rounded-3xl p-8 md:p-12 overflow-hidden">
-            {/* Quote icon */}
+          <div className="relative bg-[#FAFBFC] rounded-3xl p-10 md:p-14 overflow-hidden">
+            {/* Quote icon - subtle */}
             <Quote
-              size={120}
-              className="absolute top-4 right-4 text-[#1E88A8]/5"
+              size={80}
+              className="absolute top-8 right-8 text-[#1E88A8]/5"
             />
 
             <AnimatePresence mode="wait" custom={direction}>
@@ -135,39 +131,36 @@ export default function Testimonials() {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                transition={{ duration: 0.4 }}
+                transition={{ duration: 0.4, ease: 'easeOut' }}
                 className="relative z-10"
               >
                 {/* Stars */}
-                <div className="flex gap-1 mb-6">
+                <div className="flex gap-1 mb-8">
                   {[...Array(currentTestimonial.rating)].map((_, i) => (
                     <Star
                       key={i}
                       size={20}
-                      className="text-yellow-400 fill-yellow-400"
+                      className="text-[#FBBF24] fill-[#FBBF24]"
                     />
                   ))}
                 </div>
 
                 {/* Testimonial text */}
-                <blockquote className="text-xl md:text-2xl text-[#0E3A4A] mb-8 leading-relaxed">
-                  &quot;{currentTestimonial.text}&quot;
+                <blockquote className="text-[22px] md:text-[28px] text-[#0E3A4A] leading-[1.5] font-medium mb-10 max-w-[750px]">
+                  &ldquo;{currentTestimonial.text}&rdquo;
                 </blockquote>
 
                 {/* Author */}
                 <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#1E88A8] to-[#35B7C8] flex items-center justify-center text-white font-bold text-xl">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#1E88A8] to-[#35B7C8] flex items-center justify-center text-white font-semibold text-xl">
                     {currentTestimonial.name.charAt(0)}
                   </div>
                   <div>
-                    <p className="font-semibold text-[#0E3A4A]">
+                    <p className="font-semibold text-[#0E3A4A] text-lg">
                       {currentTestimonial.name}
                     </p>
-                    <p className="text-sm text-[#6B7280]">
-                      {currentTestimonial.role}
-                    </p>
-                    <p className="text-xs text-[#1E88A8]">
-                      {currentTestimonial.condition}
+                    <p className="text-[15px] text-[#64748B]">
+                      {currentTestimonial.role} · {currentTestimonial.condition}
                     </p>
                   </div>
                 </div>
@@ -175,14 +168,14 @@ export default function Testimonials() {
             </AnimatePresence>
           </div>
 
-          {/* Navigation buttons */}
-          <div className="flex justify-center items-center gap-4 mt-8">
+          {/* Navigation */}
+          <div className="flex justify-center items-center gap-6 mt-10">
             <button
               onClick={prevSlide}
-              className="w-12 h-12 rounded-full bg-white border border-[#E5E7EB] flex items-center justify-center hover:bg-[#1E88A8] hover:text-white hover:border-[#1E88A8] transition-colors"
+              className="w-12 h-12 rounded-full bg-white border border-[rgba(15,23,42,0.08)] flex items-center justify-center text-[#475569] hover:bg-[#1E88A8] hover:text-white hover:border-[#1E88A8] transition-all duration-300"
               aria-label="Previous testimonial"
             >
-              <ChevronLeft size={20} />
+              <ChevronLeft size={22} />
             </button>
 
             {/* Dots */}
@@ -194,10 +187,10 @@ export default function Testimonials() {
                     setDirection(index > currentIndex ? 1 : -1);
                     setCurrentIndex(index);
                   }}
-                  className={`w-2 h-2 rounded-full transition-all ${
+                  className={`h-2 rounded-full transition-all duration-300 ${
                     index === currentIndex
                       ? 'w-8 bg-[#1E88A8]'
-                      : 'bg-[#E5E7EB] hover:bg-[#1E88A8]/50'
+                      : 'w-2 bg-[#E2E8F0] hover:bg-[#CBD5E1]'
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
@@ -206,37 +199,37 @@ export default function Testimonials() {
 
             <button
               onClick={nextSlide}
-              className="w-12 h-12 rounded-full bg-white border border-[#E5E7EB] flex items-center justify-center hover:bg-[#1E88A8] hover:text-white hover:border-[#1E88A8] transition-colors"
+              className="w-12 h-12 rounded-full bg-white border border-[rgba(15,23,42,0.08)] flex items-center justify-center text-[#475569] hover:bg-[#1E88A8] hover:text-white hover:border-[#1E88A8] transition-all duration-300"
               aria-label="Next testimonial"
             >
-              <ChevronRight size={20} />
+              <ChevronRight size={22} />
             </button>
           </div>
         </motion.div>
 
-        {/* Trust badges */}
+        {/* Trust indicators - Compact */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="flex flex-wrap justify-center gap-8 mt-16"
+          className="flex flex-wrap justify-center gap-10 mt-16"
         >
-          <div className="flex items-center gap-2 text-[#6B7280]">
+          <div className="flex items-center gap-2 text-[#64748B]">
             <div className="flex">
               {[...Array(5)].map((_, i) => (
                 <Star
                   key={i}
                   size={16}
-                  className="text-yellow-400 fill-yellow-400"
+                  className="text-[#FBBF24] fill-[#FBBF24]"
                 />
               ))}
             </div>
-            <span className="font-medium">4.9/5 Calificación Promedio</span>
+            <span className="font-medium text-[15px]">4.9/5 Calificación</span>
           </div>
-          <div className="text-[#6B7280]">
+          <div className="text-[#64748B] text-[15px]">
             <span className="font-semibold text-[#0E3A4A]">450+</span> Pacientes Satisfechos
           </div>
-          <div className="text-[#6B7280]">
+          <div className="text-[#64748B] text-[15px]">
             <span className="font-semibold text-[#0E3A4A]">98%</span> Nos Recomendarían
           </div>
         </motion.div>

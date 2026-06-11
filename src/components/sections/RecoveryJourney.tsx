@@ -79,7 +79,7 @@ export default function RecoveryJourney() {
 
   return (
     <section ref={ref} className="section-padding bg-gradient-to-br from-[#0E3A4A] to-[#1E88A8] overflow-hidden">
-      <div className="container-custom">
+      <div className="container">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

@@ -15,7 +15,7 @@ import {
   Loader2,
 } from 'lucide-react';
 
-// WhatsApp SVG Icon - proper brand icon
+// WhatsApp SVG Icon
 const WhatsAppIcon = ({ size = 24, className = '' }: { size?: number; className?: string }) => (
   <svg
     width={size}
@@ -31,7 +31,7 @@ const WhatsAppIcon = ({ size = 24, className = '' }: { size?: number; className?
 const contactSchema = z.object({
   name: z.string().min(2, 'El nombre debe tener al menos 2 caracteres'),
   email: z.string().email('Por favor ingrese un correo electrónico válido'),
-  phone: z.string().min(8, 'Por favor ingrese un número de teléfono válido (mínimo 8 dígitos)'),
+  phone: z.string().min(8, 'Por favor ingrese un número de teléfono válido'),
   service: z.string().min(1, 'Por favor seleccione un servicio'),
   message: z.string().min(10, 'El mensaje debe tener al menos 10 caracteres'),
 });
@@ -69,7 +69,7 @@ export default function Contact() {
       const customEvent = e as CustomEvent<{ service: string }>;
       if (customEvent.detail && customEvent.detail.service) {
         const matchedService = services.find(
-          s => s.toLowerCase().includes(customEvent.detail.service.toLowerCase()) || 
+          s => s.toLowerCase().includes(customEvent.detail.service.toLowerCase()) ||
                customEvent.detail.service.toLowerCase().includes(s.toLowerCase())
         );
         if (matchedService) {
@@ -86,7 +86,6 @@ export default function Contact() {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
-    // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1500));
     console.log('Form data:', data);
     setIsSubmitting(false);
@@ -96,46 +95,48 @@ export default function Contact() {
   };
 
   return (
-    <section ref={ref} id="contact" className="section-padding bg-white">
-      <div className="container-custom">
+    <section ref={ref} id="contact" className="section-padding bg-[#FAFBFC]">
+      <div className="container">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-[680px] mx-auto mb-12 md:mb-16 lg:mb-20"
+          className="text-center mb-12 md:mb-16"
         >
-          <span className="inline-block px-4 py-2 rounded-full bg-[#1E88A8]/10 text-[#1E88A8] text-sm font-semibold uppercase tracking-wide mb-4">
+          <p className="text-[#1E88A8] text-sm md:text-base font-medium uppercase tracking-wider mb-2">
             Contacto
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#0E3A4A] mb-5 leading-tight">
-            Comience Su Recuperación Hoy
+          </p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0E3A4A] mb-4">
+            Comienza Tu Recuperación
           </h2>
-          <p className="text-lg text-[#475569] leading-relaxed">
+          <div className="w-24 h-0.5 bg-[#1E88A8] mx-auto mb-4"></div>
+          <p className="text-base md:text-lg text-[#475569] leading-relaxed max-w-3xl mx-auto">
             ¿Listo para dar el primer paso? Contáctenos para programar su cita
             o realizar cualquier consulta sobre nuestros servicios.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 xl:gap-12">
+        {/* Contact Grid - 50/50 Layout */}
+        <div className="grid lg:grid-cols-2 gap-8 max-w-[1100px] mx-auto">
           {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <div className="bg-gradient-to-br from-[#0E3A4A] to-[#1E88A8] rounded-[28px] p-6 sm:p-8 lg:p-10 text-white h-full shadow-[0_4px_20px_rgba(14,58,74,0.15)]">
-              <h3 className="text-2xl font-bold mb-6">Póngase en Contacto</h3>
+            <div className="bg-gradient-to-br from-[#0E3A4A] to-[#1E88A8] rounded-3xl p-10 text-white h-full">
+              <h3 className="text-[28px] font-semibold mb-8">Póngase en Contacto</h3>
 
               {/* Contact details */}
-              <div className="space-y-6 mb-8">
+              <div className="space-y-6 mb-10">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
                     <MapPin size={22} />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Nuestra Ubicación</h4>
-                    <p className="text-white/80 text-sm">
+                    <h4 className="font-semibold mb-1 text-lg">Nuestra Ubicación</h4>
+                    <p className="text-white/75 text-[15px] leading-relaxed">
                       San Pedro de Montes de Oca<br />
                       San José, Costa Rica
                     </p>
@@ -147,10 +148,10 @@ export default function Contact() {
                     <Phone size={22} />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Teléfono / WhatsApp</h4>
+                    <h4 className="font-semibold mb-1 text-lg">Teléfono / WhatsApp</h4>
                     <a
                       href="tel:+50689680947"
-                      className="text-white/80 text-sm hover:text-white transition-colors"
+                      className="text-white/75 text-[15px] hover:text-white transition-colors"
                     >
                       +506 8968-0947
                     </a>
@@ -162,10 +163,10 @@ export default function Contact() {
                     <Mail size={22} />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Correo Electrónico</h4>
+                    <h4 className="font-semibold mb-1 text-lg">Correo Electrónico</h4>
                     <a
                       href="mailto:gerencia@physicalcarefisioterapia.com"
-                      className="text-white/80 text-sm hover:text-white transition-colors break-all"
+                      className="text-white/75 text-[15px] hover:text-white transition-colors break-all"
                     >
                       gerencia@physicalcarefisioterapia.com
                     </a>
@@ -177,11 +178,10 @@ export default function Contact() {
                     <Clock size={22} />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Horario de Atención</h4>
-                    <p className="text-white/80 text-sm">
+                    <h4 className="font-semibold mb-1 text-lg">Horario de Atención</h4>
+                    <p className="text-white/75 text-[15px] leading-relaxed">
                       Lunes - Viernes: 8:00 AM - 6:00 PM<br />
-                      Sábado: Con cita previa<br />
-                      Domingo: Cerrado
+                      Sábado: Con cita previa
                     </p>
                   </div>
                 </div>
@@ -192,14 +192,14 @@ export default function Contact() {
                 href="https://wa.me/50689680947"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 w-full bg-[#25D366] text-white py-4 rounded-xl font-semibold hover:bg-[#20BA5C] transition-colors"
+                className="inline-flex items-center justify-center gap-3 w-full bg-[#25D366] text-white h-14 rounded-xl font-semibold text-base hover:bg-[#22C55E] transition-all duration-300"
               >
-                <WhatsAppIcon size={20} />
+                <WhatsAppIcon size={22} />
                 Chatear por WhatsApp
               </a>
 
-              {/* Map placeholder */}
-              <div className="mt-8 rounded-xl overflow-hidden h-48 bg-white/10 flex items-center justify-center">
+              {/* Map */}
+              <div className="mt-8 rounded-2xl overflow-hidden h-[180px] bg-white/10">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15720.058741686894!2d-84.05436545!3d9.9318015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e35a5b5db887%3A0x5f5f5f5f5f5f5f5f!2sSan%20Pedro%2C%20Montes%20de%20Oca!5e0!3m2!1sen!2scr!4v1234567890"
                   width="100%"
@@ -220,8 +220,8 @@ export default function Contact() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="bg-white rounded-[28px] border border-[rgba(15,23,42,0.08)] shadow-[0_4px_20px_rgba(14,58,74,0.08)] p-6 sm:p-8 lg:p-10">
-              <h3 className="text-2xl font-bold text-[#0E3A4A] mb-6">
+            <div className="bg-white rounded-3xl border border-[rgba(15,23,42,0.06)] shadow-[0_4px_24px_rgba(14,58,74,0.06)] p-10">
+              <h3 className="text-[24px] font-semibold text-[#0E3A4A] mb-8">
                 Programar una Cita
               </h3>
 
@@ -229,16 +229,16 @@ export default function Contact() {
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-12"
+                  className="text-center py-16"
                 >
-                  <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
-                    <CheckCircle size={32} className="text-green-600" />
+                  <div className="w-16 h-16 rounded-full bg-[#ECFDF5] flex items-center justify-center mx-auto mb-5">
+                    <CheckCircle size={32} className="text-[#10B981]" />
                   </div>
                   <h4 className="text-xl font-semibold text-[#0E3A4A] mb-2">
                     ¡Mensaje Enviado!
                   </h4>
-                  <p className="text-[#6B7280]">
-                    Gracias por contactarnos. Nos comunicaremos con usted a la brevedad.
+                  <p className="text-[#64748B]">
+                    Nos comunicaremos con usted a la brevedad.
                   </p>
                 </motion.div>
               ) : (
@@ -247,7 +247,7 @@ export default function Contact() {
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-sm font-medium text-[#0E3A4A] mb-2"
+                      className="block text-[15px] font-medium text-[#0E3A4A] mb-2"
                     >
                       Nombre Completo
                     </label>
@@ -255,15 +255,13 @@ export default function Contact() {
                       type="text"
                       id="name"
                       {...register('name')}
-                      className={`w-full px-4 py-3 rounded-xl border ${
-                        errors.name ? 'border-red-500' : 'border-[#E5E7EB]'
-                      } bg-white focus:outline-none focus:ring-2 focus:ring-[#1E88A8] focus:border-transparent transition-all`}
+                      className={`w-full px-4 py-3.5 rounded-xl border ${
+                        errors.name ? 'border-red-400' : 'border-[#E2E8F0]'
+                      } bg-white text-[#0E3A4A] focus:outline-none focus:ring-2 focus:ring-[#1E88A8] focus:border-transparent transition-all`}
                       placeholder="Su nombre completo"
                     />
                     {errors.name && (
-                      <p className="text-red-500 text-xs mt-1">
-                        {errors.name.message}
-                      </p>
+                      <p className="text-red-500 text-sm mt-1.5">{errors.name.message}</p>
                     )}
                   </div>
 
@@ -272,7 +270,7 @@ export default function Contact() {
                     <div>
                       <label
                         htmlFor="email"
-                        className="block text-sm font-medium text-[#0E3A4A] mb-2"
+                        className="block text-[15px] font-medium text-[#0E3A4A] mb-2"
                       >
                         Correo Electrónico
                       </label>
@@ -280,37 +278,33 @@ export default function Contact() {
                         type="email"
                         id="email"
                         {...register('email')}
-                        className={`w-full px-4 py-3 rounded-xl border ${
-                          errors.email ? 'border-red-500' : 'border-[#E5E7EB]'
-                        } bg-white focus:outline-none focus:ring-2 focus:ring-[#1E88A8] focus:border-transparent transition-all`}
+                        className={`w-full px-4 py-3.5 rounded-xl border ${
+                          errors.email ? 'border-red-400' : 'border-[#E2E8F0]'
+                        } bg-white text-[#0E3A4A] focus:outline-none focus:ring-2 focus:ring-[#1E88A8] focus:border-transparent transition-all`}
                         placeholder="ejemplo@correo.com"
                       />
                       {errors.email && (
-                        <p className="text-red-500 text-xs mt-1">
-                          {errors.email.message}
-                        </p>
+                        <p className="text-red-500 text-sm mt-1.5">{errors.email.message}</p>
                       )}
                     </div>
                     <div>
                       <label
                         htmlFor="phone"
-                        className="block text-sm font-medium text-[#0E3A4A] mb-2"
+                        className="block text-[15px] font-medium text-[#0E3A4A] mb-2"
                       >
-                        Número de Teléfono
+                        Teléfono
                       </label>
                       <input
                         type="tel"
                         id="phone"
                         {...register('phone')}
-                        className={`w-full px-4 py-3 rounded-xl border ${
-                          errors.phone ? 'border-red-500' : 'border-[#E5E7EB]'
-                        } bg-white focus:outline-none focus:ring-2 focus:ring-[#1E88A8] focus:border-transparent transition-all`}
+                        className={`w-full px-4 py-3.5 rounded-xl border ${
+                          errors.phone ? 'border-red-400' : 'border-[#E2E8F0]'
+                        } bg-white text-[#0E3A4A] focus:outline-none focus:ring-2 focus:ring-[#1E88A8] focus:border-transparent transition-all`}
                         placeholder="+506 0000-0000"
                       />
                       {errors.phone && (
-                        <p className="text-red-500 text-xs mt-1">
-                          {errors.phone.message}
-                        </p>
+                        <p className="text-red-500 text-sm mt-1.5">{errors.phone.message}</p>
                       )}
                     </div>
                   </div>
@@ -319,16 +313,16 @@ export default function Contact() {
                   <div>
                     <label
                       htmlFor="service"
-                      className="block text-sm font-medium text-[#0E3A4A] mb-2"
+                      className="block text-[15px] font-medium text-[#0E3A4A] mb-2"
                     >
                       Servicio de Interés
                     </label>
                     <select
                       id="service"
                       {...register('service')}
-                      className={`w-full px-4 py-3 rounded-xl border ${
-                        errors.service ? 'border-red-500' : 'border-[#E5E7EB]'
-                      } bg-white focus:outline-none focus:ring-2 focus:ring-[#1E88A8] focus:border-transparent transition-all`}
+                      className={`w-full px-4 py-3.5 rounded-xl border ${
+                        errors.service ? 'border-red-400' : 'border-[#E2E8F0]'
+                      } bg-white text-[#0E3A4A] focus:outline-none focus:ring-2 focus:ring-[#1E88A8] focus:border-transparent transition-all`}
                     >
                       <option value="">Seleccione un servicio</option>
                       {services.map((service) => (
@@ -338,9 +332,7 @@ export default function Contact() {
                       ))}
                     </select>
                     {errors.service && (
-                      <p className="text-red-500 text-xs mt-1">
-                        {errors.service.message}
-                      </p>
+                      <p className="text-red-500 text-sm mt-1.5">{errors.service.message}</p>
                     )}
                   </div>
 
@@ -348,7 +340,7 @@ export default function Contact() {
                   <div>
                     <label
                       htmlFor="message"
-                      className="block text-sm font-medium text-[#0E3A4A] mb-2"
+                      className="block text-[15px] font-medium text-[#0E3A4A] mb-2"
                     >
                       Mensaje
                     </label>
@@ -356,15 +348,13 @@ export default function Contact() {
                       id="message"
                       {...register('message')}
                       rows={4}
-                      className={`w-full px-4 py-3 rounded-xl border ${
-                        errors.message ? 'border-red-500' : 'border-[#E5E7EB]'
-                      } bg-white focus:outline-none focus:ring-2 focus:ring-[#1E88A8] focus:border-transparent transition-all resize-none`}
-                      placeholder="Cuéntenos sobre su condición o en qué podemos ayudarle..."
+                      className={`w-full px-4 py-3.5 rounded-xl border ${
+                        errors.message ? 'border-red-400' : 'border-[#E2E8F0]'
+                      } bg-white text-[#0E3A4A] focus:outline-none focus:ring-2 focus:ring-[#1E88A8] focus:border-transparent transition-all resize-none`}
+                      placeholder="Cuéntenos sobre su condición..."
                     />
                     {errors.message && (
-                      <p className="text-red-500 text-xs mt-1">
-                        {errors.message.message}
-                      </p>
+                      <p className="text-red-500 text-sm mt-1.5">{errors.message.message}</p>
                     )}
                   </div>
 
@@ -372,7 +362,7 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full btn-primary flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="w-full h-14 bg-gradient-to-r from-[#1E88A8] to-[#35B7C8] text-white rounded-xl font-semibold text-base shadow-lg shadow-[#1E88A8]/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0 flex items-center justify-center gap-2"
                   >
                     {isSubmitting ? (
                       <>
@@ -387,9 +377,8 @@ export default function Contact() {
                     )}
                   </button>
 
-                  <p className="text-xs text-[#9CA3AF] text-center">
-                    Al enviar, acepta nuestra Política de Privacidad. Responderemos
-                    en un plazo de 24 horas.
+                  <p className="text-[13px] text-[#94A3B8] text-center mt-4">
+                    Al enviar, acepta nuestra Política de Privacidad.
                   </p>
                 </form>
               )}
