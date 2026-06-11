@@ -113,7 +113,7 @@ export default function Hero() {
       </motion.div>
 
       {/* Content */}
-      <motion.div style={{ opacity }} className="relative z-30 w-full pt-28 pb-32 md:pt-36 md:pb-40">
+      <motion.div style={{ opacity }} className="relative z-30 w-full pt-28 pb-40 md:pt-36 md:pb-48">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
 
@@ -160,7 +160,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex items-center justify-center mb-12 md:mb-16"
+            className="flex items-center justify-center mb-16 md:mb-20"
           >
             <a
               href="https://wa.me/50689680947"
@@ -179,7 +179,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 max-w-4xl mx-auto"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 lg:gap-8 max-w-4xl mx-auto mb-16"
           >
             {trustBadges.map((badge, index) => {
               const IconComponent = badge.icon;
@@ -189,10 +189,10 @@ export default function Hero() {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
-                  className="group flex flex-col items-center gap-3 p-4 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-300 ease-out hover:bg-white/10 hover:-translate-y-0.5"
+                  className="group flex flex-col items-center gap-4 p-5 sm:p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-300 ease-out hover:bg-white/10 hover:-translate-y-0.5"
                 >
-                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center transition-all duration-300 group-hover:bg-[#35B7C8]/20 group-hover:scale-105">
-                    <IconComponent size={22} className="text-[#5EEAD4]" />
+                  <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center transition-all duration-300 group-hover:bg-[#35B7C8]/20 group-hover:scale-105">
+                    <IconComponent size={24} className="text-[#5EEAD4]" />
                   </div>
                   <span className="text-white/90 text-sm sm:text-[15px] font-medium text-center leading-snug">
                     {badge.text}
@@ -210,7 +210,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.6 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30"
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-30"
       >
         <motion.a
           href="#services"

@@ -195,31 +195,17 @@ export default function Header() {
                 </div>
               </div>
 
-              {/* Drawer Footer info */}
+              {/* Drawer Footer */}
               <div className="border-t border-white/10 pt-8 mt-auto">
-                <a
-                  href="tel:+50689680947"
-                  className="flex items-center gap-3 text-white/80 hover:text-white transition-colors py-3 mb-4"
-                >
-                  <Phone size={18} className="text-[#35B7C8]" />
-                  <span className="font-medium">+506 8968-0947</span>
-                </a>
                 <a
                   href="https://wa.me/50689680947"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full bg-[#25D366] text-white py-4 rounded-2xl font-semibold hover:bg-[#20BA5C] transition-colors mb-4 shadow-lg shadow-[#25D366]/20"
+                  className="flex items-center justify-center gap-3 w-full bg-[#25D366] text-white py-4 rounded-2xl font-semibold hover:bg-[#20BA5C] transition-colors shadow-lg shadow-[#25D366]/20"
                 >
                   <WhatsAppIcon size={20} />
-                  WhatsApp
-                </a>
-                <Link
-                  href="#contact"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="w-full btn-primary text-center block shadow-lg shadow-primary/20"
-                >
                   Agendar Cita
-                </Link>
+                </a>
               </div>
             </motion.div>
           </>
