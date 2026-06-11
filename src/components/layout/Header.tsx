@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const WhatsAppIcon = ({ size = 24, className = '' }: { size?: number; className?: string }) => (
   <svg
@@ -20,8 +20,7 @@ const WhatsAppIcon = ({ size = 24, className = '' }: { size?: number; className?
 const navItems = [
   { href: '#home', label: 'Inicio' },
   { href: '#services', label: 'Servicios' },
-  { href: '#specialists', label: 'Especialistas' },
-  { href: '#blog', label: 'Blog' },
+  { href: '/blog', label: 'Blog' },
   { href: '#contact', label: 'Contacto' },
 ];
 
@@ -104,37 +103,17 @@ export default function Header() {
               animate={{ opacity: 1, x: 0 }}
               className="flex items-center justify-end gap-4"
             >
-              {/* Phone - Desktop */}
-              <a
-                href="tel:+50689680947"
-                className={`hidden md:flex items-center gap-2 font-semibold transition-colors duration-300 py-2 ${
-                  isScrolled
-                    ? 'text-[#0E3A4A] hover:text-[#1E88A8]'
-                    : 'text-white hover:text-white/85'
-                }`}
-              >
-                <Phone size={18} />
-                <span>+506 8968-0947</span>
-              </a>
-
-              {/* WhatsApp Icon */}
+              {/* WhatsApp Button - Agendar Cita */}
               <a
                 href="https://wa.me/50689680947"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden sm:flex w-11 h-11 rounded-full bg-[#25D366] items-center justify-center text-white hover:scale-110 transition-transform shadow-md"
-                aria-label="Chatear en WhatsApp"
+                className="hidden sm:flex items-center gap-2 px-5 py-2.5 bg-[#25D366] text-white rounded-full font-semibold text-sm hover:bg-[#22C55E] transition-colors shadow-md"
+                aria-label="Agendar cita por WhatsApp"
               >
-                <WhatsAppIcon size={20} />
+                <WhatsAppIcon size={18} />
+                <span>Agendar Cita</span>
               </a>
-
-              {/* Schedule Button - Desktop */}
-              <Link
-                href="#contact"
-                className="hidden md:block btn-primary text-sm shadow-md"
-              >
-                Agendar Cita
-              </Link>
 
               {/* Mobile Menu Button */}
               <button

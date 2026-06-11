@@ -97,7 +97,7 @@ export default function Specialists() {
                 </div>
 
                 {/* Content */}
-                <div className="p-10 md:p-12">
+                <div className="p-6 sm:p-8 md:p-10">
                   {/* Name & Role */}
                   <h3 className="text-2xl font-bold text-[#0E3A4A] mb-1">
                     {specialist.name}

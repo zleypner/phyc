@@ -116,7 +116,7 @@ export default function Testimonials() {
           className="relative max-w-[900px] mx-auto"
         >
           {/* Main testimonial card */}
-          <div className="relative bg-[#FAFBFC] rounded-3xl p-10 md:p-14 overflow-hidden">
+          <div className="relative bg-[#FAFBFC] rounded-3xl p-6 sm:p-10 md:p-14 overflow-hidden">
             {/* Quote icon - subtle */}
             <Quote
               size={80}
@@ -212,7 +212,7 @@ export default function Testimonials() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="flex flex-wrap justify-center gap-10 mt-16"
+          className="flex flex-wrap justify-center gap-10 mt-12 md:mt-16"
         >
           <div className="flex items-center gap-2 text-[#64748B]">
             <div className="flex">

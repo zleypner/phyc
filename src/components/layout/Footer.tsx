@@ -39,7 +39,7 @@ const footerLinks = {
     { label: 'Sobre Nosotros', href: '#why-us' },
     { label: 'Nuestros Especialistas', href: '#specialists' },
     { label: 'Casos de Éxito', href: '#testimonials' },
-    { label: 'Blog', href: '#blog' },
+    { label: 'Blog', href: '/blog' },
     { label: 'Contacto', href: '#contact' },
   ],
   conditions: [

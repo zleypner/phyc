@@ -11,7 +11,6 @@ import Specialists from '@/components/sections/Specialists';
 import RecoveryJourney from '@/components/sections/RecoveryJourney';
 import Testimonials from '@/components/sections/Testimonials';
 import MedicalTourism from '@/components/sections/MedicalTourism';
-import Blog from '@/components/sections/Blog';
 import FAQ from '@/components/sections/FAQ';
 import Contact from '@/components/sections/Contact';
 
@@ -30,7 +29,6 @@ export default function Home() {
         <RecoveryJourney />
         <Testimonials />
         <MedicalTourism />
-        <Blog />
         <FAQ />
         <Contact />
       </main>

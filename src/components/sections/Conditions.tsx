@@ -92,91 +92,101 @@ export default function Conditions() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
+  // Show only 8 conditions for balanced 4x2 grid
+  const displayConditions = conditions.slice(0, 8);
+
   return (
-    <section ref={ref} id="conditions" className="section-padding bg-[#F4F7F8]">
+    <section ref={ref} id="conditions" className="py-20 md:py-28 lg:py-32 bg-[#F8FAFC]">
       <div className="container">
-        {/* Section Header */}
+        {/* Section Header - improved spacing and hierarchy */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-12 md:mb-16"
+          className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16 md:mb-20"
         >
-          <span className="inline-block px-4 py-2 rounded-full bg-[#1E88A8]/10 text-[#1E88A8] text-sm font-medium mb-4">
+          <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1E88A8]/8 text-[#1E88A8] text-sm font-semibold mb-6 tracking-wide">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#1E88A8]" />
             Condiciones que Tratamos
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0E3A4A] mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-[#0E3A4A] mb-6 leading-tight tracking-tight">
             ¿Estás Experimentando Alguno de Estos Problemas?
           </h2>
-          <p className="text-lg text-[#6B7280]">
+          <p className="text-lg md:text-xl text-[#64748B] leading-relaxed max-w-2xl">
             Nos especializamos en tratar una amplia gama de condiciones musculoesqueléticas con
             enfoques basados en evidencia adaptados a tus necesidades únicas.
           </p>
         </motion.div>
 
-        {/* Conditions Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-          {conditions.map((condition, index) => (
+        {/* Conditions Grid - balanced 2x4 on desktop */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          {displayConditions.map((condition, index) => (
             <motion.div
               key={condition.title}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
+              transition={{ duration: 0.5, delay: index * 0.06 }}
               className="group"
             >
-              <div className="h-full bg-white rounded-2xl p-6 card-hover cursor-pointer">
+              <div className="h-full bg-white rounded-2xl p-7 lg:p-8 border border-transparent hover:border-[#1E88A8]/20 shadow-[0_2px_12px_rgba(14,58,74,0.04)] hover:shadow-[0_12px_40px_rgba(14,58,74,0.08)] cursor-pointer transition-all duration-300 hover:-translate-y-1">
                 {/* Icon */}
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1E88A8]/10 to-[#35B7C8]/10 flex items-center justify-center mb-4 group-hover:bg-gradient-to-br group-hover:from-[#1E88A8] group-hover:to-[#35B7C8] transition-all duration-300">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#1E88A8]/8 to-[#35B7C8]/8 flex items-center justify-center mb-5 group-hover:bg-gradient-to-br group-hover:from-[#1E88A8] group-hover:to-[#35B7C8] transition-all duration-300">
                   <condition.icon
-                    size={24}
-                    className="text-[#1E88A8] group-hover:text-white transition-colors"
+                    size={26}
+                    className="text-[#1E88A8] group-hover:text-white transition-colors duration-300"
                   />
                 </div>
 
                 {/* Title */}
-                <h3 className="font-semibold text-[#0E3A4A] text-lg mb-2">
+                <h3 className="font-bold text-[#0E3A4A] text-lg mb-3 group-hover:text-[#1E88A8] transition-colors duration-300">
                   {condition.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-sm text-[#6B7280] mb-4 line-clamp-2">
+                <p className="text-[15px] text-[#64748B] mb-5 leading-relaxed line-clamp-2">
                   {condition.description}
                 </p>
 
                 {/* Symptoms preview */}
-                <div className="space-y-2 mb-4">
+                <div className="space-y-2.5 mb-5 pb-5 border-b border-[#F1F5F9]">
                   {condition.symptoms.slice(0, 2).map((symptom) => (
-                    <p key={symptom} className="text-xs text-[#9CA3AF] flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#35B7C8]" />
+                    <p key={symptom} className="text-sm text-[#94A3B8] flex items-center gap-2.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#35B7C8] flex-shrink-0" />
                       {symptom}
                     </p>
                   ))}
                 </div>
 
                 {/* Learn more link */}
-                <span className="text-sm font-medium text-[#1E88A8] group-hover:text-[#35B7C8] transition-colors">
-                  Saber más →
+                <span className="text-sm font-semibold text-[#1E88A8] group-hover:text-[#0E3A4A] transition-colors duration-300 flex items-center gap-1.5">
+                  Saber más
+                  <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
                 </span>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* CTA */}
+        {/* CTA - improved visual weight */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="text-center mt-12"
+          className="text-center mt-10 md:mt-16"
         >
-          <p className="text-[#6B7280] mb-4">
-            ¿No ves tu condición? Tratamos muchas más. Contáctanos para una consulta.
+          <p className="text-[#64748B] mb-6 text-lg">
+            ¿No ves tu condición? Tratamos muchas más.
           </p>
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 btn-primary"
+            className="inline-flex items-center gap-3 btn btn-primary"
           >
             Obtener Consulta Gratuita
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
           </a>
         </motion.div>
       </div>

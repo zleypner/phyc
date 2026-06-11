@@ -125,7 +125,7 @@ export default function Contact() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <div className="bg-gradient-to-br from-[#0E3A4A] to-[#1E88A8] rounded-3xl p-10 text-white h-full">
+            <div className="bg-gradient-to-br from-[#0E3A4A] to-[#1E88A8] rounded-3xl p-6 sm:p-8 md:p-10 text-white h-full">
               <h3 className="text-[28px] font-semibold mb-8">Póngase en Contacto</h3>
 
               {/* Contact details */}
@@ -220,7 +220,7 @@ export default function Contact() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="bg-white rounded-3xl border border-[rgba(15,23,42,0.06)] shadow-[0_4px_24px_rgba(14,58,74,0.06)] p-10">
+            <div className="bg-white rounded-3xl border border-[rgba(15,23,42,0.06)] shadow-[0_4px_24px_rgba(14,58,74,0.06)] p-6 sm:p-8 md:p-10">
               <h3 className="text-[24px] font-semibold text-[#0E3A4A] mb-8">
                 Programar una Cita
               </h3>

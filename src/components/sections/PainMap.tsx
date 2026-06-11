@@ -161,7 +161,7 @@ export default function PainMap() {
 
           {/* Right Column: Recommendation Details */}
           <div className="lg:col-span-7 flex">
-            <div className="bg-[#F4F7F8] border border-[#E5E7EB] rounded-3xl p-8 md:p-10 w-full flex flex-col justify-between shadow-sm relative overflow-hidden">
+            <div className="bg-[#F4F7F8] border border-[#E5E7EB] rounded-3xl p-6 sm:p-8 md:p-10 w-full flex flex-col justify-between shadow-sm relative overflow-hidden">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={selectedArea.id}

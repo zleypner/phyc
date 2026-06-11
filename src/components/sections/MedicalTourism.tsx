@@ -51,7 +51,7 @@ export default function MedicalTourism() {
   return (
     <section ref={ref} className="section-padding bg-[#F4F7F8]">
       <div className="container">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column - Image/Visual */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -59,7 +59,7 @@ export default function MedicalTourism() {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#1E88A8] to-[#35B7C8] p-8 md:p-12">
+            <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#1E88A8] to-[#35B7C8] p-6 sm:p-8 md:p-12">
               {/* Background pattern */}
               <div
                 className="absolute inset-0 opacity-10"
