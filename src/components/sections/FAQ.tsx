@@ -53,7 +53,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section ref={ref} id="faq" className="section-padding bg-[#F4F7F8]">
+    <section ref={ref} id="faq" className="py-20 md:py-28 lg:py-36 bg-[#F4F7F8]">
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left Column - Header */}

@@ -2,74 +2,29 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import {
-  ClipboardCheck,
-  Microscope,
-  FileSpreadsheet,
-  Dumbbell,
-  Shield,
-} from 'lucide-react';
+import { Search, FileCheck, HeartPulse } from 'lucide-react';
 
 const steps = [
   {
-    step: 1,
-    icon: ClipboardCheck,
-    title: 'Evaluación Inicial',
+    step: '01',
+    icon: Search,
+    title: 'Evaluación Integral',
     description:
-      'Evaluación completa de tu condición, historial médico y objetivos personales para entender tu situación única.',
-    details: [
-      'Revisión del historial médico',
-      'Evaluación del dolor',
-      'Discusión de objetivos',
-    ],
+      'Realizamos una valoración completa para entender tu condición, identificar la causa del problema y definir objetivos claros de recuperación.',
   },
   {
-    step: 2,
-    icon: Microscope,
-    title: 'Evaluación Funcional',
+    step: '02',
+    icon: FileCheck,
+    title: 'Plan Personalizado',
     description:
-      'Examen físico profundo para identificar la causa raíz de tu condición y cualquier factor contribuyente.',
-    details: [
-      'Análisis del movimiento',
-      'Pruebas de fuerza',
-      'Evaluación del rango de movimiento',
-    ],
+      'Diseñamos un tratamiento adaptado a tu lesión, necesidades y estilo de vida utilizando técnicas basadas en evidencia.',
   },
   {
-    step: 3,
-    icon: FileSpreadsheet,
-    title: 'Plan de Tratamiento Personalizado',
-    description:
-      'Un programa de rehabilitación personalizado diseñado específicamente para tu condición, tiempo y necesidades de estilo de vida.',
-    details: [
-      'Protocolos basados en evidencia',
-      'Metas claras',
-      'Programa de ejercicios en casa',
-    ],
-  },
-  {
-    step: 4,
-    icon: Dumbbell,
-    title: 'Rehabilitación Activa',
-    description:
-      'Sesiones de terapia práctica combinando técnicas manuales, ejercicios terapéuticos y modalidades avanzadas.',
-    details: [
-      'Terapia manual',
-      'Ejercicios progresivos',
-      'Tratamientos avanzados',
-    ],
-  },
-  {
-    step: 5,
-    icon: Shield,
+    step: '03',
+    icon: HeartPulse,
     title: 'Recuperación y Prevención',
     description:
-      'Transición al mantenimiento independiente con estrategias para prevenir futuras lesiones y mantener tus resultados.',
-    details: [
-      'Estrategias de prevención',
-      'Programa de mantenimiento',
-      'Apoyo de seguimiento',
-    ],
+      'Te acompañamos durante todo el proceso para recuperar tu movilidad, reducir el dolor y prevenir futuras lesiones.',
   },
 ];
 
@@ -78,94 +33,102 @@ export default function RecoveryJourney() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section ref={ref} className="section-padding bg-gradient-to-br from-[#0E3A4A] to-[#1E88A8] overflow-hidden">
-      <div className="container">
+    <section
+      ref={ref}
+      className="relative py-24 md:py-32 lg:py-40 bg-gradient-to-br from-[#0E3A4A] via-[#134B5F] to-[#1E88A8] overflow-hidden"
+    >
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-[#35B7C8] rounded-full blur-3xl" />
+      </div>
+
+      <div className="container relative">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-12 md:mb-16"
+          className="text-center max-w-3xl mx-auto mb-16 md:mb-20"
         >
-          <span className="inline-block px-4 py-2 rounded-full bg-white/10 text-white/90 text-sm font-medium mb-4">
+          <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-sm text-white/90 text-sm font-medium mb-6">
             Tu Camino de Recuperación
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-            Del Dolor al Rendimiento
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+            Tu Recuperación en 3 Pasos
           </h2>
-          <p className="text-lg text-white/80">
-            Nuestro enfoque estructurado asegura que entiendas cada paso de tu
-            camino de rehabilitación y qué esperar en el proceso.
+          <p className="text-lg md:text-xl text-white/75 leading-relaxed max-w-2xl mx-auto">
+            Un proceso claro, personalizado y respaldado por profesionales para
+            ayudarte a recuperar tu movilidad y calidad de vida.
           </p>
         </motion.div>
 
-        {/* Timeline */}
+        {/* Steps Container */}
         <div className="relative">
-          {/* Timeline line - desktop */}
-          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-white/20 -translate-y-1/2" />
+          {/* Progress connector line - Desktop */}
+          <div className="hidden lg:block absolute top-[72px] left-[16.67%] right-[16.67%] h-[2px]">
+            <div className="w-full h-full bg-gradient-to-r from-white/20 via-white/40 to-white/20 rounded-full" />
+            {/* Animated progress dots */}
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={isInView ? { scaleX: 1 } : {}}
+              transition={{ duration: 1.2, delay: 0.5, ease: 'easeOut' }}
+              className="absolute inset-0 bg-gradient-to-r from-[#35B7C8] via-[#5EEAD4] to-[#35B7C8] origin-left rounded-full"
+              style={{ opacity: 0.6 }}
+            />
+          </div>
 
-          {/* Steps */}
-          <div className="grid lg:grid-cols-5 gap-8 lg:gap-6">
-            {steps.map((step, index) => (
-              <motion.div
-                key={step.step}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative"
-              >
-                {/* Connector line - mobile */}
-                {index < steps.length - 1 && (
-                  <div className="lg:hidden absolute left-8 top-20 bottom-0 w-0.5 bg-white/20" />
-                )}
-
-                {/* Step card */}
-                <div className="relative z-10">
-                  {/* Step number and icon */}
-                  <div className="flex lg:flex-col items-center gap-4 mb-4">
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      animate={isInView ? { scale: 1 } : {}}
-                      transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-                      className="relative"
-                    >
-                      <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-xl">
-                        <step.icon size={28} className="text-[#1E88A8]" />
-                      </div>
-                      <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-[#35B7C8] flex items-center justify-center text-white text-sm font-bold">
+          {/* Steps Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
+            {steps.map((step, index) => {
+              const IconComponent = step.icon;
+              return (
+                <motion.div
+                  key={step.step}
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: 0.2 + index * 0.15 }}
+                  className={`${index === 2 ? 'md:col-span-2 md:max-w-md md:mx-auto lg:col-span-1 lg:max-w-none' : ''}`}
+                >
+                  <div className="group relative bg-white/[0.07] backdrop-blur-md rounded-3xl p-8 md:p-10 border border-white/10 hover:bg-white/[0.12] hover:border-white/20 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/20 h-full">
+                    {/* Step Number - Large */}
+                    <div className="absolute -top-4 -right-2 md:top-6 md:right-6">
+                      <span className="text-6xl md:text-7xl font-bold text-white/[0.08] group-hover:text-white/[0.12] transition-colors duration-300 select-none">
                         {step.step}
-                      </div>
-                    </motion.div>
+                      </span>
+                    </div>
 
-                    <div className="lg:text-center flex-1 lg:flex-none">
-                      <h3 className="text-lg font-bold text-white mb-1">
+                    {/* Icon */}
+                    <div className="relative z-10 mb-6">
+                      <div className="w-16 h-16 md:w-18 md:h-18 rounded-2xl bg-gradient-to-br from-[#35B7C8] to-[#1E88A8] flex items-center justify-center shadow-lg shadow-[#35B7C8]/20 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-[#35B7C8]/30 transition-all duration-300">
+                        <IconComponent size={28} className="text-white" strokeWidth={1.5} />
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="relative z-10">
+                      {/* Step indicator */}
+                      <span className="inline-block text-[#5EEAD4] text-sm font-semibold tracking-wider mb-3">
+                        PASO {step.step}
+                      </span>
+
+                      {/* Title */}
+                      <h3 className="text-xl md:text-2xl font-bold text-white mb-4 leading-snug">
                         {step.title}
                       </h3>
-                    </div>
-                  </div>
 
-                  {/* Description */}
-                  <div className="lg:text-center pl-20 lg:pl-0">
-                    <p className="text-white/70 text-sm mb-4">
-                      {step.description}
-                    </p>
-
-                    {/* Details */}
-                    <div className="space-y-2">
-                      {step.details.map((detail) => (
-                        <p
-                          key={detail}
-                          className="text-xs text-white/60 flex items-center lg:justify-center gap-2"
-                        >
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#35B7C8]" />
-                          {detail}
-                        </p>
-                      ))}
+                      {/* Description */}
+                      <p className="text-white/70 leading-relaxed text-[15px] md:text-base max-w-sm">
+                        {step.description}
+                      </p>
                     </div>
+
+                    {/* Decorative corner accent */}
+                    <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[#35B7C8]/10 to-transparent rounded-bl-3xl rounded-tr-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
 
@@ -173,14 +136,24 @@ export default function RecoveryJourney() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="text-center mt-12 md:mt-16"
+          transition={{ duration: 0.5, delay: 0.8 }}
+          className="text-center mt-14 md:mt-20"
         >
           <a
-            href="#contact"
-            className="inline-flex items-center gap-2 bg-white text-[#0E3A4A] px-8 py-4 rounded-full font-semibold hover:bg-white/90 transition-all hover:scale-105 shadow-xl"
+            href="https://wa.me/50689680947"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-3 bg-white text-[#0E3A4A] px-8 py-4 rounded-2xl font-semibold text-base hover:bg-white/95 transition-all duration-300 hover:-translate-y-1 shadow-xl shadow-black/10 hover:shadow-2xl hover:shadow-black/15"
           >
-            Comienza Tu Camino de Recuperación
+            Comienza Tu Recuperación
+            <svg
+              className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
           </a>
         </motion.div>
       </div>

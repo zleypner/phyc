@@ -10,7 +10,6 @@ import WhyChooseUs from '@/components/sections/WhyChooseUs';
 import Specialists from '@/components/sections/Specialists';
 import RecoveryJourney from '@/components/sections/RecoveryJourney';
 import Testimonials from '@/components/sections/Testimonials';
-import MedicalTourism from '@/components/sections/MedicalTourism';
 import FAQ from '@/components/sections/FAQ';
 import Contact from '@/components/sections/Contact';
 
@@ -28,7 +27,6 @@ export default function Home() {
         <Specialists />
         <RecoveryJourney />
         <Testimonials />
-        <MedicalTourism />
         <FAQ />
         <Contact />
       </main>

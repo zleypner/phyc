@@ -98,7 +98,7 @@ export default function PainMap() {
   };
 
   return (
-    <section ref={ref} id="pain-map" className="section-padding bg-white relative">
+    <section ref={ref} id="pain-map" className="py-20 md:py-28 lg:py-36 bg-white relative">
       {/* Decorative background shapes - contained within viewport */}
       <div className="absolute top-0 right-0 w-72 h-72 bg-[#1E88A8]/5 rounded-full blur-3xl pointer-events-none" style={{ zIndex: 0 }} />
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#35B7C8]/5 rounded-full blur-3xl pointer-events-none" style={{ zIndex: 0 }} />
@@ -109,9 +109,9 @@ export default function PainMap() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-14 md:mb-20"
         >
-          <p className="text-[#1E88A8] text-sm md:text-base font-medium uppercase tracking-wider mb-2">
+          <p className="text-[#1E88A8] text-sm md:text-base font-medium uppercase tracking-wider mb-4">
             Autoevaluación Rápida
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0E3A4A] mb-4">

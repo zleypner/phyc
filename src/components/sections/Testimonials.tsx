@@ -239,7 +239,7 @@ export default function Testimonials() {
       <section
         ref={ref}
         id="testimonials"
-        className="relative py-20 md:py-28 lg:py-32 bg-[#F8FAFC] overflow-hidden"
+        className="relative py-20 md:py-28 lg:py-36 bg-[#F8FAFC] overflow-hidden"
         aria-labelledby="testimonials-heading"
       >
         {/* Background Pattern */}

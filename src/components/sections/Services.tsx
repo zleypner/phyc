@@ -116,16 +116,16 @@ export default function Services() {
   const [activeGroup, setActiveGroup] = useState<string | null>(null);
 
   return (
-    <section ref={ref} id="services" className="section-padding bg-white">
+    <section ref={ref} id="services" className="py-20 md:py-28 lg:py-36 bg-white">
       <div className="container">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-14 md:mb-20"
         >
-          <p className="text-[#1E88A8] text-sm md:text-base font-medium uppercase tracking-wider mb-2">
+          <p className="text-[#1E88A8] text-sm md:text-base font-medium uppercase tracking-wider mb-4">
             Nuestros Servicios
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0E3A4A] mb-4">
@@ -263,7 +263,7 @@ export default function Services() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-center mt-12 md:mt-16"
+          className="text-center mt-14 md:mt-20"
         >
           <a
             href="#contact"

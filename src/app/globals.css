@@ -38,10 +38,17 @@
   --space-3xl: var(--space-32);
 
   /* ==========================================
-     SECTION PADDING (geosite-style: compact)
+     SECTION PADDING (Premium Healthcare Aesthetic)
+     Mobile: 80-96px | Tablet: 112-128px | Desktop: 140-160px
      ========================================== */
-  --section-padding-mobile: 64px;
-  --section-padding-desktop: 96px;
+  --section-padding-mobile: 80px;
+  --section-padding-tablet: 112px;
+  --section-padding-desktop: 140px;
+
+  /* Large section spacing for visual separation */
+  --section-padding-lg-mobile: 96px;
+  --section-padding-lg-tablet: 128px;
+  --section-padding-lg-desktop: 160px;
 
   /* ==========================================
      CONTAINER SYSTEM (geosite-style)
@@ -321,7 +328,8 @@ p {
 }
 
 /* ============================================
-   SECTION SPACING (geosite-style: py-16 md:py-24)
+   SECTION SPACING (Premium Healthcare Aesthetic)
+   Mobile: py-20 (80px) | Tablet: py-28 (112px) | Desktop: py-36 (140px)
    ============================================ */
 .section-padding {
   padding-top: var(--section-padding-mobile);
@@ -330,13 +338,41 @@ p {
 
 @media (min-width: 768px) {
   .section-padding {
+    padding-top: var(--section-padding-tablet);
+    padding-bottom: var(--section-padding-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
     padding-top: var(--section-padding-desktop);
     padding-bottom: var(--section-padding-desktop);
   }
 }
 
+/* Large section padding for major content blocks */
+.section-padding-lg {
+  padding-top: var(--section-padding-lg-mobile);
+  padding-bottom: var(--section-padding-lg-mobile);
+}
+
+@media (min-width: 768px) {
+  .section-padding-lg {
+    padding-top: var(--section-padding-lg-tablet);
+    padding-bottom: var(--section-padding-lg-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding-lg {
+    padding-top: var(--section-padding-lg-desktop);
+    padding-bottom: var(--section-padding-lg-desktop);
+  }
+}
+
 /* ============================================
-   SECTION HEADER (geosite-style: mb-12 md:mb-16)
+   SECTION HEADER (Premium spacing)
+   Mobile: mb-12 (48px) | Tablet: mb-16 (64px) | Desktop: mb-20 (80px)
    ============================================ */
 .section-header {
   text-align: center;
@@ -348,6 +384,12 @@ p {
 @media (min-width: 768px) {
   .section-header {
     margin-bottom: 64px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-header {
+    margin-bottom: 80px;
   }
 }
 

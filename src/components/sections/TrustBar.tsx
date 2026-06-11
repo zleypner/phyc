@@ -81,9 +81,24 @@ export default function TrustBar() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section ref={ref} className="relative py-16 md:py-20 bg-white">
+    <section ref={ref} className="relative pt-16 pb-24 md:pt-24 md:pb-32 lg:pt-28 lg:pb-40 bg-white">
       <div className="container">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12 md:mb-16"
+        >
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1E88A8]/10 text-[#1E88A8] text-sm font-medium mb-4">
+            Resultados Comprobados
+          </span>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0E3A4A]">
+            Números que Respaldan Nuestra Excelencia
+          </h2>
+        </motion.div>
+
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10 lg:gap-12">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -92,25 +107,27 @@ export default function TrustBar() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="text-center group"
             >
-              <div className="inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-[#1E88A8]/10 to-[#35B7C8]/10 mb-4 group-hover:scale-110 transition-transform">
-                <stat.icon size={28} className="text-[#1E88A8]" />
+              <div className="inline-flex items-center justify-center w-16 h-16 md:w-18 md:h-18 rounded-2xl bg-gradient-to-br from-[#1E88A8]/10 to-[#35B7C8]/10 mb-5 group-hover:scale-110 transition-transform">
+                <stat.icon size={30} className="text-[#1E88A8]" />
               </div>
-              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0E3A4A] mb-2">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0E3A4A] mb-3">
                 <AnimatedCounter
                   value={stat.value}
                   suffix={stat.suffix}
                   inView={isInView}
                 />
               </div>
-              <p className="font-semibold text-[#0E3A4A] mb-1">{stat.label}</p>
-              <p className="text-sm text-[#6B7280]">{stat.description}</p>
+              <p className="font-semibold text-[#0E3A4A] text-lg mb-2">{stat.label}</p>
+              <p className="text-sm text-[#6B7280] max-w-[200px] mx-auto">{stat.description}</p>
             </motion.div>
           ))}
         </div>
       </div>
 
-      {/* Decorative line */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#1E88A8]/20 to-transparent" />
+      {/* Bottom separator */}
+      <div className="absolute bottom-0 left-0 right-0">
+        <div className="h-px bg-gradient-to-r from-transparent via-[#1E88A8]/30 to-transparent" />
+      </div>
     </section>
   );
 }

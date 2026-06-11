@@ -96,7 +96,7 @@ export default function Conditions() {
   const displayConditions = conditions.slice(0, 8);
 
   return (
-    <section ref={ref} id="conditions" className="py-20 md:py-28 lg:py-32 bg-[#F8FAFC]">
+    <section ref={ref} id="conditions" className="pt-24 pb-20 md:pt-32 md:pb-28 lg:pt-40 lg:pb-36 bg-[#F8FAFC]">
       <div className="container">
         {/* Section Header - improved spacing and hierarchy */}
         <motion.div
@@ -174,7 +174,7 @@ export default function Conditions() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="text-center mt-10 md:mt-16"
+          className="text-center mt-14 md:mt-20"
         >
           <p className="text-[#64748B] mb-6 text-lg">
             ¿No ves tu condición? Tratamos muchas más.

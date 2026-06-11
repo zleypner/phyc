@@ -49,7 +49,7 @@ export default function MedicalTourism() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section ref={ref} className="section-padding bg-[#F4F7F8]">
+    <section ref={ref} className="py-20 md:py-28 lg:py-36 bg-[#F4F7F8]">
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column - Image/Visual */}

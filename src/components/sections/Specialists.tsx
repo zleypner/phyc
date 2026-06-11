@@ -47,7 +47,7 @@ export default function Specialists() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section ref={ref} id="specialists" className="section-padding bg-[#F8FAFC]">
+    <section ref={ref} id="specialists" className="py-20 md:py-28 lg:py-36 bg-[#F8FAFC]">
       <div className="container">
         {/* Section Header */}
         <motion.div
