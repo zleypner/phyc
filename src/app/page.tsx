@@ -5,7 +5,6 @@ import Hero from '@/components/sections/Hero';
 import TrustBar from '@/components/sections/TrustBar';
 import Conditions from '@/components/sections/Conditions';
 import PainMap from '@/components/sections/PainMap';
-import WhyChooseUs from '@/components/sections/WhyChooseUs';
 import Specialists from '@/components/sections/Specialists';
 import RecoveryJourney from '@/components/sections/RecoveryJourney';
 import Testimonials from '@/components/sections/Testimonials';
@@ -21,7 +20,6 @@ export default function Home() {
         <TrustBar />
         <Conditions />
         <PainMap />
-        <WhyChooseUs />
         <Specialists />
         <RecoveryJourney />
         <Testimonials />
