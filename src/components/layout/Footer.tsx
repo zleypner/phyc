@@ -40,7 +40,7 @@ const footerLinks = {
     { label: 'Nuestros Especialistas', href: '#specialists' },
     { label: 'Casos de Éxito', href: '#testimonials' },
     { label: 'Blog', href: '/blog' },
-    { label: 'Contacto', href: '#contact' },
+    { label: 'Contacto', href: '/contacto' },
   ],
   conditions: [
     { label: 'Dolor de Espalda', href: '#conditions' },

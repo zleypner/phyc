@@ -21,8 +21,9 @@ const WhatsAppIcon = ({ size = 24, className = '' }: { size?: number; className?
 const navItems = [
   { href: '/', label: 'Inicio' },
   { href: '/#conditions', label: 'Servicios' },
+  { href: '/#testimonials', label: 'Testimonios' },
   { href: '/blog', label: 'Blog' },
-  { href: '/#contact', label: 'Contacto' },
+  { href: '/contacto', label: 'Contacto' },
 ];
 
 export default function Header() {
