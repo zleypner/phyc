@@ -634,12 +634,22 @@ select:focus-visible {
   50% { opacity: 0.7; }
 }
 
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
 
 .animate-pulse-soft {
   animation: pulse-soft 2s ease-in-out infinite;
+}
+
+.animate-marquee {
+  animation: marquee linear infinite;
+  will-change: transform;
 }
 
 /* ============================================
