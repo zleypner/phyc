@@ -271,7 +271,7 @@ function TestimonialCard({
 function Marquee({
   children,
   direction = 'left',
-  speed = 30,
+  speed = 10,
   pauseOnHover = true,
 }: {
   children: React.ReactNode;
@@ -459,7 +459,7 @@ export default function Testimonials() {
           </div>
 
           {/* Single Row - Moving Left */}
-          <Marquee direction="left" speed={50}>
+          <Marquee direction="left" speed={60}>
             {testimonials.map((testimonial) => (
               <TestimonialCard
                 key={testimonial.name}
