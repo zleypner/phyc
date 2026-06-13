@@ -135,7 +135,7 @@ export default function Hero() {
           repeat: Infinity,
           ease: 'easeInOut',
         }}
-        className="absolute top-[20%] right-[25%] w-[400px] h-[400px] rounded-full bg-[#35B7C8]/10 blur-[120px] z-10"
+        className="absolute top-[20%] right-[10%] sm:right-[25%] w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] lg:w-[400px] lg:h-[400px] rounded-full bg-[#35B7C8]/10 blur-[80px] sm:blur-[100px] lg:blur-[120px] z-10"
       />
       <motion.div
         animate={{
@@ -148,7 +148,7 @@ export default function Hero() {
           ease: 'easeInOut',
           delay: 2,
         }}
-        className="absolute bottom-[30%] left-[5%] w-[300px] h-[300px] rounded-full bg-[#5EEAD4]/8 blur-[100px] z-10"
+        className="absolute bottom-[30%] left-[5%] w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px] rounded-full bg-[#5EEAD4]/8 blur-[60px] sm:blur-[80px] lg:blur-[100px] z-10"
       />
 
       {/* ============================================
@@ -198,7 +198,7 @@ export default function Hero() {
                 </p>
 
                 {/* CTA Section with Social Proof */}
-                <div className="flex flex-wrap items-center gap-6 sm:gap-8">
+                <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-5 sm:gap-8">
                   {/* WhatsApp Button */}
                   <a
                     href="https://wa.me/50689680947"
@@ -314,7 +314,7 @@ export default function Hero() {
           <div className="bg-gradient-to-r from-[#0E3D4A] via-[#156378]/90 to-[#0E3D4A] backdrop-blur-xl">
             <div className="max-w-[1300px] mx-auto px-6 sm:px-8 lg:px-12 py-6 sm:py-8">
               {/* Features Grid */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
                 {featureItems.map((feature, index) => (
                   <div key={index} className="flex items-start gap-3 sm:gap-4">
                     {/* Icon */}

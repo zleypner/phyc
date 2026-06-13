@@ -129,7 +129,7 @@ function VideoModal({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-sm"
           onClick={onClose}
         >
           {/* Modal Content */}
@@ -162,14 +162,14 @@ function VideoModal({
             </div>
 
             {/* Video Info */}
-            <div className="p-6 bg-white">
-              <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-3 ${categoryColors[video.category] || 'bg-red-100 text-red-700'}`}>
+            <div className="p-4 sm:p-6 bg-white">
+              <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-2 sm:mb-3 ${categoryColors[video.category] || 'bg-red-100 text-red-700'}`}>
                 {video.category}
               </span>
-              <h3 className="text-xl font-bold text-[#0E3A4A] mb-2">
+              <h3 className="text-lg sm:text-xl font-bold text-[#0E3A4A] mb-1.5 sm:mb-2">
                 {video.title}
               </h3>
-              <p className="text-[#6B7280]">{video.description}</p>
+              <p className="text-sm sm:text-base text-[#6B7280]">{video.description}</p>
             </div>
           </motion.div>
         </motion.div>

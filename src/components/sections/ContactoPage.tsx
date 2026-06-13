@@ -235,12 +235,12 @@ export default function ContactoPage() {
                   <p className="text-base font-semibold text-[#0E3A4A]">
                     ¿Cómo llegar?
                   </p>
-                  <div className="flex gap-3">
+                  <div className="flex flex-col min-[400px]:flex-row gap-3 w-full sm:w-auto">
                     <a
                       href="https://www.google.com/maps/search/?api=1&query=Physical+Care+Fisioterapia+San+Pedro+Vargas+Araya"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 bg-[#0E3A4A] hover:bg-[#1E88A8] text-white py-3 px-6 rounded-xl font-semibold text-sm transition-all duration-300 shadow-md"
+                      className="flex items-center justify-center gap-2 bg-[#0E3A4A] hover:bg-[#1E88A8] text-white py-3 px-6 rounded-xl font-semibold text-sm transition-all duration-300 shadow-md flex-1 min-[400px]:flex-initial"
                     >
                       <MapPin size={18} />
                       Google Maps
@@ -249,7 +249,7 @@ export default function ContactoPage() {
                       href="https://waze.com/ul?q=Physical+Care+Fisioterapia+Vargas+Araya&navigate=yes"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 bg-[#33CCFF] hover:bg-[#2CBEEF] text-white py-3 px-6 rounded-xl font-semibold text-sm transition-all duration-300 shadow-md"
+                      className="flex items-center justify-center gap-2 bg-[#33CCFF] hover:bg-[#2CBEEF] text-white py-3 px-6 rounded-xl font-semibold text-sm transition-all duration-300 shadow-md flex-1 min-[400px]:flex-initial"
                     >
                       <WazeIcon size={18} />
                       Waze

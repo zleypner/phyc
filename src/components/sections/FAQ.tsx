@@ -107,8 +107,8 @@ export default function FAQ() {
     <section ref={ref} id="faq" className="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-[#F8FBFC] via-[#F0F7F9] to-[#E8F4F6] relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#5EEAD4]/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#1E88A8]/5 rounded-full blur-[100px]" />
+        <div className="absolute top-0 right-0 w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] lg:w-[500px] lg:h-[500px] bg-[#5EEAD4]/5 rounded-full blur-[80px] sm:blur-[100px] lg:blur-[120px]" />
+        <div className="absolute bottom-0 left-0 w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] lg:w-[400px] lg:h-[400px] bg-[#1E88A8]/5 rounded-full blur-[60px] sm:blur-[80px] lg:blur-[100px]" />
       </div>
 
       {/* Bottom decorative plants */}

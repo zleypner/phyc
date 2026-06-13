@@ -113,13 +113,13 @@ export default function Specialists() {
                   </p>
 
                   {/* Credentials Row */}
-                  <div className="grid grid-cols-3 gap-4 mb-6 pb-6 border-b border-gray-100">
+                  <div className="grid grid-cols-1 min-[400px]:grid-cols-3 gap-3 sm:gap-4 mb-6 pb-6 border-b border-gray-100">
                     {specialist.credentials.map((cred, idx) => {
                       const IconComponent = cred.icon;
                       return (
-                        <div key={idx} className="flex items-start gap-2">
+                        <div key={idx} className="flex items-start gap-2.5 sm:gap-2">
                           <IconComponent size={18} className="text-[#1E88A8] mt-0.5 flex-shrink-0" />
-                          <div className="text-xs text-[#64748B] leading-tight">
+                          <div className="text-[13px] sm:text-xs text-[#64748B] leading-tight">
                             <span>{cred.label}</span>
                             <br />
                             <span className="font-medium text-[#475569]">{cred.sublabel}</span>
