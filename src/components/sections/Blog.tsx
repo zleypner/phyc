@@ -81,7 +81,7 @@ export default function Blog() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-12 md:mb-16"
+          className="text-center max-w-3xl mx-auto mb-12"
         >
           <span className="inline-block px-4 py-2 rounded-full bg-[#1E88A8]/10 text-[#1E88A8] text-sm font-medium mb-4">
             Blog
@@ -89,7 +89,7 @@ export default function Blog() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0E3A4A] mb-6">
             Artículos y Recursos de Salud
           </h2>
-          <p className="text-lg text-[#6B7280]">
+          <p className="text-[#6B7280]">
             Consejos de expertos, tips de rehabilitación y los últimos conocimientos de nuestro
             equipo para ayudarle en su camino de recuperación.
           </p>
@@ -125,7 +125,7 @@ export default function Blog() {
                   >
                     {blogPosts[0].category}
                   </span>
-                  <h3 className="text-2xl font-bold text-[#0E3A4A] mb-3 group-hover:text-[#1E88A8] transition-colors">
+                  <h3 className="text-2xl font-bold text-[#0E3A4A] mb-4 group-hover:text-[#1E88A8] transition-colors">
                     {blogPosts[0].title}
                   </h3>
                   <p className="text-[#6B7280] mb-6 flex-grow">
@@ -154,7 +154,7 @@ export default function Blog() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: (index + 1) * 0.1 }}
             >
-              <article className="group h-full bg-[#F4F7F8] rounded-2xl overflow-hidden card-hover">
+              <article className="group h-full bg-[#F4F7F8] rounded-3xl overflow-hidden card-hover">
                 {/* Image placeholder */}
                 <div className="h-48 bg-gradient-to-br from-[#0E3A4A] to-[#1E88A8] flex items-center justify-center">
                   <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center text-white font-bold text-xl">
@@ -163,9 +163,9 @@ export default function Blog() {
                 </div>
 
                 {/* Content */}
-                <div className="p-6">
+                <div className="p-8">
                   <span
-                    className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-3 ${
+                    className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-4 ${
                       categoryColors[post.category]
                     }`}
                   >
@@ -192,7 +192,7 @@ export default function Blog() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-center mt-10 md:mt-16"
+          className="text-center mt-12"
         >
           <a
             href="/blog"

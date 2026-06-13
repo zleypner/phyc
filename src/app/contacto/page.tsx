@@ -30,7 +30,7 @@ export default function Contacto() {
   return (
     <>
       <Header />
-      <main className="pt-20">
+      <main>
         <ContactoPage />
       </main>
       <Footer />

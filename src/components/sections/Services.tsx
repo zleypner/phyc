@@ -118,21 +118,21 @@ export default function Services() {
   return (
     <section ref={ref} id="services" className="py-20 md:py-28 lg:py-36 bg-white">
       <div className="container">
-        {/* Section Header */}
+        {/* Section Header - Premium consistency */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-14 md:mb-20"
         >
-          <p className="text-[#1E88A8] text-sm md:text-base font-medium uppercase tracking-wider mb-4">
+          <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1E88A8]/8 text-[#1E88A8] text-sm font-semibold mb-6 tracking-wide">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#1E88A8]" />
             Nuestros Servicios
-          </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0E3A4A] mb-4">
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-[#0E3A4A] mb-6 leading-tight tracking-tight">
             Atención Integral para Tu Recuperación
           </h2>
-          <div className="w-24 h-0.5 bg-[#1E88A8] mx-auto mb-4"></div>
-          <p className="text-base md:text-lg text-[#475569] leading-relaxed max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-[#64748B] leading-relaxed max-w-3xl mx-auto">
             Desde rehabilitación deportiva hasta bienestar preventivo, ofrecemos tratamientos
             basados en evidencia para ayudarte a alcanzar una salud óptima.
           </p>
@@ -258,7 +258,7 @@ export default function Services() {
           ))}
         </div>
 
-        {/* CTA */}
+        {/* CTA - Premium consistency */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -267,7 +267,7 @@ export default function Services() {
         >
           <a
             href="#contact"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 md:px-10 md:py-4 bg-gradient-to-r from-[#1E88A8] to-[#35B7C8] text-white rounded font-semibold text-sm md:text-base shadow-lg transition-all duration-300 hover:shadow-xl"
+            className="btn btn-primary inline-flex items-center gap-3"
           >
             Agenda una Consulta
             <ArrowRight size={18} />

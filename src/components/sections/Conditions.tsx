@@ -96,16 +96,16 @@ export default function Conditions() {
   const displayConditions = conditions.slice(0, 8);
 
   return (
-    <section ref={ref} id="conditions" className="pt-24 pb-20 md:pt-32 md:pb-28 lg:pt-40 lg:pb-36 bg-[#F8FAFC]">
+    <section ref={ref} id="conditions" className="py-16 md:py-24 lg:py-32 bg-[#F8FAFC]">
       <div className="container">
         {/* Section Header - improved spacing and hierarchy */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16 md:mb-20"
+          className="flex flex-col items-center text-center max-w-3xl mx-auto mb-12"
         >
-          <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1E88A8]/8 text-[#1E88A8] text-sm font-semibold mb-6 tracking-wide">
+          <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1E88A8]/8 text-[#1E88A8] text-sm font-semibold mb-4 tracking-wide">
             <span className="w-1.5 h-1.5 rounded-full bg-[#1E88A8]" />
             Condiciones que Tratamos
           </span>
@@ -119,7 +119,7 @@ export default function Conditions() {
         </motion.div>
 
         {/* Conditions Grid - balanced 2x4 on desktop */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {displayConditions.map((condition, index) => (
             <motion.div
               key={condition.title}
@@ -128,7 +128,7 @@ export default function Conditions() {
               transition={{ duration: 0.5, delay: index * 0.06 }}
               className="group"
             >
-              <div className="h-full bg-white rounded-2xl p-7 lg:p-8 border border-transparent hover:border-[#1E88A8]/20 shadow-[0_2px_12px_rgba(14,58,74,0.04)] hover:shadow-[0_12px_40px_rgba(14,58,74,0.08)] cursor-pointer transition-all duration-300 hover:-translate-y-1">
+              <div className="h-full bg-white rounded-3xl p-8 border border-transparent hover:border-[#1E88A8]/20 shadow-[0_2px_12px_rgba(14,58,74,0.04)] hover:shadow-[0_12px_40px_rgba(14,58,74,0.08)] cursor-pointer transition-all duration-300 hover:-translate-y-1">
                 {/* Icon */}
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#1E88A8]/8 to-[#35B7C8]/8 flex items-center justify-center mb-5 group-hover:bg-gradient-to-br group-hover:from-[#1E88A8] group-hover:to-[#35B7C8] transition-all duration-300">
                   <condition.icon
@@ -174,14 +174,14 @@ export default function Conditions() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="text-center mt-14 md:mt-20"
+          className="text-center mt-12 md:mt-16"
         >
           <p className="text-[#64748B] mb-6 text-lg">
             ¿No ves tu condición? Tratamos muchas más.
           </p>
           <a
             href="#contact"
-            className="inline-flex items-center gap-3 btn btn-primary"
+            className="inline-flex items-center gap-3 btn btn-primary cursor-pointer"
           >
             Obtener Consulta Gratuita
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

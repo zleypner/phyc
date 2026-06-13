@@ -1,14 +1,13 @@
 'use client';
 
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowDown, Award, Users, Activity, ClipboardList } from 'lucide-react';
+import { useRef, useState, useEffect, useCallback } from 'react';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { ChevronLeft, ChevronRight, User, CheckCircle, Calendar, Heart } from 'lucide-react';
+import Image from 'next/image';
 
 // WhatsApp SVG Icon
-const WhatsAppIcon = ({ size = 24, className = '' }: { size?: number; className?: string }) => (
+const WhatsAppIcon = ({ className = '' }: { className?: string }) => (
   <svg
-    width={size}
-    height={size}
     viewBox="0 0 24 24"
     fill="currentColor"
     className={className}
@@ -17,215 +16,454 @@ const WhatsAppIcon = ({ size = 24, className = '' }: { size?: number; className?
   </svg>
 );
 
-// Trust badges data with icons
-const trustBadges = [
-  { text: '9+ Años de Experiencia', icon: Award },
-  { text: 'Especialistas Certificados', icon: Users },
-  { text: 'Expertos en Rehabilitación Deportiva', icon: Activity },
-  { text: 'Planes de Tratamiento Personalizados', icon: ClipboardList },
+// Carousel slides data
+const heroSlides = [
+  {
+    id: 1,
+    badge: 'Centro de Rehabilitación Líder en Costa Rica',
+    headline: 'Recupera Tu Movimiento.',
+    headlineHighlight: 'Vive Sin Dolor.',
+    subtitle: 'Fisioterapia personalizada y rehabilitación deportiva con tratamientos basados en evidencia para ayudarte a',
+    subtitleHighlight: 'moverte sin dolor',
+    subtitleEnd: 'y volver a lo que amas.',
+  },
+  {
+    id: 2,
+    badge: 'Rehabilitación Deportiva Especializada',
+    headline: 'Vuelve al Deporte.',
+    headlineHighlight: 'Más Fuerte que Antes.',
+    subtitle: 'Programas de rehabilitación diseñados para atletas que buscan',
+    subtitleHighlight: 'recuperación completa',
+    subtitleEnd: 'y prevención de futuras lesiones.',
+  },
+  {
+    id: 3,
+    badge: 'Tratamiento del Dolor Crónico',
+    headline: 'Libérate del Dolor.',
+    headlineHighlight: 'Recupera Tu Vida.',
+    subtitle: 'Técnicas avanzadas de fisioterapia para tratar el dolor crónico y ayudarte a',
+    subtitleHighlight: 'vivir plenamente',
+    subtitleEnd: 'cada día.',
+  },
+  {
+    id: 4,
+    badge: 'Atención Personalizada',
+    headline: 'Tu Bienestar.',
+    headlineHighlight: 'Nuestra Prioridad.',
+    subtitle: 'Planes de tratamiento individualizados con seguimiento continuo para garantizar',
+    subtitleHighlight: 'resultados reales',
+    subtitleEnd: 'y duraderos.',
+  },
 ];
+
+// Feature bar items
+const featureItems = [
+  {
+    icon: User,
+    title: 'Atención',
+    titleLine2: 'Personalizada',
+    description: 'Planes adaptados a ti',
+  },
+  {
+    icon: CheckCircle,
+    title: 'Profesionales',
+    titleLine2: 'Certificados',
+    description: 'Experiencia y confianza',
+  },
+  {
+    icon: Calendar,
+    title: 'Seguimiento',
+    titleLine2: 'Continuo',
+    description: 'Acompañamiento real',
+  },
+  {
+    icon: Heart,
+    title: 'Resultados',
+    titleLine2: 'Comprobados',
+    description: 'Tu bienestar, nuestra meta',
+  },
+];
+
+// Auto-play interval in milliseconds
+const AUTOPLAY_INTERVAL = 8000;
 
 export default function Hero() {
   const containerRef = useRef<HTMLElement>(null);
+  const [currentSlide, setCurrentSlide] = useState(3); // Start on slide 4 (index 3)
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end start'],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.1]);
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.05]);
+
+  // Navigate to next slide
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+  }, []);
+
+  // Navigate to previous slide
+  const prevSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+  }, []);
+
+  // Go to specific slide
+  const goToSlide = useCallback((index: number) => {
+    setCurrentSlide(index);
+    setIsAutoPlaying(false);
+    // Resume autoplay after user interaction
+    setTimeout(() => setIsAutoPlaying(true), 10000);
+  }, []);
+
+  // Auto-play logic
+  useEffect(() => {
+    if (isAutoPlaying) {
+      autoPlayRef.current = setInterval(nextSlide, AUTOPLAY_INTERVAL);
+    }
+    return () => {
+      if (autoPlayRef.current) {
+        clearInterval(autoPlayRef.current);
+      }
+    };
+  }, [isAutoPlaying, nextSlide]);
+
+  // Pause autoplay on hover
+  const handleMouseEnter = () => setIsAutoPlaying(false);
+  const handleMouseLeave = () => setIsAutoPlaying(true);
+
+  const currentData = heroSlides[currentSlide];
 
   return (
     <section
       ref={containerRef}
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen overflow-hidden"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
-      {/* Background with parallax */}
+      {/* ============================================
+          BACKGROUND SYSTEM - Premium depth layers
+          ============================================ */}
       <motion.div
         style={{ y, scale }}
         className="absolute inset-0 z-0"
       >
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0E3A4A]/95 via-[#1E88A8]/85 to-[#35B7C8]/75 z-10" />
+        {/* Base gradient - Dark teal */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0A2E38] via-[#0E3D4A] to-[#156378] z-0" />
 
-        {/* Background pattern */}
+        {/* Radial gradient for depth */}
         <div
-          className="absolute inset-0 opacity-[0.07]"
+          className="absolute inset-0 z-10"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            background: 'radial-gradient(ellipse 60% 50% at 70% 50%, rgba(53, 183, 200, 0.12) 0%, transparent 60%)',
           }}
         />
 
-        {/* Bottom gradient for depth */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0E3A4A]/50 via-transparent to-transparent z-20" />
+        {/* Top light wash */}
+        <div
+          className="absolute inset-0 z-10"
+          style={{
+            background: 'radial-gradient(ellipse 80% 30% at 30% 0%, rgba(255, 255, 255, 0.05) 0%, transparent 50%)',
+          }}
+        />
       </motion.div>
 
-      {/* Floating decorative elements */}
+      {/* ============================================
+          DECORATIVE PLANT ELEMENTS
+          ============================================ */}
+      {/* Left bottom plant */}
+      <div className="absolute bottom-0 left-0 z-20 pointer-events-none opacity-60">
+        <svg width="200" height="400" viewBox="0 0 200 400" fill="none" className="hidden lg:block">
+          <path d="M20 400 C20 300, 80 250, 60 150 C40 50, 100 0, 100 0" stroke="rgba(94, 234, 212, 0.3)" strokeWidth="2" fill="none"/>
+          <path d="M60 150 C80 130, 120 140, 100 100" stroke="rgba(94, 234, 212, 0.25)" strokeWidth="1.5" fill="none"/>
+          <path d="M60 150 C40 130, 20 140, 30 100" stroke="rgba(94, 234, 212, 0.25)" strokeWidth="1.5" fill="none"/>
+          <path d="M80 220 C100 200, 140 210, 120 170" stroke="rgba(94, 234, 212, 0.2)" strokeWidth="1.5" fill="none"/>
+          <path d="M80 220 C60 200, 30 210, 50 170" stroke="rgba(94, 234, 212, 0.2)" strokeWidth="1.5" fill="none"/>
+        </svg>
+      </div>
+
+      {/* Right bottom plant */}
+      <div className="absolute bottom-0 right-0 z-20 pointer-events-none opacity-50">
+        <svg width="250" height="450" viewBox="0 0 250 450" fill="none" className="hidden lg:block">
+          <path d="M200 450 C200 350, 150 280, 180 180 C210 80, 160 20, 150 0" stroke="rgba(94, 234, 212, 0.25)" strokeWidth="2" fill="none"/>
+          <path d="M180 180 C150 160, 100 170, 130 120" stroke="rgba(94, 234, 212, 0.2)" strokeWidth="1.5" fill="none"/>
+          <path d="M180 180 C210 160, 240 170, 220 120" stroke="rgba(94, 234, 212, 0.2)" strokeWidth="1.5" fill="none"/>
+          <ellipse cx="130" cy="100" rx="30" ry="50" fill="rgba(94, 234, 212, 0.08)" transform="rotate(-20 130 100)"/>
+          <ellipse cx="220" cy="100" rx="25" ry="45" fill="rgba(94, 234, 212, 0.06)" transform="rotate(20 220 100)"/>
+        </svg>
+      </div>
+
+      {/* Floating ambient elements */}
       <motion.div
         animate={{
-          y: [0, -25, 0],
-          rotate: [0, 8, 0],
+          y: [0, -20, 0],
+          opacity: [0.2, 0.35, 0.2],
         }}
         transition={{
-          duration: 7,
+          duration: 8,
           repeat: Infinity,
           ease: 'easeInOut',
         }}
-        className="absolute top-1/4 right-8 md:right-24 w-36 h-36 rounded-full bg-white/5 blur-2xl z-10"
+        className="absolute top-[20%] right-[25%] w-[400px] h-[400px] rounded-full bg-[#35B7C8]/10 blur-[120px] z-10"
       />
       <motion.div
         animate={{
-          y: [0, 25, 0],
-          rotate: [0, -8, 0],
+          y: [0, 15, 0],
+          opacity: [0.15, 0.25, 0.15],
         }}
         transition={{
-          duration: 9,
+          duration: 10,
           repeat: Infinity,
           ease: 'easeInOut',
+          delay: 2,
         }}
-        className="absolute bottom-1/4 left-8 md:left-24 w-52 h-52 rounded-full bg-[#35B7C8]/15 blur-3xl z-10"
+        className="absolute bottom-[30%] left-[5%] w-[300px] h-[300px] rounded-full bg-[#5EEAD4]/8 blur-[100px] z-10"
       />
 
-      {/* Subtle floating medical crosses */}
+      {/* ============================================
+          MAIN CONTENT - Split Layout
+          ============================================ */}
       <motion.div
-        animate={{
-          y: [0, -15, 0],
-          x: [0, 10, 0],
-          opacity: [0.1, 0.25, 0.1],
-        }}
-        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute top-1/3 left-1/4 text-white text-3xl font-light select-none z-10"
+        style={{ opacity }}
+        className="relative z-30 min-h-screen flex flex-col"
       >
-        +
-      </motion.div>
-      <motion.div
-        animate={{
-          y: [0, 20, 0],
-          x: [0, -10, 0],
-          opacity: [0.08, 0.2, 0.08],
-        }}
-        transition={{ duration: 6.5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-        className="absolute bottom-1/3 right-1/4 text-[#35B7C8] text-4xl font-light select-none z-10"
-      >
-        +
-      </motion.div>
+        {/* Main content area */}
+        <div className="flex-1 flex items-center pt-24 sm:pt-28 md:pt-32 pb-48 sm:pb-56 md:pb-64 lg:pb-72">
+          <div className="w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
-      {/* Content */}
-      <motion.div style={{ opacity }} className="relative z-30 w-full pt-28 pb-40 md:pt-36 md:pb-48">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center">
-
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-medium mb-6"
-          >
-            <span className="w-2.5 h-2.5 rounded-full bg-[#35B7C8] animate-pulse" />
-            Centro de Rehabilitación Líder en Costa Rica
-          </motion.div>
-
-          {/* Main Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-[1.1] tracking-tight"
-          >
-            Recupera Tu Movimiento.
-            <br />
-            <span className="bg-gradient-to-r from-[#5EEAD4] via-[#22D3EE] to-[#38BDF8] bg-clip-text text-transparent">
-              Vive Sin Dolor.
-            </span>
-          </motion.h1>
-
-          {/* Subheadline */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-white/90 mb-8 max-w-[720px] mx-auto leading-relaxed"
-          >
-            Fisioterapia personalizada y rehabilitación deportiva con tratamientos
-            basados en evidencia para ayudarte a {' '}
-            <span className="text-[#5EEAD4] font-medium">moverte sin dolor</span>{' '}
-            y volver a lo que amas.
-          </motion.p>
-
-          {/* CTA Button - WhatsApp */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex items-center justify-center mb-16 md:mb-20"
-          >
-            <a
-              href="https://wa.me/50689680947"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative inline-flex items-center justify-center gap-3 min-w-[240px] w-full sm:w-auto max-w-[320px] h-14 sm:h-[56px] px-8 bg-[#25D366] text-white rounded-2xl font-semibold text-base shadow-lg shadow-[#25D366]/25 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#25D366]/35 hover:bg-[#22C55E] active:translate-y-0 active:shadow-md"
-              aria-label="Agendar cita por WhatsApp"
-            >
-              <WhatsAppIcon size={22} className="flex-shrink-0" />
-              <span>Agendar Cita</span>
-            </a>
-          </motion.div>
-
-          {/* Trust Badges */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 lg:gap-8 max-w-4xl mx-auto mb-16"
-          >
-            {trustBadges.map((badge, index) => {
-              const IconComponent = badge.icon;
-              return (
+              {/* Left Column - Content */}
+              <AnimatePresence mode="wait">
                 <motion.div
-                  key={badge.text}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
-                  className="group flex flex-col items-center gap-4 p-5 sm:p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-300 ease-out hover:bg-white/10 hover:-translate-y-0.5"
+                  key={currentSlide}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  className="flex flex-col items-start text-left"
                 >
-                  <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center transition-all duration-300 group-hover:bg-[#35B7C8]/20 group-hover:scale-105">
-                    <IconComponent size={24} className="text-[#5EEAD4]" />
+                  {/* Badge */}
+                  <div className="mb-6 sm:mb-8">
+                    <span className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.08] backdrop-blur-md border border-white/[0.12] text-white/90 text-[13px] sm:text-sm font-medium tracking-wide">
+                      <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse flex-shrink-0" />
+                      <span>{currentData.badge}</span>
+                    </span>
                   </div>
-                  <span className="text-white/90 text-sm sm:text-[15px] font-medium text-center leading-snug">
-                    {badge.text}
-                  </span>
+
+                  {/* Headline */}
+                  <h1 className="text-[36px] sm:text-[44px] md:text-[52px] lg:text-[56px] xl:text-[64px] font-bold text-white leading-[1.1] tracking-[-0.02em] mb-6 sm:mb-8">
+                    {currentData.headline}
+                    <br />
+                    <span
+                      className="bg-gradient-to-r from-[#5EEAD4] via-[#67E8F9] to-[#5EEAD4] bg-clip-text text-transparent"
+                      style={{ backgroundSize: '200% 100%' }}
+                    >
+                      {currentData.headlineHighlight}
+                    </span>
+                  </h1>
+
+                  {/* Subtitle */}
+                  <p className="max-w-[520px] text-[16px] sm:text-[17px] lg:text-[18px] text-white/70 leading-[1.7] mb-8 sm:mb-10">
+                    {currentData.subtitle}{' '}
+                    <span className="text-[#5EEAD4] font-medium">{currentData.subtitleHighlight}</span>{' '}
+                    {currentData.subtitleEnd}
+                  </p>
+
+                  {/* CTA Section with Social Proof */}
+                  <div className="flex flex-wrap items-center gap-6 sm:gap-8">
+                    {/* WhatsApp Button */}
+                    <a
+                      href="https://wa.me/50689680947"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group inline-flex items-center justify-center gap-2.5 h-[52px] sm:h-[56px] px-7 sm:px-8 bg-[#25D366] text-white rounded-full font-semibold text-[15px] sm:text-[16px] shadow-[0_8px_32px_rgba(37,211,102,0.35)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,211,102,0.45)] active:translate-y-0 active:scale-[0.98]"
+                      aria-label="Agendar cita por WhatsApp"
+                    >
+                      <WhatsAppIcon className="w-5 h-5 flex-shrink-0" />
+                      <span>Agendar Cita</span>
+                    </a>
+
+                    {/* Social Proof - Patient Avatars */}
+                    <div className="flex items-center gap-4">
+                      {/* Stacked Avatars */}
+                      <div className="flex -space-x-3">
+                        <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0E3D4A] overflow-hidden bg-gradient-to-br from-[#5EEAD4]/30 to-[#35B7C8]/30">
+                          <Image
+                            src="/specialists/yamilah.png"
+                            alt="Paciente"
+                            width={44}
+                            height={44}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0E3D4A] overflow-hidden bg-gradient-to-br from-[#5EEAD4]/30 to-[#35B7C8]/30">
+                          <Image
+                            src="/specialists/enmanuel.png"
+                            alt="Paciente"
+                            width={44}
+                            height={44}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0E3D4A] overflow-hidden bg-gradient-to-br from-[#5EEAD4]/30 to-[#35B7C8]/30 flex items-center justify-center">
+                          <span className="text-white/80 text-xs font-medium">+</span>
+                        </div>
+                      </div>
+                      {/* Text */}
+                      <div className="flex flex-col">
+                        <span className="text-[#5EEAD4] font-semibold text-[15px] sm:text-[16px]">+500 pacientes</span>
+                        <span className="text-white/60 text-[13px] sm:text-[14px]">Confían en nosotros</span>
+                      </div>
+                    </div>
+                  </div>
                 </motion.div>
-              );
-            })}
-          </motion.div>
+              </AnimatePresence>
+
+              {/* Right Column - Hero Image */}
+              <div className="relative hidden lg:flex items-center justify-center">
+                {/* Circular gradient background */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-[500px] h-[500px] xl:w-[580px] xl:h-[580px] rounded-full bg-gradient-to-br from-[#35B7C8]/30 via-[#5EEAD4]/20 to-transparent blur-sm" />
+                </div>
+
+                {/* Secondary glow */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-[450px] h-[450px] xl:w-[520px] xl:h-[520px] rounded-full bg-gradient-to-tr from-[#5EEAD4]/15 to-[#35B7C8]/25 blur-md" />
+                </div>
+
+                {/* Hero Image */}
+                <div className="relative z-10 w-full max-w-[550px] xl:max-w-[620px]">
+                  <Image
+                    src="/hero-woman.png"
+                    alt="Mujer relajada disfrutando de bienestar"
+                    width={620}
+                    height={700}
+                    className="w-full h-auto object-contain drop-shadow-2xl"
+                    priority
+                  />
+                </div>
+
+                {/* Right side decorative leaves */}
+                <div className="absolute -right-10 bottom-0 z-5 opacity-40">
+                  <svg width="180" height="350" viewBox="0 0 180 350" fill="none">
+                    <path d="M100 350 C120 280, 80 220, 120 140 C160 60, 100 0, 80 0" stroke="rgba(94, 234, 212, 0.4)" strokeWidth="2" fill="none"/>
+                    <ellipse cx="120" cy="80" rx="40" ry="60" fill="rgba(94, 234, 212, 0.1)" transform="rotate(25 120 80)"/>
+                    <ellipse cx="80" cy="160" rx="35" ry="55" fill="rgba(94, 234, 212, 0.08)" transform="rotate(-15 80 160)"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ============================================
+            FEATURE BAR - Bottom curved section
+            ============================================ */}
+        <div className="absolute bottom-0 left-0 right-0 z-40">
+          {/* Wave/Curve SVG */}
+          <div className="relative">
+            <svg
+              viewBox="0 0 1440 120"
+              fill="none"
+              preserveAspectRatio="none"
+              className="w-full h-16 sm:h-20 md:h-24"
+            >
+              <path
+                d="M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z"
+                fill="url(#wave-gradient)"
+                fillOpacity="0.95"
+              />
+              <defs>
+                <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#0E3D4A" />
+                  <stop offset="50%" stopColor="#156378" />
+                  <stop offset="100%" stopColor="#0E3D4A" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+
+          {/* Feature Bar Container */}
+          <div className="bg-gradient-to-r from-[#0E3D4A] via-[#156378]/90 to-[#0E3D4A] backdrop-blur-xl">
+            <div className="max-w-[1300px] mx-auto px-6 sm:px-8 lg:px-12 py-6 sm:py-8">
+              {/* Features Grid */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8">
+                {featureItems.map((feature, index) => (
+                  <div key={index} className="flex items-start gap-3 sm:gap-4">
+                    {/* Icon */}
+                    <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#5EEAD4]/10 border border-[#5EEAD4]/20 flex items-center justify-center">
+                      <feature.icon className="w-5 h-5 sm:w-6 sm:h-6 text-[#5EEAD4]" strokeWidth={1.5} />
+                    </div>
+                    {/* Text */}
+                    <div className="flex flex-col">
+                      <span className="text-white font-semibold text-[14px] sm:text-[15px] leading-tight">
+                        {feature.title}
+                        <br />
+                        {feature.titleLine2}
+                      </span>
+                      <span className="text-white/50 text-[12px] sm:text-[13px] mt-1">{feature.description}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Carousel Navigation */}
+              <div className="flex items-center justify-center gap-4 sm:gap-5">
+                {/* Previous button */}
+                <button
+                  onClick={prevSlide}
+                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/[0.08] backdrop-blur-sm border border-[#5EEAD4]/30 flex items-center justify-center text-[#5EEAD4]/70 hover:text-[#5EEAD4] hover:bg-white/[0.12] hover:border-[#5EEAD4]/50 transition-all duration-300 active:scale-95"
+                  aria-label="Slide anterior"
+                >
+                  <ChevronLeft size={18} strokeWidth={2} />
+                </button>
+
+                {/* Dots indicator */}
+                <div className="flex items-center gap-2.5">
+                  {heroSlides.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => goToSlide(index)}
+                      className={`relative h-2.5 rounded-full transition-all duration-500 ${
+                        index === currentSlide
+                          ? 'w-2.5 bg-[#5EEAD4]'
+                          : 'w-2.5 bg-white/30 hover:bg-white/50'
+                      }`}
+                      aria-label={`Ir a slide ${index + 1}`}
+                    >
+                      {/* Active ring */}
+                      {index === currentSlide && (
+                        <span className="absolute -inset-1 rounded-full border border-[#5EEAD4]/50" />
+                      )}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Next button */}
+                <button
+                  onClick={nextSlide}
+                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#5EEAD4] flex items-center justify-center text-[#0E3D4A] hover:bg-[#5EEAD4]/90 transition-all duration-300 active:scale-95"
+                  aria-label="Siguiente slide"
+                >
+                  <ChevronRight size={18} strokeWidth={2} />
+                </button>
+              </div>
+
+              {/* Slide counter */}
+              <div className="text-center mt-4 text-white/40 text-sm font-medium tracking-wide">
+                <span className="text-white/70">{String(currentSlide + 1).padStart(2, '0')}</span>
+                <span className="mx-2">/</span>
+                <span>{String(heroSlides.length).padStart(2, '0')}</span>
+              </div>
+            </div>
           </div>
         </div>
       </motion.div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.6 }}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-30"
-      >
-        <motion.a
-          href="#services"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-          className="flex flex-col items-center gap-2 text-white/60 hover:text-white/80 transition-colors duration-300 cursor-pointer"
-          aria-label="Desplazarse hacia abajo"
-        >
-          <span className="text-xs uppercase tracking-widest font-medium">Descubre más</span>
-          <ArrowDown size={20} />
-        </motion.a>
-      </motion.div>
-
-      {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F4F7F8] to-transparent z-20 pointer-events-none" />
     </section>
   );
 }

@@ -38,17 +38,20 @@
   --space-3xl: var(--space-32);
 
   /* ==========================================
-     SECTION PADDING (Premium Healthcare Aesthetic)
-     Mobile: 80-96px | Tablet: 112-128px | Desktop: 140-160px
+     SECTION PADDING (Premium Stripe/Linear Aesthetic)
+     Consistent 120px vertical spacing
      ========================================== */
   --section-padding-mobile: 80px;
-  --section-padding-tablet: 112px;
-  --section-padding-desktop: 140px;
+  --section-padding-tablet: 100px;
+  --section-padding-desktop: 120px;
 
-  /* Large section spacing for visual separation */
-  --section-padding-lg-mobile: 96px;
-  --section-padding-lg-tablet: 128px;
-  --section-padding-lg-desktop: 160px;
+  /* Large section spacing for major content blocks */
+  --section-padding-lg-mobile: 100px;
+  --section-padding-lg-tablet: 120px;
+  --section-padding-lg-desktop: 120px;
+
+  /* Hero to next section spacing */
+  --hero-section-gap: 120px;
 
   /* ==========================================
      CONTAINER SYSTEM (geosite-style)
@@ -139,27 +142,27 @@
   --h1-tablet: 56px;
   --h1-mobile: 40px;
 
-  /* H2: 56px desktop, 40px tablet, 32px mobile */
+  /* H2: 56px desktop, 48px tablet, 32px mobile */
   --h2-desktop: 56px;
-  --h2-tablet: 40px;
+  --h2-tablet: 48px;
   --h2-mobile: 32px;
 
-  /* H3: 32px desktop, 28px tablet, 24px mobile */
-  --h3-desktop: 32px;
-  --h3-tablet: 28px;
-  --h3-mobile: 24px;
+  /* H3: 24px desktop, 22px tablet, 20px mobile */
+  --h3-desktop: 24px;
+  --h3-tablet: 22px;
+  --h3-mobile: 20px;
 
-  /* H4: 24px desktop */
-  --h4-desktop: 24px;
-  --h4-tablet: 22px;
-  --h4-mobile: 20px;
+  /* H4: 20px desktop, 18px tablet, 16px mobile */
+  --h4-desktop: 20px;
+  --h4-tablet: 18px;
+  --h4-mobile: 16px;
 
-  /* Body: 20px desktop, 18px tablet, 16px mobile */
-  --body-desktop: 20px;
+  /* Body: 18px desktop, 18px tablet, 16px mobile */
+  --body-desktop: 18px;
   --body-tablet: 18px;
   --body-mobile: 16px;
 
-  --body-sm: 15px;
+  --body-sm: 16px;
   --body-xs: 14px;
 
   /* Line heights */
@@ -301,30 +304,38 @@ p {
    ============================================ */
 .container {
   width: 100%;
-  max-width: var(--container-max);
-  margin-inline: auto;
-  padding-inline: clamp(16px, 4vw, 32px);
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 .container-wide {
   width: 100%;
-  max-width: var(--container-max);
-  margin-inline: auto;
-  padding-inline: clamp(16px, 4vw, 32px);
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 .container-custom {
   width: 100%;
-  max-width: var(--content-max);
-  margin-inline: auto;
-  padding-inline: clamp(16px, 4vw, 32px);
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 .container-narrow {
   width: 100%;
-  max-width: var(--text-max);
-  margin-inline: auto;
-  padding-inline: clamp(16px, 4vw, 32px);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 /* ============================================
@@ -681,6 +692,16 @@ select:focus-visible {
   100% { transform: translateX(-33.333%); }
 }
 
+@keyframes marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes marquee-right {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(0); }
+}
+
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
@@ -692,6 +713,25 @@ select:focus-visible {
 .animate-marquee {
   animation: marquee linear infinite;
   will-change: transform;
+}
+
+.animate-marquee-left {
+  animation: marquee-left linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-right {
+  animation: marquee-right linear infinite;
+  will-change: transform;
+}
+
+/* Pause animation on hover */
+.pause {
+  animation-play-state: paused !important;
+}
+
+[class*="hover\\:pause"]:hover > div {
+  animation-play-state: paused;
 }
 
 /* ============================================

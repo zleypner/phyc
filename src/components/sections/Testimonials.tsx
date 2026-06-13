@@ -1,20 +1,19 @@
 'use client';
 
-import { useRef, useState, useCallback, useEffect } from 'react';
-import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import {
   Star,
   Target,
   Heart,
   Users,
-  ChevronLeft,
-  ChevronRight,
   UserCheck,
   Award,
   Sparkles,
   MessageCircle,
   Shield,
   Activity,
+  Quote,
 } from 'lucide-react';
 
 // Real testimonial data with conditions
@@ -117,6 +116,7 @@ const testimonials = [
   },
 ];
 
+
 // Trust metrics data
 const trustMetrics = [
   {
@@ -198,7 +198,7 @@ const conditionIcons: { [key: string]: typeof Activity } = {
   'Tendinitis': Activity,
 };
 
-// Testimonial Card Component
+// Testimonial Card Component for Marquee
 function TestimonialCard({
   name,
   therapist,
@@ -218,51 +218,93 @@ function TestimonialCard({
   const ConditionIcon = conditionIcons[condition] || Activity;
 
   return (
-    <article className="group h-full bg-white rounded-[20px] p-6 md:p-7 border border-gray-100 shadow-[0_2px_16px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_32px_rgba(30,136,168,0.12)] hover:border-[#1E88A8]/20 transition-all duration-300 flex flex-col">
-      {/* Header with stars and quote */}
+    <article className="flex-shrink-0 w-[340px] sm:w-[380px] bg-white rounded-2xl p-6 border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_32px_rgba(30,136,168,0.15)] hover:border-[#1E88A8]/20 transition-all duration-300 mx-3">
+      {/* Header with quote and stars */}
       <div className="flex items-start justify-between mb-4">
+        {/* Quote icon */}
+        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#1E88A8]/10 to-[#5EEAD4]/10 flex items-center justify-center">
+          <Quote size={18} className="text-[#1E88A8]" />
+        </div>
+
         {/* Stars */}
         <div className="flex gap-0.5">
           {[...Array(rating)].map((_, i) => (
-            <Star key={i} size={16} className="text-amber-400 fill-amber-400" />
+            <Star key={i} size={14} className="text-amber-400 fill-amber-400" />
           ))}
         </div>
-
-        {/* Quote mark */}
-        <span className="text-4xl text-[#1E88A8]/20 font-serif leading-none">"</span>
       </div>
 
       {/* Testimonial text */}
-      <blockquote className="text-[15px] text-[#374151] leading-relaxed mb-6 flex-grow">
+      <blockquote className="text-[15px] text-[#374151] leading-relaxed mb-5 line-clamp-3">
         "{testimonial}"
       </blockquote>
 
       {/* Patient info */}
-      <div className="flex items-center gap-3 mb-4">
+      <div className="flex items-center gap-3">
         {/* Avatar */}
-        <div className="flex-shrink-0 w-11 h-11 rounded-full bg-gradient-to-br from-[#1E88A8] to-[#35B7C8] flex items-center justify-center text-white font-semibold text-sm">
+        <div className="flex-shrink-0 w-11 h-11 rounded-full bg-gradient-to-br from-[#1E88A8] to-[#35B7C8] flex items-center justify-center text-white font-semibold text-sm shadow-lg shadow-[#1E88A8]/20">
           {initials}
         </div>
 
         <div className="min-w-0 flex-1">
           <p className="font-semibold text-[#0E3A4A] text-sm truncate">{name}</p>
-          <p className="text-xs text-[#64748B]">Atendida por {therapist}</p>
+          <div className="flex items-center gap-2 mt-0.5">
+            <span className="text-xs text-[#64748B]">Atendido por {therapist}</span>
+            <span className="w-1 h-1 rounded-full bg-[#CBD5E1]" />
+            <span className="inline-flex items-center gap-1 text-xs text-[#1E88A8] font-medium">
+              <ConditionIcon size={10} />
+              {condition}
+            </span>
+          </div>
         </div>
 
         {/* NPS Badge */}
-        <span className="flex-shrink-0 px-2.5 py-1 rounded-full bg-[#ECFDF5] text-[#059669] text-xs font-semibold">
-          NPS {nps}/10
-        </span>
-      </div>
-
-      {/* Condition tag */}
-      <div className="pt-4 border-t border-gray-100">
-        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#1E88A8]/8 text-[#1E88A8] text-xs font-medium">
-          <ConditionIcon size={12} />
-          {condition}
+        <span className="flex-shrink-0 px-2 py-1 rounded-full bg-[#ECFDF5] text-[#059669] text-[11px] font-bold">
+          {nps}/10
         </span>
       </div>
     </article>
+  );
+}
+
+// Marquee Component
+function Marquee({
+  children,
+  direction = 'left',
+  speed = 30,
+  pauseOnHover = true,
+}: {
+  children: React.ReactNode;
+  direction?: 'left' | 'right';
+  speed?: number;
+  pauseOnHover?: boolean;
+}) {
+  return (
+    <div
+      className={`flex overflow-hidden ${pauseOnHover ? '[&:hover>div]:pause' : ''}`}
+      style={{
+        maskImage: 'linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
+        WebkitMaskImage: 'linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
+      }}
+    >
+      <div
+        className={`flex shrink-0 gap-0 ${direction === 'left' ? 'animate-marquee-left' : 'animate-marquee-right'}`}
+        style={{
+          animationDuration: `${speed}s`,
+        }}
+      >
+        {children}
+      </div>
+      <div
+        className={`flex shrink-0 gap-0 ${direction === 'left' ? 'animate-marquee-left' : 'animate-marquee-right'}`}
+        style={{
+          animationDuration: `${speed}s`,
+        }}
+        aria-hidden="true"
+      >
+        {children}
+      </div>
+    </div>
   );
 }
 
@@ -306,45 +348,6 @@ export default function Testimonials() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
-  // Carousel state
-  const [currentPage, setCurrentPage] = useState(0);
-  const [itemsPerPage, setItemsPerPage] = useState(4);
-
-  // Update items per page based on screen size
-  useEffect(() => {
-    const updateItemsPerPage = () => {
-      if (window.innerWidth >= 1024) {
-        setItemsPerPage(4);
-      } else if (window.innerWidth >= 768) {
-        setItemsPerPage(2);
-      } else {
-        setItemsPerPage(1);
-      }
-    };
-
-    updateItemsPerPage();
-    window.addEventListener('resize', updateItemsPerPage);
-    return () => window.removeEventListener('resize', updateItemsPerPage);
-  }, []);
-
-  const totalPages = Math.ceil(testimonials.length / itemsPerPage);
-  const currentTestimonials = testimonials.slice(
-    currentPage * itemsPerPage,
-    (currentPage + 1) * itemsPerPage
-  );
-
-  const goToPrevious = useCallback(() => {
-    setCurrentPage((prev) => (prev === 0 ? totalPages - 1 : prev - 1));
-  }, [totalPages]);
-
-  const goToNext = useCallback(() => {
-    setCurrentPage((prev) => (prev === totalPages - 1 ? 0 : prev + 1));
-  }, [totalPages]);
-
-  const goToPage = useCallback((page: number) => {
-    setCurrentPage(page);
-  }, []);
-
   return (
     <>
       <TestimonialsSchema />
@@ -352,42 +355,49 @@ export default function Testimonials() {
       <section
         ref={ref}
         id="testimonials"
-        className="relative bg-[#FAFBFC] overflow-hidden"
-        style={{ paddingTop: '140px', paddingBottom: '140px' }}
+        className="relative bg-gradient-to-b from-[#F8FBFC] via-white to-[#F8FBFC] py-16 md:py-24 lg:py-32 overflow-hidden"
         aria-labelledby="testimonials-heading"
       >
-        {/* Subtle medical pattern background */}
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[#5EEAD4]/5 rounded-full blur-[150px]" />
+          <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[#1E88A8]/5 rounded-full blur-[120px]" />
+        </div>
+
+        {/* Subtle pattern */}
         <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0 opacity-[0.02]"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230E3A4A' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `radial-gradient(circle at 1px 1px, #0E3A4A 1px, transparent 0)`,
+            backgroundSize: '32px 32px',
           }}
         />
 
-        <div className="container relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container relative z-10">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className="flex justify-center mb-6"
+            className="flex justify-center mb-5"
           >
-            <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1E88A8]/10 text-[#1E88A8] text-sm font-medium">
+            <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#1E88A8]/10 to-[#5EEAD4]/10 border border-[#1E88A8]/10 text-[#1E88A8] text-sm font-semibold">
               <Star size={14} className="fill-current" />
               Historias reales, resultados reales
             </span>
           </motion.div>
 
-          {/* Main Heading - Serif style */}
+          {/* Main Heading */}
           <motion.h2
             id="testimonials-heading"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-center text-4xl md:text-5xl lg:text-[56px] font-bold text-[#0E3A4A] mb-8 leading-tight"
-            style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
+            className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold text-[#0E3A4A] mb-5 leading-[1.1] tracking-[-0.02em]"
           >
-            Lo que nuestros pacientes dicen
+            Lo que nuestros
+            <br className="sm:hidden" />
+            <span className="bg-gradient-to-r from-[#1E88A8] to-[#35B7C8] bg-clip-text text-transparent"> pacientes dicen</span>
           </motion.h2>
 
           {/* Supporting text */}
@@ -395,8 +405,7 @@ export default function Testimonials() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="text-center text-lg text-[#64748B] leading-relaxed max-w-[700px] mx-auto"
-            style={{ marginBottom: '64px' }}
+            className="text-center text-base sm:text-lg text-[#64748B] leading-relaxed max-w-[700px] mx-auto mb-12 md:mb-16"
           >
             Pacientes que han recuperado su movilidad, reducido su dolor y mejorado su calidad de
             vida gracias a nuestro equipo de fisioterapia.
@@ -407,8 +416,7 @@ export default function Testimonials() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto"
-            style={{ marginBottom: '80px' }}
+            className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto mb-16 md:mb-20"
           >
             {trustMetrics.map((metric, index) => {
               const IconComponent = metric.icon;
@@ -418,113 +426,67 @@ export default function Testimonials() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.4, delay: 0.25 + index * 0.08 }}
-                  className="bg-white rounded-[20px] p-5 md:p-6 border border-gray-100 shadow-[0_2px_16px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] transition-shadow duration-300"
+                  className="bg-white rounded-2xl p-5 md:p-6 border border-gray-100 shadow-[0_2px_16px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] transition-shadow duration-300"
                 >
                   <div
-                    className={`w-12 h-12 rounded-2xl ${metric.iconBg} flex items-center justify-center mb-4`}
+                    className={`w-10 h-10 md:w-12 md:h-12 rounded-xl ${metric.iconBg} flex items-center justify-center mb-3 md:mb-4`}
                   >
-                    <IconComponent size={24} className={metric.iconColor} />
+                    <IconComponent size={20} className={`${metric.iconColor} md:w-6 md:h-6`} />
                   </div>
-                  <p className="text-2xl md:text-3xl font-bold text-[#0E3A4A] mb-1">{metric.value}</p>
-                  <p className="text-sm text-[#64748B]">{metric.label}</p>
+                  <p className="text-xl md:text-2xl lg:text-3xl font-bold text-[#0E3A4A] mb-1">{metric.value}</p>
+                  <p className="text-xs md:text-sm text-[#64748B]">{metric.label}</p>
                 </motion.div>
               );
             })}
           </motion.div>
+        </div>
 
-          {/* Testimonials Section Title */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-center mb-10"
-          >
-            <h3 className="text-2xl md:text-3xl font-bold text-[#0E3A4A] mb-3">
-              Más historias de nuestros pacientes
-            </h3>
-            <div className="w-16 h-1 bg-gradient-to-r from-[#1E88A8] to-[#35B7C8] rounded-full mx-auto" />
-          </motion.div>
-
-          {/* Testimonial Carousel */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.35 }}
-            className="relative"
-          >
-            {/* Navigation Arrows */}
-            <button
-              onClick={goToPrevious}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-4 lg:-translate-x-6 z-10 w-12 h-12 rounded-full bg-white border border-gray-200 shadow-lg flex items-center justify-center text-[#0E3A4A] hover:bg-[#1E88A8] hover:text-white hover:border-[#1E88A8] transition-all duration-300"
-              aria-label="Testimonios anteriores"
-            >
-              <ChevronLeft size={24} />
-            </button>
-
-            <button
-              onClick={goToNext}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-4 lg:translate-x-6 z-10 w-12 h-12 rounded-full bg-white border border-gray-200 shadow-lg flex items-center justify-center text-[#0E3A4A] hover:bg-[#1E88A8] hover:text-white hover:border-[#1E88A8] transition-all duration-300"
-              aria-label="Testimonios siguientes"
-            >
-              <ChevronRight size={24} />
-            </button>
-
-            {/* Cards Container */}
-            <div className="overflow-hidden px-4 md:px-8 lg:px-12">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={currentPage}
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -50 }}
-                  transition={{ duration: 0.3 }}
-                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-                >
-                  {currentTestimonials.map((testimonial) => (
-                    <TestimonialCard
-                      key={testimonial.name}
-                      name={testimonial.name}
-                      therapist={testimonial.therapist}
-                      rating={testimonial.rating}
-                      nps={testimonial.nps}
-                      testimonial={testimonial.testimonial}
-                      condition={testimonial.condition}
-                    />
-                  ))}
-                </motion.div>
-              </AnimatePresence>
+        {/* Testimonials Marquee Section - Full Width */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="relative"
+        >
+          {/* Section Title */}
+          <div className="container mb-10">
+            <div className="text-center">
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#0E3A4A] mb-3">
+                Más historias de nuestros pacientes
+              </h3>
+              <div className="w-16 h-1 bg-gradient-to-r from-[#1E88A8] to-[#35B7C8] rounded-full mx-auto" />
             </div>
+          </div>
 
-            {/* Pagination Dots */}
-            <div className="flex items-center justify-center gap-2 mt-10">
-              {[...Array(totalPages)].map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToPage(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentPage
-                      ? 'bg-[#1E88A8] w-8'
-                      : 'bg-gray-300 hover:bg-gray-400'
-                  }`}
-                  aria-label={`Ir a página ${index + 1}`}
-                  aria-current={index === currentPage ? 'true' : 'false'}
-                />
-              ))}
-            </div>
-          </motion.div>
+          {/* Single Row - Moving Left */}
+          <Marquee direction="left" speed={50}>
+            {testimonials.map((testimonial) => (
+              <TestimonialCard
+                key={testimonial.name}
+                name={testimonial.name}
+                therapist={testimonial.therapist}
+                rating={testimonial.rating}
+                nps={testimonial.nps}
+                testimonial={testimonial.testimonial}
+                condition={testimonial.condition}
+              />
+            ))}
+          </Marquee>
+        </motion.div>
 
-          {/* Why Patients Recommend Us */}
+        {/* Why Patients Recommend Us */}
+        <div className="container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.5 }}
-            style={{ marginTop: '100px' }}
+            className="mt-20 md:mt-24"
           >
-            <h3 className="text-2xl md:text-3xl font-bold text-[#0E3A4A] text-center mb-10">
+            <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#0E3A4A] text-center mb-10">
               ¿Por qué nuestros pacientes nos recomiendan?
             </h3>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-5">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
               {benefits.map((benefit, index) => {
                 const IconComponent = benefit.icon;
                 return (
@@ -533,15 +495,15 @@ export default function Testimonials() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.4, delay: 0.55 + index * 0.06 }}
-                    className="group bg-white rounded-[20px] p-5 md:p-6 border border-gray-100 shadow-[0_2px_16px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] hover:border-[#1E88A8]/20 transition-all duration-300 text-center"
+                    className="group bg-white rounded-2xl p-5 md:p-6 border border-gray-100 shadow-[0_2px_16px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] hover:border-[#1E88A8]/20 transition-all duration-300 text-center"
                   >
-                    <div className="w-12 h-12 rounded-2xl bg-[#1E88A8]/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#1E88A8]/20 transition-colors duration-300">
-                      <IconComponent size={22} className="text-[#1E88A8]" />
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-[#1E88A8]/10 flex items-center justify-center mx-auto mb-3 md:mb-4 group-hover:bg-[#1E88A8]/20 transition-colors duration-300">
+                      <IconComponent size={20} className="text-[#1E88A8] md:w-[22px] md:h-[22px]" />
                     </div>
-                    <h4 className="font-semibold text-[#0E3A4A] text-sm md:text-base mb-2 leading-tight">
+                    <h4 className="font-semibold text-[#0E3A4A] text-xs md:text-sm mb-1.5 leading-tight">
                       {benefit.title}
                     </h4>
-                    <p className="text-xs md:text-sm text-[#64748B] leading-relaxed">
+                    <p className="text-[11px] md:text-xs text-[#64748B] leading-relaxed">
                       {benefit.description}
                     </p>
                   </motion.div>

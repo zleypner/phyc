@@ -98,7 +98,7 @@ export default function PainMap() {
   };
 
   return (
-    <section ref={ref} id="pain-map" className="py-20 md:py-28 lg:py-36 bg-white relative">
+    <section ref={ref} id="pain-map" className="py-16 md:py-24 lg:py-32 bg-white relative">
       {/* Decorative background shapes - contained within viewport */}
       <div className="absolute top-0 right-0 w-72 h-72 bg-[#1E88A8]/5 rounded-full blur-3xl pointer-events-none" style={{ zIndex: 0 }} />
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#35B7C8]/5 rounded-full blur-3xl pointer-events-none" style={{ zIndex: 0 }} />
@@ -109,15 +109,15 @@ export default function PainMap() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-14 md:mb-20"
+          className="text-center mb-12"
         >
           <p className="text-[#1E88A8] text-sm md:text-base font-medium uppercase tracking-wider mb-4">
             Autoevaluación Rápida
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0E3A4A] mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0E3A4A] mb-6">
             ¿Dónde Sientes Molestia o Dolor?
           </h2>
-          <div className="w-24 h-0.5 bg-[#1E88A8] mx-auto mb-4"></div>
+          <div className="w-24 h-0.5 bg-[#1E88A8] mx-auto mb-6"></div>
           <p className="text-base md:text-lg text-[#475569] leading-relaxed max-w-3xl mx-auto">
             Selecciona la zona afectada para comprender mejor tus síntomas y ver nuestra recomendación de tratamiento personalizado basado en evidencia.
           </p>
@@ -131,14 +131,14 @@ export default function PainMap() {
               <Activity className="text-[#1E88A8]" size={20} />
               Selecciona una Zona Corporal
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
               {painAreas.map((area) => {
                 const isActive = selectedArea.id === area.id;
                 return (
                   <button
                     key={area.id}
                     onClick={() => setSelectedArea(area)}
-                    className={`text-left p-5 rounded-2xl border transition-all duration-200 flex items-center justify-between cursor-pointer ${
+                    className={`text-left p-6 rounded-2xl border transition-all duration-200 flex items-center justify-between cursor-pointer ${
                       isActive
                         ? 'bg-[#0E3A4A] border-[#0E3A4A] text-white shadow-lg shadow-[#0E3A4A]/20'
                         : 'bg-[#F4F7F8] border-[#E5E7EB] text-[#0E3A4A] hover:bg-[#E8ECEE] hover:border-[#D1D5DB] hover:shadow-md'
@@ -161,7 +161,7 @@ export default function PainMap() {
 
           {/* Right Column: Recommendation Details */}
           <div className="lg:col-span-7 flex">
-            <div className="bg-[#F4F7F8] border border-[#E5E7EB] rounded-3xl p-6 sm:p-8 md:p-10 w-full flex flex-col justify-between shadow-sm relative overflow-hidden">
+            <div className="bg-[#F4F7F8] border border-[#E5E7EB] rounded-3xl p-8 md:p-10 w-full flex flex-col justify-between shadow-sm relative overflow-hidden">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={selectedArea.id}
@@ -198,7 +198,7 @@ export default function PainMap() {
                       <ShieldAlert size={16} className="text-red-500" />
                       Síntomas Frecuentes
                     </h5>
-                    <ul className="grid sm:grid-cols-2 gap-2.5">
+                    <ul className="grid sm:grid-cols-2 gap-3">
                       {selectedArea.symptoms.map((symptom, idx) => (
                         <li key={idx} className="flex items-start gap-2 text-sm text-[#6B7280]">
                           <span className="w-2 h-2 rounded-full bg-[#35B7C8] mt-1.5 flex-shrink-0" />
@@ -209,7 +209,7 @@ export default function PainMap() {
                   </div>
 
                   {/* Treatment approach */}
-                  <div className="bg-white border border-[#E5E7EB] rounded-2xl p-5 md:p-6 shadow-sm">
+                  <div className="bg-white border border-[#E5E7EB] rounded-3xl p-8 shadow-sm">
                     <h5 className="font-bold text-[#0E3A4A] text-sm uppercase tracking-wide mb-2 flex items-center gap-1.5">
                       <HeartIcon size={16} className="text-green-500" />
                       Enfoque de Tratamiento en Physical Care
@@ -222,7 +222,7 @@ export default function PainMap() {
               </AnimatePresence>
 
               {/* Action Button */}
-              <div className="mt-8 border-t border-[#E5E7EB] pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="mt-8 border-t border-[#E5E7EB] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="text-left sm:text-left w-full sm:w-auto">
                   <p className="text-xs text-[#9CA3AF]">Servicio sugerido para agendar</p>
                   <p className="font-bold text-[#0E3A4A]">{selectedArea.mappedService}</p>

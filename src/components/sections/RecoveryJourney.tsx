@@ -35,7 +35,7 @@ export default function RecoveryJourney() {
   return (
     <section
       ref={ref}
-      className="relative py-24 md:py-32 lg:py-40 bg-gradient-to-br from-[#0E3A4A] via-[#134B5F] to-[#1E88A8] overflow-hidden"
+      className="relative py-16 md:py-24 lg:py-32 bg-gradient-to-br from-[#0E3A4A] via-[#134B5F] to-[#1E88A8] overflow-hidden"
     >
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-10">
@@ -49,9 +49,9 @@ export default function RecoveryJourney() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16 md:mb-20"
+          className="text-center max-w-3xl mx-auto mb-12"
         >
-          <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-sm text-white/90 text-sm font-medium mb-6">
+          <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-sm text-white/90 text-sm font-medium mb-4">
             Tu Camino de Recuperación
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
@@ -79,7 +79,7 @@ export default function RecoveryJourney() {
           </div>
 
           {/* Steps Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-12">
             {steps.map((step, index) => {
               const IconComponent = step.icon;
               return (
@@ -137,13 +137,13 @@ export default function RecoveryJourney() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.8 }}
-          className="text-center mt-14 md:mt-20"
+          className="text-center mt-12 md:mt-16"
         >
           <a
             href="https://wa.me/50689680947"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-3 bg-white text-[#0E3A4A] px-8 py-4 rounded-2xl font-semibold text-base hover:bg-white/95 transition-all duration-300 hover:-translate-y-1 shadow-xl shadow-black/10 hover:shadow-2xl hover:shadow-black/15"
+            className="group inline-flex items-center gap-3 bg-white text-[#0E3A4A] px-8 py-4 rounded-2xl font-semibold text-base hover:bg-white/95 transition-all duration-300 hover:-translate-y-1 shadow-xl shadow-black/10 hover:shadow-2xl hover:shadow-black/15 cursor-pointer"
           >
             Comienza Tu Recuperación
             <svg

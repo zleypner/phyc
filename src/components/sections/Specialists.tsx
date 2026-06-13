@@ -47,19 +47,19 @@ export default function Specialists() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section ref={ref} id="specialists" className="py-20 md:py-28 lg:py-36 bg-[#F8FAFC]">
+    <section ref={ref} id="specialists" className="py-16 md:py-24 lg:py-32 bg-[#F8FAFC]">
       <div className="container">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-12"
         >
-          <p className="text-[#1E88A8] text-sm md:text-base font-semibold uppercase tracking-widest mb-3">
+          <p className="text-[#1E88A8] text-sm md:text-base font-semibold uppercase tracking-widest mb-4">
             Nuestros Especialistas
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0E3A4A] mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0E3A4A] mb-6">
             Profesionales que te acompañan
           </h2>
           <p className="text-base md:text-lg text-[#64748B] leading-relaxed max-w-2xl mx-auto">
@@ -68,7 +68,7 @@ export default function Specialists() {
         </motion.div>
 
         {/* Specialists Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
           {specialists.map((specialist, index) => (
             <motion.article
               key={specialist.name}
@@ -76,7 +76,7 @@ export default function Specialists() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.15 }}
             >
-              <div className="bg-white rounded-2xl shadow-[0_2px_20px_rgba(0,0,0,0.06)] overflow-hidden">
+              <div className="bg-white rounded-3xl shadow-[0_2px_20px_rgba(0,0,0,0.06)] overflow-hidden">
                 {/* Image */}
                 <div className="relative aspect-[4/3] bg-gray-100 overflow-hidden">
                   {specialist.image ? (
@@ -97,7 +97,7 @@ export default function Specialists() {
                 </div>
 
                 {/* Content */}
-                <div className="p-6 sm:p-8 md:p-10">
+                <div className="p-8 md:p-10">
                   {/* Name & Role */}
                   <h3 className="text-2xl font-bold text-[#0E3A4A] mb-1">
                     {specialist.name}

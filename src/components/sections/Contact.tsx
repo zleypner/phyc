@@ -29,90 +29,90 @@ export default function Contact() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section ref={ref} id="contact" className="py-20 md:py-28 lg:py-36 bg-[#FAFBFC]">
+    <section ref={ref} id="contact" className="py-12 sm:py-16 md:py-20 bg-[#FAFBFC]">
       <div className="container">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1E88A8]/10 text-[#1E88A8] text-sm font-medium mb-4">
-            <MessageCircle size={16} />
+          <span className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#1E88A8]/10 text-[#1E88A8] text-xs sm:text-sm font-medium mb-3 sm:mb-4">
+            <MessageCircle size={14} className="sm:w-4 sm:h-4" />
             Contacto
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0E3A4A] mb-4">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-[#0E3A4A] mb-3 sm:mb-4 md:mb-6">
             Comienza Tu Recuperación
           </h2>
-          <p className="text-base md:text-lg text-[#475569] leading-relaxed max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg text-[#475569] leading-relaxed max-w-3xl mx-auto px-2">
             ¿Listo para dar el primer paso? Contáctenos por WhatsApp para programar su cita.
           </p>
         </motion.div>
 
         {/* Contact Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 max-w-[1100px] mx-auto">
+        <div className="grid lg:grid-cols-2 gap-3 sm:gap-4 md:gap-6 max-w-[1100px] mx-auto">
           {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <div className="bg-gradient-to-br from-[#0E3A4A] to-[#1E88A8] rounded-3xl p-6 sm:p-8 md:p-10 text-white h-full">
-              <h3 className="text-2xl md:text-[28px] font-semibold mb-8">Información de Contacto</h3>
+            <div className="bg-gradient-to-br from-[#0E3A4A] to-[#1E88A8] rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-10 text-white h-full">
+              <h3 className="text-lg sm:text-xl md:text-2xl lg:text-[28px] font-semibold mb-4 sm:mb-6 md:mb-8">Información de Contacto</h3>
 
               {/* Contact details */}
-              <div className="space-y-6 mb-10">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
-                    <MapPin size={22} />
+              <div className="space-y-3 sm:space-y-4 md:space-y-6 mb-6 sm:mb-8 md:mb-10">
+                <div className="flex items-start gap-2 sm:gap-3 md:gap-4">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
+                    <MapPin size={18} className="sm:w-5 sm:h-5 md:w-[22px] md:h-[22px]" />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1 text-lg">Nuestra Ubicación</h4>
-                    <p className="text-white/75 text-[15px] leading-relaxed">
+                    <h4 className="font-semibold mb-0.5 sm:mb-1 text-sm sm:text-base md:text-lg">Nuestra Ubicación</h4>
+                    <p className="text-white/75 text-xs sm:text-sm md:text-[15px] leading-relaxed">
                       San Pedro de Montes de Oca<br />
                       San José, Costa Rica
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
-                    <Phone size={22} />
+                <div className="flex items-start gap-2 sm:gap-3 md:gap-4">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
+                    <Phone size={18} className="sm:w-5 sm:h-5 md:w-[22px] md:h-[22px]" />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1 text-lg">Teléfono / WhatsApp</h4>
+                    <h4 className="font-semibold mb-0.5 sm:mb-1 text-sm sm:text-base md:text-lg">Teléfono / WhatsApp</h4>
                     <a
                       href="tel:+50689680947"
-                      className="text-white/75 text-[15px] hover:text-white transition-colors"
+                      className="text-white/75 text-xs sm:text-sm md:text-[15px] hover:text-white transition-colors"
                     >
                       +506 8968-0947
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
-                    <Mail size={22} />
+                <div className="flex items-start gap-2 sm:gap-3 md:gap-4">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
+                    <Mail size={18} className="sm:w-5 sm:h-5 md:w-[22px] md:h-[22px]" />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1 text-lg">Correo Electrónico</h4>
+                    <h4 className="font-semibold mb-0.5 sm:mb-1 text-sm sm:text-base md:text-lg">Correo Electrónico</h4>
                     <a
                       href="mailto:gerencia@physicalcarefisioterapia.com"
-                      className="text-white/75 text-[15px] hover:text-white transition-colors break-all"
+                      className="text-white/75 text-xs sm:text-sm md:text-[15px] hover:text-white transition-colors break-all"
                     >
                       gerencia@physicalcarefisioterapia.com
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
-                    <Clock size={22} />
+                <div className="flex items-start gap-2 sm:gap-3 md:gap-4">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
+                    <Clock size={18} className="sm:w-5 sm:h-5 md:w-[22px] md:h-[22px]" />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1 text-lg">Horario de Atención</h4>
-                    <p className="text-white/75 text-[15px] leading-relaxed">
+                    <h4 className="font-semibold mb-0.5 sm:mb-1 text-sm sm:text-base md:text-lg">Horario de Atención</h4>
+                    <p className="text-white/75 text-xs sm:text-sm md:text-[15px] leading-relaxed">
                       Lunes - Viernes: 8:00 AM - 6:00 PM<br />
                       Sábado: Con cita previa
                     </p>
@@ -121,7 +121,7 @@ export default function Contact() {
               </div>
 
               {/* Map */}
-              <div className="rounded-2xl overflow-hidden h-[180px] bg-white/10">
+              <div className="rounded-xl sm:rounded-2xl md:rounded-3xl overflow-hidden h-[140px] sm:h-[160px] md:h-[180px] bg-white/10">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15720.058741686894!2d-84.05436545!3d9.9318015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e35a5b5db887%3A0x5f5f5f5f5f5f5f5f!2sSan%20Pedro%2C%20Montes%20de%20Oca!5e0!3m2!1sen!2scr!4v1234567890"
                   width="100%"
@@ -142,46 +142,46 @@ export default function Contact() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="bg-white rounded-3xl border border-[rgba(15,23,42,0.06)] shadow-[0_4px_24px_rgba(14,58,74,0.06)] p-6 sm:p-8 md:p-10 h-full flex flex-col justify-center">
+            <div className="bg-white rounded-2xl sm:rounded-3xl border border-[rgba(15,23,42,0.06)] shadow-[0_4px_24px_rgba(14,58,74,0.06)] p-4 sm:p-6 md:p-8 lg:p-10 h-full flex flex-col justify-center">
               {/* WhatsApp Icon */}
-              <div className="w-20 h-20 rounded-2xl bg-[#25D366]/10 flex items-center justify-center mx-auto mb-6">
-                <WhatsAppIcon size={40} className="text-[#25D366]" />
+              <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-xl sm:rounded-2xl bg-[#25D366]/10 flex items-center justify-center mx-auto mb-3 sm:mb-4 md:mb-6">
+                <WhatsAppIcon size={28} className="text-[#25D366] sm:w-8 sm:h-8 md:w-10 md:h-10" />
               </div>
 
-              <h3 className="text-2xl md:text-[28px] font-semibold text-[#0E3A4A] text-center mb-4">
+              <h3 className="text-lg sm:text-xl md:text-2xl lg:text-[28px] font-semibold text-[#0E3A4A] text-center mb-2 sm:mb-3 md:mb-4">
                 Agenda Tu Cita por WhatsApp
               </h3>
 
-              <p className="text-[#64748B] text-center mb-8 leading-relaxed">
+              <p className="text-[#64748B] text-center mb-4 sm:mb-6 md:mb-8 leading-relaxed text-xs sm:text-sm md:text-base">
                 Escríbenos directamente por WhatsApp para agendar tu cita de manera rápida y sencilla.
                 Nuestro equipo te responderá a la brevedad.
               </p>
 
               {/* Benefits */}
-              <div className="space-y-3 mb-8">
-                <div className="flex items-center gap-3 text-[#475569]">
-                  <div className="w-6 h-6 rounded-full bg-[#25D366]/10 flex items-center justify-center flex-shrink-0">
-                    <svg className="w-3.5 h-3.5 text-[#25D366]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 md:mb-8">
+                <div className="flex items-center gap-2 sm:gap-3 text-[#475569]">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#25D366]/10 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-[#25D366]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <span className="text-[15px]">Respuesta rápida y personalizada</span>
+                  <span className="text-xs sm:text-sm md:text-[15px]">Respuesta rápida y personalizada</span>
                 </div>
-                <div className="flex items-center gap-3 text-[#475569]">
-                  <div className="w-6 h-6 rounded-full bg-[#25D366]/10 flex items-center justify-center flex-shrink-0">
-                    <svg className="w-3.5 h-3.5 text-[#25D366]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="flex items-center gap-2 sm:gap-3 text-[#475569]">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#25D366]/10 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-[#25D366]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <span className="text-[15px]">Confirma tu cita al instante</span>
+                  <span className="text-xs sm:text-sm md:text-[15px]">Confirma tu cita al instante</span>
                 </div>
-                <div className="flex items-center gap-3 text-[#475569]">
-                  <div className="w-6 h-6 rounded-full bg-[#25D366]/10 flex items-center justify-center flex-shrink-0">
-                    <svg className="w-3.5 h-3.5 text-[#25D366]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="flex items-center gap-2 sm:gap-3 text-[#475569]">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#25D366]/10 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-[#25D366]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <span className="text-[15px]">Resuelve tus dudas antes de la cita</span>
+                  <span className="text-xs sm:text-sm md:text-[15px]">Resuelve tus dudas antes de la cita</span>
                 </div>
               </div>
 
@@ -190,14 +190,14 @@ export default function Contact() {
                 href="https://wa.me/50689680947"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-center gap-3 w-full bg-[#25D366] text-white h-14 rounded-2xl font-semibold text-base hover:bg-[#22C55E] transition-all duration-300 shadow-lg shadow-[#25D366]/25 hover:shadow-xl hover:shadow-[#25D366]/30 hover:-translate-y-0.5"
+                className="group flex items-center justify-center gap-2 sm:gap-3 w-full bg-[#25D366] text-white py-3 sm:py-3.5 md:py-4 rounded-full font-semibold text-sm sm:text-base md:text-lg hover:bg-[#22C55E] transition-all duration-300 shadow-lg shadow-[#25D366]/25 hover:shadow-xl hover:shadow-[#25D366]/30 hover:-translate-y-0.5"
               >
-                <WhatsAppIcon size={22} />
+                <WhatsAppIcon size={18} className="sm:w-5 sm:h-5 md:w-[22px] md:h-[22px]" />
                 Agendar Cita
-                <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight size={16} className="sm:w-[18px] sm:h-[18px] transition-transform duration-300 group-hover:translate-x-1" />
               </a>
 
-              <p className="text-[13px] text-[#94A3B8] text-center mt-6">
+              <p className="text-[10px] sm:text-xs md:text-[13px] text-[#94A3B8] text-center mt-3 sm:mt-4 md:mt-6">
                 Disponible de Lunes a Viernes, 8:00 AM - 6:00 PM
               </p>
             </div>
