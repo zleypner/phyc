@@ -186,64 +186,67 @@ export default function ContactoPage() {
                 </div>
               </motion.div>
 
-              {/* Operating Hours Card */}
-              <motion.div
-                variants={itemVariants}
-                className="bg-white rounded-2xl border border-[rgba(15,23,42,0.06)] shadow-sm p-5 sm:p-6 md:p-8"
-              >
-                <h2 className="text-lg sm:text-xl font-bold text-[#0E3A4A] mb-4 flex items-center gap-2">
-                  <Clock size={18} className="text-[#1E88A8]" />
-                  Horarios
-                </h2>
-
-                <div className="divide-y divide-[rgba(15,23,42,0.06)] text-sm">
-                  <div className="flex justify-between items-center gap-4 py-2.5">
-                    <span className="font-medium text-[#475569]">Lunes - Viernes</span>
-                    <span className="text-[#0E3A4A] font-semibold">8:00 - 18:00</span>
-                  </div>
-                  <div className="flex justify-between items-center gap-4 py-2.5">
-                    <span className="font-medium text-[#475569]">Sábados</span>
-                    <span className="text-[#1E88A8] font-semibold">Cita previa</span>
-                  </div>
-                  <div className="flex justify-between items-center gap-4 py-2.5">
-                    <span className="font-medium text-[#475569]">Domingos</span>
-                    <span className="text-[#E11D48] font-semibold">Cerrado</span>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Quick WhatsApp Support Card */}
-              <motion.div
-                variants={itemVariants}
-                className="bg-gradient-to-br from-[#25D366] to-[#22C55E] text-white rounded-2xl p-5 sm:p-6 md:p-8 shadow-sm relative overflow-hidden"
-              >
-                {/* Decorative background icon */}
-                <div className="absolute -right-4 -top-4 opacity-10 pointer-events-none">
-                  <WhatsAppIcon size={100} className="w-24 h-24 sm:w-28 sm:h-28" />
-                </div>
-
-                <div className="relative z-10">
-                  <div className="flex items-center gap-2 mb-2">
-                    <WhatsAppIcon size={20} className="flex-shrink-0" />
-                    <span className="text-xs font-semibold uppercase tracking-wider opacity-90">Contáctanos</span>
-                  </div>
-                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 leading-tight">
-                    ¿Prefieres WhatsApp?
+              {/* Hours & WhatsApp Cards - Side by Side */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {/* Operating Hours Card */}
+                <motion.div
+                  variants={itemVariants}
+                  className="bg-white rounded-2xl border border-[rgba(15,23,42,0.06)] shadow-sm p-5 sm:p-6 md:p-8 h-full flex flex-col"
+                >
+                  <h2 className="text-lg sm:text-xl font-bold text-[#0E3A4A] mb-4 flex items-center gap-2">
+                    <Clock size={18} className="text-[#1E88A8]" />
+                    Horarios
                   </h2>
-                  <p className="text-white/90 text-sm leading-relaxed mb-4">
-                    Escríbenos para programar tu cita.
-                  </p>
-                  <a
-                    href="https://wa.me/50689680947?text=Hola!%20Me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20sobre%20las%20citas%20de%20fisioterapia."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-white text-[#22C55E] font-bold py-2.5 px-4 rounded-xl hover:bg-slate-50 transition-colors shadow-md text-sm"
-                  >
-                    <WhatsAppIcon size={16} />
-                    Escribir Ahora
-                  </a>
-                </div>
-              </motion.div>
+
+                  <div className="divide-y divide-[rgba(15,23,42,0.06)] text-sm flex-1">
+                    <div className="flex justify-between items-center gap-4 py-2.5">
+                      <span className="font-medium text-[#475569]">Lunes - Viernes</span>
+                      <span className="text-[#0E3A4A] font-semibold">8:00 - 18:00</span>
+                    </div>
+                    <div className="flex justify-between items-center gap-4 py-2.5">
+                      <span className="font-medium text-[#475569]">Sábados</span>
+                      <span className="text-[#1E88A8] font-semibold">Cita previa</span>
+                    </div>
+                    <div className="flex justify-between items-center gap-4 py-2.5">
+                      <span className="font-medium text-[#475569]">Domingos</span>
+                      <span className="text-[#E11D48] font-semibold">Cerrado</span>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Quick WhatsApp Support Card */}
+                <motion.div
+                  variants={itemVariants}
+                  className="bg-gradient-to-br from-[#25D366] to-[#22C55E] text-white rounded-2xl p-5 sm:p-6 md:p-8 shadow-sm relative overflow-hidden h-full flex flex-col"
+                >
+                  {/* Decorative background icon */}
+                  <div className="absolute -right-4 -top-4 opacity-10 pointer-events-none">
+                    <WhatsAppIcon size={100} className="w-24 h-24 sm:w-28 sm:h-28" />
+                  </div>
+
+                  <div className="relative z-10 flex flex-col flex-1">
+                    <div className="flex items-center gap-2 mb-2">
+                      <WhatsAppIcon size={20} className="flex-shrink-0" />
+                      <span className="text-xs font-semibold uppercase tracking-wider opacity-90">Contáctanos</span>
+                    </div>
+                    <h2 className="text-xl sm:text-2xl font-bold mb-2 leading-tight">
+                      ¿Prefieres WhatsApp?
+                    </h2>
+                    <p className="text-white/90 text-sm leading-relaxed mb-4 flex-1">
+                      Escríbenos para programar tu cita.
+                    </p>
+                    <a
+                      href="https://wa.me/50689680947?text=Hola!%20Me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20sobre%20las%20citas%20de%20fisioterapia."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-white text-[#22C55E] font-bold py-2.5 px-4 rounded-xl hover:bg-slate-50 transition-colors shadow-md text-sm w-fit"
+                    >
+                      <WhatsAppIcon size={16} />
+                      Escribir Ahora
+                    </a>
+                  </div>
+                </motion.div>
+              </div>
             </div>
 
             {/* Right Column: Map */}
