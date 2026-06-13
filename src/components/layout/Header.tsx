@@ -60,7 +60,7 @@ export default function Header() {
           <nav className="flex min-h-[64px] items-center justify-between lg:grid lg:min-h-[72px] lg:grid-cols-3 lg:gap-6">
             <Link href="/" className="flex items-center">
               <motion.div
-                initial={{ opacity: 0, x: -20 }}
+                initial={false}
                 animate={{ opacity: 1, x: 0 }}
               >
                 <Image
@@ -75,7 +75,7 @@ export default function Header() {
             </Link>
 
             <motion.div
-              initial={{ opacity: 0, y: -10 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               className="hidden items-center justify-center gap-10 lg:flex"
             >
@@ -98,7 +98,7 @@ export default function Header() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
+              initial={false}
               animate={{ opacity: 1, x: 0 }}
               className="flex items-center justify-end gap-3 sm:gap-4"
             >

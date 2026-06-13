@@ -6,6 +6,7 @@ import TrustBar from '@/components/sections/TrustBar';
 import Specialists from '@/components/sections/Specialists';
 import FAQ from '@/components/sections/FAQ';
 import Contact from '@/components/sections/Contact';
+import LocationSection from '@/components/sections/LocationSection';
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <Specialists />
         <FAQ />
         <Contact />
+        <LocationSection />
       </main>
       <Footer />
       <WhatsAppButton />

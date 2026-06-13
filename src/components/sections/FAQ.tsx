@@ -17,11 +17,6 @@ const WhatsAppIcon = ({ className = '' }: { className?: string }) => (
 
 const faqs = [
   {
-    question: '¿Cuántas sesiones necesitaré?',
-    answer:
-      'El número de sesiones varía según su condición, severidad y objetivos individuales. Durante su evaluación inicial, le proporcionaremos un plan de tratamiento personalizado con un cronograma estimado. La mayoría de los pacientes ven una mejora significativa dentro de 4 a 8 sesiones, aunque algunas condiciones pueden requerir un tratamiento más prolongado.',
-  },
-  {
     question: '¿Necesito una referencia de un médico?',
     answer:
       'No, no necesita una referencia para atenderse con nosotros. Ofrecemos acceso directo a los servicios de fisioterapia. Sin embargo, si tiene informes médicos, imágenes o una referencia de su médico de cabecera, por favor tráigalos a su primera cita, ya que pueden ser de gran ayuda para su evaluación.',
@@ -132,14 +127,41 @@ export default function FAQ() {
       </div>
 
       <div className="container px-4 sm:px-6 relative z-20">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 xl:gap-20">
+        {/* Header - Now on top */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12 md:mb-16"
+        >
+          {/* Badge */}
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#E2E8F0] text-[#1E88A8] text-sm font-semibold mb-6 shadow-sm">
+            <MessageCircle size={16} />
+            Preguntas Frecuentes
+          </span>
+
+          {/* Title */}
+          <h2 className="text-3xl sm:text-4xl md:text-[42px] lg:text-[46px] font-bold text-[#0E3A4A] leading-[1.15] tracking-[-0.02em] mb-5">
+            Resolvemos tus{' '}
+            <span className="bg-gradient-to-r from-[#1E88A8] to-[#35B7C8] bg-clip-text text-transparent">
+              dudas
+            </span>
+          </h2>
+
+          {/* Description */}
+          <p className="text-[15px] sm:text-base text-[#64748B] leading-relaxed max-w-2xl mx-auto">
+            ¿Tienes preguntas sobre nuestros tratamientos? Hemos preparado respuestas detalladas a las inquietudes más habituales.
+          </p>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12">
 
           {/* Left Column - Accordion */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-7 flex flex-col gap-3 order-2 lg:order-1"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="lg:col-span-7 flex flex-col gap-3"
           >
             {faqs.map((faq, index) => {
               const isOpen = openIndex === index;
@@ -174,23 +196,13 @@ export default function FAQ() {
                       aria-controls={panelId}
                       className="w-full px-5 sm:px-6 py-5 flex items-center justify-between text-left group cursor-pointer gap-4 bg-transparent border-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1E88A8] focus-visible:ring-inset"
                     >
-                      <span className="flex items-center gap-4 flex-1">
-                        {/* Number */}
-                        <span
-                          className={`text-sm font-semibold font-mono flex-shrink-0 transition-colors duration-300 ${
-                            isOpen ? 'text-[#1E88A8]' : 'text-[#94A3B8] group-hover:text-[#1E88A8]'
-                          }`}
-                        >
-                          {(index + 1).toString().padStart(2, '0')}
-                        </span>
-                        {/* Question */}
-                        <span
-                          className={`font-semibold text-[15px] sm:text-base transition-colors duration-300 ${
-                            isOpen ? 'text-[#0E3A4A]' : 'text-[#0E3A4A] group-hover:text-[#1E88A8]'
-                          }`}
-                        >
-                          {faq.question}
-                        </span>
+                      {/* Question */}
+                      <span
+                        className={`font-semibold text-[15px] sm:text-base transition-colors duration-300 flex-1 ${
+                          isOpen ? 'text-[#0E3A4A]' : 'text-[#0E3A4A] group-hover:text-[#1E88A8]'
+                        }`}
+                      >
+                        {faq.question}
                       </span>
                       {/* Plus/Minus Icon */}
                       <span
@@ -219,7 +231,7 @@ export default function FAQ() {
                           exit={shouldReduceMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
                           transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.3, ease: 'easeInOut' }}
                         >
-                          <div className="px-5 sm:px-6 pb-5 sm:pb-6 pl-[60px] sm:pl-[72px] text-[#64748B] text-[14px] sm:text-[15px] leading-[1.75]">
+                          <div className="px-5 sm:px-6 pb-5 sm:pb-6 text-[#64748B] text-[14px] sm:text-[15px] leading-[1.75]">
                             {faq.answer}
                           </div>
                         </motion.div>
@@ -231,36 +243,13 @@ export default function FAQ() {
             })}
           </motion.div>
 
-          {/* Right Column - Header and Support */}
+          {/* Right Column - Support */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="lg:col-span-5 flex flex-col gap-8 order-1 lg:order-2 lg:sticky lg:top-32 lg:self-start"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="lg:col-span-5 flex flex-col gap-8 lg:sticky lg:top-32 lg:self-start"
           >
-            {/* Header */}
-            <div className="text-center lg:text-left">
-              {/* Badge */}
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#E2E8F0] text-[#1E88A8] text-sm font-semibold mb-6 shadow-sm">
-                <MessageCircle size={16} />
-                Preguntas Frecuentes
-              </span>
-
-              {/* Title */}
-              <h2 className="text-3xl sm:text-4xl md:text-[42px] lg:text-[46px] font-bold text-[#0E3A4A] leading-[1.15] tracking-[-0.02em] mb-5">
-                Resolvemos tus
-                <br />
-                <span className="bg-gradient-to-r from-[#1E88A8] to-[#35B7C8] bg-clip-text text-transparent">
-                  dudas médicas
-                </span>
-              </h2>
-
-              {/* Description */}
-              <p className="text-[15px] sm:text-base text-[#64748B] leading-relaxed max-w-md mx-auto lg:mx-0">
-                ¿Tienes preguntas sobre nuestros tratamientos? Hemos preparado respuestas detalladas a las inquietudes más habituales.
-              </p>
-            </div>
-
             {/* Support Card */}
             <div className="bg-gradient-to-br from-[#0E3A4A] via-[#155E75] to-[#1E88A8] rounded-2xl p-6 sm:p-8 text-white shadow-xl shadow-[#0E3A4A]/15 relative overflow-hidden">
               {/* Background decoration */}
@@ -273,8 +262,8 @@ export default function FAQ() {
                 <MessageCircle size={24} className="text-[#5EEAD4]" />
               </div>
 
-              <h3 className="text-lg font-bold mb-2">¿Aún tienes preguntas?</h3>
-              <p className="text-white/70 text-sm leading-relaxed mb-5">
+              <h3 className="text-lg font-bold mb-2 text-white">¿Aún tienes preguntas?</h3>
+              <p className="text-white text-sm leading-relaxed mb-5">
                 Estamos aquí para ayudarte. Escríbenos y te responderemos.
               </p>
 

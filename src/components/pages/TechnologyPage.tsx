@@ -11,7 +11,6 @@ import {
   CheckCircle,
   Sparkles,
   Activity,
-  Shield,
   Users,
   Award,
 } from 'lucide-react';
@@ -295,23 +294,6 @@ function IntroductionSection() {
               <div className="absolute -top-10 -left-10 w-32 h-32 bg-[#1E88A8]/30 rounded-full blur-2xl" />
             </div>
 
-            {/* Stats card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-5 shadow-xl border border-gray-100"
-            >
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1E88A8] to-[#35B7C8] flex items-center justify-center">
-                  <Shield size={24} className="text-white" />
-                </div>
-                <div>
-                  <p className="text-2xl font-bold text-[#0E3A4A]">4+</p>
-                  <p className="text-sm text-[#64748B]">Tecnologías avanzadas</p>
-                </div>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
       </div>

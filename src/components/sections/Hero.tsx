@@ -1,8 +1,8 @@
 'use client';
 
-import { useRef, useState, useEffect, useCallback } from 'react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, User, CheckCircle, Calendar, Heart } from 'lucide-react';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { User, CheckCircle, Calendar, Heart } from 'lucide-react';
 import Image from 'next/image';
 
 // WhatsApp SVG Icon
@@ -16,45 +16,15 @@ const WhatsAppIcon = ({ className = '' }: { className?: string }) => (
   </svg>
 );
 
-// Carousel slides data
-const heroSlides = [
-  {
-    id: 1,
-    badge: 'Centro de Rehabilitación Líder en Costa Rica',
-    headline: 'Recupera Tu Movimiento.',
-    headlineHighlight: 'Vive Sin Dolor.',
-    subtitle: 'Fisioterapia personalizada y rehabilitación deportiva con tratamientos basados en evidencia para ayudarte a',
-    subtitleHighlight: 'moverte sin dolor',
-    subtitleEnd: 'y volver a lo que amas.',
-  },
-  {
-    id: 2,
-    badge: 'Rehabilitación Deportiva Especializada',
-    headline: 'Vuelve al Deporte.',
-    headlineHighlight: 'Más Fuerte que Antes.',
-    subtitle: 'Programas de rehabilitación diseñados para atletas que buscan',
-    subtitleHighlight: 'recuperación completa',
-    subtitleEnd: 'y prevención de futuras lesiones.',
-  },
-  {
-    id: 3,
-    badge: 'Tratamiento del Dolor Crónico',
-    headline: 'Libérate del Dolor.',
-    headlineHighlight: 'Recupera Tu Vida.',
-    subtitle: 'Técnicas avanzadas de fisioterapia para tratar el dolor crónico y ayudarte a',
-    subtitleHighlight: 'vivir plenamente',
-    subtitleEnd: 'cada día.',
-  },
-  {
-    id: 4,
-    badge: 'Atención Personalizada',
-    headline: 'Tu Bienestar.',
-    headlineHighlight: 'Nuestra Prioridad.',
-    subtitle: 'Planes de tratamiento individualizados con seguimiento continuo para garantizar',
-    subtitleHighlight: 'resultados reales',
-    subtitleEnd: 'y duraderos.',
-  },
-];
+// Hero content
+const heroContent = {
+  badge: 'Centro de Rehabilitación Líder en Costa Rica',
+  headline: 'Recupera Tu Movimiento.',
+  headlineHighlight: 'Vive Sin Dolor.',
+  subtitle: 'Fisioterapia personalizada y rehabilitación deportiva con tratamientos basados en evidencia para ayudarte a',
+  subtitleHighlight: 'moverte sin dolor',
+  subtitleEnd: 'y volver a lo que amas.',
+};
 
 // Feature bar items
 const featureItems = [
@@ -84,14 +54,8 @@ const featureItems = [
   },
 ];
 
-// Auto-play interval in milliseconds
-const AUTOPLAY_INTERVAL = 8000;
-
 export default function Hero() {
   const containerRef = useRef<HTMLElement>(null);
-  const [currentSlide, setCurrentSlide] = useState(3); // Start on slide 4 (index 3)
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -102,49 +66,11 @@ export default function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.05]);
 
-  // Navigate to next slide
-  const nextSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-  }, []);
-
-  // Navigate to previous slide
-  const prevSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
-  }, []);
-
-  // Go to specific slide
-  const goToSlide = useCallback((index: number) => {
-    setCurrentSlide(index);
-    setIsAutoPlaying(false);
-    // Resume autoplay after user interaction
-    setTimeout(() => setIsAutoPlaying(true), 10000);
-  }, []);
-
-  // Auto-play logic
-  useEffect(() => {
-    if (isAutoPlaying) {
-      autoPlayRef.current = setInterval(nextSlide, AUTOPLAY_INTERVAL);
-    }
-    return () => {
-      if (autoPlayRef.current) {
-        clearInterval(autoPlayRef.current);
-      }
-    };
-  }, [isAutoPlaying, nextSlide]);
-
-  // Pause autoplay on hover
-  const handleMouseEnter = () => setIsAutoPlaying(false);
-  const handleMouseLeave = () => setIsAutoPlaying(true);
-
-  const currentData = heroSlides[currentSlide];
-
   return (
     <section
       ref={containerRef}
       id="home"
       className="relative min-h-screen overflow-hidden"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
     >
       {/* ============================================
           BACKGROUND SYSTEM - Premium depth layers
@@ -238,91 +164,87 @@ export default function Hero() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
               {/* Left Column - Content */}
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={currentSlide}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  className="flex flex-col items-start text-left"
-                >
-                  {/* Badge */}
-                  <div className="mb-6 sm:mb-8">
-                    <span className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.08] backdrop-blur-md border border-white/[0.12] text-white/90 text-[13px] sm:text-sm font-medium tracking-wide">
-                      <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse flex-shrink-0" />
-                      <span>{currentData.badge}</span>
-                    </span>
-                  </div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                className="flex flex-col items-start text-left"
+              >
+                {/* Badge */}
+                <div className="mb-6 sm:mb-8">
+                  <span className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.08] backdrop-blur-md border border-white/[0.12] text-white/90 text-[13px] sm:text-sm font-medium tracking-wide">
+                    <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse flex-shrink-0" />
+                    <span>{heroContent.badge}</span>
+                  </span>
+                </div>
 
-                  {/* Headline */}
-                  <h1 className="text-[36px] sm:text-[44px] md:text-[52px] lg:text-[56px] xl:text-[64px] font-bold text-white leading-[1.1] tracking-[-0.02em] mb-6 sm:mb-8">
-                    {currentData.headline}
-                    <br />
-                    <span
-                      className="bg-gradient-to-r from-[#5EEAD4] via-[#67E8F9] to-[#5EEAD4] bg-clip-text text-transparent"
-                      style={{ backgroundSize: '200% 100%' }}
-                    >
-                      {currentData.headlineHighlight}
-                    </span>
-                  </h1>
+                {/* Headline */}
+                <h1 className="text-[36px] sm:text-[44px] md:text-[52px] lg:text-[56px] xl:text-[64px] font-bold text-white leading-[1.1] tracking-[-0.02em] mb-6 sm:mb-8">
+                  {heroContent.headline}
+                  <br />
+                  <span
+                    className="bg-gradient-to-r from-[#5EEAD4] via-[#67E8F9] to-[#5EEAD4] bg-clip-text text-transparent"
+                    style={{ backgroundSize: '200% 100%' }}
+                  >
+                    {heroContent.headlineHighlight}
+                  </span>
+                </h1>
 
-                  {/* Subtitle */}
-                  <p className="max-w-[520px] text-[16px] sm:text-[17px] lg:text-[18px] text-white/70 leading-[1.7] mb-8 sm:mb-10">
-                    {currentData.subtitle}{' '}
-                    <span className="text-[#5EEAD4] font-medium">{currentData.subtitleHighlight}</span>{' '}
-                    {currentData.subtitleEnd}
-                  </p>
+                {/* Subtitle */}
+                <p className="max-w-[520px] text-[16px] sm:text-[17px] lg:text-[18px] text-white/70 leading-[1.7] mb-8 sm:mb-10">
+                  {heroContent.subtitle}{' '}
+                  <span className="text-[#5EEAD4] font-medium">{heroContent.subtitleHighlight}</span>{' '}
+                  {heroContent.subtitleEnd}
+                </p>
 
-                  {/* CTA Section with Social Proof */}
-                  <div className="flex flex-wrap items-center gap-6 sm:gap-8">
-                    {/* WhatsApp Button */}
-                    <a
-                      href="https://wa.me/50689680947"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group inline-flex items-center justify-center gap-2.5 h-[52px] sm:h-[56px] px-7 sm:px-8 bg-[#25D366] text-white rounded-full font-semibold text-[15px] sm:text-[16px] shadow-[0_8px_32px_rgba(37,211,102,0.35)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,211,102,0.45)] active:translate-y-0 active:scale-[0.98]"
-                      aria-label="Agendar cita por WhatsApp"
-                    >
-                      <WhatsAppIcon className="w-5 h-5 flex-shrink-0" />
-                      <span>Agendar Cita</span>
-                    </a>
+                {/* CTA Section with Social Proof */}
+                <div className="flex flex-wrap items-center gap-6 sm:gap-8">
+                  {/* WhatsApp Button */}
+                  <a
+                    href="https://wa.me/50689680947"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center justify-center gap-2.5 h-[52px] sm:h-[56px] px-7 sm:px-8 bg-[#25D366] text-white rounded-full font-semibold text-[15px] sm:text-[16px] shadow-[0_8px_32px_rgba(37,211,102,0.35)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,211,102,0.45)] active:translate-y-0 active:scale-[0.98]"
+                    aria-label="Agendar cita por WhatsApp"
+                  >
+                    <WhatsAppIcon className="w-5 h-5 flex-shrink-0" />
+                    <span>Agendar Cita</span>
+                  </a>
 
-                    {/* Social Proof - Patient Avatars */}
-                    <div className="flex items-center gap-4">
-                      {/* Stacked Avatars */}
-                      <div className="flex -space-x-3">
-                        <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0E3D4A] overflow-hidden bg-gradient-to-br from-[#5EEAD4]/30 to-[#35B7C8]/30">
-                          <Image
-                            src="/specialists/yamilah.png"
-                            alt="Paciente"
-                            width={44}
-                            height={44}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                        <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0E3D4A] overflow-hidden bg-gradient-to-br from-[#5EEAD4]/30 to-[#35B7C8]/30">
-                          <Image
-                            src="/specialists/enmanuel.png"
-                            alt="Paciente"
-                            width={44}
-                            height={44}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                        <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0E3D4A] overflow-hidden bg-gradient-to-br from-[#5EEAD4]/30 to-[#35B7C8]/30 flex items-center justify-center">
-                          <span className="text-white/80 text-xs font-medium">+</span>
-                        </div>
+                  {/* Social Proof - Patient Avatars */}
+                  <div className="flex items-center gap-4">
+                    {/* Stacked Avatars */}
+                    <div className="flex -space-x-3">
+                      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0E3D4A] overflow-hidden bg-gradient-to-br from-[#5EEAD4]/30 to-[#35B7C8]/30">
+                        <Image
+                          src="/specialists/yamilah.png"
+                          alt="Paciente"
+                          width={44}
+                          height={44}
+                          className="w-full h-full object-cover"
+                        />
                       </div>
-                      {/* Text */}
-                      <div className="flex flex-col">
-                        <span className="text-[#5EEAD4] font-semibold text-[15px] sm:text-[16px]">+500 pacientes</span>
-                        <span className="text-white/60 text-[13px] sm:text-[14px]">Confían en nosotros</span>
+                      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0E3D4A] overflow-hidden bg-gradient-to-br from-[#5EEAD4]/30 to-[#35B7C8]/30">
+                        <Image
+                          src="/specialists/enmanuel.png"
+                          alt="Paciente"
+                          width={44}
+                          height={44}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0E3D4A] overflow-hidden bg-gradient-to-br from-[#5EEAD4]/30 to-[#35B7C8]/30 flex items-center justify-center">
+                        <span className="text-white/80 text-xs font-medium">+</span>
                       </div>
                     </div>
+                    {/* Text */}
+                    <div className="flex flex-col">
+                      <span className="text-[#5EEAD4] font-semibold text-[15px] sm:text-[16px]">+500 pacientes</span>
+                      <span className="text-white/60 text-[13px] sm:text-[14px]">Confían en nosotros</span>
+                    </div>
                   </div>
-                </motion.div>
-              </AnimatePresence>
+                </div>
+              </motion.div>
 
               {/* Right Column - Hero Image */}
               <div className="relative hidden lg:flex items-center justify-center">
@@ -337,13 +259,13 @@ export default function Hero() {
                 </div>
 
                 {/* Hero Image */}
-                <div className="relative z-10 w-full max-w-[550px] xl:max-w-[620px]">
+                <div className="relative z-10 w-[400px] h-[400px] xl:w-[480px] xl:h-[480px] rounded-full overflow-hidden border-4 border-white/10 shadow-2xl">
                   <Image
-                    src="/hero-woman.png"
+                    src="/images/assets/hero-woman.png"
                     alt="Mujer relajada disfrutando de bienestar"
                     width={620}
-                    height={700}
-                    className="w-full h-auto object-contain drop-shadow-2xl"
+                    height={620}
+                    className="w-full h-full object-cover"
                     priority
                   />
                 </div>
@@ -392,7 +314,7 @@ export default function Hero() {
           <div className="bg-gradient-to-r from-[#0E3D4A] via-[#156378]/90 to-[#0E3D4A] backdrop-blur-xl">
             <div className="max-w-[1300px] mx-auto px-6 sm:px-8 lg:px-12 py-6 sm:py-8">
               {/* Features Grid */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
                 {featureItems.map((feature, index) => (
                   <div key={index} className="flex items-start gap-3 sm:gap-4">
                     {/* Icon */}
@@ -410,55 +332,6 @@ export default function Hero() {
                     </div>
                   </div>
                 ))}
-              </div>
-
-              {/* Carousel Navigation */}
-              <div className="flex items-center justify-center gap-4 sm:gap-5">
-                {/* Previous button */}
-                <button
-                  onClick={prevSlide}
-                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/[0.08] backdrop-blur-sm border border-[#5EEAD4]/30 flex items-center justify-center text-[#5EEAD4]/70 hover:text-[#5EEAD4] hover:bg-white/[0.12] hover:border-[#5EEAD4]/50 transition-all duration-300 active:scale-95"
-                  aria-label="Slide anterior"
-                >
-                  <ChevronLeft size={18} strokeWidth={2} />
-                </button>
-
-                {/* Dots indicator */}
-                <div className="flex items-center gap-2.5">
-                  {heroSlides.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => goToSlide(index)}
-                      className={`relative h-2.5 rounded-full transition-all duration-500 ${
-                        index === currentSlide
-                          ? 'w-2.5 bg-[#5EEAD4]'
-                          : 'w-2.5 bg-white/30 hover:bg-white/50'
-                      }`}
-                      aria-label={`Ir a slide ${index + 1}`}
-                    >
-                      {/* Active ring */}
-                      {index === currentSlide && (
-                        <span className="absolute -inset-1 rounded-full border border-[#5EEAD4]/50" />
-                      )}
-                    </button>
-                  ))}
-                </div>
-
-                {/* Next button */}
-                <button
-                  onClick={nextSlide}
-                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#5EEAD4] flex items-center justify-center text-[#0E3D4A] hover:bg-[#5EEAD4]/90 transition-all duration-300 active:scale-95"
-                  aria-label="Siguiente slide"
-                >
-                  <ChevronRight size={18} strokeWidth={2} />
-                </button>
-              </div>
-
-              {/* Slide counter */}
-              <div className="text-center mt-4 text-white/40 text-sm font-medium tracking-wide">
-                <span className="text-white/70">{String(currentSlide + 1).padStart(2, '0')}</span>
-                <span className="mx-2">/</span>
-                <span>{String(heroSlides.length).padStart(2, '0')}</span>
               </div>
             </div>
           </div>

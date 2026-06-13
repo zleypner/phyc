@@ -68,15 +68,16 @@ export default function Specialists() {
         </motion.div>
 
         {/* Specialists Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto items-stretch">
           {specialists.map((specialist, index) => (
             <motion.article
               key={specialist.name}
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.15 }}
+              className="h-full"
             >
-              <div className="bg-white rounded-3xl shadow-[0_2px_20px_rgba(0,0,0,0.06)] overflow-hidden">
+              <div className="bg-white rounded-3xl shadow-[0_2px_20px_rgba(0,0,0,0.06)] overflow-hidden h-full flex flex-col">
                 {/* Image */}
                 <div className="relative aspect-[4/3] bg-gray-100 overflow-hidden">
                   {specialist.image ? (
@@ -97,7 +98,7 @@ export default function Specialists() {
                 </div>
 
                 {/* Content */}
-                <div className="p-8 md:p-10">
+                <div className="p-8 md:p-10 flex-1 flex flex-col">
                   {/* Name & Role */}
                   <h3 className="text-2xl font-bold text-[#0E3A4A] mb-1">
                     {specialist.name}
@@ -129,7 +130,7 @@ export default function Specialists() {
                   </div>
 
                   {/* Certifications */}
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mt-auto">
                     {specialist.certifications.map((cert) => (
                       <span
                         key={cert}

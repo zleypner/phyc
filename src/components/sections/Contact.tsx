@@ -3,10 +3,6 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import {
-  MapPin,
-  Phone,
-  Mail,
-  Clock,
   MessageCircle,
   ArrowRight,
 } from 'lucide-react';
@@ -50,97 +46,13 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        {/* Contact Grid */}
-        <div className="grid lg:grid-cols-2 gap-3 sm:gap-4 md:gap-6 max-w-[1100px] mx-auto">
-          {/* Contact Information */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="bg-gradient-to-br from-[#0E3A4A] to-[#1E88A8] rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-10 text-white h-full">
-              <h3 className="text-lg sm:text-xl md:text-2xl lg:text-[28px] font-semibold mb-4 sm:mb-6 md:mb-8">Información de Contacto</h3>
-
-              {/* Contact details */}
-              <div className="space-y-3 sm:space-y-4 md:space-y-6 mb-6 sm:mb-8 md:mb-10">
-                <div className="flex items-start gap-2 sm:gap-3 md:gap-4">
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
-                    <MapPin size={18} className="sm:w-5 sm:h-5 md:w-[22px] md:h-[22px]" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-0.5 sm:mb-1 text-sm sm:text-base md:text-lg">Nuestra Ubicación</h4>
-                    <p className="text-white/75 text-xs sm:text-sm md:text-[15px] leading-relaxed">
-                      San Pedro de Montes de Oca<br />
-                      San José, Costa Rica
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-2 sm:gap-3 md:gap-4">
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
-                    <Phone size={18} className="sm:w-5 sm:h-5 md:w-[22px] md:h-[22px]" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-0.5 sm:mb-1 text-sm sm:text-base md:text-lg">Teléfono / WhatsApp</h4>
-                    <a
-                      href="tel:+50689680947"
-                      className="text-white/75 text-xs sm:text-sm md:text-[15px] hover:text-white transition-colors"
-                    >
-                      +506 8968-0947
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-2 sm:gap-3 md:gap-4">
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
-                    <Mail size={18} className="sm:w-5 sm:h-5 md:w-[22px] md:h-[22px]" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-0.5 sm:mb-1 text-sm sm:text-base md:text-lg">Correo Electrónico</h4>
-                    <a
-                      href="mailto:gerencia@physicalcarefisioterapia.com"
-                      className="text-white/75 text-xs sm:text-sm md:text-[15px] hover:text-white transition-colors break-all"
-                    >
-                      gerencia@physicalcarefisioterapia.com
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-2 sm:gap-3 md:gap-4">
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
-                    <Clock size={18} className="sm:w-5 sm:h-5 md:w-[22px] md:h-[22px]" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-0.5 sm:mb-1 text-sm sm:text-base md:text-lg">Horario de Atención</h4>
-                    <p className="text-white/75 text-xs sm:text-sm md:text-[15px] leading-relaxed">
-                      Lunes - Viernes: 8:00 AM - 6:00 PM<br />
-                      Sábado: Con cita previa
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Map */}
-              <div className="rounded-xl sm:rounded-2xl md:rounded-3xl overflow-hidden h-[140px] sm:h-[160px] md:h-[180px] bg-white/10">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15720.058741686894!2d-84.05436545!3d9.9318015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e35a5b5db887%3A0x5f5f5f5f5f5f5f5f!2sSan%20Pedro%2C%20Montes%20de%20Oca!5e0!3m2!1sen!2scr!4v1234567890"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Ubicación de Physical Care Fisioterapia"
-                />
-              </div>
-            </div>
-          </motion.div>
-
+        {/* WhatsApp CTA Card */}
+        <div className="max-w-[550px] mx-auto">
           {/* WhatsApp CTA Card */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
           >
             <div className="bg-white rounded-2xl sm:rounded-3xl border border-[rgba(15,23,42,0.06)] shadow-[0_4px_24px_rgba(14,58,74,0.06)] p-4 sm:p-6 md:p-8 lg:p-10 h-full flex flex-col justify-center">
               {/* WhatsApp Icon */}
