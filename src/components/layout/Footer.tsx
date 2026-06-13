@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { MapPin, Phone } from 'lucide-react';
 
 const FacebookIcon = () => (
@@ -42,14 +43,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
           {/* Brand & Description */}
           <div>
-            <Link href="/" className="flex items-center gap-3 mb-4">
-              <div className="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center">
-                <span className="text-white font-bold text-lg">PC</span>
-              </div>
-              <div>
-                <p className="font-bold text-lg">Physical Care</p>
-                <p className="text-sm text-white/60">Fisioterapia</p>
-              </div>
+            <Link href="/" className="inline-block mb-4">
+              <Image
+                src="/images/logo/logo.jpeg"
+                alt="Physical Care Fisioterapia"
+                width={180}
+                height={50}
+                className="h-12 w-auto object-contain brightness-0 invert"
+              />
             </Link>
             <p className="text-white/60 text-sm leading-relaxed max-w-xs">
               Recuperación avanzada con tecnología de clase mundial y atención personalizada.

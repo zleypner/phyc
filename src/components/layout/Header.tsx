@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
@@ -57,30 +58,19 @@ export default function Header() {
       >
         <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
           <nav className="flex min-h-[64px] items-center justify-between lg:grid lg:min-h-[72px] lg:grid-cols-3 lg:gap-6">
-            <Link href="/" className="flex items-center gap-3">
+            <Link href="/" className="flex items-center">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="flex items-center gap-3"
               >
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl gradient-primary shadow-md">
-                  <span className="text-lg font-bold text-white">PC</span>
-                </div>
-
-                <div className="hidden sm:block">
-                  <p
-                    className={`text-lg font-bold leading-tight transition-colors duration-300 ${showSolidHeader ? 'text-[#0E3A4A]' : 'text-white'
-                      }`}
-                  >
-                    Physical Care
-                  </p>
-                  <p
-                    className={`text-xs font-medium tracking-wide transition-colors duration-300 ${showSolidHeader ? 'text-[#6B7280]' : 'text-white/75'
-                      }`}
-                  >
-                    Fisioterapia
-                  </p>
-                </div>
+                <Image
+                  src="/images/logo/logo.jpeg"
+                  alt="Physical Care Fisioterapia"
+                  width={180}
+                  height={50}
+                  className="h-10 sm:h-12 w-auto object-contain"
+                  priority
+                />
               </motion.div>
             </Link>
 
@@ -159,19 +149,13 @@ export default function Header() {
             >
               <div>
                 <div className="mb-10 flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl gradient-primary">
-                      <span className="text-lg font-bold text-white">PC</span>
-                    </div>
-                    <div>
-                      <p className="text-lg font-bold leading-tight text-white">
-                        Physical Care
-                      </p>
-                      <p className="text-xs font-medium tracking-wide text-white/60">
-                        Fisioterapia
-                      </p>
-                    </div>
-                  </div>
+                  <Image
+                    src="/images/logo/logo.jpeg"
+                    alt="Physical Care Fisioterapia"
+                    width={160}
+                    height={45}
+                    className="h-10 w-auto object-contain brightness-0 invert"
+                  />
 
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
