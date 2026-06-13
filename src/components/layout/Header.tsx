@@ -66,9 +66,9 @@ export default function Header() {
                 <Image
                   src="/images/logo/logo.jpeg"
                   alt="Physical Care Fisioterapia"
-                  width={180}
-                  height={50}
-                  className="h-10 sm:h-12 w-auto object-contain"
+                  width={220}
+                  height={60}
+                  className="h-14 sm:h-16 w-auto object-contain"
                   priority
                 />
               </motion.div>
@@ -152,9 +152,9 @@ export default function Header() {
                   <Image
                     src="/images/logo/logo.jpeg"
                     alt="Physical Care Fisioterapia"
-                    width={160}
-                    height={45}
-                    className="h-10 w-auto object-contain brightness-0 invert"
+                    width={200}
+                    height={55}
+                    className="h-12 w-auto object-contain brightness-0 invert"
                   />
 
                   <button
