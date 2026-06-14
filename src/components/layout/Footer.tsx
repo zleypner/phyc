@@ -49,7 +49,7 @@ export default function Footer() {
                 alt="Physical Care Fisioterapia"
                 width={220}
                 height={60}
-                className="h-16 w-auto object-contain brightness-0 invert"
+                className="h-16 w-auto object-contain"
               />
             </Link>
             <p className="text-white/60 text-sm leading-relaxed max-w-xs">

@@ -154,7 +154,7 @@ export default function Header() {
                     alt="Physical Care Fisioterapia"
                     width={200}
                     height={55}
-                    className="h-12 w-auto object-contain brightness-0 invert"
+                    className="h-12 w-auto object-contain"
                   />
 
                   <button
