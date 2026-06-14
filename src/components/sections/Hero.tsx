@@ -214,7 +214,7 @@ export default function Hero() {
                   {/* Social Proof - Patient Avatars */}
                   <div className="flex items-center gap-4">
                     {/* Stacked Avatars */}
-                    <div className="flex -space-x-3">
+                    <div className="flex -space-x-5">
                       <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0E3D4A] overflow-hidden bg-gradient-to-br from-[#5EEAD4]/30 to-[#35B7C8]/30">
                         <Image
                           src="/images/users/marie1.jpg"
