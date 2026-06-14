@@ -6,7 +6,6 @@ import {
   Star,
   Target,
   Heart,
-  Users,
   UserCheck,
   Award,
   Sparkles,
@@ -139,13 +138,6 @@ const trustMetrics = [
     label: 'Recomendaciones Positivas',
     iconColor: 'text-rose-400',
     iconBg: 'bg-rose-50',
-  },
-  {
-    icon: Users,
-    value: '450+',
-    label: 'Pacientes satisfechos',
-    iconColor: 'text-[#1E88A8]',
-    iconBg: 'bg-[#1E88A8]/10',
   },
 ];
 
@@ -416,7 +408,7 @@ export default function Testimonials() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto mb-16 md:mb-20"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto mb-16 md:mb-20"
           >
             {trustMetrics.map((metric, index) => {
               const IconComponent = metric.icon;
