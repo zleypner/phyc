@@ -127,8 +127,8 @@ const trustMetrics = [
   },
   {
     icon: Target,
-    value: 'NPS 10/10',
-    label: 'Puntuación NPS',
+    value: '10/10',
+    label: 'Nivel de satisfacción',
     iconColor: 'text-[#1E88A8]',
     iconBg: 'bg-[#1E88A8]/10',
   },
