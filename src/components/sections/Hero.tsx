@@ -217,8 +217,8 @@ export default function Hero() {
                     <div className="flex -space-x-3">
                       <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0E3D4A] overflow-hidden bg-gradient-to-br from-[#5EEAD4]/30 to-[#35B7C8]/30">
                         <Image
-                          src="/specialists/yamilah.png"
-                          alt="Paciente"
+                          src="/images/users/marie1.jpg"
+                          alt="Paciente satisfecha"
                           width={44}
                           height={44}
                           className="w-full h-full object-cover"
@@ -226,15 +226,21 @@ export default function Hero() {
                       </div>
                       <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0E3D4A] overflow-hidden bg-gradient-to-br from-[#5EEAD4]/30 to-[#35B7C8]/30">
                         <Image
-                          src="/specialists/enmanuel.png"
-                          alt="Paciente"
+                          src="/images/users/john1.jpg"
+                          alt="Paciente satisfecho"
                           width={44}
                           height={44}
                           className="w-full h-full object-cover"
                         />
                       </div>
-                      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0E3D4A] overflow-hidden bg-gradient-to-br from-[#5EEAD4]/30 to-[#35B7C8]/30 flex items-center justify-center">
-                        <span className="text-white/80 text-xs font-medium">+</span>
+                      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0E3D4A] overflow-hidden bg-gradient-to-br from-[#5EEAD4]/30 to-[#35B7C8]/30">
+                        <Image
+                          src="/images/users/marie2.jpg"
+                          alt="Paciente satisfecha"
+                          width={44}
+                          height={44}
+                          className="w-full h-full object-cover"
+                        />
                       </div>
                     </div>
                     {/* Text */}
