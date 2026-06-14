@@ -94,7 +94,7 @@ const videoSchema = {
         name: 'Physical Care Fisioterapia',
         logo: {
           '@type': 'ImageObject',
-          url: 'https://physicalcarefisioterapia.com/images/logo.png',
+          url: 'https://physicalcarefisioterapia.com/images/logo/logo-removedbg.png',
         },
       },
     },

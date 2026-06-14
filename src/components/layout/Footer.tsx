@@ -45,7 +45,7 @@ export default function Footer() {
           <div>
             <Link href="/" className="inline-block mb-4">
               <Image
-                src="/images/logo/logo.jpeg"
+                src="/images/logo/logo-removedbg.png"
                 alt="Physical Care Fisioterapia"
                 width={220}
                 height={60}

@@ -64,7 +64,7 @@ export default function Header() {
                 animate={{ opacity: 1, x: 0 }}
               >
                 <Image
-                  src="/images/logo/logo.jpeg"
+                  src="/images/logo/logo-removedbg.png"
                   alt="Physical Care Fisioterapia"
                   width={220}
                   height={60}
@@ -150,7 +150,7 @@ export default function Header() {
               <div>
                 <div className="mb-10 flex items-center justify-between">
                   <Image
-                    src="/images/logo/logo.jpeg"
+                    src="/images/logo/logo-removedbg.png"
                     alt="Physical Care Fisioterapia"
                     width={200}
                     height={55}
