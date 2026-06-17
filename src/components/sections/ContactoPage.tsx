@@ -198,7 +198,7 @@ export default function ContactoPage() {
                     Escríbenos para programar tu cita.
                   </p>
                   <a
-                    href="https://wa.me/50689680947?text=Hola!%20Me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20sobre%20las%20citas%20de%20fisioterapia."
+                    href="https://wa.me/50689680947?text=Hola%20quiero%20agendar%20una%20cita.%20Parte%20del%20cuerpo%20que%20me%20duele:"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-white text-[#25D366] font-bold py-2.5 px-5 rounded-full hover:bg-slate-50 transition-colors shadow-lg text-sm w-fit"

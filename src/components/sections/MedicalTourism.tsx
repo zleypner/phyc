@@ -157,7 +157,7 @@ export default function MedicalTourism() {
                 Planifica Tu Visita
               </a>
               <a
-                href="https://wa.me/50689680947"
+                href="https://wa.me/50689680947?text=Hola%20quiero%20agendar%20una%20cita.%20Parte%20del%20cuerpo%20que%20me%20duele:"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary text-center"

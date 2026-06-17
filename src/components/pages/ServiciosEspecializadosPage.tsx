@@ -255,24 +255,24 @@ function HeroSection() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 w-full sm:w-auto"
           >
             <a
-              href="https://wa.me/50689680947?text=Hola,%20me%20gustaría%20agendar%20una%20valoración"
+              href="https://wa.me/50689680947?text=Hola%20quiero%20agendar%20una%20cita.%20Parte%20del%20cuerpo%20que%20me%20duele:"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-3 h-14 sm:h-16 w-full sm:w-auto px-8 sm:px-10 bg-[#1E88A8] text-white rounded-full font-semibold text-base sm:text-lg shadow-xl shadow-[#1E88A8]/25 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#1E88A8]/30 hover:bg-[#35B7C8]"
+              className="group inline-flex items-center justify-center gap-2 sm:gap-3 h-14 sm:h-16 w-full sm:w-auto px-6 sm:px-8 lg:px-10 bg-[#1E88A8] text-white rounded-full font-semibold text-sm sm:text-base lg:text-lg shadow-xl shadow-[#1E88A8]/25 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#1E88A8]/30 hover:bg-[#35B7C8]"
             >
               Agendar Valoración
               <ArrowRight
-                size={20}
-                className="transition-transform duration-300 group-hover:translate-x-1"
+                size={18}
+                className="transition-transform duration-300 group-hover:translate-x-1 sm:w-5 sm:h-5"
               />
             </a>
             <a
-              href="https://wa.me/50689680947?text=Hola,%20tengo%20una%20consulta%20sobre%20sus%20servicios"
+              href="https://wa.me/50689680947?text=Hola%20quiero%20agendar%20una%20cita.%20Parte%20del%20cuerpo%20que%20me%20duele:"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-3 h-14 sm:h-16 w-full sm:w-auto px-8 sm:px-10 bg-[#25D366] text-white rounded-full font-semibold text-base sm:text-lg shadow-xl shadow-[#25D366]/25 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#25D366]/30 hover:bg-[#20BA5C]"
+              className="group inline-flex items-center justify-center gap-2 sm:gap-3 h-14 sm:h-16 w-full sm:w-auto px-6 sm:px-8 lg:px-10 bg-[#25D366] text-white rounded-full font-semibold text-sm sm:text-base lg:text-lg shadow-xl shadow-[#25D366]/25 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#25D366]/30 hover:bg-[#20BA5C]"
             >
-              <WhatsAppIcon className="w-5 h-5" />
+              <WhatsAppIcon className="w-4 h-4 sm:w-5 sm:h-5" />
               Consultar por WhatsApp
             </a>
           </motion.div>
@@ -354,16 +354,14 @@ function ServiceSection({
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
           variants={staggerContainer}
-          className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-24 items-center ${
-            isReversed ? 'lg:flex-row-reverse' : ''
-          }`}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 xl:gap-24 items-center"
         >
           {/* Image */}
           <motion.div
             variants={fadeInUp}
             className={`relative ${isReversed ? 'lg:order-2' : 'lg:order-1'}`}
           >
-            <div className="relative aspect-[4/3] lg:aspect-auto lg:h-[500px] xl:h-[600px] rounded-3xl overflow-hidden shadow-2xl shadow-[#0E3A4A]/10">
+            <div className="relative aspect-[4/3] lg:aspect-[3/2] rounded-3xl overflow-hidden shadow-2xl shadow-[#0E3A4A]/10 lg:min-h-[400px] xl:min-h-[500px]">
               <Image
                 src={service.image}
                 alt={service.title}
@@ -498,24 +496,24 @@ function FinalCTASection() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 w-full sm:w-auto"
           >
             <a
-              href="https://wa.me/50689680947?text=Hola,%20me%20gustaría%20agendar%20una%20valoración"
+              href="https://wa.me/50689680947?text=Hola%20quiero%20agendar%20una%20cita.%20Parte%20del%20cuerpo%20que%20me%20duele:"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-3 h-14 sm:h-16 w-full sm:w-auto px-8 sm:px-10 bg-white text-[#0E3A4A] rounded-full font-semibold text-base sm:text-lg shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+              className="group inline-flex items-center justify-center gap-2 sm:gap-3 h-14 sm:h-16 w-full sm:w-auto px-6 sm:px-8 lg:px-10 bg-white text-[#0E3A4A] rounded-full font-semibold text-sm sm:text-base lg:text-lg shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
             >
               Agendar Valoración
               <ArrowRight
-                size={20}
-                className="transition-transform duration-300 group-hover:translate-x-1"
+                size={18}
+                className="transition-transform duration-300 group-hover:translate-x-1 sm:w-5 sm:h-5"
               />
             </a>
             <a
-              href="https://wa.me/50689680947?text=Hola,%20tengo%20una%20consulta%20sobre%20sus%20servicios"
+              href="https://wa.me/50689680947?text=Hola%20quiero%20agendar%20una%20cita.%20Parte%20del%20cuerpo%20que%20me%20duele:"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-3 h-14 sm:h-16 w-full sm:w-auto px-8 sm:px-10 bg-[#25D366] text-white rounded-full font-semibold text-base sm:text-lg shadow-xl shadow-[#25D366]/25 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#25D366]/30 hover:bg-[#20BA5C]"
+              className="group inline-flex items-center justify-center gap-2 sm:gap-3 h-14 sm:h-16 w-full sm:w-auto px-6 sm:px-8 lg:px-10 bg-[#25D366] text-white rounded-full font-semibold text-sm sm:text-base lg:text-lg shadow-xl shadow-[#25D366]/25 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#25D366]/30 hover:bg-[#20BA5C]"
             >
-              <WhatsAppIcon className="w-5 h-5" />
+              <WhatsAppIcon className="w-4 h-4 sm:w-5 sm:h-5" />
               Consultar por WhatsApp
             </a>
           </motion.div>
