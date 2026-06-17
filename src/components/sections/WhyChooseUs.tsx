@@ -6,7 +6,6 @@ import {
   UserCheck,
   Award,
   Cpu,
-  BookOpen,
   LineChart,
   MapPin,
   HeartHandshake,
@@ -30,12 +29,6 @@ const reasons = [
     title: 'Tecnología Moderna',
     description:
       'Utilizamos equipos de vanguardia incluyendo terapia de ondas de choque, TECAR y herramientas de evaluación avanzadas.',
-  },
-  {
-    icon: BookOpen,
-    title: 'Práctica Basada en Evidencia',
-    description:
-      'Todos nuestros tratamientos están fundamentados en la investigación científica más reciente y las mejores prácticas clínicas.',
   },
   {
     icon: LineChart,
@@ -80,7 +73,7 @@ export default function WhyChooseUs() {
         </motion.div>
 
         {/* Square Cards Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
           {reasons.map((reason, index) => (
             <motion.div
               key={reason.title}
