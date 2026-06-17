@@ -80,18 +80,18 @@ export default function WhyChooseUs() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: 0.1 * index }}
-              className="group bg-white rounded-2xl p-5 md:p-6 aspect-square flex flex-col items-center justify-center text-center shadow-[0_2px_20px_rgba(0,0,0,0.06)] border border-gray-100 hover:shadow-[0_8px_40px_rgba(0,0,0,0.12)] hover:border-[#1E88A8]/20 transition-all duration-500 hover:-translate-y-1"
+              className="group bg-white rounded-2xl p-6 md:p-8 flex flex-col items-center text-center shadow-[0_2px_20px_rgba(0,0,0,0.06)] border border-gray-100 hover:shadow-[0_8px_40px_rgba(0,0,0,0.12)] hover:border-[#1E88A8]/20 transition-all duration-500 hover:-translate-y-1"
             >
-              <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-[#1E88A8]/10 to-[#35B7C8]/10 flex items-center justify-center mb-4 group-hover:from-[#1E88A8] group-hover:to-[#35B7C8] transition-all duration-300">
+              <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-[#1E88A8]/10 to-[#35B7C8]/10 flex items-center justify-center mb-5 group-hover:from-[#1E88A8] group-hover:to-[#35B7C8] transition-all duration-300">
                 <reason.icon
                   size={28}
                   className="text-[#1E88A8] group-hover:text-white transition-colors"
                 />
               </div>
-              <h3 className="font-semibold text-[#0E3A4A] text-sm md:text-base mb-2 leading-tight">
+              <h3 className="font-semibold text-[#0E3A4A] text-base md:text-lg mb-3 leading-tight">
                 {reason.title}
               </h3>
-              <p className="text-xs md:text-sm text-[#6B7280] leading-relaxed line-clamp-3">
+              <p className="text-sm text-[#6B7280] leading-relaxed">
                 {reason.description}
               </p>
             </motion.div>
