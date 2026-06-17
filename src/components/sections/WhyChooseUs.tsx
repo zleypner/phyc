@@ -77,31 +77,6 @@ export default function WhyChooseUs() {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0E3A4A] mb-6">
               La Diferencia Physical Care
             </h2>
-            <p className="text-lg text-[#6B7280] mb-8">
-              No solo tratamos síntomas—identificamos las causas raíz y creamos soluciones
-              duraderas. Nuestro compromiso con la excelencia y la atención centrada en el paciente
-              nos distingue como el centro de rehabilitación líder de Costa Rica.
-            </p>
-
-            {/* Stats row */}
-            <div className="grid grid-cols-3 gap-4 mb-8">
-              <div className="text-center p-4 bg-white rounded-xl">
-                <div className="text-2xl md:text-3xl font-bold text-[#1E88A8]">9+</div>
-                <div className="text-xs text-[#6B7280]">Años</div>
-              </div>
-              <div className="text-center p-4 bg-white rounded-xl">
-                <div className="text-2xl md:text-3xl font-bold text-[#1E88A8]">450+</div>
-                <div className="text-xs text-[#6B7280]">Pacientes</div>
-              </div>
-              <div className="text-center p-4 bg-white rounded-xl">
-                <div className="text-2xl md:text-3xl font-bold text-[#1E88A8]">98%</div>
-                <div className="text-xs text-[#6B7280]">Satisfacción</div>
-              </div>
-            </div>
-
-            <a href="#contact" className="btn-primary inline-block">
-              Experimenta la Diferencia
-            </a>
           </motion.div>
 
           {/* Right Column - Features Grid */}
