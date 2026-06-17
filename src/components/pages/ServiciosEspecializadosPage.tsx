@@ -292,12 +292,12 @@ function IntroductionSection() {
 
   return (
     <section ref={ref} className="py-20 md:py-28 lg:py-32 bg-white">
-      <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12">
         <motion.div
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
           variants={staggerContainer}
-          className="text-center max-w-4xl mx-auto"
+          className="flex flex-col items-center text-center"
         >
           <motion.span
             variants={fadeInUp}
@@ -308,12 +308,12 @@ function IntroductionSection() {
 
           <motion.h2
             variants={fadeInUp}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0E3A4A] leading-[1.15] tracking-[-0.02em] mb-8"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0E3A4A] leading-[1.15] tracking-[-0.02em] mb-8 max-w-4xl"
           >
             Tratamientos diseñados para resultados reales
           </motion.h2>
 
-          <motion.div variants={fadeInUp} className="space-y-6 text-lg text-[#64748B] leading-relaxed text-center">
+          <motion.div variants={fadeInUp} className="space-y-6 text-lg text-[#64748B] leading-relaxed text-center max-w-3xl">
             <p>
               En Physical Care creemos que cada paciente merece un tratamiento personalizado. Por
               eso hemos desarrollado una oferta integral de servicios especializados que combinan
