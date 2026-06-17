@@ -21,7 +21,7 @@ export default function WhatsAppButton() {
   const [isHovered, setIsHovered] = useState(false);
 
   const phoneNumber = '50689680947';
-  const message = encodeURIComponent('Hello! I would like to schedule an appointment at Physical Care Fisioterapia.');
+  const message = encodeURIComponent('¡Hola! Me gustaría agendar una cita en Physical Care Fisioterapia.');
 
   return (
     <div className="fixed bottom-6 right-6 z-50">
@@ -37,13 +37,13 @@ export default function WhatsAppButton() {
               <button
                 onClick={() => setIsTooltipVisible(false)}
                 className="absolute top-2 right-2 w-6 h-6 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
-                aria-label="Close tooltip"
+                aria-label="Cerrar"
               >
                 <X size={14} className="text-gray-400" />
               </button>
-              <p className="font-semibold text-[#0E3A4A] mb-1">Need help?</p>
+              <p className="font-semibold text-[#0E3A4A] mb-1">¿Necesitas ayuda?</p>
               <p className="text-sm text-gray-600 mb-3">
-                Chat with us on WhatsApp for quick assistance with appointments.
+                Chatea con nosotros por WhatsApp para asistencia rápida con citas.
               </p>
               <a
                 href={`https://wa.me/${phoneNumber}?text=${message}`}
@@ -51,7 +51,7 @@ export default function WhatsAppButton() {
                 rel="noopener noreferrer"
                 className="block w-full bg-[#25D366] text-white text-center py-2 rounded-lg font-medium hover:bg-[#20BA5C] transition-colors"
               >
-                Start Chat
+                Iniciar Chat
               </a>
               {/* Tooltip arrow */}
               <div className="absolute -bottom-2 right-6 w-4 h-4 bg-white transform rotate-45" />
@@ -67,7 +67,7 @@ export default function WhatsAppButton() {
         className="relative w-16 h-16 rounded-full bg-[#25D366] text-white shadow-lg flex items-center justify-center"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        aria-label="Open WhatsApp chat"
+        aria-label="Abrir chat de WhatsApp"
       >
         {/* Pulse animation */}
         <motion.div
@@ -96,7 +96,7 @@ export default function WhatsAppButton() {
             className="absolute right-full mr-3 top-1/2 -translate-y-1/2 whitespace-nowrap"
           >
             <span className="bg-[#0E3A4A] text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
-              Chat with us
+              Chatea con nosotros
             </span>
           </motion.div>
         )}
