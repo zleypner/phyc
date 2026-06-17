@@ -58,7 +58,7 @@ const technologies = [
       'Calcificaciones',
     ],
     icon: Target,
-    image: null,
+    image: '/images/technology/Ondas de Choque Focales STORZ Medical.png',
   },
   {
     id: 'ondas-radiales',
