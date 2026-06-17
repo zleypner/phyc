@@ -217,7 +217,7 @@ export default function Hero() {
                     <div className="flex -space-x-5">
                       <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0E3D4A] overflow-hidden bg-gradient-to-br from-[#5EEAD4]/30 to-[#35B7C8]/30">
                         <Image
-                          src="/images/users/marie1.jpg"
+                          src="/images/users/marie1.webp"
                           alt="Paciente satisfecha"
                           width={44}
                           height={44}
@@ -226,7 +226,7 @@ export default function Hero() {
                       </div>
                       <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0E3D4A] overflow-hidden bg-gradient-to-br from-[#5EEAD4]/30 to-[#35B7C8]/30">
                         <Image
-                          src="/images/users/john1.jpg"
+                          src="/images/users/john1.webp"
                           alt="Paciente satisfecho"
                           width={44}
                           height={44}
@@ -235,7 +235,7 @@ export default function Hero() {
                       </div>
                       <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0E3D4A] overflow-hidden bg-gradient-to-br from-[#5EEAD4]/30 to-[#35B7C8]/30">
                         <Image
-                          src="/images/users/marie2.jpg"
+                          src="/images/users/marie2.webp"
                           alt="Paciente satisfecha"
                           width={44}
                           height={44}
@@ -267,7 +267,7 @@ export default function Hero() {
                 {/* Hero Image */}
                 <div className="relative z-10 w-[400px] h-[400px] xl:w-[480px] xl:h-[480px] rounded-full overflow-hidden border-4 border-white/10 shadow-2xl">
                   <Image
-                    src="/images/assets/hero-woman.png"
+                    src="/images/assets/hero-woman.webp"
                     alt="Mujer relajada disfrutando de bienestar"
                     width={620}
                     height={620}

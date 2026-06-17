@@ -41,7 +41,7 @@ const technologies = [
       'Recuperación funcional',
     ],
     icon: Zap,
-    image: '/images/technology/magnetolin.jpeg',
+    image: '/images/technology/magnetolin.webp',
   },
   {
     id: 'ondas-focales',
@@ -58,7 +58,7 @@ const technologies = [
       'Calcificaciones',
     ],
     icon: Target,
-    image: '/images/technology/Ondas de Choque Focales STORZ Medical.png',
+    image: '/images/technology/ondas-de-choque.webp',
   },
   {
     id: 'ondas-radiales',
@@ -91,7 +91,7 @@ const technologies = [
       'Compresión nerviosa',
     ],
     icon: Activity,
-    image: '/images/technology/camilla.jpeg',
+    image: '/images/technology/camilla.webp',
   },
 ];
 

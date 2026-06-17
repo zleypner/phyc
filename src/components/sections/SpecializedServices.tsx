@@ -15,7 +15,7 @@ const services = [
   {
     name: 'Ondas de Choque',
     description: 'Tratamiento avanzado para lesiones crónicas y tendinosas.',
-    image: '/images/technology/Ondas de Choque Focales STORZ Medical.png',
+    image: '/images/technology/ondas-de-choque.webp',
   },
   {
     name: 'Plantillas Ortopédicas',
@@ -25,27 +25,27 @@ const services = [
   {
     name: 'Rehabilitación Deportiva',
     description: 'Recuperación óptima para atletas y deportistas activos.',
-    image: '/images/services/deportivo.jpg',
+    image: '/images/services/deportivo.webp',
   },
   {
     name: 'Terapia Manual Ortopédica',
     description: 'Técnicas manuales especializadas para dolor musculoesquelético.',
-    image: '/images/services/manual-ortopedica.jpg',
+    image: '/images/services/manual-ortopedica.webp',
   },
   {
     name: 'Tecarterapia',
     description: 'Tecnología de radiofrecuencia para acelerar la recuperación.',
-    image: '/images/services/tecar.jpg',
+    image: '/images/services/tecar.webp',
   },
   {
     name: 'Masajes Terapéuticos',
     description: 'Alivio de tensión muscular y mejora de la circulación.',
-    image: '/images/services/masajes-terapeuticos.jpg',
+    image: '/images/services/masajes-terapeuticos.webp',
   },
   {
     name: 'Rehabilitación Pre y Post Cirugía',
     description: 'Preparación y recuperación integral para intervenciones quirúrgicas.',
-    image: '/images/services/pre-post.jpg',
+    image: '/images/services/pre-post.webp',
   },
 ];
 
@@ -120,7 +120,7 @@ export default function SpecializedServices() {
           animate={isInView ? 'visible' : 'hidden'}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
         >
-          {services.map((service) => (
+          {services.map((service, index) => (
             <motion.div
               key={service.name}
               variants={cardVariants}
@@ -137,6 +137,7 @@ export default function SpecializedServices() {
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    priority={index < 4}
                   />
                   {/* Overlay on hover */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0E3A4A]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

@@ -38,7 +38,7 @@ const services = [
   {
     id: 'ondas-de-choque',
     title: 'Terapia de Ondas de Choque',
-    image: '/images/technology/Ondas de Choque Focales STORZ Medical.png',
+    image: '/images/technology/ondas-de-choque.webp',
     description: [
       'La terapia por ondas de choque representa uno de los avances más importantes en el tratamiento de lesiones musculoesqueléticas crónicas.',
       'Esta tecnología utiliza impulsos mecánicos de alta energía para estimular los procesos naturales de reparación del cuerpo, favoreciendo la regeneración de tejidos y disminuyendo el dolor.',
@@ -78,7 +78,7 @@ const services = [
   {
     id: 'rehabilitacion-deportiva',
     title: 'Rehabilitación Deportiva Avanzada',
-    image: '/images/services/deportivo.jpg',
+    image: '/images/services/deportivo.webp',
     description: [
       'Recuperarse de una lesión no significa únicamente eliminar el dolor.',
       'Nuestro objetivo es que cada atleta vuelva a competir con seguridad, confianza y el máximo rendimiento posible.',
@@ -95,7 +95,7 @@ const services = [
   {
     id: 'terapia-manual',
     title: 'Terapia Manual Ortopédica',
-    image: '/images/services/manual-ortopedica.jpg',
+    image: '/images/services/manual-ortopedica.webp',
     description: [
       'La terapia manual sigue siendo una de las herramientas más efectivas para restaurar movimiento y disminuir dolor.',
       'A través de técnicas especializadas realizamos movilizaciones articulares, liberación de tejidos blandos y corrección de restricciones biomecánicas.',
@@ -111,7 +111,7 @@ const services = [
   {
     id: 'tecarterapia',
     title: 'Tecarterapia',
-    image: '/images/services/tecar.jpg',
+    image: '/images/services/tecar.webp',
     description: [
       'La Tecarterapia utiliza radiofrecuencia terapéutica para estimular los mecanismos naturales de reparación de los tejidos.',
       'Esta tecnología favorece la circulación sanguínea, acelera procesos de recuperación y reduce significativamente la inflamación.',
@@ -127,7 +127,7 @@ const services = [
   {
     id: 'masajes-terapeuticos',
     title: 'Masajes Terapéuticos',
-    image: '/images/services/masajes-terapeuticos.jpg',
+    image: '/images/services/masajes-terapeuticos.webp',
     description: [
       'Los masajes terapéuticos son una herramienta clínica para disminuir tensiones musculares, mejorar la circulación y favorecer la recuperación física.',
       'Cada tratamiento es adaptado a las necesidades específicas de cada paciente.',
@@ -143,7 +143,7 @@ const services = [
   {
     id: 'rehabilitacion-cirugia',
     title: 'Rehabilitación Pre y Post Cirugía',
-    image: '/images/services/pre-post.jpg',
+    image: '/images/services/pre-post.webp',
     description: [
       'Una recuperación exitosa comienza incluso antes de la cirugía.',
       'La preparación adecuada puede mejorar significativamente los resultados quirúrgicos y acelerar el proceso de recuperación posterior.',
@@ -359,9 +359,9 @@ function ServiceSection({
           {/* Image */}
           <motion.div
             variants={fadeInUp}
-            className={`relative ${isReversed ? 'lg:order-2' : 'lg:order-1'}`}
+            className={`relative w-full ${isReversed ? 'lg:order-2' : 'lg:order-1'}`}
           >
-            <div className="relative aspect-[4/3] lg:aspect-[3/2] rounded-3xl overflow-hidden shadow-2xl shadow-[#0E3A4A]/10 lg:min-h-[400px] xl:min-h-[500px]">
+            <div className="relative aspect-[4/3] w-full rounded-3xl overflow-hidden shadow-2xl shadow-[#0E3A4A]/10">
               <Image
                 src={service.image}
                 alt={service.title}
@@ -372,14 +372,6 @@ function ServiceSection({
               {/* Premium overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#0E3A4A]/30 via-transparent to-transparent" />
             </div>
-            {/* Decorative element - hidden on mobile to prevent overflow */}
-            <div
-              className={`hidden md:block absolute -z-10 w-full h-full rounded-3xl bg-gradient-to-br from-[#1E88A8]/20 to-[#5EEAD4]/10 ${
-                isReversed
-                  ? '-top-4 -left-4 lg:-top-6 lg:-left-6'
-                  : '-top-4 -right-4 lg:-top-6 lg:-right-6'
-              }`}
-            />
           </motion.div>
 
           {/* Content */}
