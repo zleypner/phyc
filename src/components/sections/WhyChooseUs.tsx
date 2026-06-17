@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import Image from 'next/image';
 import {
   UserCheck,
   Award,
@@ -72,8 +73,22 @@ export default function WhyChooseUs() {
           </h2>
         </motion.div>
 
-        {/* Square Cards Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+        {/* Mobile Image - Test visibility */}
+        <div className="flex mb-10 justify-center">
+          <div className="relative w-64 h-64 rounded-full overflow-hidden border-4 border-[#5EEAD4]/30 shadow-[0_0_60px_rgba(94,234,212,0.3)]">
+            <Image
+              src="/images/assets/hero-woman.webp"
+              alt="Bienestar y recuperación"
+              fill
+              className="object-cover"
+              sizes="256px"
+              priority
+            />
+          </div>
+        </div>
+
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
           {reasons.map((reason, index) => (
             <motion.div
               key={reason.title}
