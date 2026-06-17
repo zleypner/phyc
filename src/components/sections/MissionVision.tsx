@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Heart, Target, Users, Sparkles, Award } from 'lucide-react';
+import { Heart, Target, Award } from 'lucide-react';
 
 const missionVisionCards = [
   {
@@ -16,28 +16,6 @@ const missionVisionCards = [
     title: 'VISIÓN',
     text: 'Ser un centro de referencia en fisioterapia y rehabilitación en Costa Rica, reconocido por la excelencia clínica, la innovación tecnológica y la capacidad de transformar positivamente la vida de nuestros pacientes mediante resultados medibles y atención de clase mundial.',
     icon: Target,
-  },
-];
-
-const impactStats = [
-  {
-    id: 'patients',
-    value: '+1000',
-    label: 'Pacientes Atendidos',
-    icon: Users,
-  },
-  {
-    id: 'personalized',
-    value: '100%',
-    label: 'Atención Personalizada',
-    icon: Heart,
-  },
-  {
-    id: 'technology',
-    value: '',
-    label: 'Tecnología Especializada',
-    icon: Sparkles,
-    isText: true,
   },
 ];
 
@@ -62,18 +40,6 @@ export default function MissionVision() {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.22, 1, 0.36, 1] as const,
-      },
-    },
-  };
-
-  const statVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
         ease: [0.22, 1, 0.36, 1] as const,
       },
     },
@@ -106,7 +72,7 @@ export default function MissionVision() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-16 md:mb-20 lg:mb-24"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
         >
           {missionVisionCards.map((card) => {
             const IconComponent = card.icon;
@@ -138,70 +104,6 @@ export default function MissionVision() {
               </motion.div>
             );
           })}
-        </motion.div>
-
-        {/* Impact Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="relative bg-gradient-to-br from-[#0E3A4A] to-[#1E88A8] rounded-3xl overflow-hidden"
-        >
-          {/* Background decorative elements */}
-          <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#5EEAD4]/10 rounded-full blur-3xl" />
-            <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-[#35B7C8]/10 rounded-full blur-3xl" />
-          </div>
-
-          <div className="relative z-10 px-6 py-10 md:px-12 md:py-14 lg:px-16 lg:py-16">
-            {/* Impact Title */}
-            <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white text-center mb-10 md:mb-12 leading-tight">
-              Recuperando movimiento,{' '}
-              <span className="bg-gradient-to-r from-[#5EEAD4] to-[#35B7C8] bg-clip-text text-transparent">
-                mejorando vidas.
-              </span>
-            </h3>
-
-            {/* Stats Grid */}
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              animate={isInView ? 'visible' : 'hidden'}
-              className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12"
-            >
-              {impactStats.map((stat, index) => {
-                const IconComponent = stat.icon;
-                return (
-                  <motion.div
-                    key={stat.id}
-                    variants={statVariants}
-                    className="text-center"
-                  >
-                    {/* Icon */}
-                    <div className="w-16 h-16 mx-auto rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center mb-4 border border-white/10">
-                      <IconComponent className="w-8 h-8 text-[#5EEAD4]" strokeWidth={1.5} />
-                    </div>
-
-                    {/* Value */}
-                    {stat.isText ? (
-                      <div className="text-3xl md:text-4xl font-bold text-white mb-2">
-                        <Sparkles className="w-8 h-8 mx-auto text-[#5EEAD4]" />
-                      </div>
-                    ) : (
-                      <div className="text-3xl md:text-4xl font-bold text-white mb-2">
-                        {stat.value}
-                      </div>
-                    )}
-
-                    {/* Label */}
-                    <p className="text-white/80 text-sm md:text-base font-medium">
-                      {stat.label}
-                    </p>
-                  </motion.div>
-                );
-              })}
-            </motion.div>
-          </div>
         </motion.div>
       </div>
     </section>

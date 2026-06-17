@@ -7,6 +7,7 @@ import TrustBar from '@/components/sections/TrustBar';
 import TechnologyCTA from '@/components/sections/TechnologyCTA';
 import Specialists from '@/components/sections/Specialists';
 import FAQ from '@/components/sections/FAQ';
+import WhyChooseUs from '@/components/sections/WhyChooseUs';
 import MissionVision from '@/components/sections/MissionVision';
 import TestimonialsCTA from '@/components/sections/TestimonialsCTA';
 import Contact from '@/components/sections/Contact';
@@ -23,6 +24,7 @@ export default function Home() {
         <TechnologyCTA />
         <Specialists />
         <FAQ />
+        <WhyChooseUs />
         <MissionVision />
         <TestimonialsCTA />
         <Contact />
