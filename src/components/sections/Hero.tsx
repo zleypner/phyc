@@ -245,7 +245,7 @@ export default function Hero() {
                     </div>
                     {/* Text */}
                     <div className="flex flex-col">
-                      <span className="text-[#5EEAD4] font-semibold text-[15px] sm:text-[16px]">+500 pacientes</span>
+                      <span className="text-[#5EEAD4] font-semibold text-[15px] sm:text-[16px]">+5000 pacientes</span>
                       <span className="text-white/60 text-[13px] sm:text-[14px]">Confían en nosotros</span>
                     </div>
                   </div>

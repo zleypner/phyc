@@ -14,7 +14,7 @@ const stats = [
   },
   {
     icon: Users,
-    value: 3000,
+    value: 5000,
     suffix: '+',
     label: 'Pacientes Atendidos',
     description: 'Vidas transformadas a través del cuidado',
