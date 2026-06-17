@@ -165,7 +165,7 @@ export default function RootLayout({
       className={`${lora.variable} ${raleway.variable} scroll-smooth`}
     >
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/images/logo/favicon.png" type="image/png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#1E88A8" />
