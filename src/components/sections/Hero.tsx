@@ -289,60 +289,61 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* ============================================
-            FEATURE BAR - Bottom curved section
-            ============================================ */}
-        <div className="absolute bottom-0 left-0 right-0 z-40">
-          {/* Wave/Curve SVG */}
-          <div className="relative">
-            <svg
-              viewBox="0 0 1440 120"
-              fill="none"
-              preserveAspectRatio="none"
-              className="w-full h-16 sm:h-20 md:h-24"
-            >
-              <path
-                d="M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z"
-                fill="url(#wave-gradient)"
-                fillOpacity="0.95"
-              />
-              <defs>
-                <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#0E3D4A" />
-                  <stop offset="50%" stopColor="#156378" />
-                  <stop offset="100%" stopColor="#0E3D4A" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
+      </motion.div>
 
-          {/* Feature Bar Container */}
-          <div className="bg-gradient-to-r from-[#0E3D4A] via-[#156378]/90 to-[#0E3D4A] backdrop-blur-xl">
-            <div className="max-w-[1300px] mx-auto px-6 sm:px-8 lg:px-12 py-6 sm:py-8">
-              {/* Features Grid */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-                {featureItems.map((feature, index) => (
-                  <div key={index} className="flex items-start gap-3 sm:gap-4">
-                    {/* Icon */}
-                    <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#5EEAD4]/10 border border-[#5EEAD4]/20 flex items-center justify-center">
-                      <feature.icon className="w-5 h-5 sm:w-6 sm:h-6 text-[#5EEAD4]" strokeWidth={1.5} />
-                    </div>
-                    {/* Text */}
-                    <div className="flex flex-col">
-                      <span className="text-white font-semibold text-[14px] sm:text-[15px] leading-tight">
-                        {feature.title}
-                        <br />
-                        {feature.titleLine2}
-                      </span>
-                      <span className="text-white/50 text-[12px] sm:text-[13px] mt-1">{feature.description}</span>
-                    </div>
+      {/* ============================================
+          FEATURE BAR - Bottom curved section (outside motion.div to prevent scroll fade)
+          ============================================ */}
+      <div className="absolute bottom-0 left-0 right-0 z-40">
+        {/* Wave/Curve SVG */}
+        <div className="relative">
+          <svg
+            viewBox="0 0 1440 120"
+            fill="none"
+            preserveAspectRatio="none"
+            className="w-full h-16 sm:h-20 md:h-24"
+          >
+            <path
+              d="M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z"
+              fill="url(#wave-gradient)"
+              fillOpacity="0.95"
+            />
+            <defs>
+              <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#0E3D4A" />
+                <stop offset="50%" stopColor="#156378" />
+                <stop offset="100%" stopColor="#0E3D4A" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        {/* Feature Bar Container */}
+        <div className="bg-gradient-to-r from-[#0E3D4A] via-[#156378]/90 to-[#0E3D4A] backdrop-blur-xl">
+          <div className="max-w-[1300px] mx-auto px-6 sm:px-8 lg:px-12 py-6 sm:py-8">
+            {/* Features Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+              {featureItems.map((feature, index) => (
+                <div key={index} className="flex items-start gap-3 sm:gap-4">
+                  {/* Icon */}
+                  <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#5EEAD4]/10 border border-[#5EEAD4]/20 flex items-center justify-center">
+                    <feature.icon className="w-5 h-5 sm:w-6 sm:h-6 text-[#5EEAD4]" strokeWidth={1.5} />
                   </div>
-                ))}
-              </div>
+                  {/* Text */}
+                  <div className="flex flex-col">
+                    <span className="text-white font-semibold text-[14px] sm:text-[15px] leading-tight">
+                      {feature.title}
+                      <br />
+                      {feature.titleLine2}
+                    </span>
+                    <span className="text-white/50 text-[12px] sm:text-[13px] mt-1">{feature.description}</span>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
