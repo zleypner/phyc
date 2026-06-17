@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 const services = [
@@ -97,9 +98,19 @@ export default function SpecializedServices() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0E3A4A] leading-[1.15] tracking-[-0.02em] mb-6">
             Servicios Especializados
           </h2>
-          <p className="text-base md:text-lg text-[#64748B] leading-relaxed max-w-3xl mx-auto">
+          <p className="text-base md:text-lg text-[#64748B] leading-relaxed max-w-3xl mx-auto mb-6">
             Soluciones avanzadas de fisioterapia y rehabilitación diseñadas para ayudarle a recuperarse más rápido, reducir el dolor y volver a las actividades que más disfruta.
           </p>
+          <Link
+            href="/servicios-especializados"
+            className="group inline-flex items-center gap-2 text-[#1E88A8] font-semibold text-lg hover:text-[#0E3A4A] transition-colors duration-300"
+          >
+            Leer más
+            <ArrowRight
+              size={20}
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            />
+          </Link>
         </motion.div>
 
         {/* Services Grid */}
@@ -113,30 +124,34 @@ export default function SpecializedServices() {
             <motion.div
               key={service.name}
               variants={cardVariants}
-              className="group bg-white rounded-2xl overflow-hidden shadow-[0_2px_20px_rgba(0,0,0,0.06)] border border-gray-100 hover:shadow-[0_8px_40px_rgba(0,0,0,0.12)] hover:border-[#1E88A8]/20 transition-all duration-500 hover:-translate-y-1"
             >
-              {/* Image */}
-              <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-[#0E3A4A] to-[#1E88A8]">
-                <Image
-                  src={service.image}
-                  alt={service.name}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                />
-                {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0E3A4A]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </div>
+              <Link
+                href="/servicios-especializados"
+                className="group block bg-white rounded-2xl overflow-hidden shadow-[0_2px_20px_rgba(0,0,0,0.06)] border border-gray-100 hover:shadow-[0_8px_40px_rgba(0,0,0,0.12)] hover:border-[#1E88A8]/20 transition-all duration-500 hover:-translate-y-1 cursor-pointer"
+              >
+                {/* Image */}
+                <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-[#0E3A4A] to-[#1E88A8]">
+                  <Image
+                    src={service.image}
+                    alt={service.name}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                  {/* Overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0E3A4A]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
 
-              {/* Content */}
-              <div className="p-5 md:p-6">
-                <h3 className="text-lg font-bold text-[#0E3A4A] mb-2 group-hover:text-[#1E88A8] transition-colors duration-300">
-                  {service.name}
-                </h3>
-                <p className="text-sm text-[#64748B] leading-relaxed">
-                  {service.description}
-                </p>
-              </div>
+                {/* Content */}
+                <div className="p-5 md:p-6">
+                  <h3 className="text-lg font-bold text-[#0E3A4A] mb-2 group-hover:text-[#1E88A8] transition-colors duration-300">
+                    {service.name}
+                  </h3>
+                  <p className="text-sm text-[#64748B] leading-relaxed">
+                    {service.description}
+                  </p>
+                </div>
+              </Link>
             </motion.div>
           ))}
         </motion.div>
