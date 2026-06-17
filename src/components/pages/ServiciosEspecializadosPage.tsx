@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ArrowRight, Check } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -324,6 +325,20 @@ function IntroductionSection() {
               Nuestro objetivo no es únicamente disminuir el dolor, sino ayudarle a recuperar
               movimiento, independencia, confianza y calidad de vida.
             </p>
+          </motion.div>
+
+          {/* Read More Link */}
+          <motion.div variants={fadeInUp} className="mt-10">
+            <a
+              href="#adulto-mayor"
+              className="group inline-flex items-center gap-2 text-[#1E88A8] font-semibold text-lg hover:text-[#0E3A4A] transition-colors duration-300"
+            >
+              Leer más
+              <ArrowRight
+                size={20}
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              />
+            </a>
           </motion.div>
         </motion.div>
       </div>
