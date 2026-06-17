@@ -30,6 +30,7 @@ const socialLinks = [
 
 const navLinks = [
   { label: 'Inicio', href: '/' },
+  { label: 'Servicios', href: '/servicios-especializados' },
   { label: 'Tecnología', href: '/tecnologia-de-rehabilitacion' },
   { label: 'Testimonios', href: '/testimonios' },
   { label: 'Blog', href: '/blog' },
