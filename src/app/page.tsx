@@ -2,6 +2,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import Hero from '@/components/sections/Hero';
+import SpecializedServices from '@/components/sections/SpecializedServices';
 import TrustBar from '@/components/sections/TrustBar';
 import TechnologyCTA from '@/components/sections/TechnologyCTA';
 import Specialists from '@/components/sections/Specialists';
@@ -16,6 +17,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <SpecializedServices />
         <TrustBar />
         <TechnologyCTA />
         <Specialists />
