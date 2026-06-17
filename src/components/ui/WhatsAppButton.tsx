@@ -21,7 +21,7 @@ export default function WhatsAppButton() {
   const [isHovered, setIsHovered] = useState(false);
 
   const phoneNumber = '50689680947';
-  const message = encodeURIComponent('Hola quiero agendar una cita. Parte del cuerpo que me duele:');
+  const message = encodeURIComponent('Hola! Quiero agendar una cita.\nParte del cuerpo que me duele:');
 
   return (
     <div className="fixed bottom-6 right-6 z-50">

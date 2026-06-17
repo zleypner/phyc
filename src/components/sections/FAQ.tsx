@@ -268,7 +268,7 @@ export default function FAQ() {
               </p>
 
               <a
-                href="https://wa.me/50689680947?text=Hola%20quiero%20agendar%20una%20cita.%20Parte%20del%20cuerpo%20que%20me%20duele:"
+                href="https://wa.me/50689680947?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 bg-white text-[#0E3A4A] font-semibold py-3 px-5 rounded-xl transition-all duration-300 hover:bg-[#5EEAD4] hover:shadow-lg text-sm group"

@@ -167,7 +167,7 @@ export default function SpecializedServices() {
             ¿Necesita ayuda para elegir el tratamiento adecuado?
           </p>
           <a
-            href="https://wa.me/50689680947?text=Hola%20quiero%20agendar%20una%20cita.%20Parte%20del%20cuerpo%20que%20me%20duele:"
+            href="https://wa.me/50689680947?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-2.5 bg-[#25D366] text-white font-semibold py-3.5 px-8 rounded-full transition-all duration-300 hover:bg-[#20BA5C] hover:shadow-lg hover:shadow-[#25D366]/25 hover:-translate-y-0.5 active:translate-y-0"

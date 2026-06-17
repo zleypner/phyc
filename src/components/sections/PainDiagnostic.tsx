@@ -365,7 +365,7 @@ export default function PainDiagnostic() {
                   {/* CTA */}
                   <div className="mt-auto pt-8">
                     <a
-                      href="https://wa.me/50689680947?text=Hola%20quiero%20agendar%20una%20cita.%20Parte%20del%20cuerpo%20que%20me%20duele:"
+                      href="https://wa.me/50689680947?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-full sm:w-auto inline-flex items-center justify-center gap-3 h-[52px] sm:h-[56px] px-8 bg-[#25D366] text-white rounded-full font-semibold text-[15px] shadow-lg shadow-[#25D366]/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#25D366]/35"
@@ -397,7 +397,7 @@ export default function PainDiagnostic() {
               </p>
             </div>
             <a
-              href="https://wa.me/50689680947?text=Hola%20quiero%20agendar%20una%20cita.%20Parte%20del%20cuerpo%20que%20me%20duele:"
+              href="https://wa.me/50689680947?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-[#E5E7EB] rounded-full text-[14px] sm:text-[15px] font-semibold text-[#0E3A4A] hover:border-[#1E88A8] hover:text-[#1E88A8] transition-all duration-300"

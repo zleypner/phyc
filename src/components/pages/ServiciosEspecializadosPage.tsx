@@ -255,7 +255,7 @@ function HeroSection() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 w-full sm:w-auto"
           >
             <a
-              href="https://wa.me/50689680947?text=Hola%20quiero%20agendar%20una%20cita.%20Parte%20del%20cuerpo%20que%20me%20duele:"
+              href="https://wa.me/50689680947?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center justify-center gap-2 sm:gap-3 h-14 sm:h-16 w-full sm:w-auto px-6 sm:px-8 lg:px-10 bg-[#1E88A8] text-white rounded-full font-semibold text-sm sm:text-base lg:text-lg shadow-xl shadow-[#1E88A8]/25 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#1E88A8]/30 hover:bg-[#35B7C8]"
@@ -267,7 +267,7 @@ function HeroSection() {
               />
             </a>
             <a
-              href="https://wa.me/50689680947?text=Hola%20quiero%20agendar%20una%20cita.%20Parte%20del%20cuerpo%20que%20me%20duele:"
+              href="https://wa.me/50689680947?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center justify-center gap-2 sm:gap-3 h-14 sm:h-16 w-full sm:w-auto px-6 sm:px-8 lg:px-10 bg-[#25D366] text-white rounded-full font-semibold text-sm sm:text-base lg:text-lg shadow-xl shadow-[#25D366]/25 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#25D366]/30 hover:bg-[#20BA5C]"
@@ -496,7 +496,7 @@ function FinalCTASection() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 w-full sm:w-auto"
           >
             <a
-              href="https://wa.me/50689680947?text=Hola%20quiero%20agendar%20una%20cita.%20Parte%20del%20cuerpo%20que%20me%20duele:"
+              href="https://wa.me/50689680947?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center justify-center gap-2 sm:gap-3 h-14 sm:h-16 w-full sm:w-auto px-6 sm:px-8 lg:px-10 bg-white text-[#0E3A4A] rounded-full font-semibold text-sm sm:text-base lg:text-lg shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
@@ -508,7 +508,7 @@ function FinalCTASection() {
               />
             </a>
             <a
-              href="https://wa.me/50689680947?text=Hola%20quiero%20agendar%20una%20cita.%20Parte%20del%20cuerpo%20que%20me%20duele:"
+              href="https://wa.me/50689680947?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center justify-center gap-2 sm:gap-3 h-14 sm:h-16 w-full sm:w-auto px-6 sm:px-8 lg:px-10 bg-[#25D366] text-white rounded-full font-semibold text-sm sm:text-base lg:text-lg shadow-xl shadow-[#25D366]/25 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#25D366]/30 hover:bg-[#20BA5C]"

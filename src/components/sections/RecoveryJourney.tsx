@@ -140,7 +140,7 @@ export default function RecoveryJourney() {
           className="text-center mt-12 md:mt-16"
         >
           <a
-            href="https://wa.me/50689680947?text=Hola%20quiero%20agendar%20una%20cita.%20Parte%20del%20cuerpo%20que%20me%20duele:"
+            href="https://wa.me/50689680947?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-3 bg-white text-[#0E3A4A] px-8 py-4 rounded-2xl font-semibold text-base hover:bg-white/95 transition-all duration-300 hover:-translate-y-1 shadow-xl shadow-black/10 hover:shadow-2xl hover:shadow-black/15 cursor-pointer"
