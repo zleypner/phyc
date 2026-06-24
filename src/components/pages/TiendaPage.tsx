@@ -496,9 +496,7 @@ function GiftCardSection() {
               </p>
 
               <p className="text-white/80 text-sm sm:text-base md:text-lg leading-relaxed mb-5 sm:mb-8">
-                El mejor regalo para tus padres, abuelos o cualquier ser querido.
-                Sesiones de fisioterapia profesional para mejorar su calidad de vida,
-                aliviar dolores y recuperar movilidad.
+                Regálale a tu abuela, a tus padres o a cualquier ser querido algo que realmente marque la diferencia: sesiones de fisioterapia profesional para aliviar el dolor, recuperar la movilidad y mejorar su calidad de vida.
               </p>
 
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 mb-5 sm:mb-8 text-left">
