@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { MapPin, Phone } from 'lucide-react';
+import { MapPin, Phone, Clock, Gift, Headphones } from 'lucide-react';
 
 const FacebookIcon = () => (
   <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
@@ -28,22 +28,34 @@ const socialLinks = [
   { icon: WhatsAppIcon, href: 'https://wa.me/50689680947', label: 'WhatsApp' },
 ];
 
-const navLinks = [
+const mainNavLinks = [
   { label: 'Inicio', href: '/' },
-  { label: 'Servicios', href: '/servicios-especializados' },
+  { label: 'Servicios Especializados', href: '/servicios-especializados' },
   { label: 'Tecnología', href: '/tecnologia-de-rehabilitacion' },
-  { label: 'Testimonios', href: '/testimonios' },
-  { label: 'Blog', href: '/blog' },
+  { label: 'Tienda', href: '/tienda' },
   { label: 'Contacto', href: '/contacto' },
+];
+
+const resourceLinks = [
+  { label: 'Podcast La Camilla CR', href: '/blog', icon: Headphones },
+  { label: 'Testimonios', href: '/testimonios' },
+  { label: 'Gift Card', href: '/tienda#gift-card', icon: Gift },
+];
+
+const serviceLinks = [
+  { label: 'Fisioterapia General', href: '/servicios-especializados#fisioterapia' },
+  { label: 'Ondas de Choque', href: '/servicios-especializados#ondas-de-choque' },
+  { label: 'Tecarterapia', href: '/servicios-especializados#tecarterapia' },
+  { label: 'Rehabilitación Deportiva', href: '/servicios-especializados#rehabilitacion-deportiva' },
 ];
 
 export default function Footer() {
   return (
     <footer className="bg-[#0E3A4A] text-white">
       <div className="container px-4 sm:px-6 py-10 sm:py-12 lg:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-8">
           {/* Brand & Description */}
-          <div className="sm:col-span-2 lg:col-span-1">
+          <div className="col-span-2 sm:col-span-2 lg:col-span-1">
             <Link href="/" className="inline-block mb-3 sm:mb-4">
               <Image
                 src="/images/logo/logo-removedbg.png"
@@ -53,53 +65,9 @@ export default function Footer() {
                 className="h-12 sm:h-14 lg:h-16 w-auto object-contain"
               />
             </Link>
-            <p className="text-white/60 text-xs sm:text-sm leading-relaxed max-w-xs">
+            <p className="text-white/60 text-xs sm:text-sm leading-relaxed mb-4">
               Recuperación avanzada con tecnología de clase mundial y atención personalizada.
             </p>
-          </div>
-
-          {/* Navigation */}
-          <div>
-            <h4 className="font-semibold text-xs sm:text-sm uppercase tracking-wider text-white/40 mb-3 sm:mb-5">
-              Navegación
-            </h4>
-            <nav className="grid grid-cols-2 gap-x-4 sm:gap-x-8 gap-y-2 sm:gap-y-3">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-white/70 hover:text-white transition-colors text-xs sm:text-sm"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="font-semibold text-xs sm:text-sm uppercase tracking-wider text-white/40 mb-3 sm:mb-5">
-              Contacto
-            </h4>
-            <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
-              <a
-                href="tel:+50689680947"
-                className="flex items-center gap-2 sm:gap-3 text-white/70 hover:text-white transition-colors text-xs sm:text-sm"
-              >
-                <Phone size={14} className="flex-shrink-0 sm:w-4 sm:h-4" />
-                <span>+506 8968-0947</span>
-              </a>
-              <a
-                href="https://maps.google.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 sm:gap-3 text-white/70 hover:text-white transition-colors text-xs sm:text-sm"
-              >
-                <MapPin size={14} className="flex-shrink-0 sm:w-4 sm:h-4" />
-                <span>San Pedro, Costa Rica</span>
-              </a>
-            </div>
-
             {/* Social Links */}
             <div className="flex gap-2 sm:gap-3">
               {socialLinks.map((social) => (
@@ -116,15 +84,107 @@ export default function Footer() {
               ))}
             </div>
           </div>
+
+          {/* Navigation */}
+          <div>
+            <h4 className="font-semibold text-xs sm:text-sm uppercase tracking-wider text-white/40 mb-3 sm:mb-5">
+              Navegación
+            </h4>
+            <nav className="flex flex-col gap-2 sm:gap-3">
+              {mainNavLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-white/70 hover:text-white transition-colors text-xs sm:text-sm"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h4 className="font-semibold text-xs sm:text-sm uppercase tracking-wider text-white/40 mb-3 sm:mb-5">
+              Servicios
+            </h4>
+            <nav className="flex flex-col gap-2 sm:gap-3">
+              {serviceLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-white/70 hover:text-white transition-colors text-xs sm:text-sm"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Resources */}
+          <div>
+            <h4 className="font-semibold text-xs sm:text-sm uppercase tracking-wider text-white/40 mb-3 sm:mb-5">
+              Recursos
+            </h4>
+            <nav className="flex flex-col gap-2 sm:gap-3">
+              {resourceLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="flex items-center gap-2 text-white/70 hover:text-white transition-colors text-xs sm:text-sm"
+                >
+                  {link.icon && <link.icon size={14} className="flex-shrink-0" />}
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="font-semibold text-xs sm:text-sm uppercase tracking-wider text-white/40 mb-3 sm:mb-5">
+              Contacto
+            </h4>
+            <div className="space-y-2 sm:space-y-3">
+              <a
+                href="tel:+50689680947"
+                className="flex items-center gap-2 sm:gap-3 text-white/70 hover:text-white transition-colors text-xs sm:text-sm"
+              >
+                <Phone size={14} className="flex-shrink-0 sm:w-4 sm:h-4" />
+                <span>+506 8968-0947</span>
+              </a>
+              <a
+                href="https://maps.app.goo.gl/oMi4Xv5RjnYGbXHq5"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-2 sm:gap-3 text-white/70 hover:text-white transition-colors text-xs sm:text-sm"
+              >
+                <MapPin size={14} className="flex-shrink-0 sm:w-4 sm:h-4 mt-0.5" />
+                <span>San Pedro de Montes de Oca, San José, Costa Rica</span>
+              </a>
+              <div className="flex items-start gap-2 sm:gap-3 text-white/70 text-xs sm:text-sm">
+                <Clock size={14} className="flex-shrink-0 sm:w-4 sm:h-4 mt-0.5" />
+                <div>
+                  <p>Lun - Vie: 8:00am - 7:00pm</p>
+                  <p>Sáb: 8:00am - 12:00pm</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
         <div className="container px-4 sm:px-6 py-4 sm:py-6">
-          <p className="text-white/40 text-xs sm:text-sm text-center">
-            © {new Date().getFullYear()} Physical Care Fisioterapia. Todos los derechos reservados.
-          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p className="text-white/40 text-xs sm:text-sm text-center sm:text-left">
+              © {new Date().getFullYear()} Physical Care Fisioterapia. Todos los derechos reservados.
+            </p>
+            <p className="text-white/30 text-xs">
+              Diseñado con cuidado en Costa Rica
+            </p>
+          </div>
         </div>
       </div>
     </footer>
