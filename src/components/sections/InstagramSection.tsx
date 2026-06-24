@@ -71,12 +71,12 @@ export default function InstagramSection() {
                       ¿Prefiere seguirnos directamente en Instagram?
                     </p>
                     <p className="text-xs sm:text-sm text-[#64748B]">
-                      @physicalcarefisioterapia
+                      @physicalcareft
                     </p>
                   </div>
                 </div>
                 <a
-                  href="https://www.instagram.com/physicalcarefisioterapia"
+                  href="https://www.instagram.com/physicalcareft"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 h-10 sm:h-11 px-5 sm:px-6 bg-[#8DC741] text-white rounded-full font-semibold text-sm hover:bg-[#7AB534] transition-all duration-300 shadow-md shadow-[#8DC741]/20 hover:shadow-lg hover:-translate-y-0.5"
@@ -98,35 +98,17 @@ export default function InstagramSection() {
                   </div>
 
                   <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#0E3A4A] mb-3 text-center">
-                    @physicalcarefisioterapia
+                    @physicalcareft
                   </h3>
 
-                  <p className="text-sm sm:text-base text-[#64748B] text-center max-w-md mb-6">
+                  <p className="text-sm sm:text-base text-[#64748B] text-center max-w-md mb-8">
                     Siguenos para ver videos de ejercicios terapeuticos, consejos de rehabilitacion
                     y testimonios de nuestros pacientes.
                   </p>
 
-                  {/* Stats Preview */}
-                  <div className="flex items-center gap-6 sm:gap-8 mb-8">
-                    <div className="text-center">
-                      <p className="text-xl sm:text-2xl font-bold text-[#0E3A4A]">450+</p>
-                      <p className="text-xs sm:text-sm text-[#64748B]">Publicaciones</p>
-                    </div>
-                    <div className="w-px h-10 bg-[rgba(15,23,42,0.1)]" />
-                    <div className="text-center">
-                      <p className="text-xl sm:text-2xl font-bold text-[#0E3A4A]">2.5K+</p>
-                      <p className="text-xs sm:text-sm text-[#64748B]">Seguidores</p>
-                    </div>
-                    <div className="w-px h-10 bg-[rgba(15,23,42,0.1)]" />
-                    <div className="text-center">
-                      <p className="text-xl sm:text-2xl font-bold text-[#0E3A4A]">100+</p>
-                      <p className="text-xs sm:text-sm text-[#64748B]">Videos</p>
-                    </div>
-                  </div>
-
                   {/* CTA Button */}
                   <a
-                    href="https://www.instagram.com/physicalcarefisioterapia"
+                    href="https://www.instagram.com/physicalcareft"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 h-12 sm:h-14 px-8 sm:px-10 bg-[#8DC741] text-white rounded-full font-semibold text-sm sm:text-base hover:bg-[#7AB534] transition-all duration-300 shadow-lg shadow-[#8DC741]/25 hover:shadow-xl hover:-translate-y-0.5"
