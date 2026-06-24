@@ -38,7 +38,7 @@ const services = [
   {
     id: 'ondas-de-choque',
     title: 'Terapia de Ondas de Choque',
-    image: '/images/technology/ondas-choque-storz.png',
+    image: '/images/technology/ondas-choque-storz.webp',
     description: [
       'La terapia por ondas de choque representa uno de los avances más importantes en el tratamiento de lesiones musculoesqueléticas crónicas.',
       'Esta tecnología utiliza impulsos mecánicos de alta energía para estimular los procesos naturales de reparación del cuerpo, favoreciendo la regeneración de tejidos y disminuyendo el dolor.',
