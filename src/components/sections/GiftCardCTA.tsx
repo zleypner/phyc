@@ -82,9 +82,9 @@ export default function GiftCardCTA() {
               </a>
             </div>
 
-            {/* Visual - Hidden on mobile */}
+            {/* Visual - Visible on all devices */}
             <motion.div
-              className="relative hidden sm:flex justify-center lg:justify-end"
+              className="relative flex justify-center lg:justify-end"
               initial={{ opacity: 0, x: 50 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -95,7 +95,7 @@ export default function GiftCardCTA() {
 
                 {/* Gift card visual */}
                 <motion.div
-                  className="relative w-56 h-36 sm:w-72 sm:h-44 md:w-80 md:h-48 bg-gradient-to-br from-white via-white to-gray-50 rounded-xl sm:rounded-2xl shadow-2xl p-4 sm:p-6 overflow-hidden"
+                  className="relative w-64 h-40 sm:w-72 sm:h-44 md:w-80 md:h-48 bg-gradient-to-br from-white via-white to-gray-50 rounded-xl sm:rounded-2xl shadow-2xl p-4 sm:p-6 overflow-hidden"
                   animate={{
                     rotate: [3, -1, 3],
                     y: [0, -8, 0],
@@ -141,7 +141,7 @@ export default function GiftCardCTA() {
 
                 {/* Decorative floating hearts */}
                 <motion.div
-                  className="absolute -top-4 -right-4 w-10 h-10 sm:w-12 sm:h-12 bg-white/25 backdrop-blur-sm rounded-full hidden md:flex items-center justify-center shadow-lg"
+                  className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-white/25 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg"
                   animate={{
                     y: [0, -12, 0],
                     rotate: [0, 10, 0],
@@ -149,11 +149,11 @@ export default function GiftCardCTA() {
                   }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <Heart size={20} className="sm:w-6 sm:h-6 text-white drop-shadow-md" />
+                  <Heart size={16} className="sm:w-5 sm:h-5 md:w-6 md:h-6 text-white drop-shadow-md" />
                 </motion.div>
 
                 <motion.div
-                  className="absolute -bottom-2 -left-6 w-8 h-8 sm:w-10 sm:h-10 bg-white/25 backdrop-blur-sm rounded-full hidden md:flex items-center justify-center shadow-lg"
+                  className="absolute -bottom-1 -left-4 sm:-bottom-2 sm:-left-6 w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-white/25 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg"
                   animate={{
                     y: [0, -8, 0],
                     rotate: [0, -10, 0],
@@ -161,7 +161,7 @@ export default function GiftCardCTA() {
                   }}
                   transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
                 >
-                  <Heart size={14} className="sm:w-[18px] sm:h-[18px] text-white drop-shadow-md" />
+                  <Heart size={12} className="sm:w-[14px] sm:h-[14px] md:w-[18px] md:h-[18px] text-white drop-shadow-md" />
                 </motion.div>
               </div>
             </motion.div>
