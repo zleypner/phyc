@@ -24,13 +24,13 @@ export default function StoreCTA() {
 
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
             {/* Content */}
-            <div className="flex items-center gap-4 text-center md:text-left">
-              <div className="hidden sm:flex items-center gap-2">
-                <div className="w-12 h-12 rounded-xl bg-[#06B8BF]/20 flex items-center justify-center">
-                  <Footprints size={24} className="text-[#06B8BF]" />
+            <div className="flex items-center gap-3 sm:gap-4 text-center md:text-left">
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-[#06B8BF]/20 flex items-center justify-center">
+                  <Footprints size={18} className="text-[#06B8BF] sm:w-6 sm:h-6" />
                 </div>
-                <div className="w-12 h-12 rounded-xl bg-[#8DC741]/20 flex items-center justify-center">
-                  <Gift size={24} className="text-[#8DC741]" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-[#8DC741]/20 flex items-center justify-center">
+                  <Gift size={18} className="text-[#8DC741] sm:w-6 sm:h-6" />
                 </div>
               </div>
               <div>

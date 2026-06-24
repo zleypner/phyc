@@ -65,6 +65,18 @@ export default function RecoveryJourney() {
 
         {/* Steps Container */}
         <div className="relative">
+          {/* Progress connector line - Mobile (horizontal for md, vertical indicator for smaller) */}
+          <div className="md:hidden absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[2px] -z-10">
+            <div className="w-full h-full bg-gradient-to-b from-white/20 via-white/40 to-white/20 rounded-full" />
+            <motion.div
+              initial={{ scaleY: 0 }}
+              animate={isInView ? { scaleY: 1 } : {}}
+              transition={{ duration: 1.2, delay: 0.5, ease: 'easeOut' }}
+              className="absolute inset-0 bg-gradient-to-b from-[#35B7C8] via-[#5EEAD4] to-[#35B7C8] origin-top rounded-full"
+              style={{ opacity: 0.6 }}
+            />
+          </div>
+
           {/* Progress connector line - Desktop */}
           <div className="hidden lg:block absolute top-[72px] left-[16.67%] right-[16.67%] h-[2px]">
             <div className="w-full h-full bg-gradient-to-r from-white/20 via-white/40 to-white/20 rounded-full" />
