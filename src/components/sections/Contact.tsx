@@ -110,7 +110,7 @@ export default function Contact() {
               </a>
 
               <p className="text-[10px] sm:text-xs md:text-[13px] text-[#94A3B8] text-center mt-3 sm:mt-4 md:mt-6">
-                Disponible de Lunes a Viernes, 8:00 AM - 6:00 PM
+                Lunes a Viernes 8AM-8PM | Sabados 9AM-2PM
               </p>
             </div>
           </motion.div>

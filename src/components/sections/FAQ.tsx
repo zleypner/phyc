@@ -1,8 +1,9 @@
 'use client';
 
-import { useRef, useState, useCallback, useId } from 'react';
+import { useRef, useState, useCallback, useId, useMemo } from 'react';
 import { motion, useInView, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { Plus, Minus, MessageCircle, CheckCircle, Clock, Shield } from 'lucide-react';
+import Script from 'next/script';
 
 // WhatsApp SVG Icon
 const WhatsAppIcon = ({ className = '' }: { className?: string }) => (
@@ -51,6 +52,16 @@ const faqs = [
     answer:
       'La terapia de ondas de choque es un tratamiento no invasivo que utiliza ondas acústicas para promover la curación de los tejidos y reducir el dolor. La mayoría de los pacientes experimentan una leve molestia durante el tratamiento, pero generalmente se tolera muy bien. La intensidad se puede ajustar según su nivel de comodidad.',
   },
+  {
+    question: '¿Ofrecen terapia física especializada para adultos mayores?',
+    answer:
+      'Sí, contamos con un programa especializado de atención para adultos mayores enfocado en el envejecimiento saludable y activo. Nuestros tratamientos están diseñados para prevenir caídas, mejorar el equilibrio y la coordinación, fortalecer los músculos, aumentar la movilidad articular y preservar la independencia funcional. Trabajamos de forma personalizada según las necesidades y condiciones de cada paciente mayor.',
+  },
+  {
+    question: '¿Qué beneficios tiene la fisioterapia geriátrica?',
+    answer:
+      'La fisioterapia geriátrica ofrece múltiples beneficios para adultos mayores: prevención de caídas mediante ejercicios de equilibrio, fortalecimiento muscular para mantener la fuerza, mejora de la movilidad articular para realizar actividades diarias, mayor independencia funcional, tratamiento del dolor relacionado con artritis y artrosis, y en general una mejor calidad de vida. Nuestro enfoque es mantener a los adultos mayores activos, seguros y autónomos.',
+  },
 ];
 
 const trustBadges = [
@@ -78,6 +89,20 @@ export default function FAQ() {
   const shouldReduceMotion = useReducedMotion();
   const baseId = useId();
 
+  // FAQ Schema for SEO rich snippets
+  const faqSchema = useMemo(() => ({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  }), []);
+
   const handleToggle = useCallback((index: number) => {
     setOpenIndex((prev) => (prev === index ? null : index));
   }, []);
@@ -104,11 +129,19 @@ export default function FAQ() {
   }, [baseId]);
 
   return (
-    <section ref={ref} id="faq" className="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-[#F8FBFC] via-[#F0F7F9] to-[#E8F4F6] relative overflow-hidden">
+    <>
+      {/* FAQ Schema for SEO */}
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        strategy="afterInteractive"
+      />
+      <section ref={ref} id="faq" className="py-12 sm:py-16 md:py-24 lg:py-32 bg-gradient-to-br from-[#F8FBFC] via-[#F0F7F9] to-[#E8F4F6] relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-0 w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] lg:w-[500px] lg:h-[500px] bg-[#5EEAD4]/5 rounded-full blur-[80px] sm:blur-[100px] lg:blur-[120px]" />
-        <div className="absolute bottom-0 left-0 w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] lg:w-[400px] lg:h-[400px] bg-[#1E88A8]/5 rounded-full blur-[60px] sm:blur-[80px] lg:blur-[100px]" />
+        <div className="absolute top-0 right-0 w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] lg:w-[500px] lg:h-[500px] bg-[#06B8BF]/5 rounded-full blur-[80px] sm:blur-[100px] lg:blur-[120px]" />
+        <div className="absolute bottom-0 left-0 w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] lg:w-[400px] lg:h-[400px] bg-[#06B8BF]/5 rounded-full blur-[60px] sm:blur-[80px] lg:blur-[100px]" />
       </div>
 
       {/* Bottom decorative plants */}
@@ -132,36 +165,36 @@ export default function FAQ() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-8 sm:mb-10 md:mb-16"
         >
           {/* Badge */}
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#E2E8F0] text-[#1E88A8] text-sm font-semibold mb-6 shadow-sm">
-            <MessageCircle size={16} />
+          <span className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white border border-[#E2E8F0] text-[#06B8BF] text-xs sm:text-sm font-semibold mb-4 sm:mb-6 shadow-sm">
+            <MessageCircle size={14} className="sm:w-4 sm:h-4" />
             Preguntas Frecuentes
           </span>
 
           {/* Title */}
-          <h2 className="text-3xl sm:text-4xl md:text-[42px] lg:text-[46px] font-bold text-[#0E3A4A] leading-[1.15] tracking-[-0.02em] mb-5">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[46px] font-bold text-[#1F2937] leading-[1.15] tracking-[-0.02em] mb-3 sm:mb-5 px-2">
             Resolvemos tus{' '}
-            <span className="bg-gradient-to-r from-[#1E88A8] to-[#35B7C8] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#06B8BF] to-[#06B8BF] bg-clip-text text-transparent">
               dudas
             </span>
           </h2>
 
           {/* Description */}
-          <p className="text-[15px] sm:text-base text-[#64748B] leading-relaxed max-w-2xl mx-auto">
+          <p className="text-[13px] sm:text-[15px] md:text-base text-[#64748B] leading-relaxed max-w-2xl mx-auto px-2">
             ¿Tienes preguntas sobre nuestros tratamientos? Hemos preparado respuestas detalladas a las inquietudes más habituales.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12">
+        <div className="grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12">
 
           {/* Left Column - Accordion */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="lg:col-span-7 flex flex-col gap-3"
+            className="lg:col-span-7 flex flex-col gap-2.5 sm:gap-3"
           >
             {faqs.map((faq, index) => {
               const isOpen = openIndex === index;
@@ -184,7 +217,7 @@ export default function FAQ() {
                     {/* Left accent border for active item */}
                     <div
                       className={`absolute left-0 top-0 bottom-0 w-1 transition-all duration-300 ${
-                        isOpen ? 'bg-gradient-to-b from-[#1E88A8] to-[#5EEAD4]' : 'bg-transparent'
+                        isOpen ? 'bg-gradient-to-b from-[#06B8BF] to-[#06B8BF]' : 'bg-transparent'
                       }`}
                     />
 
@@ -194,12 +227,12 @@ export default function FAQ() {
                       onKeyDown={(e) => handleKeyDown(e, index)}
                       aria-expanded={isOpen}
                       aria-controls={panelId}
-                      className="w-full px-5 sm:px-6 py-5 flex items-center justify-between text-left group cursor-pointer gap-4 bg-transparent border-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1E88A8] focus-visible:ring-inset"
+                      className="w-full px-5 sm:px-6 py-5 flex items-center justify-between text-left group cursor-pointer gap-4 bg-transparent border-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#06B8BF] focus-visible:ring-inset"
                     >
                       {/* Question */}
                       <span
                         className={`font-semibold text-[15px] sm:text-base transition-colors duration-300 flex-1 ${
-                          isOpen ? 'text-[#0E3A4A]' : 'text-[#0E3A4A] group-hover:text-[#1E88A8]'
+                          isOpen ? 'text-[#1F2937]' : 'text-[#1F2937] group-hover:text-[#06B8BF]'
                         }`}
                       >
                         {faq.question}
@@ -208,8 +241,8 @@ export default function FAQ() {
                       <span
                         className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
                           isOpen
-                            ? 'bg-[#1E88A8] text-white'
-                            : 'bg-[#F1F5F9] text-[#64748B] group-hover:bg-[#1E88A8]/10 group-hover:text-[#1E88A8]'
+                            ? 'bg-[#06B8BF] text-white'
+                            : 'bg-[#F1F5F9] text-[#64748B] group-hover:bg-[#06B8BF]/10 group-hover:text-[#06B8BF]'
                         }`}
                       >
                         {isOpen ? (
@@ -248,22 +281,22 @@ export default function FAQ() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-5 flex flex-col gap-8 lg:sticky lg:top-32 lg:self-start"
+            className="lg:col-span-5 flex flex-col gap-5 sm:gap-6 lg:gap-8 lg:sticky lg:top-32 lg:self-start"
           >
             {/* Support Card */}
-            <div className="bg-gradient-to-br from-[#0E3A4A] via-[#155E75] to-[#1E88A8] rounded-2xl p-6 sm:p-8 text-white shadow-xl shadow-[#0E3A4A]/15 relative overflow-hidden">
+            <div className="bg-gradient-to-br from-[#0E3A4A] via-[#155E75] to-[#06B8BF] rounded-xl sm:rounded-2xl p-5 sm:p-6 lg:p-8 text-white shadow-xl shadow-[#0E3A4A]/15 relative overflow-hidden">
               {/* Background decoration */}
-              <div className="absolute -right-6 -bottom-6 opacity-10">
-                <MessageCircle size={120} />
+              <div className="absolute -right-4 sm:-right-6 -bottom-4 sm:-bottom-6 opacity-10">
+                <MessageCircle size={80} className="sm:w-[100px] sm:h-[100px] lg:w-[120px] lg:h-[120px]" />
               </div>
 
               {/* Chat icon */}
-              <div className="w-12 h-12 rounded-xl bg-[#5EEAD4]/20 flex items-center justify-center mb-4">
-                <MessageCircle size={24} className="text-[#5EEAD4]" />
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-[#06B8BF]/20 flex items-center justify-center mb-3 sm:mb-4">
+                <MessageCircle size={20} className="text-[#06B8BF] sm:w-6 sm:h-6" />
               </div>
 
-              <h3 className="text-lg font-bold mb-2 text-white">¿Aún tienes preguntas?</h3>
-              <p className="text-white text-sm leading-relaxed mb-5">
+              <h3 className="text-base sm:text-lg font-bold mb-1.5 sm:mb-2 text-white">¿Aún tienes preguntas?</h3>
+              <p className="text-white/90 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-5">
                 Estamos aquí para ayudarte. Escríbenos y te responderemos.
               </p>
 
@@ -271,30 +304,30 @@ export default function FAQ() {
                 href="https://wa.me/50689680947?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 bg-white text-[#0E3A4A] font-semibold py-3 px-5 rounded-xl transition-all duration-300 hover:bg-[#5EEAD4] hover:shadow-lg text-sm group"
+                className="inline-flex items-center gap-2 sm:gap-2.5 bg-white text-[#1F2937] font-semibold py-2.5 sm:py-3 px-4 sm:px-5 rounded-lg sm:rounded-xl transition-all duration-300 hover:bg-[#06B8BF] hover:shadow-lg text-xs sm:text-sm group"
               >
-                <WhatsAppIcon className="w-4 h-4" />
+                <WhatsAppIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 Preguntar por WhatsApp
                 <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
               </a>
             </div>
 
             {/* Trust Badges */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-3">
+            <div className="grid grid-cols-3 gap-3 sm:gap-4 lg:gap-3">
               {trustBadges.map((badge, index) => (
                 <motion.div
                   key={badge.title}
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                  className="flex flex-col items-center lg:items-start text-center lg:text-left gap-2"
+                  className="flex flex-col items-center text-center gap-1.5 sm:gap-2"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-white border border-[#E2E8F0] flex items-center justify-center shadow-sm">
-                    <badge.icon size={18} className="text-[#1E88A8]" strokeWidth={1.5} />
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-white border border-[#E2E8F0] flex items-center justify-center shadow-sm">
+                    <badge.icon size={14} className="text-[#06B8BF] sm:w-[18px] sm:h-[18px]" strokeWidth={1.5} />
                   </div>
                   <div>
-                    <p className="font-semibold text-[#0E3A4A] text-sm">{badge.title}</p>
-                    <p className="text-[12px] text-[#64748B] leading-snug">{badge.description}</p>
+                    <p className="font-semibold text-[#1F2937] text-[11px] sm:text-sm leading-tight">{badge.title}</p>
+                    <p className="text-[10px] sm:text-[12px] text-[#64748B] leading-snug hidden sm:block">{badge.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -303,5 +336,6 @@ export default function FAQ() {
         </div>
       </div>
     </section>
+    </>
   );
 }

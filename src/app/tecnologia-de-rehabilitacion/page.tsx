@@ -5,23 +5,29 @@ import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import TechnologyPage from '@/components/pages/TechnologyPage';
 
 export const metadata: Metadata = {
-  title: 'Tecnología de Rehabilitación Avanzada | Physical Care Costa Rica',
+  title: 'Tecnología Avanzada de Terapia Física | Equipos Fisioterapia Costa Rica',
   description:
-    'Descubra nuestra tecnología de rehabilitación de última generación: Magnetolith, Ondas de Choque STORZ Medical y Tracción Vertebral. Equipamiento utilizado por centros de medicina deportiva de élite.',
+    'Tecnología de terapia física de última generación en Costa Rica: Magnetolith, Ondas de Choque, Tecarterapia y Tracción Vertebral. Equipamiento de élite para rehabilitación deportiva y tratamiento del dolor.',
   keywords: [
-    'tecnología rehabilitación',
+    'tecnologia terapia fisica',
+    'equipos fisioterapia costa rica',
     'magnetolith costa rica',
-    'ondas de choque',
-    'STORZ Medical',
-    'tracción vertebral',
-    'fisioterapia avanzada',
-    'rehabilitación deportiva',
-    'equipamiento fisioterapia',
+    'ondas de choque costa rica',
+    'tecarterapia',
+    'traccion vertebral',
+    'fisioterapia avanzada costa rica',
+    'rehabilitacion deportiva tecnologia',
+    'equipamiento rehabilitacion',
+    'tratamiento dolor tecnologia',
   ],
+  alternates: {
+    canonical: 'https://physicalcarefisioterapia.com/tecnologia-de-rehabilitacion',
+  },
   openGraph: {
-    title: 'Tecnología de Rehabilitación Avanzada | Physical Care',
+    title: 'Tecnología de Terapia Física Avanzada | Physical Care Costa Rica',
     description:
-      'La recuperación más avanzada comienza con la mejor tecnología. Equipamiento de última generación para acelerar su recuperación.',
+      'Equipamiento de terapia física de última generación: Magnetolith, Ondas de Choque, Tecarterapia. Tecnología utilizada por centros de medicina deportiva de élite.',
+    url: 'https://physicalcarefisioterapia.com/tecnologia-de-rehabilitacion',
     type: 'website',
     locale: 'es_CR',
   },

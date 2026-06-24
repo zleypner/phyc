@@ -26,11 +26,11 @@ const WhatsAppIcon = ({ className = '' }: { className?: string }) => (
 const technologies = [
   {
     id: 'magnetolith',
-    name: 'Magnetolith®',
+    name: 'Magnetolith',
     subtitle: 'Estimulación electromagnética de alta intensidad',
     badge: 'NUEVA TECNOLOGÍA EN COSTA RICA',
     description:
-      'Magnetolith® representa una de las tecnologías más innovadoras dentro de la fisioterapia moderna. Utiliza campos electromagnéticos de alta intensidad para estimular músculos, nervios y tejidos profundos sin necesidad de contacto directo. Permite alcanzar estructuras que muchas terapias convencionales no logran estimular eficazmente.',
+      'Magnetolith representa una de las tecnologías más innovadoras dentro de la fisioterapia moderna. Utiliza campos electromagnéticos de alta intensidad para estimular músculos, nervios y tejidos profundos sin necesidad de contacto directo. Permite alcanzar estructuras que muchas terapias convencionales no logran estimular eficazmente.',
     benefit: 'Estimulación profunda no invasiva para acelerar la recuperación.',
     indications: [
       'Dolor lumbar',
@@ -45,7 +45,7 @@ const technologies = [
   },
   {
     id: 'ondas-focales',
-    name: 'Ondas de Choque Focales STORZ Medical®',
+    name: 'Ondas de Choque Focales',
     subtitle: 'Precisión para lesiones crónicas',
     description:
       'Las ondas de choque focales concentran energía terapéutica directamente sobre el tejido lesionado. Son ampliamente utilizadas en medicina deportiva, ortopedia y rehabilitación avanzada para estimular procesos naturales de reparación.',
@@ -58,11 +58,15 @@ const technologies = [
       'Calcificaciones',
     ],
     icon: Target,
-    image: '/images/technology/ondas-de-choque.webp',
+    images: [
+      '/images/technology/ondas_choque_focales1.jpeg',
+      '/images/technology/ondas_choque_focales2.jpeg',
+      '/images/technology/ondas_choque_focales3.jpeg',
+    ],
   },
   {
     id: 'ondas-radiales',
-    name: 'Ondas de Choque Radiales STORZ Medical®',
+    name: 'Ondas de Choque Radiales',
     subtitle: 'Tratamiento avanzado para dolor muscular y tendinoso',
     description:
       'Las ondas radiales permiten tratar áreas más amplias del sistema musculoesquelético, ayudando a disminuir dolor, mejorar circulación y acelerar procesos de recuperación.',
@@ -74,7 +78,7 @@ const technologies = [
       'Recuperación deportiva',
     ],
     icon: Waves,
-    image: null,
+    image: '/images/technology/Ondas de Choque Focales STORZ Medical.png',
   },
   {
     id: 'traccion-vertebral',
@@ -123,8 +127,8 @@ function HeroSection() {
           }}
         />
         {/* Gradient orbs */}
-        <div className="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-[#1E88A8]/20 rounded-full blur-[150px]" />
-        <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-[#5EEAD4]/10 rounded-full blur-[120px]" />
+        <div className="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-[#06B8BF]/20 rounded-full blur-[150px]" />
+        <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-[#06B8BF]/10 rounded-full blur-[120px]" />
         {/* Bottom gradient (placed inside background to render behind content) */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent" />
       </div>
@@ -139,7 +143,7 @@ function HeroSection() {
             transition={{ duration: 0.6 }}
             className="mb-6"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.08] backdrop-blur-sm border border-white/[0.1] text-[#5EEAD4] text-xs sm:text-sm font-semibold tracking-wider uppercase">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.08] backdrop-blur-sm border border-white/[0.1] text-[#06B8BF] text-xs sm:text-sm font-semibold tracking-wider uppercase">
               <Sparkles size={14} />
               Tecnología de Rehabilitación Avanzada
             </span>
@@ -153,7 +157,7 @@ function HeroSection() {
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-[-0.02em] mb-6"
           >
             La recuperación más avanzada comienza con la{' '}
-            <span className="bg-gradient-to-r from-[#5EEAD4] via-[#67E8F9] to-[#5EEAD4] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#06B8BF] via-[#67E8F9] to-[#06B8BF] bg-clip-text text-transparent">
               mejor tecnología
             </span>
           </motion.h1>
@@ -181,7 +185,7 @@ function HeroSection() {
               href="https://wa.me/50689680947?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2.5 h-14 px-8 bg-gradient-to-r from-[#1E88A8] to-[#35B7C8] text-white rounded-full font-semibold text-base shadow-lg shadow-[#1E88A8]/25 hover:shadow-xl hover:shadow-[#1E88A8]/30 hover:-translate-y-0.5 transition-all duration-300"
+              className="inline-flex items-center justify-center gap-2.5 h-14 px-8 bg-gradient-to-r from-[#06B8BF] to-[#06B8BF] text-white rounded-full font-semibold text-base shadow-lg shadow-[#06B8BF]/25 hover:shadow-xl hover:shadow-[#06B8BF]/30 hover:-translate-y-0.5 transition-all duration-300"
             >
               Agendar Valoración
               <ArrowRight size={18} />
@@ -227,14 +231,14 @@ function IntroductionSection() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1E88A8]/10 text-[#1E88A8] text-sm font-semibold mb-6">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#06B8BF]/10 text-[#06B8BF] text-sm font-semibold mb-6">
               <Award size={16} />
               Liderazgo Tecnológico
             </span>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0E3A4A] leading-[1.15] tracking-[-0.02em] mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1F2937] leading-[1.15] tracking-[-0.02em] mb-6">
               Uno de los centros de fisioterapia{' '}
-              <span className="bg-gradient-to-r from-[#1E88A8] to-[#35B7C8] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#06B8BF] to-[#06B8BF] bg-clip-text text-transparent">
                 mejor equipados
               </span>{' '}
               de Costa Rica
@@ -249,7 +253,7 @@ function IntroductionSection() {
                 especializados, medicina deportiva y programas avanzados de rehabilitación
                 alrededor del mundo.
               </p>
-              <p className="font-medium text-[#0E3A4A]">
+              <p className="font-medium text-[#1F2937]">
                 Cada equipo que incorporamos tiene un propósito específico:
               </p>
             </div>
@@ -261,10 +265,10 @@ function IntroductionSection() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                  className="flex items-center gap-3 text-[#0E3A4A] font-medium"
+                  className="flex items-center gap-3 text-[#1F2937] font-medium"
                 >
-                  <div className="w-6 h-6 rounded-full bg-[#5EEAD4]/20 flex items-center justify-center flex-shrink-0">
-                    <CheckCircle size={14} className="text-[#1E88A8]" />
+                  <div className="w-6 h-6 rounded-full bg-[#06B8BF]/20 flex items-center justify-center flex-shrink-0">
+                    <CheckCircle size={14} className="text-[#06B8BF]" />
                   </div>
                   {benefit}
                 </motion.li>
@@ -279,19 +283,17 @@ function IntroductionSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-br from-[#0E3A4A] to-[#1E88A8] shadow-2xl">
-              {/* Placeholder for image */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-20 h-20 rounded-2xl bg-white/10 flex items-center justify-center mx-auto mb-4">
-                    <Sparkles size={40} className="text-[#5EEAD4]" />
-                  </div>
-                  <p className="text-white/60 text-sm">Imagen de tecnología</p>
-                </div>
-              </div>
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
+              <Image
+                src="/images/technology/technologyimg.jpeg"
+                alt="Tecnología avanzada de fisioterapia en Physical Care"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
               {/* Decorative elements */}
-              <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-[#5EEAD4]/20 rounded-full blur-3xl" />
-              <div className="absolute -top-10 -left-10 w-32 h-32 bg-[#1E88A8]/30 rounded-full blur-2xl" />
+              <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-[#06B8BF]/20 rounded-full blur-3xl" />
+              <div className="absolute -top-10 -left-10 w-32 h-32 bg-[#06B8BF]/30 rounded-full blur-2xl" />
             </div>
 
           </motion.div>
@@ -317,6 +319,10 @@ function TechnologyCard({
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const IconComponent = technology.icon;
 
+  // Check if technology has multiple images
+  const hasMultipleImages = 'images' in technology && Array.isArray(technology.images);
+  const singleImage = 'image' in technology ? technology.image : null;
+
   return (
     <div
       ref={ref}
@@ -328,36 +334,75 @@ function TechnologyCard({
             isReversed ? 'lg:grid-flow-col-dense' : ''
           }`}
         >
-          {/* Image */}
+          {/* Image(s) */}
           <motion.div
             initial={{ opacity: 0, x: isReversed ? 30 : -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
             className={isReversed ? 'lg:col-start-2' : ''}
           >
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-br from-[#0E3A4A] to-[#1E88A8] shadow-2xl group">
-              {technology.image ? (
-                <Image
-                  src={technology.image}
-                  alt={technology.name}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              ) : (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <div className="w-24 h-24 rounded-2xl bg-white/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-500">
-                      <IconComponent size={48} className="text-[#5EEAD4]" />
-                    </div>
-                    <p className="text-white/60 text-sm">Imagen de {technology.name}</p>
-                  </div>
+            {hasMultipleImages ? (
+              // Multiple images grid
+              <div className="grid grid-cols-2 gap-4">
+                {/* First large image */}
+                <div className="col-span-2 relative aspect-[16/9] rounded-2xl overflow-hidden shadow-xl group">
+                  <Image
+                    src={(technology as { images: string[] }).images[0]}
+                    alt={`${technology.name} 1`}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0E3A4A]/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
-              )}
-              {/* Decorative overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0E3A4A]/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-[#5EEAD4]/20 rounded-full blur-3xl" />
-            </div>
+                {/* Two smaller images */}
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg group">
+                  <Image
+                    src={(technology as { images: string[] }).images[1]}
+                    alt={`${technology.name} 2`}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0E3A4A]/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg group">
+                  <Image
+                    src={(technology as { images: string[] }).images[2]}
+                    alt={`${technology.name} 3`}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0E3A4A]/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
+              </div>
+            ) : (
+              // Single image or placeholder
+              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-br from-[#0E3A4A] to-[#06B8BF] shadow-2xl group">
+                {singleImage ? (
+                  <Image
+                    src={singleImage}
+                    alt={technology.name}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center p-8">
+                      <div className="w-24 h-24 rounded-2xl bg-white/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-500">
+                        <IconComponent size={48} className="text-[#06B8BF]" />
+                      </div>
+                      <p className="text-white/60 text-sm">Imagen de {technology.name}</p>
+                    </div>
+                  </div>
+                )}
+                {/* Decorative overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0E3A4A]/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-[#06B8BF]/20 rounded-full blur-3xl" />
+              </div>
+            )}
           </motion.div>
 
           {/* Content */}
@@ -369,19 +414,19 @@ function TechnologyCard({
           >
             {/* Badge */}
             {technology.badge && (
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-violet-500/10 to-purple-500/10 border border-violet-500/20 text-violet-600 text-xs font-bold tracking-wide mb-4">
-                <Sparkles size={12} />
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#8DC741]/10 border border-[#8DC741]/30 text-[#6B9930] text-xs font-bold tracking-wide mb-4">
+                <Sparkles size={12} className="text-[#8DC741]" />
                 {technology.badge}
               </span>
             )}
 
             {/* Name */}
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0E3A4A] leading-tight mb-3">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1F2937] leading-tight mb-3">
               {technology.name}
             </h3>
 
             {/* Subtitle */}
-            <p className="text-lg text-[#1E88A8] font-medium mb-6">{technology.subtitle}</p>
+            <p className="text-lg text-[#06B8BF] font-medium mb-6">{technology.subtitle}</p>
 
             {/* Description */}
             <p className="text-[#64748B] text-base sm:text-lg leading-relaxed mb-8">
@@ -389,23 +434,23 @@ function TechnologyCard({
             </p>
 
             {/* Benefit highlight */}
-            <div className="bg-gradient-to-r from-[#1E88A8]/10 to-[#5EEAD4]/10 rounded-2xl p-5 mb-8 border border-[#1E88A8]/10">
-              <p className="text-[#0E3A4A] font-semibold flex items-start gap-3">
-                <CheckCircle size={20} className="text-[#1E88A8] flex-shrink-0 mt-0.5" />
+            <div className="bg-gradient-to-r from-[#8DC741]/10 to-[#8DC741]/5 rounded-2xl p-5 mb-8 border border-[#8DC741]/20">
+              <p className="text-[#1F2937] font-semibold flex items-start gap-3">
+                <CheckCircle size={20} className="text-[#8DC741] flex-shrink-0 mt-0.5" />
                 {technology.benefit}
               </p>
             </div>
 
             {/* Indications */}
             <div>
-              <p className="text-sm font-semibold text-[#0E3A4A] uppercase tracking-wider mb-4">
+              <p className="text-sm font-semibold text-[#1F2937] uppercase tracking-wider mb-4">
                 Indicaciones
               </p>
               <div className="flex flex-wrap gap-2">
                 {technology.indications.map((indication) => (
                   <span
                     key={indication}
-                    className="px-4 py-2 rounded-full bg-white border border-gray-200 text-[#64748B] text-sm font-medium shadow-sm hover:border-[#1E88A8]/30 hover:text-[#1E88A8] transition-colors duration-300"
+                    className="px-4 py-2 rounded-full bg-white border border-gray-200 text-[#64748B] text-sm font-medium shadow-sm hover:border-[#06B8BF]/30 hover:text-[#06B8BF] transition-colors duration-300"
                   >
                     {indication}
                   </span>
@@ -437,13 +482,13 @@ function TechnologiesSection() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1E88A8]/10 text-[#1E88A8] text-sm font-semibold mb-6">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#06B8BF]/10 text-[#06B8BF] text-sm font-semibold mb-6">
               <Zap size={16} />
               Nuestro Equipamiento
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0E3A4A] leading-[1.15] tracking-[-0.02em] mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1F2937] leading-[1.15] tracking-[-0.02em] mb-6">
               Tecnología de{' '}
-              <span className="bg-gradient-to-r from-[#1E88A8] to-[#35B7C8] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#06B8BF] to-[#06B8BF] bg-clip-text text-transparent">
                 clase mundial
               </span>
             </h2>
@@ -482,8 +527,8 @@ function DifferentiatorSection() {
     >
       {/* Background elements */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#5EEAD4]/10 rounded-full blur-[150px]" />
-        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-[#1E88A8]/20 rounded-full blur-[120px]" />
+        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#06B8BF]/10 rounded-full blur-[150px]" />
+        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-[#06B8BF]/20 rounded-full blur-[120px]" />
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -500,14 +545,14 @@ function DifferentiatorSection() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.08] border border-white/[0.1] text-[#5EEAD4] text-sm font-semibold mb-6">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.08] border border-white/[0.1] text-[#06B8BF] text-sm font-semibold mb-6">
               <Users size={16} />
               Nuestro Enfoque
             </span>
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-[1.15] tracking-[-0.02em] mb-6">
               Tecnología +{' '}
-              <span className="bg-gradient-to-r from-[#5EEAD4] to-[#67E8F9] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#06B8BF] to-[#67E8F9] bg-clip-text text-transparent">
                 Experiencia Clínica
               </span>
             </h2>
@@ -529,11 +574,11 @@ function DifferentiatorSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                className="group bg-white/[0.05] backdrop-blur-sm border border-white/[0.1] rounded-2xl p-5 md:p-6 hover:bg-white/[0.1] hover:border-[#5EEAD4]/30 transition-all duration-300"
+                className="group bg-white/[0.05] backdrop-blur-sm border border-white/[0.1] rounded-2xl p-5 md:p-6 hover:bg-white/[0.1] hover:border-[#06B8BF]/30 transition-all duration-300"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-[#5EEAD4]/20 flex items-center justify-center flex-shrink-0 group-hover:bg-[#5EEAD4]/30 transition-colors duration-300">
-                    <CheckCircle size={16} className="text-[#5EEAD4]" />
+                  <div className="w-8 h-8 rounded-full bg-[#06B8BF]/20 flex items-center justify-center flex-shrink-0 group-hover:bg-[#06B8BF]/30 transition-colors duration-300">
+                    <CheckCircle size={16} className="text-[#06B8BF]" />
                   </div>
                   <span className="text-white font-medium text-sm md:text-base">{item}</span>
                 </div>
@@ -560,7 +605,7 @@ function FinalCTASection() {
     >
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#1E88A8]/15 rounded-full blur-[200px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#06B8BF]/15 rounded-full blur-[200px]" />
         <div
           className="absolute inset-0 opacity-[0.02]"
           style={{
@@ -579,7 +624,7 @@ function FinalCTASection() {
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-[-0.02em] mb-6">
             Recupere su movilidad con tecnología de{' '}
-            <span className="bg-gradient-to-r from-[#5EEAD4] to-[#67E8F9] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#06B8BF] to-[#67E8F9] bg-clip-text text-transparent">
               clase mundial
             </span>
           </h2>
@@ -595,7 +640,7 @@ function FinalCTASection() {
               href="https://wa.me/50689680947?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2.5 h-14 px-10 bg-gradient-to-r from-[#1E88A8] to-[#35B7C8] text-white rounded-full font-semibold text-base shadow-lg shadow-[#1E88A8]/25 hover:shadow-xl hover:shadow-[#1E88A8]/30 hover:-translate-y-0.5 transition-all duration-300"
+              className="inline-flex items-center justify-center gap-2.5 h-14 px-10 bg-gradient-to-r from-[#06B8BF] to-[#06B8BF] text-white rounded-full font-semibold text-base shadow-lg shadow-[#06B8BF]/25 hover:shadow-xl hover:shadow-[#06B8BF]/30 hover:-translate-y-0.5 transition-all duration-300"
             >
               Agendar Cita
               <ArrowRight size={18} />

@@ -157,15 +157,11 @@ export default function LocationSection() {
               <div className="divide-y divide-[rgba(15,23,42,0.06)] text-sm flex-1">
                 <div className="flex justify-between items-center gap-4 py-3">
                   <span className="font-medium text-[#475569]">Lunes - Viernes</span>
-                  <span className="text-[#0E3A4A] font-semibold">8:00 - 18:00</span>
+                  <span className="text-[#0E3A4A] font-semibold">8:00 - 20:00</span>
                 </div>
                 <div className="flex justify-between items-center gap-4 py-3">
                   <span className="font-medium text-[#475569]">Sábados</span>
-                  <span className="text-[#1E88A8] font-semibold">Cita previa</span>
-                </div>
-                <div className="flex justify-between items-center gap-4 py-3">
-                  <span className="font-medium text-[#475569]">Domingos</span>
-                  <span className="text-[#E11D48] font-semibold">Cerrado</span>
+                  <span className="text-[#1E88A8] font-semibold">9:00 - 14:00</span>
                 </div>
               </div>
             </motion.div>

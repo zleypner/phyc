@@ -56,57 +56,57 @@ export default function WhyChooseUs() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section ref={ref} id="why-us" className="py-20 md:py-28 lg:py-36 bg-[#F4F7F8]">
-      <div className="container max-w-[1200px] mx-auto">
+    <section ref={ref} id="why-us" className="py-12 sm:py-16 md:py-24 lg:py-36 bg-[#F8FAFC]">
+      <div className="container px-4 sm:px-6 max-w-[1200px] mx-auto">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-8 sm:mb-10 md:mb-16"
         >
-          <span className="inline-block px-4 py-2 rounded-full bg-[#1E88A8]/10 text-[#1E88A8] text-sm font-medium mb-4">
+          <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#06B8BF]/10 text-[#06B8BF] text-xs sm:text-sm font-medium mb-3 sm:mb-4">
             Por Qué Elegirnos
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0E3A4A]">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#1F2937] px-2">
             La Excelencia que Impulsa su Recuperación
           </h2>
         </motion.div>
 
         {/* Mobile Image - Test visibility */}
-        <div className="flex mb-10 justify-center">
-          <div className="relative w-64 h-64 rounded-full overflow-hidden border-4 border-[#5EEAD4]/30 shadow-[0_0_60px_rgba(94,234,212,0.3)]">
+        <div className="flex mb-8 sm:mb-10 justify-center">
+          <div className="relative w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-[#06B8BF]/30 shadow-[0_0_60px_rgba(94,234,212,0.3)]">
             <Image
               src="/images/assets/hero-woman.webp"
               alt="Bienestar y recuperación"
               fill
               className="object-cover"
-              sizes="256px"
+              sizes="(max-width: 640px) 160px, (max-width: 768px) 208px, 256px"
               priority
             />
           </div>
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
           {reasons.map((reason, index) => (
             <motion.div
               key={reason.title}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: 0.1 * index }}
-              className="group bg-white rounded-2xl p-6 md:p-8 flex flex-col items-center text-center shadow-[0_2px_20px_rgba(0,0,0,0.06)] border border-gray-100 hover:shadow-[0_8px_40px_rgba(0,0,0,0.12)] hover:border-[#1E88A8]/20 transition-all duration-500 hover:-translate-y-1"
+              className="group bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 lg:p-8 flex flex-col items-center text-center shadow-[0_2px_20px_rgba(0,0,0,0.06)] border border-gray-100 hover:shadow-[0_8px_40px_rgba(0,0,0,0.12)] hover:border-[#06B8BF]/20 transition-all duration-500 hover:-translate-y-1"
             >
-              <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-[#1E88A8]/10 to-[#35B7C8]/10 flex items-center justify-center mb-5 group-hover:from-[#1E88A8] group-hover:to-[#35B7C8] transition-all duration-300">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#06B8BF]/10 to-[#06B8BF]/10 flex items-center justify-center mb-3 sm:mb-4 md:mb-5 group-hover:from-[#06B8BF] group-hover:to-[#06B8BF] transition-all duration-300">
                 <reason.icon
-                  size={28}
-                  className="text-[#1E88A8] group-hover:text-white transition-colors"
+                  size={20}
+                  className="text-[#06B8BF] group-hover:text-white transition-colors sm:w-6 sm:h-6 md:w-7 md:h-7"
                 />
               </div>
-              <h3 className="font-semibold text-[#0E3A4A] text-base md:text-lg mb-3 leading-tight">
+              <h3 className="font-semibold text-[#1F2937] text-xs sm:text-sm md:text-base lg:text-lg mb-1.5 sm:mb-2 md:mb-3 leading-tight">
                 {reason.title}
               </h3>
-              <p className="text-sm text-[#6B7280] leading-relaxed">
+              <p className="text-[10px] sm:text-xs md:text-sm text-[#6B7280] leading-relaxed line-clamp-3 sm:line-clamp-none">
                 {reason.description}
               </p>
             </motion.div>

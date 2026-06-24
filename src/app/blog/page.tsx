@@ -3,6 +3,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import Blog from '@/components/sections/Blog';
+import FacebookSection from '@/components/sections/FacebookSection';
 
 // Video data for SEO schema
 const educationalVideos = [
@@ -111,6 +112,7 @@ export default function BlogPage() {
       <Header />
       <main className="pt-20">
         <Blog />
+        <FacebookSection />
       </main>
       <Footer />
       <WhatsAppButton />

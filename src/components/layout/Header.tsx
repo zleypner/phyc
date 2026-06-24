@@ -17,6 +17,7 @@ const navItems = [
   { href: '/', label: 'Inicio' },
   { href: '/servicios-especializados', label: 'Servicios' },
   { href: '/tecnologia-de-rehabilitacion', label: 'Tecnología' },
+  { href: '/tienda', label: 'Tienda' },
   { href: '/testimonios', label: 'Testimonios' },
   { href: '/blog', label: 'Blog' },
   { href: '/contacto', label: 'Contacto' },
@@ -57,8 +58,8 @@ export default function Header() {
             : 'bg-transparent py-5 lg:py-6'
           }`}
       >
-        <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-          <nav className="flex min-h-[64px] items-center justify-between lg:grid lg:min-h-[72px] lg:grid-cols-3 lg:gap-6">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <nav className="flex min-h-[56px] sm:min-h-[64px] items-center justify-between lg:grid lg:min-h-[72px] lg:grid-cols-3 lg:gap-6">
             <Link href="/" className="flex items-center">
               <motion.div
                 initial={false}
@@ -69,7 +70,7 @@ export default function Header() {
                   alt="Physical Care Fisioterapia"
                   width={220}
                   height={60}
-                  className="h-14 sm:h-16 w-auto object-contain"
+                  className="h-12 sm:h-14 md:h-16 w-auto object-contain"
                   priority
                 />
               </motion.div>
@@ -85,13 +86,13 @@ export default function Header() {
                   key={item.href}
                   href={item.href}
                   className={`group relative px-1 py-3 text-sm font-semibold transition-colors duration-300 ${showSolidHeader
-                      ? 'text-[#0E3A4A] hover:text-[#1E88A8]'
+                      ? 'text-[#1F2937] hover:text-[#06B8BF]'
                       : 'text-white hover:text-white/85'
                     }`}
                 >
                   {item.label}
                   <span
-                    className={`absolute bottom-1 left-1 h-0.5 w-0 rounded-full transition-all duration-300 group-hover:w-[calc(100%-0.5rem)] ${showSolidHeader ? 'bg-[#1E88A8]' : 'bg-white'
+                    className={`absolute bottom-1 left-1 h-0.5 w-0 rounded-full transition-all duration-300 group-hover:w-[calc(100%-0.5rem)] ${showSolidHeader ? 'bg-[#06B8BF]' : 'bg-white'
                       }`}
                   />
                 </Link>
@@ -117,7 +118,7 @@ export default function Header() {
               <button
                 onClick={() => setIsMobileMenuOpen((prev) => !prev)}
                 className={`flex h-11 w-11 items-center justify-center rounded-xl transition-colors duration-300 lg:hidden ${showSolidHeader
-                    ? 'text-[#0E3A4A] hover:bg-[#F4F7F8]'
+                    ? 'text-[#1F2937] hover:bg-[#F4F7F8]'
                     : 'text-white hover:bg-white/10'
                   }`}
                 aria-label="Abrir menú"
@@ -146,28 +147,28 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 220 }}
-              className="fixed inset-y-0 right-0 z-50 flex w-full max-w-sm flex-col justify-between p-6 text-white shadow-2xl glass-dark sm:p-8 lg:hidden"
+              className="fixed inset-y-0 right-0 z-50 flex w-full max-w-[85vw] sm:max-w-sm flex-col justify-between p-5 sm:p-6 md:p-8 text-white shadow-2xl glass-dark lg:hidden"
             >
               <div>
-                <div className="mb-10 flex items-center justify-between">
+                <div className="mb-8 sm:mb-10 flex items-center justify-between">
                   <Image
                     src="/images/logo/logo-removedbg.png"
                     alt="Physical Care Fisioterapia"
                     width={200}
                     height={55}
-                    className="h-12 w-auto object-contain"
+                    className="h-10 sm:h-12 w-auto object-contain"
                   />
 
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 transition-colors hover:bg-white/20"
+                    className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-white/10 transition-colors hover:bg-white/20"
                     aria-label="Cerrar menú"
                   >
-                    <X size={22} />
+                    <X size={20} className="sm:w-[22px] sm:h-[22px]" />
                   </button>
                 </div>
 
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-2 sm:gap-3">
                   {navItems.map((item, index) => (
                     <motion.div
                       key={item.href}
@@ -178,10 +179,10 @@ export default function Header() {
                       <Link
                         href={item.href}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="group flex items-center justify-between border-b border-white/10 py-4 text-xl font-medium text-white transition-colors hover:text-[#35B7C8]"
+                        className="group flex items-center justify-between border-b border-white/10 py-3 sm:py-4 text-lg sm:text-xl font-medium text-white transition-colors hover:text-[#06B8BF]"
                       >
                         {item.label}
-                        <span className="text-[#35B7C8] opacity-0 transition-opacity group-hover:opacity-100">
+                        <span className="text-[#06B8BF] opacity-0 transition-opacity group-hover:opacity-100">
                           &rarr;
                         </span>
                       </Link>
@@ -190,14 +191,14 @@ export default function Header() {
                 </div>
               </div>
 
-              <div className="mt-10 border-t border-white/10 pt-8">
+              <div className="mt-8 sm:mt-10 border-t border-white/10 pt-6 sm:pt-8">
                 <a
                   href="https://wa.me/50689680947?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex w-full items-center justify-center gap-3 rounded-2xl bg-[#25D366] py-4 font-semibold text-white shadow-lg shadow-[#25D366]/20 transition-colors hover:bg-[#20BA5C]"
+                  className="flex w-full items-center justify-center gap-2.5 sm:gap-3 rounded-xl sm:rounded-2xl bg-[#25D366] py-3.5 sm:py-4 font-semibold text-white text-sm sm:text-base shadow-lg shadow-[#25D366]/20 transition-colors hover:bg-[#20BA5C]"
                 >
-                  <WhatsAppIcon size={20} />
+                  <WhatsAppIcon size={18} className="sm:w-5 sm:h-5" />
                   Agendar Cita
                 </a>
               </div>

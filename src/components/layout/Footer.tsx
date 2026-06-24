@@ -23,8 +23,8 @@ const WhatsAppIcon = () => (
 );
 
 const socialLinks = [
-  { icon: FacebookIcon, href: 'https://facebook.com', label: 'Facebook' },
-  { icon: InstagramIcon, href: 'https://instagram.com', label: 'Instagram' },
+  { icon: FacebookIcon, href: 'https://www.facebook.com/Physicalcarecr', label: 'Facebook' },
+  { icon: InstagramIcon, href: 'https://www.instagram.com/physicalcareft?utm_source=qr', label: 'Instagram' },
   { icon: WhatsAppIcon, href: 'https://wa.me/50689680947', label: 'WhatsApp' },
 ];
 
@@ -40,35 +40,35 @@ const navLinks = [
 export default function Footer() {
   return (
     <footer className="bg-[#0E3A4A] text-white">
-      <div className="container py-12 lg:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
+      <div className="container px-4 sm:px-6 py-10 sm:py-12 lg:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
           {/* Brand & Description */}
-          <div>
-            <Link href="/" className="inline-block mb-4">
+          <div className="sm:col-span-2 lg:col-span-1">
+            <Link href="/" className="inline-block mb-3 sm:mb-4">
               <Image
                 src="/images/logo/logo-removedbg.png"
                 alt="Physical Care Fisioterapia"
                 width={220}
                 height={60}
-                className="h-16 w-auto object-contain"
+                className="h-12 sm:h-14 lg:h-16 w-auto object-contain"
               />
             </Link>
-            <p className="text-white/60 text-sm leading-relaxed max-w-xs">
+            <p className="text-white/60 text-xs sm:text-sm leading-relaxed max-w-xs">
               Recuperación avanzada con tecnología de clase mundial y atención personalizada.
             </p>
           </div>
 
           {/* Navigation */}
           <div>
-            <h4 className="font-semibold text-sm uppercase tracking-wider text-white/40 mb-5">
+            <h4 className="font-semibold text-xs sm:text-sm uppercase tracking-wider text-white/40 mb-3 sm:mb-5">
               Navegación
             </h4>
-            <nav className="grid grid-cols-2 gap-x-8 gap-y-3">
+            <nav className="grid grid-cols-2 gap-x-4 sm:gap-x-8 gap-y-2 sm:gap-y-3">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-white/70 hover:text-white transition-colors text-sm"
+                  className="text-white/70 hover:text-white transition-colors text-xs sm:text-sm"
                 >
                   {link.label}
                 </Link>
@@ -78,30 +78,30 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-semibold text-sm uppercase tracking-wider text-white/40 mb-5">
+            <h4 className="font-semibold text-xs sm:text-sm uppercase tracking-wider text-white/40 mb-3 sm:mb-5">
               Contacto
             </h4>
-            <div className="space-y-3 mb-6">
+            <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
               <a
                 href="tel:+50689680947"
-                className="flex items-center gap-3 text-white/70 hover:text-white transition-colors text-sm"
+                className="flex items-center gap-2 sm:gap-3 text-white/70 hover:text-white transition-colors text-xs sm:text-sm"
               >
-                <Phone size={16} className="flex-shrink-0" />
+                <Phone size={14} className="flex-shrink-0 sm:w-4 sm:h-4" />
                 <span>+506 8968-0947</span>
               </a>
               <a
                 href="https://maps.google.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-white/70 hover:text-white transition-colors text-sm"
+                className="flex items-center gap-2 sm:gap-3 text-white/70 hover:text-white transition-colors text-xs sm:text-sm"
               >
-                <MapPin size={16} className="flex-shrink-0" />
+                <MapPin size={14} className="flex-shrink-0 sm:w-4 sm:h-4" />
                 <span>San Pedro, Costa Rica</span>
               </a>
             </div>
 
             {/* Social Links */}
-            <div className="flex gap-3">
+            <div className="flex gap-2 sm:gap-3">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
@@ -109,7 +109,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#1E88A8] transition-colors"
+                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#06B8BF] transition-colors"
                 >
                   <social.icon />
                 </a>
@@ -121,8 +121,8 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
-        <div className="container py-6">
-          <p className="text-white/40 text-sm text-center">
+        <div className="container px-4 sm:px-6 py-4 sm:py-6">
+          <p className="text-white/40 text-xs sm:text-sm text-center">
             © {new Date().getFullYear()} Physical Care Fisioterapia. Todos los derechos reservados.
           </p>
         </div>

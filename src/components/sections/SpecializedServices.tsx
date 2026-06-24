@@ -83,32 +83,32 @@ export default function SpecializedServices() {
   };
 
   return (
-    <section ref={ref} className="py-16 md:py-24 lg:py-32 bg-white">
-      <div className="container">
+    <section ref={ref} className="py-12 sm:py-16 md:py-24 lg:py-32 bg-white">
+      <div className="container px-4 sm:px-6">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-8 sm:mb-10 md:mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1E88A8]/10 text-[#1E88A8] text-sm font-semibold mb-6">
+          <span className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#06B8BF]/10 text-[#06B8BF] text-xs sm:text-sm font-semibold mb-4 sm:mb-6">
             Nuestros Tratamientos
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0E3A4A] leading-[1.15] tracking-[-0.02em] mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#1F2937] leading-[1.15] tracking-[-0.02em] mb-4 sm:mb-6 px-2">
             Servicios Especializados
           </h2>
-          <p className="text-base md:text-lg text-[#64748B] leading-relaxed max-w-3xl mx-auto mb-6">
+          <p className="text-sm sm:text-base md:text-lg text-[#64748B] leading-relaxed max-w-3xl mx-auto mb-4 sm:mb-6 px-2">
             Soluciones avanzadas de fisioterapia y rehabilitación diseñadas para ayudarle a recuperarse más rápido, reducir el dolor y volver a las actividades que más disfruta.
           </p>
           <Link
             href="/servicios-especializados"
-            className="group inline-flex items-center gap-2 text-[#1E88A8] font-semibold text-lg hover:text-[#0E3A4A] transition-colors duration-300"
+            className="group inline-flex items-center gap-1.5 sm:gap-2 text-[#06B8BF] font-semibold text-sm sm:text-base md:text-lg hover:text-[#1F2937] transition-colors duration-300"
           >
             Leer más
             <ArrowRight
-              size={20}
-              className="transition-transform duration-300 group-hover:translate-x-1"
+              size={16}
+              className="sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1"
             />
           </Link>
         </motion.div>
@@ -118,7 +118,7 @@ export default function SpecializedServices() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
+          className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8"
         >
           {services.map((service, index) => (
             <motion.div
@@ -127,16 +127,16 @@ export default function SpecializedServices() {
             >
               <Link
                 href="/servicios-especializados"
-                className="group block bg-white rounded-2xl overflow-hidden shadow-[0_2px_20px_rgba(0,0,0,0.06)] border border-gray-100 hover:shadow-[0_8px_40px_rgba(0,0,0,0.12)] hover:border-[#1E88A8]/20 transition-all duration-500 hover:-translate-y-1 cursor-pointer"
+                className="group block bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_2px_20px_rgba(0,0,0,0.06)] border border-gray-100 hover:shadow-[0_8px_40px_rgba(0,0,0,0.12)] hover:border-[#06B8BF]/20 transition-all duration-500 hover:-translate-y-1 cursor-pointer h-full"
               >
                 {/* Image */}
-                <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-[#0E3A4A] to-[#1E88A8]">
+                <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-[#0E3A4A] to-[#06B8BF]">
                   <Image
                     src={service.image}
                     alt={service.name}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
                     priority={index < 4}
                   />
                   {/* Overlay on hover */}
@@ -144,11 +144,11 @@ export default function SpecializedServices() {
                 </div>
 
                 {/* Content */}
-                <div className="p-5 md:p-6">
-                  <h3 className="text-lg font-bold text-[#0E3A4A] mb-2 group-hover:text-[#1E88A8] transition-colors duration-300">
+                <div className="p-3 sm:p-4 md:p-5 lg:p-6">
+                  <h3 className="text-sm sm:text-base md:text-lg font-bold text-[#1F2937] mb-1 sm:mb-2 group-hover:text-[#06B8BF] transition-colors duration-300 line-clamp-2">
                     {service.name}
                   </h3>
-                  <p className="text-sm text-[#64748B] leading-relaxed">
+                  <p className="text-[11px] sm:text-xs md:text-sm text-[#64748B] leading-relaxed line-clamp-2">
                     {service.description}
                   </p>
                 </div>
@@ -162,20 +162,20 @@ export default function SpecializedServices() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-12 md:mt-16 text-center"
+          className="mt-8 sm:mt-10 md:mt-16 text-center"
         >
-          <p className="text-lg md:text-xl text-[#0E3A4A] font-medium mb-6">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#1F2937] font-medium mb-4 sm:mb-6 px-2">
             ¿Necesita ayuda para elegir el tratamiento adecuado?
           </p>
           <a
             href="https://wa.me/50689680947?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2.5 bg-[#25D366] text-white font-semibold py-3.5 px-8 rounded-full transition-all duration-300 hover:bg-[#20BA5C] hover:shadow-lg hover:shadow-[#25D366]/25 hover:-translate-y-0.5 active:translate-y-0"
+            className="group inline-flex items-center gap-2 sm:gap-2.5 bg-[#25D366] text-white font-semibold py-3 sm:py-3.5 px-5 sm:px-8 rounded-full transition-all duration-300 hover:bg-[#20BA5C] hover:shadow-lg hover:shadow-[#25D366]/25 hover:-translate-y-0.5 active:translate-y-0 text-sm sm:text-base"
           >
-            <WhatsAppIcon className="w-5 h-5" />
+            <WhatsAppIcon className="w-4 h-4 sm:w-5 sm:h-5" />
             Agendar Valoración
-            <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+            <ArrowRight size={16} className="sm:w-[18px] sm:h-[18px] transition-transform duration-300 group-hover:translate-x-1" />
           </a>
         </motion.div>
       </div>

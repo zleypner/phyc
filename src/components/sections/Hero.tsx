@@ -173,7 +173,7 @@ export default function Hero() {
                 {/* Badge */}
                 <div className="mb-6 sm:mb-8">
                   <span className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.08] backdrop-blur-md border border-white/[0.12] text-white/90 text-[13px] sm:text-sm font-medium tracking-wide">
-                    <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse flex-shrink-0" />
+                    <span className="w-2 h-2 rounded-full bg-[#8DC741] animate-pulse flex-shrink-0" />
                     <span>{heroContent.badge}</span>
                   </span>
                 </div>
@@ -183,7 +183,7 @@ export default function Hero() {
                   {heroContent.headline}
                   <br />
                   <span
-                    className="bg-gradient-to-r from-[#5EEAD4] via-[#67E8F9] to-[#5EEAD4] bg-clip-text text-transparent"
+                    className="bg-gradient-to-r from-[#06B8BF] via-[#5EEAD4] to-[#06B8BF] bg-clip-text text-transparent"
                     style={{ backgroundSize: '200% 100%' }}
                   >
                     {heroContent.headlineHighlight}
@@ -193,18 +193,18 @@ export default function Hero() {
                 {/* Subtitle */}
                 <p className="max-w-[520px] text-[16px] sm:text-[17px] lg:text-[18px] text-white/70 leading-[1.7] mb-8 sm:mb-10">
                   {heroContent.subtitle}{' '}
-                  <span className="text-[#5EEAD4] font-medium">{heroContent.subtitleHighlight}</span>{' '}
+                  <span className="text-[#06B8BF] font-medium">{heroContent.subtitleHighlight}</span>{' '}
                   {heroContent.subtitleEnd}
                 </p>
 
                 {/* CTA Section with Social Proof */}
-                <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-5 sm:gap-8">
-                  {/* WhatsApp Button */}
+                <div className="flex flex-col gap-5 sm:gap-6 w-full sm:w-auto">
+                  {/* WhatsApp Button - Full width on mobile */}
                   <a
                     href="https://wa.me/50689680947?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group inline-flex items-center justify-center gap-2.5 h-[52px] sm:h-[56px] px-7 sm:px-8 bg-[#25D366] text-white rounded-full font-semibold text-[15px] sm:text-[16px] shadow-[0_8px_32px_rgba(37,211,102,0.35)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,211,102,0.45)] active:translate-y-0 active:scale-[0.98]"
+                    className="group inline-flex items-center justify-center gap-2.5 h-[52px] sm:h-[56px] px-6 sm:px-8 bg-[#25D366] text-white rounded-full font-semibold text-[15px] sm:text-[16px] shadow-[0_8px_32px_rgba(37,211,102,0.35)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,211,102,0.45)] active:translate-y-0 active:scale-[0.98] w-full sm:w-auto"
                     aria-label="Agendar cita por WhatsApp"
                   >
                     <WhatsAppIcon className="w-5 h-5 flex-shrink-0" />
@@ -212,10 +212,10 @@ export default function Hero() {
                   </a>
 
                   {/* Social Proof - Patient Avatars */}
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-3 sm:gap-4">
                     {/* Stacked Avatars */}
-                    <div className="flex -space-x-5">
-                      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0E3D4A] overflow-hidden bg-gradient-to-br from-[#5EEAD4]/30 to-[#35B7C8]/30">
+                    <div className="flex -space-x-3 sm:-space-x-4">
+                      <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full border-2 border-[#0E3D4A] overflow-hidden bg-gradient-to-br from-[#06B8BF]/30 to-[#06B8BF]/20">
                         <Image
                           src="/images/users/marie1.webp"
                           alt="Paciente satisfecha"
@@ -224,7 +224,7 @@ export default function Hero() {
                           className="w-full h-full object-cover"
                         />
                       </div>
-                      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0E3D4A] overflow-hidden bg-gradient-to-br from-[#5EEAD4]/30 to-[#35B7C8]/30">
+                      <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full border-2 border-[#0E3D4A] overflow-hidden bg-gradient-to-br from-[#06B8BF]/30 to-[#06B8BF]/20">
                         <Image
                           src="/images/users/john1.webp"
                           alt="Paciente satisfecho"
@@ -233,7 +233,7 @@ export default function Hero() {
                           className="w-full h-full object-cover"
                         />
                       </div>
-                      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0E3D4A] overflow-hidden bg-gradient-to-br from-[#5EEAD4]/30 to-[#35B7C8]/30">
+                      <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full border-2 border-[#0E3D4A] overflow-hidden bg-gradient-to-br from-[#06B8BF]/30 to-[#06B8BF]/20">
                         <Image
                           src="/images/users/marie2.webp"
                           alt="Paciente satisfecha"
@@ -245,8 +245,8 @@ export default function Hero() {
                     </div>
                     {/* Text */}
                     <div className="flex flex-col">
-                      <span className="text-[#5EEAD4] font-semibold text-[15px] sm:text-[16px]">+5000 pacientes</span>
-                      <span className="text-white/60 text-[13px] sm:text-[14px]">Confían en nosotros</span>
+                      <span className="text-[#06B8BF] font-semibold text-[14px] sm:text-[16px]">+5000 pacientes</span>
+                      <span className="text-white/60 text-[12px] sm:text-[14px]">Confían en nosotros</span>
                     </div>
                   </div>
                 </div>
@@ -256,16 +256,16 @@ export default function Hero() {
               <div className="relative hidden lg:flex items-center justify-center">
                 {/* Circular gradient background */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-[500px] h-[500px] xl:w-[580px] xl:h-[580px] rounded-full bg-gradient-to-br from-[#35B7C8]/30 via-[#5EEAD4]/20 to-transparent blur-sm" />
+                  <div className="w-[500px] h-[500px] xl:w-[580px] xl:h-[580px] rounded-full bg-gradient-to-br from-[#06B8BF]/30 via-[#06B8BF]/20 to-transparent blur-sm" />
                 </div>
 
                 {/* Secondary glow */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-[450px] h-[450px] xl:w-[520px] xl:h-[520px] rounded-full bg-gradient-to-tr from-[#5EEAD4]/15 to-[#35B7C8]/25 blur-md" />
+                  <div className="w-[450px] h-[450px] xl:w-[520px] xl:h-[520px] rounded-full bg-gradient-to-tr from-[#06B8BF]/15 to-[#06B8BF]/25 blur-md" />
                 </div>
 
                 {/* Hero Image */}
-                <div className="relative z-10 w-[400px] h-[400px] xl:w-[480px] xl:h-[480px] rounded-full overflow-hidden border-4 border-white/10 shadow-2xl">
+                <div className="relative z-10 w-[400px] h-[400px] xl:w-[480px] xl:h-[480px] rounded-full overflow-hidden border-4 border-[#06B8BF]/20 shadow-2xl">
                   <Image
                     src="/images/assets/hero-woman.webp"
                     alt="Mujer relajada disfrutando de bienestar"
@@ -320,23 +320,23 @@ export default function Hero() {
 
         {/* Feature Bar Container */}
         <div className="bg-gradient-to-r from-[#0E3D4A] via-[#156378]/90 to-[#0E3D4A] backdrop-blur-xl">
-          <div className="max-w-[1300px] mx-auto px-6 sm:px-8 lg:px-12 py-6 sm:py-8">
+          <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-12 py-5 sm:py-6 lg:py-8">
             {/* Features Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 lg:gap-8">
               {featureItems.map((feature, index) => (
-                <div key={index} className="flex items-start gap-3 sm:gap-4">
+                <div key={index} className="flex items-start gap-2 sm:gap-3 lg:gap-4">
                   {/* Icon */}
-                  <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#5EEAD4]/10 border border-[#5EEAD4]/20 flex items-center justify-center">
-                    <feature.icon className="w-5 h-5 sm:w-6 sm:h-6 text-[#5EEAD4]" strokeWidth={1.5} />
+                  <div className="flex-shrink-0 w-9 h-9 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-lg sm:rounded-xl bg-[#06B8BF]/10 border border-[#06B8BF]/20 flex items-center justify-center">
+                    <feature.icon className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-[#06B8BF]" strokeWidth={1.5} />
                   </div>
                   {/* Text */}
-                  <div className="flex flex-col">
-                    <span className="text-white font-semibold text-[14px] sm:text-[15px] leading-tight">
+                  <div className="flex flex-col min-w-0">
+                    <span className="text-white font-semibold text-[12px] sm:text-[13px] lg:text-[15px] leading-tight">
                       {feature.title}
                       <br />
                       {feature.titleLine2}
                     </span>
-                    <span className="text-white/50 text-[12px] sm:text-[13px] mt-1">{feature.description}</span>
+                    <span className="text-white/50 text-[10px] sm:text-[11px] lg:text-[13px] mt-0.5 sm:mt-1 line-clamp-1">{feature.description}</span>
                   </div>
                 </div>
               ))}

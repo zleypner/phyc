@@ -82,14 +82,14 @@ const videoPosts = [
   },
 ];
 
-// Category colors for badges
+// Category colors for badges - All green theme
 const categoryColors: Record<string, string> = {
-  'Rehabilitación': 'bg-blue-100 text-blue-700',
-  'Prevención': 'bg-orange-100 text-orange-700',
-  'Recuperación': 'bg-green-100 text-green-700',
-  'Ejercicios': 'bg-purple-100 text-purple-700',
-  'Bienestar': 'bg-teal-100 text-teal-700',
-  'Tratamientos': 'bg-rose-100 text-rose-700',
+  'Rehabilitación': 'bg-[#8DC741]/15 text-[#6B9930]',
+  'Prevención': 'bg-[#8DC741]/15 text-[#6B9930]',
+  'Recuperación': 'bg-[#8DC741]/15 text-[#6B9930]',
+  'Ejercicios': 'bg-[#8DC741]/15 text-[#6B9930]',
+  'Bienestar': 'bg-[#8DC741]/15 text-[#6B9930]',
+  'Tratamientos': 'bg-[#8DC741]/15 text-[#6B9930]',
 };
 
 // Video Modal Component
@@ -163,7 +163,7 @@ function VideoModal({
 
             {/* Video Info */}
             <div className="p-4 sm:p-6 bg-white">
-              <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-2 sm:mb-3 ${categoryColors[video.category] || 'bg-red-100 text-red-700'}`}>
+              <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-2 sm:mb-3 ${categoryColors[video.category] || 'bg-[#8DC741]/15 text-[#6B9930]'}`}>
                 {video.category}
               </span>
               <h3 className="text-lg sm:text-xl font-bold text-[#0E3A4A] mb-1.5 sm:mb-2">
@@ -202,7 +202,7 @@ export default function Blog() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto mb-12"
           >
-            <span className="inline-block px-4 py-2 rounded-full bg-red-100 text-red-700 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-2 rounded-full bg-[#8DC741]/15 text-[#6B9930] text-sm font-medium mb-4">
               <Video className="w-4 h-4 inline-block mr-2 -mt-0.5" />
               Videos Educativos
             </span>
@@ -251,7 +251,7 @@ export default function Blog() {
                           </div>
                         </div>
                         {/* Video badge */}
-                        <div className="absolute top-4 left-4 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-red-600 text-white text-xs font-medium">
+                        <div className="absolute top-4 left-4 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#8DC741] text-white text-xs font-medium">
                           <Video className="w-3 h-3" />
                           Video
                         </div>
@@ -259,7 +259,7 @@ export default function Blog() {
 
                       {/* Content */}
                       <div className="p-6">
-                        <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-3 ${categoryColors[video.category] || 'bg-red-100 text-red-700'}`}>
+                        <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-3 ${categoryColors[video.category] || 'bg-[#8DC741]/15 text-[#6B9930]'}`}>
                           {video.category}
                         </span>
                         <h4 className="font-bold text-[#0E3A4A] mb-2 group-hover:text-[#1E88A8] transition-colors line-clamp-2">
@@ -270,7 +270,7 @@ export default function Blog() {
                         </p>
                         <div className="flex items-center justify-between text-xs text-[#9CA3AF]">
                           <span>{video.author}</span>
-                          <span className="inline-flex items-center gap-1 text-red-600 font-medium group-hover:text-red-700">
+                          <span className="inline-flex items-center gap-1 text-[#6B9930] font-medium group-hover:text-[#5A8228]">
                             Ver Video
                             <ArrowRight size={12} />
                           </span>
