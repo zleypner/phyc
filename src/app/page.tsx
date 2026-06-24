@@ -10,6 +10,7 @@ import Specialists from '@/components/sections/Specialists';
 import FAQ from '@/components/sections/FAQ';
 import WhyChooseUs from '@/components/sections/WhyChooseUs';
 import StoreCTA from '@/components/sections/StoreCTA';
+import GiftCardCTA from '@/components/sections/GiftCardCTA';
 import MissionVision from '@/components/sections/MissionVision';
 import TestimonialsCTA from '@/components/sections/TestimonialsCTA';
 import Contact from '@/components/sections/Contact';
@@ -56,6 +57,7 @@ export default function Home() {
         <SpecializedServices />
         <TrustBar />
         <StoreCTA />
+        <GiftCardCTA />
         <TechnologyCTA />
         <Specialists />
         <FAQ />
