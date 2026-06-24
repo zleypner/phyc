@@ -19,8 +19,8 @@ const WhatsAppIcon = ({ className = '' }: { className?: string }) => (
 // Hero content
 const heroContent = {
   badge: 'Centro de Rehabilitación Líder en Costa Rica',
-  headline: 'Recupera Tu Movimiento.',
-  headlineHighlight: 'Vive Sin Dolor.',
+  headline: 'Vive Sin Dolor.',
+  headlineHighlight: 'Recupera Tu Movimiento.',
   subtitle: 'Fisioterapia personalizada y rehabilitación deportiva con tratamientos basados en evidencia para ayudarte a',
   subtitleHighlight: 'moverte sin dolor',
   subtitleEnd: 'y volver a lo que amas.',
