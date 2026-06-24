@@ -78,7 +78,7 @@ const technologies = [
       'Recuperación deportiva',
     ],
     icon: Waves,
-    image: '/images/technology/Ondas de Choque Focales STORZ Medical.png',
+    image: '/images/technology/ondas-choque-storz.webp',
   },
   {
     id: 'traccion-vertebral',
