@@ -204,10 +204,10 @@ export default function Blog() {
           >
             <span className="inline-block px-4 py-2 rounded-full bg-[#8DC741]/15 text-[#6B9930] text-sm font-medium mb-4">
               <Video className="w-4 h-4 inline-block mr-2 -mt-0.5" />
-              Videos Educativos
+              Podcast La Camilla CR
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0E3A4A] mb-6">
-              Contenido Educativo en Video
+              La Camilla CR
             </h2>
             <p className="text-[#6B7280]">
               Contenido audiovisual desarrollado por nuestros especialistas para ayudarle en su proceso de rehabilitación y bienestar físico.
