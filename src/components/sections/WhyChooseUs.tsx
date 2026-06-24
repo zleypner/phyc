@@ -73,8 +73,8 @@ export default function WhyChooseUs() {
           </h2>
         </motion.div>
 
-        {/* Mobile Image - Test visibility */}
-        <div className="flex mb-8 sm:mb-10 justify-center">
+        {/* Mobile Image - Only visible on mobile */}
+        <div className="flex md:hidden mb-8 sm:mb-10 justify-center">
           <div className="relative w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-[#06B8BF]/30 shadow-[0_0_60px_rgba(94,234,212,0.3)]">
             <Image
               src="/images/assets/hero-woman.webp"
