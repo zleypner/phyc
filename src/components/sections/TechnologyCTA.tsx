@@ -77,17 +77,8 @@ export default function TechnologyCTA() {
             </p>
 
             <p className="text-white/80 leading-relaxed">
-              El Magnetolith está revolucionando las sesiones de fisioterapia. Esta tecnología de vanguardia permite que las personas se recuperen más rápido y sin dolor, utilizando campos electromagnéticos de alta intensidad para estimular músculos, nervios y tejidos profundos sin necesidad de contacto directo.
+              El Magnetolith está revolucionando las sesiones de fisioterapia. Esta tecnología de vanguardia permite que las personas se recuperen más rápido y sin dolor, utilizando campos electromagnéticos de alta intensidad para estimular músculos, nervios y tejidos profundos sin necesidad de contacto directo, alcanzando estructuras que las terapias convencionales no logran estimular.
             </p>
-
-            <div className="bg-[#5EEAD4]/10 rounded-xl p-4 border border-[#5EEAD4]/20">
-              <p className="text-white font-medium flex items-start gap-3">
-                <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[#5EEAD4]/20 flex items-center justify-center mt-0.5">
-                  <span className="w-2 h-2 rounded-full bg-[#5EEAD4]" />
-                </span>
-                Recuperación acelerada y tratamientos sin dolor para alcanzar estructuras que las terapias convencionales no logran estimular.
-              </p>
-            </div>
 
             {/* CTA Button */}
             <Link
