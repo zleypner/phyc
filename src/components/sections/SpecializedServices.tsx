@@ -15,7 +15,7 @@ const services = [
   {
     name: 'Ondas de Choque',
     description: 'Tratamiento avanzado para lesiones crónicas y tendinosas.',
-    image: '/images/technology/ondas-choque-storz.png',
+    image: '/images/technology/ondas_choque_focales1.webp',
   },
   {
     name: 'Plantillas Ortopédicas',
