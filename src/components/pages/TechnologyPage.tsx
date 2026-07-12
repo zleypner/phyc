@@ -59,9 +59,9 @@ const technologies = [
     ],
     icon: Target,
     images: [
-      '/images/technology/ondas_choque_focales1.jpeg',
-      '/images/technology/ondas_choque_focales2.jpeg',
-      '/images/technology/ondas_choque_focales3.jpeg',
+      '/images/technology/ondas_choque_focales1.webp',
+      '/images/technology/ondas_choque_focales2.webp',
+      '/images/technology/ondas_choque_focales3.webp',
     ],
   },
   {

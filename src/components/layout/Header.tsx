@@ -188,6 +188,23 @@ export default function Header() {
                       </Link>
                     </motion.div>
                   ))}
+                  {/* Seguros - Solo móvil */}
+                  <motion.div
+                    initial={{ opacity: 0, x: 40 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: navItems.length * 0.05 }}
+                  >
+                    <Link
+                      href="/#seguros"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="group flex items-center justify-between border-b border-white/10 py-3 sm:py-4 text-lg sm:text-xl font-medium text-white transition-colors hover:text-[#06B8BF]"
+                    >
+                      Seguros
+                      <span className="text-[#06B8BF] opacity-0 transition-opacity group-hover:opacity-100">
+                        &rarr;
+                      </span>
+                    </Link>
+                  </motion.div>
                 </div>
               </div>
 

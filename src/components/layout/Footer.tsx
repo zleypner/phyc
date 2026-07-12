@@ -162,9 +162,9 @@ export default function Footer() {
                 <MapPin size={14} className="flex-shrink-0 sm:w-4 sm:h-4 mt-0.5" />
                 <span>San Pedro de Montes de Oca, San José, Costa Rica</span>
               </a>
-              <div className="flex items-start gap-2 sm:gap-3 text-white/70 text-xs sm:text-sm">
-                <Clock size={14} className="flex-shrink-0 sm:w-4 sm:h-4 mt-0.5" />
-                <div>
+              <div className="flex items-start gap-2 sm:gap-3 text-xs sm:text-sm">
+                <Clock size={14} className="flex-shrink-0 sm:w-4 sm:h-4 mt-0.5 text-white/70" />
+                <div className="text-white">
                   <p>Lun - Vie: 8:00am - 7:00pm</p>
                   <p>Sáb: 8:00am - 12:00pm</p>
                 </div>

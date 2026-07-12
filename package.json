@@ -2,6 +2,9 @@
   "name": "phyc",
   "version": "0.1.0",
   "private": true,
+  "overrides": {
+    "postcss": "^8.5.10"
+  },
   "scripts": {
     "dev": "lsof -ti:3000 | xargs kill -9 2>/dev/null; next dev",
     "build": "next build",
@@ -14,7 +17,7 @@
     "clsx": "^2.1.1",
     "framer-motion": "^12.40.0",
     "lucide-react": "^1.17.0",
-    "next": "16.2.9",
+    "next": "^16.2.10",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "react-hook-form": "^7.78.0",
