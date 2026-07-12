@@ -211,10 +211,8 @@ export default function Header() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: (navItems.length + 1) * 0.05 }}
                   >
-                    <a
-                      href="https://maps.app.goo.gl/LhScDFZjcrYvjdXf7"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      href="/#ubicacion"
                       onClick={() => setIsMobileMenuOpen(false)}
                       className="group flex items-center justify-between border-b border-white/10 py-3 sm:py-4 text-lg sm:text-xl font-medium text-white transition-colors hover:text-[#06B8BF]"
                     >
@@ -222,7 +220,7 @@ export default function Header() {
                       <span className="text-[#06B8BF] opacity-0 transition-opacity group-hover:opacity-100">
                         &rarr;
                       </span>
-                    </a>
+                    </Link>
                   </motion.div>
                 </div>
               </div>
