@@ -222,7 +222,7 @@ export default function LocationSection() {
                 </p>
                 <div className="flex gap-3">
                   <a
-                    href="https://www.google.com/maps/search/?api=1&query=Physical+Care+Fisioterapia+San+Pedro+Vargas+Araya"
+                    href="https://maps.app.goo.gl/VWRUrX9KmDhxwhd97"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 bg-[#0E3A4A] hover:bg-[#1E88A8] text-white py-3 px-6 rounded-xl font-semibold text-sm transition-all duration-300 shadow-md"

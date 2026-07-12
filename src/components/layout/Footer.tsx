@@ -154,7 +154,7 @@ export default function Footer() {
                 <span>+506 8968-0947</span>
               </a>
               <a
-                href="https://maps.app.goo.gl/oMi4Xv5RjnYGbXHq5"
+                href="https://maps.app.goo.gl/VWRUrX9KmDhxwhd97"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start gap-2 sm:gap-3 text-white/70 hover:text-white transition-colors text-xs sm:text-sm"
@@ -162,9 +162,9 @@ export default function Footer() {
                 <MapPin size={14} className="flex-shrink-0 sm:w-4 sm:h-4 mt-0.5" />
                 <span>San Pedro de Montes de Oca, San José, Costa Rica</span>
               </a>
-              <div className="flex items-start gap-2 sm:gap-3 text-xs sm:text-sm">
-                <Clock size={14} className="flex-shrink-0 sm:w-4 sm:h-4 mt-0.5 text-white/70" />
-                <div className="text-white">
+              <div className="flex items-start gap-2 sm:gap-3 text-xs sm:text-sm text-white/70">
+                <Clock size={14} className="flex-shrink-0 sm:w-4 sm:h-4 mt-0.5" />
+                <div>
                   <p>Lun - Vie: 8:00am - 7:00pm</p>
                   <p>Sáb: 8:00am - 12:00pm</p>
                 </div>

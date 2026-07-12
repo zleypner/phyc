@@ -295,7 +295,7 @@ export default function ContactoPage() {
                   </p>
                   <div className="flex gap-2 sm:gap-3 w-full sm:w-auto">
                     <a
-                      href="https://www.google.com/maps/search/?api=1&query=Physical+Care+Fisioterapia+San+Pedro+Vargas+Araya"
+                      href="https://maps.app.goo.gl/VWRUrX9KmDhxwhd97"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-center gap-1.5 sm:gap-2 bg-[#0E3A4A] hover:bg-[#06B8BF] text-white py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg sm:rounded-xl font-semibold text-xs sm:text-sm transition-all duration-300 shadow-md flex-1 sm:flex-initial"
