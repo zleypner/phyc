@@ -178,12 +178,12 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="container px-4 sm:px-6 py-4 sm:py-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-            <p className="text-white/40 text-xs sm:text-sm text-center sm:text-left">
+            <span className="text-white/70 text-xs sm:text-sm text-center sm:text-left">
               © {new Date().getFullYear()} Physical Care Fisioterapia. Todos los derechos reservados.
-            </p>
-            <p className="text-white/30 text-xs">
+            </span>
+            <span className="text-white/70 text-xs">
               Diseñado con cuidado en Costa Rica
-            </p>
+            </span>
           </div>
         </div>
       </div>
