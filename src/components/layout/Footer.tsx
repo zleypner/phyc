@@ -65,9 +65,9 @@ export default function Footer() {
                 className="h-12 sm:h-14 lg:h-16 w-auto object-contain"
               />
             </Link>
-            <p className="text-white/60 text-xs sm:text-sm leading-relaxed mb-4">
+            <span className="block text-white/70 text-xs sm:text-sm leading-relaxed mb-4">
               Recuperación avanzada con tecnología de clase mundial y atención personalizada.
-            </p>
+            </span>
             {/* Social Links */}
             <div className="flex gap-2 sm:gap-3">
               {socialLinks.map((social) => (
