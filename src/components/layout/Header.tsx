@@ -205,6 +205,25 @@ export default function Header() {
                       </span>
                     </Link>
                   </motion.div>
+                  {/* Ubicación - Solo móvil */}
+                  <motion.div
+                    initial={{ opacity: 0, x: 40 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: (navItems.length + 1) * 0.05 }}
+                  >
+                    <a
+                      href="https://maps.app.goo.gl/LhScDFZjcrYvjdXf7"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="group flex items-center justify-between border-b border-white/10 py-3 sm:py-4 text-lg sm:text-xl font-medium text-white transition-colors hover:text-[#06B8BF]"
+                    >
+                      Ubicación
+                      <span className="text-[#06B8BF] opacity-0 transition-opacity group-hover:opacity-100">
+                        &rarr;
+                      </span>
+                    </a>
+                  </motion.div>
                 </div>
               </div>
 
