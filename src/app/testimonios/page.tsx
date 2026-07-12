@@ -13,7 +13,12 @@ export const metadata: Metadata = {
     'casos de exito fisioterapia',
     'opiniones physical care',
     'fisioterapia san pedro opiniones',
+    'resenas terapia fisica costa rica',
+    'pacientes recuperados fisioterapia',
   ],
+  alternates: {
+    canonical: 'https://physicalcarefisioterapia.com/testimonios',
+  },
   openGraph: {
     title: 'Testimonios y Casos de Éxito | Physical Care Fisioterapia',
     description:

@@ -1,0 +1,26 @@
+# Physical Care Fisioterapia - robots.txt
+# https://physicalcarefisioterapia.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://physicalcarefisioterapia.com/sitemap.xml
+
+# Disallow admin and private paths
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+
+# Allow all search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /

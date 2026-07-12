@@ -165,8 +165,8 @@ export default function RootLayout({
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 9.9318015,
-      longitude: -84.05436545,
+      latitude: 9.9400154,
+      longitude: -84.0341901,
     },
     areaServed: [
       { '@type': 'City', name: 'San José' },

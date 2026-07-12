@@ -40,7 +40,7 @@ const educationalVideos = [
 ];
 
 export const metadata: Metadata = {
-  title: 'Blog y Videos Educativos',
+  title: 'Blog y Videos Educativos de Fisioterapia | Physical Care Costa Rica',
   description:
     'Artículos, recursos y videos educativos sobre fisioterapia, rehabilitación deportiva y bienestar físico. Consejos de expertos para su recuperación.',
   keywords: [
@@ -51,7 +51,11 @@ export const metadata: Metadata = {
     'bienestar físico',
     'consejos salud',
     'prevención lesiones',
+    'podcast fisioterapia costa rica',
   ],
+  alternates: {
+    canonical: 'https://physicalcarefisioterapia.com/blog',
+  },
   openGraph: {
     title: 'Blog y Videos Educativos | Physical Care Fisioterapia',
     description:
