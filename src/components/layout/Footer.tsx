@@ -154,7 +154,7 @@ export default function Footer() {
                 <span>+506 8968-0947</span>
               </a>
               <a
-                href="https://maps.app.goo.gl/VWRUrX9KmDhxwhd97"
+                href="https://maps.app.goo.gl/LhScDFZjcrYvjdXf7"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start gap-2 sm:gap-3 text-white/70 hover:text-white transition-colors text-xs sm:text-sm"

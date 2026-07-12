@@ -276,7 +276,7 @@ export default function ContactoPage() {
               {/* Map - Large */}
               <div className="h-[250px] sm:h-[350px] md:h-[400px] lg:h-[500px] bg-[#F4F7F8]">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.1448695574516!2d-84.05436545!3d9.9318015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e35a5b5db887%3A0x5f5f5f5f5f5f5f5f!2sSan%20Pedro%2C%20Montes%20de%20Oca!5e0!3m2!1sen!2scr!4v1718000000000"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1965.0!2d-84.0341901!3d9.9400154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e505cbfd6e51%3A0x6971bc57f5cc0daf!2sPhysical%20Care%20Fisioterapia!5e0!3m2!1ses!2scr!4v1720000000000"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -295,7 +295,7 @@ export default function ContactoPage() {
                   </p>
                   <div className="flex gap-2 sm:gap-3 w-full sm:w-auto">
                     <a
-                      href="https://maps.app.goo.gl/VWRUrX9KmDhxwhd97"
+                      href="https://maps.app.goo.gl/LhScDFZjcrYvjdXf7"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-center gap-1.5 sm:gap-2 bg-[#0E3A4A] hover:bg-[#06B8BF] text-white py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg sm:rounded-xl font-semibold text-xs sm:text-sm transition-all duration-300 shadow-md flex-1 sm:flex-initial"
