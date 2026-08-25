@@ -78,7 +78,10 @@ const technologies = [
       'Recuperación deportiva',
     ],
     icon: Waves,
-    image: '/images/technology/ondas-choque-storz.webp',
+    images: [
+      '/images/technology/24aug.jpeg',
+      '/images/technology/24aug26.jpeg',
+    ],
   },
   {
     id: 'traccion-vertebral',
@@ -355,27 +358,44 @@ function TechnologyCard({
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0E3A4A]/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
-                {/* Two smaller images */}
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg group">
-                  <Image
-                    src={(technology as { images: string[] }).images[1]}
-                    alt={`${technology.name} 2`}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0E3A4A]/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </div>
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg group">
-                  <Image
-                    src={(technology as { images: string[] }).images[2]}
-                    alt={`${technology.name} 3`}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0E3A4A]/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </div>
+                {/* Smaller images - supports 2 or 3 images */}
+                {(technology as { images: string[] }).images.length === 2 ? (
+                  // Two images layout: 1 large + 1 full width below
+                  <div className="col-span-2 relative aspect-[16/9] rounded-2xl overflow-hidden shadow-lg group">
+                    <Image
+                      src={(technology as { images: string[] }).images[1]}
+                      alt={`${technology.name} 2`}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0E3A4A]/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  </div>
+                ) : (
+                  // Three images layout: 1 large + 2 smaller
+                  <>
+                    <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg group">
+                      <Image
+                        src={(technology as { images: string[] }).images[1]}
+                        alt={`${technology.name} 2`}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                        sizes="(max-width: 768px) 50vw, 25vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0E3A4A]/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    </div>
+                    <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg group">
+                      <Image
+                        src={(technology as { images: string[] }).images[2]}
+                        alt={`${technology.name} 3`}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                        sizes="(max-width: 768px) 50vw, 25vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0E3A4A]/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    </div>
+                  </>
+                )}
               </div>
             ) : (
               // Single image or placeholder
