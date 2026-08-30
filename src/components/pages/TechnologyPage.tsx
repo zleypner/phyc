@@ -286,12 +286,12 @@ function IntroductionSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
+            <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/technology/technologyimg.jpeg"
+                src="/images/technology/bestcr2.webp"
                 alt="Tecnología avanzada de fisioterapia en Physical Care"
                 fill
-                className="object-cover"
+                className="object-contain"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
               {/* Decorative elements */}
@@ -399,13 +399,13 @@ function TechnologyCard({
               </div>
             ) : (
               // Single image or placeholder
-              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-br from-[#0E3A4A] to-[#06B8BF] shadow-2xl group">
+              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-white shadow-2xl group">
                 {singleImage ? (
                   <Image
                     src={singleImage}
                     alt={technology.name}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="object-contain group-hover:scale-105 transition-transform duration-700"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 ) : (
