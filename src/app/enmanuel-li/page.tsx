@@ -171,6 +171,18 @@ function PersonalBrandHero() {
                     <Globe className="w-3.5 h-3.5" />
                     <span>Referente Internacional</span>
                   </span>
+                  <span className="lg:hidden inline-flex items-center gap-2 px-3 py-2 rounded-full bg-[#06B8BF]/15 border border-[#06B8BF]/30 text-[#5EEAD4] text-[12px] sm:text-[13px] font-semibold tracking-wide">
+                    <Award className="w-3.5 h-3.5" />
+                    <span>ISMST Mundial</span>
+                  </span>
+                  <span className="lg:hidden inline-flex items-center gap-2 px-3 py-2 rounded-full bg-[#06B8BF]/15 border border-[#06B8BF]/30 text-[#5EEAD4] text-[12px] sm:text-[13px] font-semibold tracking-wide">
+                    <Globe className="w-3.5 h-3.5" />
+                    <span>KOL STORZ MEDICAL</span>
+                  </span>
+                  <span className="lg:hidden inline-flex items-center gap-2 px-3 py-2 rounded-full bg-[#F59E0B]/15 border border-[#F59E0B]/30 text-[#FCD34D] text-[12px] sm:text-[13px] font-semibold tracking-wide">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span>Ponente 2026 · Colombia · España</span>
+                  </span>
                 </div>
 
                 {/* Name */}
