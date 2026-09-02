@@ -136,7 +136,7 @@ export function ChatbotPanel({ isOpen, onClose, className, pageContext }: Chatbo
           </div>
           <div>
             <h2 className="text-sm font-semibold text-white">
-              Dana
+              {config.assistant.name}
             </h2>
             <div className="flex items-center gap-1.5 mt-0.5">
               <div className="h-1.5 w-1.5 rounded-full bg-white" />
@@ -196,7 +196,7 @@ export function ChatbotPanel({ isOpen, onClose, className, pageContext }: Chatbo
               {/* Bot Avatar */}
               {message.role === "bot" && (
                 <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white text-sm font-medium">
-                  D
+                  {config.assistant.name.charAt(0)}
                 </div>
               )}
               <div
@@ -334,7 +334,7 @@ export function ChatbotPanel({ isOpen, onClose, className, pageContext }: Chatbo
         {isTyping && (
           <div className="flex gap-2.5 mb-4" role="status" aria-label="Escribiendo">
             <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white text-sm font-medium">
-              D
+              {config.assistant.name.charAt(0)}
             </div>
             <div className="bg-white border border-gray-100 shadow-sm rounded-2xl px-4 py-3">
               <div className="flex gap-1">
@@ -352,7 +352,7 @@ export function ChatbotPanel({ isOpen, onClose, className, pageContext }: Chatbo
       {/* Footer */}
       <footer className="border-t border-gray-100 px-4 py-2.5 bg-white">
         <p className="text-center text-[11px] text-gray-400">
-          Dana - Asistente virtual de Physical Care
+          {config.assistant.name} - Asistente virtual de {config.business.name}
         </p>
       </footer>
     </div>
