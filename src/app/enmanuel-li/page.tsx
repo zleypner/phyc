@@ -106,16 +106,58 @@ function PersonalBrandHero() {
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 className="flex flex-col items-start text-left"
               >
-                {/* Mobile Photo */}
+                {/* Mobile Photo with Badges */}
                 <div className="lg:hidden mb-8 flex justify-center w-full">
-                  <div className="relative w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] rounded-full overflow-hidden border-4 border-[#06B8BF]/30 shadow-2xl">
-                    <Image
-                      src="/images/emma-personalbrand/Enmanuel-Li.jpeg"
-                      alt="Lic. Enmanuel Li Torres"
-                      fill
-                      className="object-cover"
-                      priority
-                    />
+                  <div className="relative">
+                    {/* Photo */}
+                    <div className="relative w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] rounded-full overflow-hidden border-4 border-[#06B8BF]/30 shadow-2xl">
+                      <Image
+                        src="/images/emma-personalbrand/Enmanuel-Li.jpeg"
+                        alt="Lic. Enmanuel Li Torres"
+                        fill
+                        className="object-cover"
+                        priority
+                      />
+                    </div>
+
+                    {/* Badge - ISMST */}
+                    <div className="absolute -left-4 sm:-left-8 top-1/2 -translate-y-1/2 bg-white/95 backdrop-blur-md rounded-full px-3 py-2 shadow-lg border border-white/50">
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#06B8BF] to-[#1E88A8] flex items-center justify-center">
+                          <Award className="w-4 h-4 text-white" />
+                        </div>
+                        <div>
+                          <p className="text-[9px] text-[#64748B] font-medium uppercase tracking-wider">Miembro Activo</p>
+                          <p className="text-[11px] font-bold text-[#0E3A4A]">ISMST Mundial</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Badge - KOL STORZ */}
+                    <div className="absolute -right-4 sm:-right-8 top-[25%] bg-white/95 backdrop-blur-md rounded-full px-3 py-2 shadow-lg border border-white/50">
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#06B8BF] to-[#1E88A8] flex items-center justify-center">
+                          <Globe className="w-4 h-4 text-white" />
+                        </div>
+                        <div>
+                          <p className="text-[9px] text-[#64748B] font-medium uppercase tracking-wider">Key Opinion Leader</p>
+                          <p className="text-[11px] font-bold text-[#0E3A4A]">STORZ MEDICAL</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Badge - Ponente 2026 */}
+                    <div className="absolute -right-2 sm:-right-6 bottom-[10%] bg-white/95 backdrop-blur-md rounded-full px-3 py-2 shadow-lg border border-white/50">
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#F59E0B] to-[#D97706] flex items-center justify-center">
+                          <Sparkles className="w-4 h-4 text-white" />
+                        </div>
+                        <div>
+                          <p className="text-[9px] text-[#64748B] font-medium uppercase tracking-wider">Ponente 2026</p>
+                          <p className="text-[11px] font-bold text-[#0E3A4A]">Colombia · España</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
