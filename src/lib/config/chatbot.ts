@@ -210,12 +210,7 @@ export const defaultConfig: ChatbotConfig = {
     informacion: "¿Sobre qué servicio te gustaría más información?",
   },
 
-  pageContextMessages: {
-    "/servicios-especializados": "Veo que estás revisando nuestros servicios especializados. ",
-    "/tecnologia-de-rehabilitacion": "Veo que estás revisando nuestra tecnología. ",
-    "/contacto": "¿Necesitás ayuda para contactarnos? ",
-    "/enmanuel-li": "Veo que estás conociendo al Lic. Enmanuel Li. ",
-  },
+  pageContextMessages: {},
 
   services: [
     {
