@@ -124,7 +124,7 @@ export function useChat(options: UseChatOptions = {}) {
         role: "bot",
         content: responseText,
         timestamp: new Date(),
-        showWhatsAppButton: !isUbicacion,
+        showWhatsAppButton: true,
         showMapButtons: isUbicacion,
         quickReplies: mainOptions,
       };
