@@ -106,6 +106,19 @@ function PersonalBrandHero() {
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 className="flex flex-col items-start text-left"
               >
+                {/* Mobile Photo */}
+                <div className="lg:hidden mb-6 flex justify-center w-full">
+                  <div className="relative w-[200px] h-[200px] sm:w-[240px] sm:h-[240px] rounded-full overflow-hidden border-4 border-[#06B8BF]/30 shadow-2xl">
+                    <Image
+                      src="/images/emma-personalbrand/Enmanuel-Li.jpeg"
+                      alt="Lic. Enmanuel Li Torres"
+                      fill
+                      className="object-cover"
+                      priority
+                    />
+                  </div>
+                </div>
+
                 {/* Name Badge */}
                 <div className="mb-6 sm:mb-8 flex flex-wrap gap-2">
                   <span className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.08] backdrop-blur-md border border-white/[0.12] text-white/90 text-[13px] sm:text-sm font-medium tracking-wide">
