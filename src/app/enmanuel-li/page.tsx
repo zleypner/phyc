@@ -46,7 +46,7 @@ function PersonalBrandHero() {
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.05]);
 
   const credentials = [
-    { label: 'KOL STORZ MEDICAL Latam', highlight: true },
+    { label: 'STORZ MEDICAL Latam', highlight: true },
     { label: 'Ponente Internacional ISMST', highlight: true },
     { label: '+14 años de experiencia clínica', highlight: false },
     { label: 'Máster en Rehabilitación Deportiva', highlight: false },
@@ -135,7 +135,7 @@ function PersonalBrandHero() {
                   </span>
                   <span className="lg:hidden inline-flex items-center gap-2 px-3 py-2 rounded-full bg-[#06B8BF]/15 border border-[#06B8BF]/30 text-[#5EEAD4] text-[12px] sm:text-[13px] font-semibold tracking-wide">
                     <Globe className="w-3.5 h-3.5" />
-                    <span>KOL STORZ MEDICAL</span>
+                    <span>STORZ MEDICAL Latam</span>
                   </span>
                   <span className="lg:hidden inline-flex items-center gap-2 px-3 py-2 rounded-full bg-[#F59E0B]/15 border border-[#F59E0B]/30 text-[#FCD34D] text-[12px] sm:text-[13px] font-semibold tracking-wide">
                     <Sparkles className="w-3.5 h-3.5" />
