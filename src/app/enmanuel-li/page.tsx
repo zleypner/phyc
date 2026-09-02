@@ -139,7 +139,7 @@ function PersonalBrandHero() {
                   </span>
                   <span className="lg:hidden inline-flex items-center gap-2 px-3 py-2 rounded-full bg-[#F59E0B]/15 border border-[#F59E0B]/30 text-[#FCD34D] text-[12px] sm:text-[13px] font-semibold tracking-wide">
                     <Sparkles className="w-3.5 h-3.5" />
-                    <span>Ponente 2026 · Colombia · España</span>
+                    <span>Ponente 2026 · Colombia</span>
                   </span>
                 </div>
 
@@ -249,7 +249,7 @@ function PersonalBrandHero() {
                     </div>
                     <div>
                       <p className="text-[11px] text-[#64748B] font-medium uppercase tracking-wider">Ponente 2026</p>
-                      <p className="text-[13px] font-bold text-[#0E3A4A]">Colombia · España</p>
+                      <p className="text-[13px] font-bold text-[#0E3A4A]">Colombia</p>
                     </div>
                   </div>
                 </div>
