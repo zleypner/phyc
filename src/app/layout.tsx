@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Lora, Raleway } from "next/font/google";
 import Script from "next/script";
+import { Chatbot } from "@/components/chatbot";
 import "./globals.css";
 
 // Google Analytics 4 Measurement ID
@@ -135,9 +136,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'your-google-verification-code',
-  },
+  // verification: {
+  //   google: 'ADD_YOUR_GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE_HERE',
+  // },
   category: 'Healthcare',
 };
 
@@ -311,6 +312,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-[#F4F7F8] text-[#111827] antialiased">
         {children}
+        <Chatbot />
       </body>
     </html>
   );

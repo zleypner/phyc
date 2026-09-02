@@ -1,5 +1,11 @@
 import type { Metadata } from 'next';
 import ServiciosEspecializadosPage from '@/components/pages/ServiciosEspecializadosPage';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
+
+const breadcrumbItems = [
+  { name: 'Inicio', url: 'https://physicalcarefisioterapia.com' },
+  { name: 'Servicios Especializados', url: 'https://physicalcarefisioterapia.com/servicios-especializados' },
+];
 
 export const metadata: Metadata = {
   title: 'Servicios de Terapia Física y Fisioterapia para Adultos Mayores | Physical Care Costa Rica',
@@ -68,5 +74,10 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <ServiciosEspecializadosPage />;
+  return (
+    <>
+      <BreadcrumbSchema items={breadcrumbItems} />
+      <ServiciosEspecializadosPage />
+    </>
+  );
 }

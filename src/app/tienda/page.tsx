@@ -1,8 +1,13 @@
 import { Metadata } from 'next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import TiendaPage from '@/components/pages/TiendaPage';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
+
+const breadcrumbItems = [
+  { name: 'Inicio', url: 'https://physicalcarefisioterapia.com' },
+  { name: 'Tienda', url: 'https://physicalcarefisioterapia.com/tienda' },
+];
 
 export const metadata: Metadata = {
   title: 'Plantillas Ortopedicas Costa Rica | Tienda Physical Care',
@@ -38,10 +43,10 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+      <BreadcrumbSchema items={breadcrumbItems} />
       <Header />
       <TiendaPage />
       <Footer />
-      <WhatsAppButton />
     </>
   );
 }

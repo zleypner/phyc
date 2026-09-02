@@ -1,8 +1,13 @@
 import type { Metadata } from 'next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import Testimonials from '@/components/sections/Testimonials';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
+
+const breadcrumbItems = [
+  { name: 'Inicio', url: 'https://physicalcarefisioterapia.com' },
+  { name: 'Testimonios', url: 'https://physicalcarefisioterapia.com/testimonios' },
+];
 
 export const metadata: Metadata = {
   title: 'Testimonios y Casos de Éxito | Physical Care Fisioterapia',
@@ -31,12 +36,12 @@ export const metadata: Metadata = {
 export default function TestimoniosPage() {
   return (
     <>
+      <BreadcrumbSchema items={breadcrumbItems} />
       <Header />
       <main className="pt-20">
         <Testimonials />
       </main>
       <Footer />
-      <WhatsAppButton />
     </>
   );
 }

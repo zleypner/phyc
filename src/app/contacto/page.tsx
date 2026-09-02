@@ -1,9 +1,14 @@
 import type { Metadata } from 'next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import ContactoPage from '@/components/sections/ContactoPage';
 import InstagramSection from '@/components/sections/InstagramSection';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
+
+const breadcrumbItems = [
+  { name: 'Inicio', url: 'https://physicalcarefisioterapia.com' },
+  { name: 'Contacto', url: 'https://physicalcarefisioterapia.com/contacto' },
+];
 
 export const metadata: Metadata = {
   title: 'Contacto Terapia Física San Pedro | Agendar Cita Fisioterapia',
@@ -37,13 +42,13 @@ export const metadata: Metadata = {
 export default function Contacto() {
   return (
     <>
+      <BreadcrumbSchema items={breadcrumbItems} />
       <Header />
       <main>
         <ContactoPage />
         <InstagramSection />
       </main>
       <Footer />
-      <WhatsAppButton />
     </>
   );
 }

@@ -1,9 +1,14 @@
 import { Metadata } from 'next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import Blog from '@/components/sections/Blog';
 import FacebookSection from '@/components/sections/FacebookSection';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
+
+const breadcrumbItems = [
+  { name: 'Inicio', url: 'https://physicalcarefisioterapia.com' },
+  { name: 'Blog', url: 'https://physicalcarefisioterapia.com/blog' },
+];
 
 // Video data for SEO schema
 const educationalVideos = [
@@ -109,6 +114,7 @@ const videoSchema = {
 export default function BlogPage() {
   return (
     <>
+      <BreadcrumbSchema items={breadcrumbItems} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(videoSchema) }}
@@ -119,7 +125,6 @@ export default function BlogPage() {
         <FacebookSection />
       </main>
       <Footer />
-      <WhatsAppButton />
     </>
   );
 }

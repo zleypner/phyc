@@ -6,7 +6,6 @@ import Image from 'next/image';
 import { ArrowRight, Check } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import WhatsAppButton from '@/components/ui/WhatsAppButton';
 
 // WhatsApp SVG Icon
 const WhatsAppIcon = ({ className = '' }: { className?: string }) => (
@@ -529,7 +528,6 @@ export default function ServiciosEspecializadosPage() {
         <FinalCTASection />
       </main>
       <Footer />
-      <WhatsAppButton />
     </div>
   );
 }

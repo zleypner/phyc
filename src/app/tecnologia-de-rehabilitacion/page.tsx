@@ -1,8 +1,13 @@
 import { Metadata } from 'next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import TechnologyPage from '@/components/pages/TechnologyPage';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
+
+const breadcrumbItems = [
+  { name: 'Inicio', url: 'https://physicalcarefisioterapia.com' },
+  { name: 'Tecnología de Rehabilitación', url: 'https://physicalcarefisioterapia.com/tecnologia-de-rehabilitacion' },
+];
 
 export const metadata: Metadata = {
   title: 'Tecnología Avanzada de Terapia Física | Equipos Fisioterapia Costa Rica',
@@ -36,10 +41,10 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+      <BreadcrumbSchema items={breadcrumbItems} />
       <Header />
       <TechnologyPage />
       <Footer />
-      <WhatsAppButton />
     </>
   );
 }

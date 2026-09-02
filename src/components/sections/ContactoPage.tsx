@@ -230,11 +230,11 @@ export default function ContactoPage() {
                 <div className="divide-y divide-[rgba(15,23,42,0.06)] text-xs sm:text-sm flex-1">
                   <div className="flex justify-between items-center gap-3 sm:gap-4 py-2.5 sm:py-3">
                     <span className="font-medium text-[#475569]">Lunes - Viernes</span>
-                    <span className="text-[#1F2937] font-semibold">8:00 - 20:00</span>
+                    <span className="text-[#1F2937] font-semibold">8:00am - 8:00pm</span>
                   </div>
                   <div className="flex justify-between items-center gap-3 sm:gap-4 py-2.5 sm:py-3">
                     <span className="font-medium text-[#475569]">Sábados</span>
-                    <span className="text-[#06B8BF] font-semibold">9:00 - 14:00</span>
+                    <span className="text-[#06B8BF] font-semibold">9:00am - 2:00pm</span>
                   </div>
                 </div>
               </motion.div>

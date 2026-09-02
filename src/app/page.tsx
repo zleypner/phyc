@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import Hero from '@/components/sections/Hero';
 import SpecializedServices from '@/components/sections/SpecializedServices';
 import TrustBar from '@/components/sections/TrustBar';
@@ -70,7 +69,6 @@ export default function Home() {
         <LocationSection />
       </main>
       <Footer />
-      <WhatsAppButton />
     </>
   );
 }

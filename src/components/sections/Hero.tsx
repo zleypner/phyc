@@ -218,7 +218,7 @@ export default function Hero() {
                       <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full border-2 border-[#0E3D4A] overflow-hidden bg-gradient-to-br from-[#06B8BF]/30 to-[#06B8BF]/20">
                         <Image
                           src="/images/users/marie1.webp"
-                          alt="Paciente satisfecha"
+                          alt="Paciente de terapia física en San José Costa Rica"
                           width={44}
                           height={44}
                           className="w-full h-full object-cover"
@@ -227,7 +227,7 @@ export default function Hero() {
                       <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full border-2 border-[#0E3D4A] overflow-hidden bg-gradient-to-br from-[#06B8BF]/30 to-[#06B8BF]/20">
                         <Image
                           src="/images/users/john1.webp"
-                          alt="Paciente satisfecho"
+                          alt="Paciente recuperado de rehabilitación deportiva"
                           width={44}
                           height={44}
                           className="w-full h-full object-cover"
@@ -236,7 +236,7 @@ export default function Hero() {
                       <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full border-2 border-[#0E3D4A] overflow-hidden bg-gradient-to-br from-[#06B8BF]/30 to-[#06B8BF]/20">
                         <Image
                           src="/images/users/marie2.webp"
-                          alt="Paciente satisfecha"
+                          alt="Paciente tratada con fisioterapia especializada"
                           width={44}
                           height={44}
                           className="w-full h-full object-cover"
@@ -268,7 +268,7 @@ export default function Hero() {
                 <div className="relative z-10 w-[400px] h-[400px] xl:w-[480px] xl:h-[480px] rounded-full overflow-hidden border-4 border-[#06B8BF]/20 shadow-2xl">
                   <Image
                     src="/images/assets/hero-woman.webp"
-                    alt="Mujer relajada disfrutando de bienestar"
+                    alt="Paciente en sesión de fisioterapia en Physical Care Costa Rica"
                     width={620}
                     height={620}
                     className="w-full h-full object-cover"
