@@ -198,7 +198,7 @@ export const defaultConfig: ChatbotConfig = {
     abandonmentRecovery: "¿Hay algo más en lo que pueda ayudarte?",
     // Respuestas para las 4 opciones principales
     horario: "Nuestro horario de atención:\n\nLunes a Viernes: 10:00am - 8:00pm\nSábados: 8:00am - 1:00pm\nDomingos: Cerrado\n\n¿Te gustaría agendar una cita?",
-    servicios: "En Physical Care ofrecemos:\n\n• Ondas de Choque Focales y Radiales\n• EMTT (Magnetolith)\n• Tecarterapia\n• Fisioterapia Musculoesquelética\n• Rehabilitación Deportiva\n• Terapia Manual Ortopédica\n• Atención a Adultos Mayores\n• Plantillas Ortopédicas\n• Masajes Terapéuticos\n\nCon gusto te guiamos por WhatsApp.",
+    servicios: "En Physical Care te ayudamos con:\n\n• Dolor de rodilla, cadera o espalda\n• Recuperación después de una operación\n• Masajes para aliviar dolor o tensión muscular\n• Dificultad para caminar o moverse\n• Terapia y movilidad para adultos mayores\n• Recuperación después de una caída o lesión\n• Mejorar el equilibrio, fuerza y estabilidad\n• Terapia con cama de tracción\n• Plantillas ortopédicas\n• Otro dolor o molestia\n\nCon gusto te guiamos por WhatsApp.",
     ubicacion: "Abrí el mapa para ver cómo llegar:",
     agendar: "Con gusto te ayudamos a agendar tu valoración.\n\nContactanos por WhatsApp para confirmar disponibilidad de manera inmediata.",
   },
