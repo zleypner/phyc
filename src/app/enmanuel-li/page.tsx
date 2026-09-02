@@ -158,6 +158,32 @@ function PersonalBrandHero() {
                         </div>
                       </div>
                     </div>
+
+                    {/* Badge - Fisioterapeuta */}
+                    <div className="absolute -left-2 sm:-left-6 bottom-[15%] bg-white/95 backdrop-blur-md rounded-full px-3 py-2 shadow-lg border border-white/50">
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#06B8BF] to-[#1E88A8] flex items-center justify-center">
+                          <Activity className="w-4 h-4 text-white" />
+                        </div>
+                        <div>
+                          <p className="text-[9px] text-[#64748B] font-medium uppercase tracking-wider">Fisioterapeuta</p>
+                          <p className="text-[11px] font-bold text-[#0E3A4A]">TF-277</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Badge - Referente Internacional */}
+                    <div className="absolute left-1/2 -translate-x-1/2 -top-4 sm:-top-6 bg-white/95 backdrop-blur-md rounded-full px-3 py-2 shadow-lg border border-white/50">
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#1E88A8] to-[#0E3A4A] flex items-center justify-center">
+                          <Globe className="w-4 h-4 text-white" />
+                        </div>
+                        <div>
+                          <p className="text-[9px] text-[#64748B] font-medium uppercase tracking-wider">Referente</p>
+                          <p className="text-[11px] font-bold text-[#0E3A4A]">Internacional</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
 

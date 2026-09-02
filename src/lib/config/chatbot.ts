@@ -132,7 +132,7 @@ export const defaultConfig: ChatbotConfig = {
   },
 
   assistant: {
-    name: "Dana",
+    name: "Sammy",
     role: "Asistente Virtual",
   },
 
@@ -189,7 +189,7 @@ export const defaultConfig: ChatbotConfig = {
   medicalDisclaimer: "No puedo diagnosticar ni recetar tratamientos. Te recomiendo consultar con un profesional de la salud.",
 
   messages: {
-    welcome: "¡Hola! Soy Dana, asistente virtual de Physical Care Fisioterapia.\n\n¿En qué puedo ayudarte?",
+    welcome: "¡Hola! Soy Sammy, asistente virtual de Physical Care Fisioterapia.\n\n¿En qué puedo ayudarte?",
     askBusinessType: "¿Qué tipo de servicio estás buscando?",
     askProblem: "Contame un poco más sobre tu situación para orientarte mejor.",
     askUrgency: "¿Es algo urgente o podés esperar unos días para tu cita?",
