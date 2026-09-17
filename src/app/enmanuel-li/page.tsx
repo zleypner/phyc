@@ -110,7 +110,7 @@ function PersonalBrandHero() {
                 <div className="lg:hidden mb-8 flex justify-center w-full">
                   <div className="relative w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] rounded-full overflow-hidden border-4 border-[#06B8BF]/30 shadow-2xl">
                     <Image
-                      src="/images/emma-personalbrand/Enmanuel-Li.jpeg"
+                      src="/images/emma-personalbrand/collombia/WhatsApp Image 2026-09-14 at 16.55.52 (3).jpeg"
                       alt="Lic. Enmanuel Li Torres"
                       fill
                       className="object-cover"
@@ -219,7 +219,7 @@ function PersonalBrandHero() {
                 {/* Photo container */}
                 <div className="relative z-10 w-[380px] h-[380px] xl:w-[440px] xl:h-[440px] rounded-full overflow-hidden border-4 border-[#06B8BF]/20 shadow-2xl bg-gradient-to-br from-[#0E3D4A] to-[#156378]">
                   <Image
-                    src="/images/emma-personalbrand/Enmanuel-Li.jpeg"
+                    src="/images/emma-personalbrand/collombia/WhatsApp Image 2026-09-14 at 16.55.52 (3).jpeg"
                     alt="Lic. Enmanuel Li Torres - Fisioterapeuta especializado en ondas de choque"
                     width={440}
                     height={440}
@@ -241,13 +241,18 @@ function PersonalBrandHero() {
                   </div>
                 </div>
 
-                {/* Floating badge - Speaker */}
-                <div className="absolute right-0 bottom-[15%] translate-x-[20%] bg-white/95 backdrop-blur-md rounded-2xl px-4 py-3 shadow-xl border border-white/50 z-20">
+                {/* Floating badge - Speaker with image */}
+                <div className="absolute right-0 bottom-[15%] translate-x-[20%] bg-white/95 backdrop-blur-md rounded-2xl p-2 shadow-xl border border-white/50 z-20 overflow-hidden">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#F59E0B] to-[#D97706] flex items-center justify-center">
-                      <Sparkles className="w-5 h-5 text-white" />
+                    <div className="relative w-14 h-14 rounded-xl overflow-hidden">
+                      <Image
+                        src="/images/emma-personalbrand/collombia/WhatsApp Image 2026-09-14 at 16.55.52 (3).jpeg"
+                        alt="Ponente en Colombia 2026"
+                        fill
+                        className="object-cover"
+                      />
                     </div>
-                    <div>
+                    <div className="pr-2">
                       <p className="text-[11px] text-[#64748B] font-medium uppercase tracking-wider">Ponente 2026</p>
                       <p className="text-[13px] font-bold text-[#0E3A4A]">Colombia</p>
                     </div>
@@ -763,6 +768,95 @@ function InternationalExperienceSection() {
 }
 
 // ============================================
+// COLOMBIA GALLERY SECTION
+// ============================================
+function ColombiaGallerySection() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
+  const colombiaImages = [
+    {
+      src: '/images/emma-personalbrand/collombia/WhatsApp Image 2026-09-14 at 16.55.53.jpeg',
+      alt: 'Lic. Enmanuel Li - Ponencia sobre Dosimetría',
+      caption: 'Dosimetría y Protocolo Physical Care',
+    },
+    {
+      src: '/images/emma-personalbrand/collombia/WhatsApp Image 2026-09-14 at 16.55.52 (3).jpeg',
+      alt: 'Lic. Enmanuel Li - Fundamentos Biofísicos EMTT',
+      caption: 'Fundamentos Biofísicos EMTT',
+    },
+    {
+      src: '/images/emma-personalbrand/collombia/WhatsApp Image 2026-09-14 at 16.55.52.jpeg',
+      alt: 'Lic. Enmanuel Li - Sinergia Multimodal',
+      caption: 'Sinergia ESWT + EMTT',
+    },
+    {
+      src: '/images/emma-personalbrand/collombia/WhatsApp Image 2026-09-14 at 16.55.52 (4).jpeg',
+      alt: 'Lic. Enmanuel Li - Matriz Decisionaria',
+      caption: 'Auditorio Congreso ISMST',
+    },
+    {
+      src: '/images/emma-personalbrand/collombia/WhatsApp Image 2026-09-14 at 16.55.53 (1).jpeg',
+      alt: 'Lic. Enmanuel Li - Panel OCC ISMST 2026',
+      caption: 'Panel OCC ISMST 2026',
+    },
+    {
+      src: '/images/emma-personalbrand/collombia/WhatsApp Image 2026-09-14 at 16.55.52 (1).jpeg',
+      alt: 'Lic. Enmanuel Li - Demostración práctica STORZ MEDICAL',
+      caption: 'Demostración STORZ MEDICAL',
+    },
+  ];
+
+  return (
+    <section ref={ref} className="section-padding bg-[#F4F7F8]">
+      <div className="container">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="section-header"
+        >
+          <span className="section-eyebrow flex items-center justify-center gap-2">
+            <MapPin className="w-4 h-4" />
+            Colombia 2026
+          </span>
+          <h2>Congreso OCC-ISMST Barranquilla</h2>
+          <p className="section-subtitle">
+            Ponente invitado en el Congreso Internacional de Ondas de Choque con el tema: &ldquo;Más allá del dolor: mecanotransducción multimodal en condiciones musculoesqueléticas persistentes.&rdquo;
+          </p>
+        </motion.div>
+
+        <div className="max-w-[1000px] mx-auto">
+          {/* Grid of images - 3x2 */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6">
+            {colombiaImages.map((image, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.1 + index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                className="relative group overflow-hidden rounded-2xl aspect-square"
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <p className="text-white text-[13px] sm:text-[14px] font-medium">{image.caption}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ============================================
 // EDUCATION SECTION
 // ============================================
 function EducationSection() {
@@ -1117,6 +1211,7 @@ export default function EnmanuelLiPage() {
       <main>
         <PersonalBrandHero />
         <IntroductionSection />
+        <ColombiaGallerySection />
         <GallerySection />
         <SpecializationSection />
         <TechnologySection />
