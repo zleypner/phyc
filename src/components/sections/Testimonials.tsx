@@ -21,67 +21,67 @@ const testimonials = [
   {
     name: 'Vanessa Arronis Padilla',
     therapist: 'Enmanuel Li',
-    therapistImage: '/images/sesion1/founder1.jpg',
+    therapistImage: '/images/sesion1/founder1.webp',
     rating: 5,
     nps: 10,
     testimonial: 'Excelente servicio. El trato y los aparatos que se utilizan son excelentes.',
     condition: 'Dolor lumbar',
-    image: '/images/sesion1/pacient1.jpg',
+    image: '/images/sesion1/pacient1.webp',
   },
   {
     name: 'Virginia María Valverde',
     therapist: 'Yamilah Solano',
-    therapistImage: '/images/sesion1/founder2.jpg',
+    therapistImage: '/images/sesion1/founder2.webp',
     rating: 5,
     nps: 10,
     testimonial: 'Muy bien, siempre me atiende excelente. Siempre que voy me sirve mucho.',
     condition: 'Recuperación deportiva',
-    image: '/images/sesion1/pacient2.1.jpg',
+    image: '/images/sesion1/pacient2.1.webp',
   },
   {
     name: 'Marco Andrés Soto Solís',
     therapist: 'Yamilah Solano',
-    therapistImage: '/images/sesion1/founder2.jpg',
+    therapistImage: '/images/sesion1/founder2.webp',
     rating: 5,
     nps: 10,
     testimonial: 'Genial. Muy buen trato y tratamiento. Me han ayudado mucho en la recuperación de mis lesiones.',
     condition: 'Dolor de rodilla',
-    image: '/images/sesion1/pacient1.2.jpg',
+    image: '/images/sesion1/pacient1.2.webp',
   },
   {
     name: 'Ruth Vargas Gómez',
     therapist: 'Enmanuel Li',
-    therapistImage: '/images/sesion1/founder1.jpg',
+    therapistImage: '/images/sesion1/founder1.webp',
     rating: 5,
     nps: 10,
     testimonial: 'Muy buena. Lo recomiendo, la recomiendo y la recomiendo, excelente todo',
     condition: 'Post cirugía',
-    image: '/images/sesion1/pacient2.2.jpg',
+    image: '/images/sesion1/pacient2.2.webp',
   },
   {
     name: 'Cinthya Rebeca Umaña',
     therapist: 'Yamilah Solano',
-    therapistImage: '/images/sesion1/founder2.jpg',
+    therapistImage: '/images/sesion1/founder2.webp',
     rating: 5,
     nps: 10,
     testimonial: 'Excelente. Superaron mis expectativas, estoy muy agradecida. Súper recomendado.',
     condition: 'Dolor de espalda',
-    image: '/images/sesion1/pacient1.3.jpg',
+    image: '/images/sesion1/pacient1.3.webp',
   },
   {
     name: 'Ricardo Arévalo Bravo',
     therapist: 'Enmanuel Li',
-    therapistImage: '/images/sesion1/founder1.jpg',
+    therapistImage: '/images/sesion1/founder1.webp',
     rating: 5,
     nps: 10,
     testimonial: 'Excelente profesional y servicio. Excelentes profesionales.',
     condition: 'Lesión deportiva',
-    image: '/images/sesion1/pacient2.3.jpg',
+    image: '/images/sesion1/pacient2.3.webp',
   },
   {
     name: 'Tamara Salgado Reyes',
     therapist: 'Yamilah Solano',
-    therapistImage: '/images/sesion1/founder2.jpg',
+    therapistImage: '/images/sesion1/founder2.webp',
     rating: 5,
     nps: 10,
     testimonial: 'La atención de Yami es excelente, la recomiendo 1000%.',
@@ -90,7 +90,7 @@ const testimonials = [
   {
     name: 'Wilberth Barrantes López',
     therapist: 'Enmanuel Li',
-    therapistImage: '/images/sesion1/founder1.jpg',
+    therapistImage: '/images/sesion1/founder1.webp',
     rating: 5,
     nps: 10,
     testimonial: 'Excelente trato y me aclaró muchas dudas. Muy profesionales y con mucho conocimiento.',
@@ -99,7 +99,7 @@ const testimonials = [
   {
     name: 'Marco Antonio Fonseca',
     therapist: 'Yamilah Solano',
-    therapistImage: '/images/sesion1/founder2.jpg',
+    therapistImage: '/images/sesion1/founder2.webp',
     rating: 5,
     nps: 10,
     testimonial: 'Siempre me han atendido con cariño y dedicación. Me han logrado rehabilitar.',
@@ -108,7 +108,7 @@ const testimonials = [
   {
     name: 'Verónica McNally',
     therapist: 'Enmanuel Li',
-    therapistImage: '/images/sesion1/founder1.jpg',
+    therapistImage: '/images/sesion1/founder1.webp',
     rating: 5,
     nps: 10,
     testimonial: 'Muy profesional y efectivo.',
@@ -117,7 +117,7 @@ const testimonials = [
   {
     name: 'Sylvia Sánchez Saborío',
     therapist: 'Yamilah Solano',
-    therapistImage: '/images/sesion1/founder2.jpg',
+    therapistImage: '/images/sesion1/founder2.webp',
     rating: 5,
     nps: 10,
     testimonial: 'Los profesionales conocen mucho de su área.',
@@ -126,7 +126,7 @@ const testimonials = [
   {
     name: 'Mario Alberto Fernández',
     therapist: 'Enmanuel Li',
-    therapistImage: '/images/sesion1/founder1.jpg',
+    therapistImage: '/images/sesion1/founder1.webp',
     rating: 5,
     nps: 10,
     testimonial: 'Excelente servicio y atención.',
@@ -196,14 +196,14 @@ const benefits = [
 
 // Photos for gallery carousel
 const patientPhotos = [
-  { src: '/images/sesion1/pacient1.jpg', alt: 'Paciente en tratamiento' },
-  { src: '/images/sesion1/pacient1.2.jpg', alt: 'Sesion de fisioterapia' },
-  { src: '/images/sesion1/pacient1.3.jpg', alt: 'Rehabilitacion' },
-  { src: '/images/sesion1/pacient2.1.jpg', alt: 'Tratamiento personalizado' },
-  { src: '/images/sesion1/pacient2.2.jpg', alt: 'Atencion al paciente' },
-  { src: '/images/sesion1/pacient2.3.jpg', alt: 'Recuperacion exitosa' },
-  { src: '/images/sesion1/founders4.jpg', alt: 'Equipo en accion' },
-  { src: '/images/sesion1/founders5.jpg', alt: 'Fisioterapia profesional' },
+  { src: '/images/sesion1/pacient1.webp', alt: 'Paciente en tratamiento' },
+  { src: '/images/sesion1/pacient1.2.webp', alt: 'Sesion de fisioterapia' },
+  { src: '/images/sesion1/pacient1.3.webp', alt: 'Rehabilitacion' },
+  { src: '/images/sesion1/pacient2.1.webp', alt: 'Tratamiento personalizado' },
+  { src: '/images/sesion1/pacient2.2.webp', alt: 'Atencion al paciente' },
+  { src: '/images/sesion1/pacient2.3.webp', alt: 'Recuperacion exitosa' },
+  { src: '/images/sesion1/founders4.webp', alt: 'Equipo en accion' },
+  { src: '/images/sesion1/founders5.webp', alt: 'Fisioterapia profesional' },
 ];
 
 // Condition icon mapping
@@ -492,7 +492,7 @@ export default function Testimonials() {
         >
           <div className="relative w-full max-w-[600px] h-[300px] sm:h-[400px] md:h-[450px] rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.12)] ring-1 ring-black/5">
             <Image
-              src="/images/sesion1/founders.jpg"
+              src="/images/sesion1/founders.webp"
               alt="Fundadores de Physical Care - Enmanuel Li y Yamilah Solano"
               fill
               sizes="(max-width: 640px) 100vw, 600px"
