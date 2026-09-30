@@ -135,35 +135,51 @@ export default function InsuranceSection() {
           ))}
         </motion.div>
 
-        {/* CTA Section */}
+        {/* CTA Section with Image */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#0E3A4A] via-[#155E75] to-[#1E88A8] p-6 sm:p-10 md:p-14 lg:p-16"
+          className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#0E3A4A] via-[#155E75] to-[#1E88A8]"
         >
-          {/* Background decorative elements */}
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-0 right-0 w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] bg-[#5EEAD4]/10 rounded-full blur-[80px] sm:blur-[100px]" />
-            <div className="absolute bottom-0 left-0 w-[150px] h-[150px] sm:w-[250px] sm:h-[250px] bg-[#35B7C8]/10 rounded-full blur-[60px] sm:blur-[80px]" />
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2">
+            {/* Image */}
+            <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[300px] lg:min-h-[350px]">
+              <Image
+                src="/images/sesion1/ondasdechoque.jpg"
+                alt="Equipo de ondas de choque STORZ Medical"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
 
-          <div className="relative z-10 text-center max-w-2xl mx-auto">
-            <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight mb-3 sm:mb-4">
-              ¿Tienes dudas sobre tu seguro?
-            </h3>
-            <p className="text-sm sm:text-base md:text-lg text-white/80 leading-relaxed mb-6 sm:mb-8">
-              Nuestro equipo puede ayudarte a verificar la cobertura y responder cualquier consulta antes de tu cita.
-            </p>
-            <a
-              href="https://wa.me/50689680947?text=Hola!%20Tengo%20dudas%20sobre%20la%20cobertura%20de%20mi%20seguro%20médico%20para%20tratamientos%20de%20fisioterapia."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-white inline-flex items-center gap-2 sm:gap-3"
-            >
-              Consultar cobertura
-              <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
+            {/* Content */}
+            <div className="relative p-6 sm:p-10 md:p-14 lg:p-16 flex flex-col justify-center">
+              {/* Background decorative elements */}
+              <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute top-0 right-0 w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] bg-[#5EEAD4]/10 rounded-full blur-[80px] sm:blur-[100px]" />
+                <div className="absolute bottom-0 left-0 w-[150px] h-[150px] sm:w-[250px] sm:h-[250px] bg-[#35B7C8]/10 rounded-full blur-[60px] sm:blur-[80px]" />
+              </div>
+
+              <div className="relative z-10 text-center md:text-left max-w-xl">
+                <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight mb-3 sm:mb-4">
+                  ¿Tienes dudas sobre tu seguro?
+                </h3>
+                <p className="text-sm sm:text-base md:text-lg text-white/80 leading-relaxed mb-6 sm:mb-8">
+                  Nuestro equipo puede ayudarte a verificar la cobertura y responder cualquier consulta antes de tu cita.
+                </p>
+                <a
+                  href="https://wa.me/50689680947?text=Hola!%20Tengo%20dudas%20sobre%20la%20cobertura%20de%20mi%20seguro%20médico%20para%20tratamientos%20de%20fisioterapia."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-white inline-flex items-center gap-2 sm:gap-3"
+                >
+                  Consultar cobertura
+                  <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+                </a>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>

@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import Image from 'next/image';
 import {
   Star,
   Target,
@@ -20,54 +21,67 @@ const testimonials = [
   {
     name: 'Vanessa Arronis Padilla',
     therapist: 'Enmanuel Li',
+    therapistImage: '/images/sesion1/founder1.jpg',
     rating: 5,
     nps: 10,
     testimonial: 'Excelente servicio. El trato y los aparatos que se utilizan son excelentes.',
     condition: 'Dolor lumbar',
+    image: '/images/sesion1/pacient1.jpg',
   },
   {
     name: 'Virginia María Valverde',
     therapist: 'Yamilah Solano',
+    therapistImage: '/images/sesion1/founder2.jpg',
     rating: 5,
     nps: 10,
     testimonial: 'Muy bien, siempre me atiende excelente. Siempre que voy me sirve mucho.',
     condition: 'Recuperación deportiva',
+    image: '/images/sesion1/pacient2.1.jpg',
   },
   {
     name: 'Marco Andrés Soto Solís',
     therapist: 'Yamilah Solano',
+    therapistImage: '/images/sesion1/founder2.jpg',
     rating: 5,
     nps: 10,
     testimonial: 'Genial. Muy buen trato y tratamiento. Me han ayudado mucho en la recuperación de mis lesiones.',
     condition: 'Dolor de rodilla',
+    image: '/images/sesion1/pacient1.2.jpg',
   },
   {
     name: 'Ruth Vargas Gómez',
     therapist: 'Enmanuel Li',
+    therapistImage: '/images/sesion1/founder1.jpg',
     rating: 5,
     nps: 10,
     testimonial: 'Muy buena. Lo recomiendo, la recomiendo y la recomiendo, excelente todo',
     condition: 'Post cirugía',
+    image: '/images/sesion1/pacient2.2.jpg',
   },
   {
     name: 'Cinthya Rebeca Umaña',
     therapist: 'Yamilah Solano',
+    therapistImage: '/images/sesion1/founder2.jpg',
     rating: 5,
     nps: 10,
     testimonial: 'Excelente. Superaron mis expectativas, estoy muy agradecida. Súper recomendado.',
     condition: 'Dolor de espalda',
+    image: '/images/sesion1/pacient1.3.jpg',
   },
   {
     name: 'Ricardo Arévalo Bravo',
     therapist: 'Enmanuel Li',
+    therapistImage: '/images/sesion1/founder1.jpg',
     rating: 5,
     nps: 10,
     testimonial: 'Excelente profesional y servicio. Excelentes profesionales.',
     condition: 'Lesión deportiva',
+    image: '/images/sesion1/pacient2.3.jpg',
   },
   {
     name: 'Tamara Salgado Reyes',
     therapist: 'Yamilah Solano',
+    therapistImage: '/images/sesion1/founder2.jpg',
     rating: 5,
     nps: 10,
     testimonial: 'La atención de Yami es excelente, la recomiendo 1000%.',
@@ -76,6 +90,7 @@ const testimonials = [
   {
     name: 'Wilberth Barrantes López',
     therapist: 'Enmanuel Li',
+    therapistImage: '/images/sesion1/founder1.jpg',
     rating: 5,
     nps: 10,
     testimonial: 'Excelente trato y me aclaró muchas dudas. Muy profesionales y con mucho conocimiento.',
@@ -84,6 +99,7 @@ const testimonials = [
   {
     name: 'Marco Antonio Fonseca',
     therapist: 'Yamilah Solano',
+    therapistImage: '/images/sesion1/founder2.jpg',
     rating: 5,
     nps: 10,
     testimonial: 'Siempre me han atendido con cariño y dedicación. Me han logrado rehabilitar.',
@@ -92,6 +108,7 @@ const testimonials = [
   {
     name: 'Verónica McNally',
     therapist: 'Enmanuel Li',
+    therapistImage: '/images/sesion1/founder1.jpg',
     rating: 5,
     nps: 10,
     testimonial: 'Muy profesional y efectivo.',
@@ -100,6 +117,7 @@ const testimonials = [
   {
     name: 'Sylvia Sánchez Saborío',
     therapist: 'Yamilah Solano',
+    therapistImage: '/images/sesion1/founder2.jpg',
     rating: 5,
     nps: 10,
     testimonial: 'Los profesionales conocen mucho de su área.',
@@ -108,6 +126,7 @@ const testimonials = [
   {
     name: 'Mario Alberto Fernández',
     therapist: 'Enmanuel Li',
+    therapistImage: '/images/sesion1/founder1.jpg',
     rating: 5,
     nps: 10,
     testimonial: 'Excelente servicio y atención.',
@@ -175,6 +194,18 @@ const benefits = [
   },
 ];
 
+// Photos for gallery carousel
+const patientPhotos = [
+  { src: '/images/sesion1/pacient1.jpg', alt: 'Paciente en tratamiento' },
+  { src: '/images/sesion1/pacient1.2.jpg', alt: 'Sesion de fisioterapia' },
+  { src: '/images/sesion1/pacient1.3.jpg', alt: 'Rehabilitacion' },
+  { src: '/images/sesion1/pacient2.1.jpg', alt: 'Tratamiento personalizado' },
+  { src: '/images/sesion1/pacient2.2.jpg', alt: 'Atencion al paciente' },
+  { src: '/images/sesion1/pacient2.3.jpg', alt: 'Recuperacion exitosa' },
+  { src: '/images/sesion1/founders4.jpg', alt: 'Equipo en accion' },
+  { src: '/images/sesion1/founders5.jpg', alt: 'Fisioterapia profesional' },
+];
+
 // Condition icon mapping
 const conditionIcons: { [key: string]: typeof Activity } = {
   'Dolor lumbar': Activity,
@@ -194,17 +225,21 @@ const conditionIcons: { [key: string]: typeof Activity } = {
 function TestimonialCard({
   name,
   therapist,
+  therapistImage,
   rating,
   nps,
   testimonial,
   condition,
+  image,
 }: {
   name: string;
   therapist: string;
+  therapistImage?: string;
   rating: number;
   nps: number;
   testimonial: string;
   condition: string;
+  image?: string;
 }) {
   const initials = name.split(' ').slice(0, 2).map((n) => n[0]).join('');
   const ConditionIcon = conditionIcons[condition] || Activity;
@@ -233,15 +268,41 @@ function TestimonialCard({
 
       {/* Patient info */}
       <div className="flex items-center gap-2 sm:gap-3">
-        {/* Avatar */}
-        <div className="flex-shrink-0 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-gradient-to-br from-[#06B8BF] to-[#06B8BF] flex items-center justify-center text-white font-semibold text-xs sm:text-sm shadow-lg shadow-[#06B8BF]/20">
-          {initials}
-        </div>
+        {/* Avatar - with image or initials fallback */}
+        {image ? (
+          <div className="flex-shrink-0 w-9 h-9 sm:w-11 sm:h-11 rounded-full overflow-hidden shadow-lg shadow-[#06B8BF]/20 ring-2 ring-[#06B8BF]/20">
+            <Image
+              src={image}
+              alt={name}
+              width={44}
+              height={44}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        ) : (
+          <div className="flex-shrink-0 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-gradient-to-br from-[#06B8BF] to-[#06B8BF] flex items-center justify-center text-white font-semibold text-xs sm:text-sm shadow-lg shadow-[#06B8BF]/20">
+            {initials}
+          </div>
+        )}
 
         <div className="min-w-0 flex-1">
           <p className="font-semibold text-[#1F2937] text-xs sm:text-sm truncate">{name}</p>
           <div className="flex items-center gap-1.5 sm:gap-2 mt-0.5 flex-wrap">
-            <span className="text-[10px] sm:text-xs text-[#64748B]">Por {therapist}</span>
+            {/* Therapist with image */}
+            <div className="flex items-center gap-1">
+              {therapistImage && (
+                <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full overflow-hidden">
+                  <Image
+                    src={therapistImage}
+                    alt={therapist}
+                    width={20}
+                    height={20}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
+              <span className="text-[10px] sm:text-xs text-[#64748B]">Por {therapist}</span>
+            </div>
             <span className="w-1 h-1 rounded-full bg-[#CBD5E1] hidden sm:block" />
             <span className="inline-flex items-center gap-0.5 sm:gap-1 text-[10px] sm:text-xs text-[#06B8BF] font-medium">
               <ConditionIcon size={8} className="sm:w-[10px] sm:h-[10px]" />
@@ -256,6 +317,24 @@ function TestimonialCard({
         </span>
       </div>
     </article>
+  );
+}
+
+// Photo Card Component for Gallery Marquee
+function PhotoCard({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="flex-shrink-0 mx-2 sm:mx-3">
+      <div className="relative w-[200px] h-[150px] sm:w-[280px] sm:h-[200px] md:w-[320px] md:h-[240px] rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_32px_rgba(6,184,191,0.2)] transition-all duration-300 group">
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          sizes="(max-width: 640px) 200px, (max-width: 768px) 280px, 320px"
+          className="object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      </div>
+    </div>
   );
 }
 
@@ -397,12 +476,32 @@ export default function Testimonials() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="text-center text-sm sm:text-base md:text-lg text-[#64748B] leading-relaxed max-w-[700px] mx-auto mb-8 sm:mb-12 md:mb-16 px-2"
+            className="text-center text-sm sm:text-base md:text-lg text-[#64748B] leading-relaxed max-w-[700px] mx-auto mb-8 sm:mb-10 px-2"
           >
             Pacientes que han recuperado su movilidad, reducido su dolor y mejorado su calidad de
             vida gracias a nuestro equipo de fisioterapia.
           </motion.p>
+        </div>
 
+        {/* Founders Photo */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex justify-center mb-10 sm:mb-14 md:mb-16 px-4"
+        >
+          <div className="relative w-full max-w-[600px] h-[300px] sm:h-[400px] md:h-[450px] rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.12)] ring-1 ring-black/5">
+            <Image
+              src="/images/sesion1/founders.jpg"
+              alt="Fundadores de Physical Care - Enmanuel Li y Yamilah Solano"
+              fill
+              sizes="(max-width: 640px) 100vw, 600px"
+              className="object-cover"
+            />
+          </div>
+        </motion.div>
+
+        <div className="container px-4 sm:px-6 relative z-10">
           {/* Trust Metrics Row */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -457,10 +556,12 @@ export default function Testimonials() {
                 key={testimonial.name}
                 name={testimonial.name}
                 therapist={testimonial.therapist}
+                therapistImage={testimonial.therapistImage}
                 rating={testimonial.rating}
                 nps={testimonial.nps}
                 testimonial={testimonial.testimonial}
                 condition={testimonial.condition}
+                image={testimonial.image}
               />
             ))}
           </Marquee>
@@ -504,6 +605,20 @@ export default function Testimonials() {
             </div>
           </motion.div>
         </div>
+
+        {/* Photo Gallery - Patients */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mt-10 sm:mt-14 md:mt-16"
+        >
+          <Marquee direction="left" speed={45}>
+            {patientPhotos.map((photo, index) => (
+              <PhotoCard key={index} src={photo.src} alt={photo.alt} />
+            ))}
+          </Marquee>
+        </motion.div>
       </section>
     </>
   );

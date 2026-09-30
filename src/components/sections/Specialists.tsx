@@ -11,7 +11,7 @@ const specialists = [
     role: 'Fisioterapeuta',
     description:
       'Especializado en lesiones deportivas y casos ortopédicos complejos, aportando enfoques de tratamiento innovadores a cada paciente.',
-    image: '/images/assets/emmapicture.webp',
+    image: '/images/sesion1/founder1.jpg',
     credentials: [
       { icon: GraduationCap, label: 'Lic. en', sublabel: 'Fisioterapia' },
       { icon: Briefcase, label: '15+ años en', sublabel: 'rehabilitación' },
@@ -28,7 +28,7 @@ const specialists = [
     role: 'Fisioterapeuta',
     description:
       'Dedicada al cuidado preventivo y masaje terapéutico, ayudando a los pacientes a mantener una salud óptima y prevenir lesiones.',
-    image: '/images/assets/yamilapic.webp',
+    image: '/images/sesion1/founder2.1.jpg',
     credentials: [
       { icon: GraduationCap, label: 'Lic. en', sublabel: 'Fisioterapia' },
       { icon: Briefcase, label: '10+ años en', sublabel: 'atención al paciente' },
@@ -80,13 +80,13 @@ export default function Specialists() {
             >
               <div className="bg-white rounded-3xl shadow-[0_2px_20px_rgba(0,0,0,0.06)] overflow-hidden h-full flex flex-col">
                 {/* Image */}
-                <div className="relative aspect-[4/3] bg-gray-100 overflow-hidden">
+                <div className="relative aspect-[4/3] bg-[#35B7C8] overflow-hidden">
                   {specialist.image ? (
                     <Image
                       src={specialist.image}
                       alt={specialist.name}
                       fill
-                      className="object-cover"
+                      className="object-cover object-[center_25%]"
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   ) : (

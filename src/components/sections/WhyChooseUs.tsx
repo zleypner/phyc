@@ -73,15 +73,15 @@ export default function WhyChooseUs() {
           </h2>
         </motion.div>
 
-        {/* Mobile Image - Only visible on mobile */}
-        <div className="flex md:hidden mb-8 sm:mb-10 justify-center">
-          <div className="relative w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-[#06B8BF]/30 shadow-[0_0_60px_rgba(94,234,212,0.3)]">
+        {/* Image Section */}
+        <div className="flex justify-center mb-8 sm:mb-10 md:mb-16">
+          <div className="relative w-full max-w-4xl aspect-[16/9] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
             <Image
-              src="/images/assets/hero-woman.webp"
-              alt="Bienestar y recuperación"
+              src="/images/sesion1/Physical Care Fisioterapia-90.jpg"
+              alt="Tratamiento de fisioterapia en Physical Care"
               fill
               className="object-cover"
-              sizes="(max-width: 640px) 160px, (max-width: 768px) 208px, 256px"
+              sizes="(max-width: 1024px) 100vw, 900px"
               priority
             />
           </div>

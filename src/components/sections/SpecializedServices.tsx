@@ -15,7 +15,7 @@ const services = [
   {
     name: 'Ondas de Choque',
     description: 'Tratamiento avanzado para lesiones crónicas y tendinosas.',
-    image: '/images/technology/ondas_choque_focales1.webp',
+    image: '/images/sesion1/ondasdechoque1.jpg',
   },
   {
     name: 'Plantillas Ortopédicas',
@@ -25,27 +25,27 @@ const services = [
   {
     name: 'Rehabilitación Deportiva',
     description: 'Recuperación óptima para atletas y deportistas activos.',
-    image: '/images/services/deportivo.webp',
+    image: '/images/sesion1/Physical Care Fisioterapia-93.jpg',
   },
   {
     name: 'Terapia Manual Ortopédica',
     description: 'Técnicas manuales especializadas para dolor musculoesquelético.',
-    image: '/images/services/manual-ortopedica.webp',
+    image: '/images/sesion1/Physical Care Fisioterapia-80.jpg',
   },
   {
     name: 'Tecarterapia',
     description: 'Tecnología de radiofrecuencia para acelerar la recuperación.',
-    image: '/images/services/tecar.webp',
+    image: '/images/sesion1/pacient1.jpg',
   },
   {
     name: 'Masajes Terapéuticos',
     description: 'Alivio de tensión muscular y mejora de la circulación.',
-    image: '/images/services/masajes-terapeuticos.webp',
+    image: '/images/sesion1/pacient2.1.jpg',
   },
   {
     name: 'Rehabilitación Pre y Post Cirugía',
     description: 'Preparación y recuperación integral para intervenciones quirúrgicas.',
-    image: '/images/services/pre-post.webp',
+    image: '/images/sesion1/Physical Care Fisioterapia-98.jpg',
   },
 ];
 

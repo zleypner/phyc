@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Heart, Target, Award } from 'lucide-react';
+import Image from 'next/image';
 
 const missionVisionCards = [
   {
@@ -65,6 +66,24 @@ export default function MissionVision() {
           <p className="text-base md:text-lg text-[#64748B] leading-relaxed max-w-4xl mx-auto">
             En Physical Care Fisioterapia creemos que la rehabilitación va más allá del alivio de los síntomas. Nuestro compromiso es ayudar a cada paciente a recuperar su movilidad, funcionalidad y calidad de vida mediante tratamientos personalizados, tecnología especializada y atención profesional basada en evidencia científica. Trabajamos con cercanía, empatía y excelencia para acompañar a cada persona en su proceso de recuperación.
           </p>
+        </motion.div>
+
+        {/* Founders Image */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="flex justify-center mb-12 md:mb-16"
+        >
+          <div className="relative w-full max-w-2xl aspect-[2/3] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl bg-[#35B7C8]">
+            <Image
+              src="/images/sesion1/founders.jpg"
+              alt="Fundadores de Physical Care Fisioterapia - Enmanuel Li y Yamilah Solano"
+              fill
+              className="object-contain"
+              sizes="(max-width: 1024px) 100vw, 672px"
+            />
+          </div>
         </motion.div>
 
         {/* Mission & Vision Cards */}

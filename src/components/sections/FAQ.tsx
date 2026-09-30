@@ -4,6 +4,7 @@ import { useRef, useState, useCallback, useId, useMemo } from 'react';
 import { motion, useInView, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { Plus, Minus, MessageCircle, CheckCircle, Clock, Shield } from 'lucide-react';
 import Script from 'next/script';
+import Image from 'next/image';
 
 // WhatsApp SVG Icon
 const WhatsAppIcon = ({ className = '' }: { className?: string }) => (
@@ -283,6 +284,17 @@ export default function FAQ() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:col-span-5 flex flex-col gap-5 sm:gap-6 lg:gap-8 lg:sticky lg:top-32 lg:self-start"
           >
+            {/* Image Card */}
+            <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
+              <Image
+                src="/images/sesion1/clinic1.jpg"
+                alt="Recepción de Physical Care Fisioterapia"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+              />
+            </div>
+
             {/* Support Card */}
             <div className="bg-gradient-to-br from-[#0E3A4A] via-[#155E75] to-[#06B8BF] rounded-xl sm:rounded-2xl p-5 sm:p-6 lg:p-8 text-white shadow-xl shadow-[#0E3A4A]/15 relative overflow-hidden">
               {/* Background decoration */}

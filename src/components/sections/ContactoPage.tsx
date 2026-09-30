@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import {
   MapPin,
   Phone,
@@ -267,6 +268,47 @@ export default function ContactoPage() {
                 </div>
               </motion.div>
             </div>
+
+            {/* Founders Section */}
+            <motion.div
+              variants={itemVariants}
+              className="bg-white rounded-xl sm:rounded-2xl border border-[rgba(15,23,42,0.06)] shadow-sm overflow-hidden"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+                {/* Image */}
+                <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[300px] lg:min-h-[350px]">
+                  <Image
+                    src="/images/sesion1/founders.jpg"
+                    alt="Lic. Enmanuel Li y Yamilah Solano - Fundadores de Physical Care Fisioterapia"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                {/* Content */}
+                <div className="p-5 sm:p-6 md:p-8 lg:p-10 flex flex-col justify-center">
+                  <span className="text-[#06B8BF] text-xs sm:text-sm font-semibold uppercase tracking-wider mb-2 sm:mb-3">
+                    Nuestro Equipo
+                  </span>
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#1F2937] mb-3 sm:mb-4">
+                    Te esperamos en Physical Care
+                  </h2>
+                  <p className="text-sm sm:text-base text-[#64748B] leading-relaxed mb-4 sm:mb-6">
+                    Somos Enmanuel Li y Yamilah Solano, fisioterapeutas especializados con más de una década de experiencia.
+                    Nuestro compromiso es brindarte atención personalizada y ayudarte a recuperar tu bienestar.
+                  </p>
+                  <a
+                    href="https://wa.me/50689680947?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-[#0E3A4A] hover:bg-[#06B8BF] text-white py-2.5 sm:py-3 px-5 sm:px-6 rounded-lg sm:rounded-xl font-semibold text-xs sm:text-sm transition-all duration-300 shadow-md w-fit"
+                  >
+                    <WhatsAppIcon size={16} className="sm:w-[18px] sm:h-[18px]" />
+                    Agenda tu Cita
+                  </a>
+                </div>
+              </div>
+            </motion.div>
 
             {/* Row 2: Large Map with Navigation */}
             <motion.div
