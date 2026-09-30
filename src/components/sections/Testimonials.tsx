@@ -21,67 +21,54 @@ const testimonials = [
   {
     name: 'Vanessa Arronis Padilla',
     therapist: 'Enmanuel Li',
-    therapistImage: '/images/sesion1/founder1.webp',
     rating: 5,
     nps: 10,
     testimonial: 'Excelente servicio. El trato y los aparatos que se utilizan son excelentes.',
     condition: 'Dolor lumbar',
-    image: '/images/sesion1/pacient1.webp',
   },
   {
     name: 'Virginia María Valverde',
     therapist: 'Yamilah Solano',
-    therapistImage: '/images/sesion1/founder2.webp',
     rating: 5,
     nps: 10,
     testimonial: 'Muy bien, siempre me atiende excelente. Siempre que voy me sirve mucho.',
     condition: 'Recuperación deportiva',
-    image: '/images/sesion1/pacient2.1.webp',
   },
   {
     name: 'Marco Andrés Soto Solís',
     therapist: 'Yamilah Solano',
-    therapistImage: '/images/sesion1/founder2.webp',
     rating: 5,
     nps: 10,
     testimonial: 'Genial. Muy buen trato y tratamiento. Me han ayudado mucho en la recuperación de mis lesiones.',
     condition: 'Dolor de rodilla',
-    image: '/images/sesion1/pacient1.2.webp',
   },
   {
     name: 'Ruth Vargas Gómez',
     therapist: 'Enmanuel Li',
-    therapistImage: '/images/sesion1/founder1.webp',
     rating: 5,
     nps: 10,
     testimonial: 'Muy buena. Lo recomiendo, la recomiendo y la recomiendo, excelente todo',
     condition: 'Post cirugía',
-    image: '/images/sesion1/pacient2.2.webp',
   },
   {
     name: 'Cinthya Rebeca Umaña',
     therapist: 'Yamilah Solano',
-    therapistImage: '/images/sesion1/founder2.webp',
     rating: 5,
     nps: 10,
     testimonial: 'Excelente. Superaron mis expectativas, estoy muy agradecida. Súper recomendado.',
     condition: 'Dolor de espalda',
-    image: '/images/sesion1/pacient1.3.webp',
   },
   {
     name: 'Ricardo Arévalo Bravo',
     therapist: 'Enmanuel Li',
-    therapistImage: '/images/sesion1/founder1.webp',
     rating: 5,
     nps: 10,
     testimonial: 'Excelente profesional y servicio. Excelentes profesionales.',
     condition: 'Lesión deportiva',
-    image: '/images/sesion1/pacient2.3.webp',
   },
   {
     name: 'Tamara Salgado Reyes',
     therapist: 'Yamilah Solano',
-    therapistImage: '/images/sesion1/founder2.webp',
     rating: 5,
     nps: 10,
     testimonial: 'La atención de Yami es excelente, la recomiendo 1000%.',
@@ -90,7 +77,6 @@ const testimonials = [
   {
     name: 'Wilberth Barrantes López',
     therapist: 'Enmanuel Li',
-    therapistImage: '/images/sesion1/founder1.webp',
     rating: 5,
     nps: 10,
     testimonial: 'Excelente trato y me aclaró muchas dudas. Muy profesionales y con mucho conocimiento.',
@@ -99,7 +85,6 @@ const testimonials = [
   {
     name: 'Marco Antonio Fonseca',
     therapist: 'Yamilah Solano',
-    therapistImage: '/images/sesion1/founder2.webp',
     rating: 5,
     nps: 10,
     testimonial: 'Siempre me han atendido con cariño y dedicación. Me han logrado rehabilitar.',
@@ -108,7 +93,6 @@ const testimonials = [
   {
     name: 'Verónica McNally',
     therapist: 'Enmanuel Li',
-    therapistImage: '/images/sesion1/founder1.webp',
     rating: 5,
     nps: 10,
     testimonial: 'Muy profesional y efectivo.',
@@ -117,7 +101,6 @@ const testimonials = [
   {
     name: 'Sylvia Sánchez Saborío',
     therapist: 'Yamilah Solano',
-    therapistImage: '/images/sesion1/founder2.webp',
     rating: 5,
     nps: 10,
     testimonial: 'Los profesionales conocen mucho de su área.',
@@ -126,7 +109,6 @@ const testimonials = [
   {
     name: 'Mario Alberto Fernández',
     therapist: 'Enmanuel Li',
-    therapistImage: '/images/sesion1/founder1.webp',
     rating: 5,
     nps: 10,
     testimonial: 'Excelente servicio y atención.',
@@ -225,21 +207,17 @@ const conditionIcons: { [key: string]: typeof Activity } = {
 function TestimonialCard({
   name,
   therapist,
-  therapistImage,
   rating,
   nps,
   testimonial,
   condition,
-  image,
 }: {
   name: string;
   therapist: string;
-  therapistImage?: string;
   rating: number;
   nps: number;
   testimonial: string;
   condition: string;
-  image?: string;
 }) {
   const initials = name.split(' ').slice(0, 2).map((n) => n[0]).join('');
   const ConditionIcon = conditionIcons[condition] || Activity;
@@ -268,41 +246,15 @@ function TestimonialCard({
 
       {/* Patient info */}
       <div className="flex items-center gap-2 sm:gap-3">
-        {/* Avatar - with image or initials fallback */}
-        {image ? (
-          <div className="flex-shrink-0 w-9 h-9 sm:w-11 sm:h-11 rounded-full overflow-hidden shadow-lg shadow-[#06B8BF]/20 ring-2 ring-[#06B8BF]/20">
-            <Image
-              src={image}
-              alt={name}
-              width={44}
-              height={44}
-              className="w-full h-full object-cover"
-            />
-          </div>
-        ) : (
-          <div className="flex-shrink-0 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-gradient-to-br from-[#06B8BF] to-[#06B8BF] flex items-center justify-center text-white font-semibold text-xs sm:text-sm shadow-lg shadow-[#06B8BF]/20">
-            {initials}
-          </div>
-        )}
+        {/* Avatar with initials */}
+        <div className="flex-shrink-0 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-gradient-to-br from-[#06B8BF] to-[#06B8BF] flex items-center justify-center text-white font-semibold text-xs sm:text-sm shadow-lg shadow-[#06B8BF]/20">
+          {initials}
+        </div>
 
         <div className="min-w-0 flex-1">
           <p className="font-semibold text-[#1F2937] text-xs sm:text-sm truncate">{name}</p>
           <div className="flex items-center gap-1.5 sm:gap-2 mt-0.5 flex-wrap">
-            {/* Therapist with image */}
-            <div className="flex items-center gap-1">
-              {therapistImage && (
-                <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full overflow-hidden">
-                  <Image
-                    src={therapistImage}
-                    alt={therapist}
-                    width={20}
-                    height={20}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              )}
-              <span className="text-[10px] sm:text-xs text-[#64748B]">Por {therapist}</span>
-            </div>
+            <span className="text-[10px] sm:text-xs text-[#64748B]">Por {therapist}</span>
             <span className="w-1 h-1 rounded-full bg-[#CBD5E1] hidden sm:block" />
             <span className="inline-flex items-center gap-0.5 sm:gap-1 text-[10px] sm:text-xs text-[#06B8BF] font-medium">
               <ConditionIcon size={8} className="sm:w-[10px] sm:h-[10px]" />
@@ -556,12 +508,10 @@ export default function Testimonials() {
                 key={testimonial.name}
                 name={testimonial.name}
                 therapist={testimonial.therapist}
-                therapistImage={testimonial.therapistImage}
                 rating={testimonial.rating}
                 nps={testimonial.nps}
                 testimonial={testimonial.testimonial}
                 condition={testimonial.condition}
-                image={testimonial.image}
               />
             ))}
           </Marquee>
