@@ -278,7 +278,7 @@ export default function ContactoPage() {
                 {/* Image */}
                 <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[300px] lg:min-h-[350px]">
                   <Image
-                    src="/images/sesion1/founders.jpg"
+                    src="/images/sesion1/founders.webp"
                     alt="Lic. Enmanuel Li y Yamilah Solano - Fundadores de Physical Care Fisioterapia"
                     fill
                     className="object-cover"

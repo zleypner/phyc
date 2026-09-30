@@ -77,7 +77,7 @@ export default function WhyChooseUs() {
         <div className="flex justify-center mb-8 sm:mb-10 md:mb-16">
           <div className="relative w-full max-w-4xl aspect-[16/9] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
             <Image
-              src="/images/sesion1/Physical Care Fisioterapia-90.jpg"
+              src="/images/sesion1/Physical Care Fisioterapia-90.webp"
               alt="Tratamiento de fisioterapia en Physical Care"
               fill
               className="object-cover"

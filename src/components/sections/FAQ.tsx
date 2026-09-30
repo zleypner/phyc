@@ -287,7 +287,7 @@ export default function FAQ() {
             {/* Image Card */}
             <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
               <Image
-                src="/images/sesion1/clinic1.jpg"
+                src="/images/sesion1/clinic1.webp"
                 alt="Recepción de Physical Care Fisioterapia"
                 fill
                 className="object-cover"

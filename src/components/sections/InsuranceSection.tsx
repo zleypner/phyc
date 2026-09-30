@@ -146,7 +146,7 @@ export default function InsuranceSection() {
             {/* Image */}
             <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[300px] lg:min-h-[350px]">
               <Image
-                src="/images/sesion1/ondasdechoque.jpg"
+                src="/images/sesion1/ondasdechoque.webp"
                 alt="Equipo de ondas de choque STORZ Medical"
                 fill
                 className="object-cover"

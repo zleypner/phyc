@@ -77,7 +77,7 @@ export default function MissionVision() {
         >
           <div className="relative w-full max-w-2xl aspect-[2/3] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl bg-[#35B7C8]">
             <Image
-              src="/images/sesion1/founders.jpg"
+              src="/images/sesion1/founders.webp"
               alt="Fundadores de Physical Care Fisioterapia - Enmanuel Li y Yamilah Solano"
               fill
               className="object-contain"
