@@ -40,7 +40,7 @@ const services = [
   {
     name: 'Masajes Terapéuticos',
     description: 'Alivio de tensión muscular y mejora de la circulación.',
-    image: '/images/sesion1/pacient2.1.webp',
+    image: '/images/sesion1/masajes.jpeg',
   },
   {
     name: 'Rehabilitación Pre y Post Cirugía',

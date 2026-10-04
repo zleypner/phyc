@@ -126,7 +126,7 @@ const services = [
   {
     id: 'masajes-terapeuticos',
     title: 'Masajes Terapéuticos',
-    image: '/images/sesion1/pacient2.1.webp',
+    image: '/images/sesion1/masajes.jpeg',
     description: [
       'Los masajes terapéuticos son una herramienta clínica para disminuir tensiones musculares, mejorar la circulación y favorecer la recuperación física.',
       'Cada tratamiento es adaptado a las necesidades específicas de cada paciente.',

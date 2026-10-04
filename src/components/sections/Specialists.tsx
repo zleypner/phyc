@@ -7,13 +7,13 @@ import Image from 'next/image';
 
 const specialists = [
   {
-    name: 'Lic. Enmanuel Li',
+    name: 'Msc. Enmanuel Li',
     role: 'Fisioterapeuta',
     description:
       'Especializado en lesiones deportivas y casos ortopédicos complejos, aportando enfoques de tratamiento innovadores a cada paciente.',
     image: '/images/sesion1/founder1.webp',
     credentials: [
-      { icon: GraduationCap, label: 'Lic. en', sublabel: 'Fisioterapia' },
+      { icon: GraduationCap, label: 'Msc. en', sublabel: 'Fisioterapia' },
       { icon: Briefcase, label: '15+ años en', sublabel: 'rehabilitación' },
       { icon: Award, label: 'Rehabilitación Deportiva', sublabel: 'y Terapia Manual Ortopédica' },
     ],
@@ -24,13 +24,13 @@ const specialists = [
     ],
   },
   {
-    name: 'Yamilah Solano',
+    name: 'Msc. Yamilah Solano',
     role: 'Fisioterapeuta',
     description:
       'Dedicada al cuidado preventivo y masaje terapéutico, ayudando a los pacientes a mantener una salud óptima y prevenir lesiones.',
     image: '/images/sesion1/founder2.1.webp',
     credentials: [
-      { icon: GraduationCap, label: 'Lic. en', sublabel: 'Fisioterapia' },
+      { icon: GraduationCap, label: 'Msc. en', sublabel: 'Fisioterapia' },
       { icon: Briefcase, label: '10+ años en', sublabel: 'atención al paciente' },
       { icon: Award, label: 'Masaje Terapéutico y', sublabel: 'Cuidado Preventivo' },
     ],

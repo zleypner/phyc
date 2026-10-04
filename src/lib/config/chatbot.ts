@@ -142,8 +142,8 @@ export const defaultConfig: ChatbotConfig = {
 
   // Professionals
   professionals: [
-    { id: "enmanuel-li", name: "Lic. Enmanuel Li Torres", specialty: "Director / Ondas de Choque / EMTT", aliases: ["enmanuel", "li", "emma"] },
-    { id: "yamilah", name: "Lic. Yamilah", specialty: "Fisioterapia", aliases: ["yamilah"] },
+    { id: "enmanuel-li", name: "Msc. Enmanuel Li Torres", specialty: "Director / Ondas de Choque / EMTT", aliases: ["enmanuel", "li", "emma"] },
+    { id: "yamilah", name: "Msc. Yamilah Solano", specialty: "Fisioterapia", aliases: ["yamilah"] },
   ],
 
   // Operating hours

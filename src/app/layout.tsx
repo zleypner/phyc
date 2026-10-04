@@ -285,23 +285,30 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${lora.variable} ${raleway.variable} scroll-smooth`}
+      className={`${lora.variable} ${raleway.variable} scroll-smooth notranslate`}
+      translate="no"
     >
       <head>
         <link rel="icon" href="/images/logo/favicon.png" type="image/png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#1E88A8" />
+        {/* Disable Google Translate to prevent React hydration errors */}
+        <meta name="google" content="notranslate" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        {/* Google Analytics 4 */}
+        </head>
+      <body className="min-h-screen bg-[#F4F7F8] text-[#111827] antialiased">
+        {children}
+        <Chatbot />
+        {/* Google Analytics 4 - loaded lazily to avoid preload warnings */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -309,10 +316,6 @@ export default function RootLayout({
             gtag('config', '${GA_MEASUREMENT_ID}');
           `}
         </Script>
-      </head>
-      <body className="min-h-screen bg-[#F4F7F8] text-[#111827] antialiased">
-        {children}
-        <Chatbot />
       </body>
     </html>
   );

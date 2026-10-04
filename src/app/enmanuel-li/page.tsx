@@ -111,7 +111,7 @@ function PersonalBrandHero() {
                   <div className="relative w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] rounded-full overflow-hidden border-4 border-[#06B8BF]/30 shadow-2xl">
                     <Image
                       src="/images/emma-personalbrand/collombia/WhatsApp Image 2026-09-14 at 16.55.52 (3).jpeg"
-                      alt="Lic. Enmanuel Li Torres"
+                      alt="Msc. Enmanuel Li Torres"
                       fill
                       className="object-cover"
                       priority
@@ -145,7 +145,7 @@ function PersonalBrandHero() {
 
                 {/* Name */}
                 <h1 className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[52px] xl:text-[60px] font-bold text-white leading-[1.1] tracking-[-0.02em] mb-4 sm:mb-6">
-                  Lic. Enmanuel
+                  Msc. Enmanuel
                   <br />
                   <span className="bg-gradient-to-r from-[#06B8BF] via-[#5EEAD4] to-[#06B8BF] bg-clip-text text-transparent" style={{ backgroundSize: '200% 100%' }}>
                     Li Torres
@@ -220,7 +220,7 @@ function PersonalBrandHero() {
                 <div className="relative z-10 w-[380px] h-[380px] xl:w-[440px] xl:h-[440px] rounded-full overflow-hidden border-4 border-[#06B8BF]/20 shadow-2xl bg-gradient-to-br from-[#0E3D4A] to-[#156378]">
                   <Image
                     src="/images/emma-personalbrand/collombia/WhatsApp Image 2026-09-14 at 16.55.52 (3).jpeg"
-                    alt="Lic. Enmanuel Li Torres - Fisioterapeuta especializado en ondas de choque"
+                    alt="Msc. Enmanuel Li Torres - Fisioterapeuta especializado en ondas de choque"
                     width={440}
                     height={440}
                     className="w-full h-full object-cover"
@@ -322,24 +322,24 @@ function GallerySection() {
   const topImages = [
     {
       src: '/images/emma-personalbrand/4.jpeg',
-      alt: 'Lic. Enmanuel Li - Valoración clínica',
+      alt: 'Msc. Enmanuel Li - Valoración clínica',
       caption: 'Valoración clínica',
     },
     {
       src: '/images/emma-personalbrand/5.jpeg',
-      alt: 'Lic. Enmanuel Li - Ondas de choque',
+      alt: 'Msc. Enmanuel Li - Ondas de choque',
       caption: 'Ondas de choque',
     },
     {
       src: '/images/emma-personalbrand/2.jpeg',
-      alt: 'Lic. Enmanuel Li - Tratamiento con tecnología avanzada',
+      alt: 'Msc. Enmanuel Li - Tratamiento con tecnología avanzada',
       caption: 'Tecnología de vanguardia',
     },
   ];
 
   const featuredImage = {
     src: '/images/emma-personalbrand/congreso.jpeg',
-    alt: 'Lic. Enmanuel Li en congreso internacional',
+    alt: 'Msc. Enmanuel Li en congreso internacional',
     caption: 'Congreso Internacional ISMST',
   };
 
@@ -777,32 +777,32 @@ function ColombiaGallerySection() {
   const colombiaImages = [
     {
       src: '/images/emma-personalbrand/collombia/WhatsApp Image 2026-09-14 at 16.55.53.jpeg',
-      alt: 'Lic. Enmanuel Li - Ponencia sobre Dosimetría',
+      alt: 'Msc. Enmanuel Li - Ponencia sobre Dosimetría',
       caption: 'Dosimetría y Protocolo Physical Care',
     },
     {
       src: '/images/emma-personalbrand/collombia/WhatsApp Image 2026-09-14 at 16.55.52 (3).jpeg',
-      alt: 'Lic. Enmanuel Li - Fundamentos Biofísicos EMTT',
+      alt: 'Msc. Enmanuel Li - Fundamentos Biofísicos EMTT',
       caption: 'Fundamentos Biofísicos EMTT',
     },
     {
       src: '/images/emma-personalbrand/collombia/WhatsApp Image 2026-09-14 at 16.55.52.jpeg',
-      alt: 'Lic. Enmanuel Li - Sinergia Multimodal',
+      alt: 'Msc. Enmanuel Li - Sinergia Multimodal',
       caption: 'Sinergia ESWT + EMTT',
     },
     {
       src: '/images/emma-personalbrand/collombia/WhatsApp Image 2026-09-14 at 16.55.52 (4).jpeg',
-      alt: 'Lic. Enmanuel Li - Matriz Decisionaria',
+      alt: 'Msc. Enmanuel Li - Matriz Decisionaria',
       caption: 'Auditorio Congreso ISMST',
     },
     {
       src: '/images/emma-personalbrand/collombia/WhatsApp Image 2026-09-14 at 16.55.53 (1).jpeg',
-      alt: 'Lic. Enmanuel Li - Panel OCC ISMST 2026',
+      alt: 'Msc. Enmanuel Li - Panel OCC ISMST 2026',
       caption: 'Panel OCC ISMST 2026',
     },
     {
       src: '/images/emma-personalbrand/collombia/WhatsApp Image 2026-09-14 at 16.55.52 (1).jpeg',
-      alt: 'Lic. Enmanuel Li - Demostración práctica STORZ MEDICAL',
+      alt: 'Msc. Enmanuel Li - Demostración práctica STORZ MEDICAL',
       caption: 'Demostración STORZ MEDICAL',
     },
   ];
