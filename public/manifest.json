@@ -1,17 +1,44 @@
 {
   "name": "Physical Care Fisioterapia",
   "short_name": "Physical Care",
-  "description": "Costa Rica's leading physiotherapy and rehabilitation center",
+  "description": "Centro líder de terapia física y fisioterapia en Costa Rica. Especialistas en rehabilitación deportiva, ondas de choque, tecarterapia y tratamientos para adultos mayores en San Pedro, San José.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "orientation": "portrait-primary",
   "background_color": "#F4F7F8",
   "theme_color": "#1E88A8",
+  "lang": "es-CR",
+  "categories": ["health", "medical", "fitness"],
   "icons": [
     {
       "src": "/images/logo/favicon.png",
       "sizes": "79x112",
       "type": "image/png",
       "purpose": "any"
+    },
+    {
+      "src": "/images/logo/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/logo/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
-  ]
+  ],
+  "screenshots": [
+    {
+      "src": "/og-image.jpg",
+      "sizes": "1200x630",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Physical Care Fisioterapia - Centro de Terapia Física en Costa Rica"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
 }

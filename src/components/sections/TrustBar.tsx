@@ -2,7 +2,7 @@
 
 import { useRef, useEffect, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Clock, Users, Award, Heart } from 'lucide-react';
+import { Clock, Users, Heart } from 'lucide-react';
 
 const stats = [
   {
@@ -18,13 +18,6 @@ const stats = [
     suffix: '+',
     label: 'Pacientes Atendidos',
     description: 'Vidas transformadas a través del cuidado',
-  },
-  {
-    icon: Award,
-    value: 2,
-    suffix: '',
-    label: 'Especialistas Certificados',
-    description: 'Equipo experto en rehabilitación',
   },
   {
     icon: Heart,

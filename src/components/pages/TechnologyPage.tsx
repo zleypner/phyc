@@ -42,6 +42,7 @@ const technologies = [
     ],
     icon: Zap,
     image: '/images/technology/magnetolin.webp',
+    alt: 'Magnetolith - Equipo de estimulación electromagnética de alta intensidad para fisioterapia avanzada en Costa Rica',
   },
   {
     id: 'ondas-focales',
@@ -63,6 +64,11 @@ const technologies = [
       '/images/technology/ondas_choque_focales2.webp',
       '/images/technology/ondas_choque_focales3.webp',
     ],
+    alts: [
+      'Equipo de ondas de choque focales para tratamiento de fascitis plantar y tendinitis',
+      'Aplicador de ondas de choque focales STORZ Medical en Physical Care',
+      'Tratamiento con ondas de choque focales para lesiones deportivas en Costa Rica',
+    ],
   },
   {
     id: 'ondas-radiales',
@@ -82,6 +88,10 @@ const technologies = [
       '/images/technology/24aug.jpeg',
       '/images/technology/24aug26.jpeg',
     ],
+    alts: [
+      'Ondas de choque radiales para contracturas musculares y dolor miofascial',
+      'Tratamiento de puntos gatillo con ondas de choque radiales en San José',
+    ],
   },
   {
     id: 'traccion-vertebral',
@@ -99,6 +109,7 @@ const technologies = [
     ],
     icon: Activity,
     image: '/images/technology/camilla.webp',
+    alt: 'Camilla de tracción vertebral para tratamiento de hernias discales y dolor lumbar en Physical Care Costa Rica',
   },
 ];
 
@@ -289,7 +300,7 @@ function IntroductionSection() {
             <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl">
               <Image
                 src="/images/technology/bestcr2.webp"
-                alt="Tecnología avanzada de fisioterapia en Physical Care"
+                alt="Centro de fisioterapia mejor equipado de Costa Rica - Tecnología avanzada de rehabilitación en Physical Care San Pedro"
                 fill
                 className="object-contain"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -325,6 +336,8 @@ function TechnologyCard({
   // Check if technology has multiple images
   const hasMultipleImages = 'images' in technology && Array.isArray(technology.images);
   const singleImage = 'image' in technology ? technology.image : null;
+  const singleAlt = 'alt' in technology ? technology.alt : technology.name;
+  const multipleAlts = 'alts' in technology ? (technology as { alts: string[] }).alts : [];
 
   return (
     <div
@@ -351,7 +364,7 @@ function TechnologyCard({
                 <div className="col-span-2 relative aspect-[16/9] rounded-2xl overflow-hidden shadow-xl group">
                   <Image
                     src={(technology as { images: string[] }).images[0]}
-                    alt={`${technology.name} 1`}
+                    alt={multipleAlts[0] || `${technology.name} - Equipo de fisioterapia avanzada`}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                     sizes="(max-width: 768px) 100vw, 50vw"
@@ -364,7 +377,7 @@ function TechnologyCard({
                   <div className="col-span-2 relative aspect-[16/9] rounded-2xl overflow-hidden shadow-lg group">
                     <Image
                       src={(technology as { images: string[] }).images[1]}
-                      alt={`${technology.name} 2`}
+                      alt={multipleAlts[1] || `${technology.name} - Tratamiento especializado`}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
                       sizes="(max-width: 768px) 100vw, 50vw"
@@ -377,7 +390,7 @@ function TechnologyCard({
                     <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg group">
                       <Image
                         src={(technology as { images: string[] }).images[1]}
-                        alt={`${technology.name} 2`}
+                        alt={multipleAlts[1] || `${technology.name} - Aplicación clínica`}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-700"
                         sizes="(max-width: 768px) 50vw, 25vw"
@@ -387,7 +400,7 @@ function TechnologyCard({
                     <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg group">
                       <Image
                         src={(technology as { images: string[] }).images[2]}
-                        alt={`${technology.name} 3`}
+                        alt={multipleAlts[2] || `${technology.name} - Resultados del tratamiento`}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-700"
                         sizes="(max-width: 768px) 50vw, 25vw"
@@ -403,7 +416,7 @@ function TechnologyCard({
                 {singleImage ? (
                   <Image
                     src={singleImage}
-                    alt={technology.name}
+                    alt={singleAlt}
                     fill
                     className="object-contain group-hover:scale-105 transition-transform duration-700"
                     sizes="(max-width: 768px) 100vw, 50vw"

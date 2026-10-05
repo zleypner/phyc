@@ -12,6 +12,7 @@ const specialists = [
     description:
       'Especializado en lesiones deportivas y casos ortopédicos complejos, aportando enfoques de tratamiento innovadores a cada paciente.',
     image: '/images/sesion1/founder1.webp',
+    alt: 'Msc. Enmanuel Li - Fisioterapeuta especialista en rehabilitación deportiva y terapia manual ortopédica en Costa Rica',
     credentials: [
       { icon: GraduationCap, label: 'Msc. en', sublabel: 'Fisioterapia' },
       { icon: Briefcase, label: '15+ años en', sublabel: 'rehabilitación' },
@@ -29,6 +30,7 @@ const specialists = [
     description:
       'Dedicada al cuidado preventivo y masaje terapéutico, ayudando a los pacientes a mantener una salud óptima y prevenir lesiones.',
     image: '/images/sesion1/founder2.1.webp',
+    alt: 'Msc. Yamilah Solano - Fisioterapeuta especialista en masaje terapéutico y cuidado preventivo en San José Costa Rica',
     credentials: [
       { icon: GraduationCap, label: 'Msc. en', sublabel: 'Fisioterapia' },
       { icon: Briefcase, label: '10+ años en', sublabel: 'atención al paciente' },
@@ -84,7 +86,7 @@ export default function Specialists() {
                   {specialist.image ? (
                     <Image
                       src={specialist.image}
-                      alt={specialist.name}
+                      alt={specialist.alt}
                       fill
                       className="object-cover object-[center_25%]"
                       sizes="(max-width: 768px) 100vw, 50vw"

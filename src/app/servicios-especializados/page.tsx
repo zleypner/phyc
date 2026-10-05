@@ -7,6 +7,100 @@ const breadcrumbItems = [
   { name: 'Servicios Especializados', url: 'https://physicalcarefisioterapia.com/servicios-especializados' },
 ];
 
+// Service schema for rich snippets
+const servicesSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      item: {
+        '@type': 'MedicalTherapy',
+        name: 'Atención Especializada del Adulto Mayor',
+        alternateName: 'Fisioterapia Geriátrica',
+        description: 'Programa especializado para adultos mayores enfocado en prevención de caídas, mejora del equilibrio, fortalecimiento muscular e independencia funcional.',
+        url: 'https://physicalcarefisioterapia.com/servicios-especializados#adulto-mayor',
+        relevantSpecialty: 'Fisioterapia Geriátrica',
+      },
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      item: {
+        '@type': 'MedicalTherapy',
+        name: 'Terapia de Ondas de Choque',
+        alternateName: 'Shockwave Therapy',
+        description: 'Tratamiento avanzado con ondas de choque para fascitis plantar, tendinitis, epicondilitis y lesiones crónicas musculoesqueléticas.',
+        url: 'https://physicalcarefisioterapia.com/servicios-especializados#ondas-de-choque',
+      },
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      item: {
+        '@type': 'MedicalTherapy',
+        name: 'Plantillas Ortopédicas Personalizadas',
+        description: 'Diseño personalizado de plantillas ortopédicas para corrección postural, alivio del dolor de pies y mejora de la alineación corporal.',
+        url: 'https://physicalcarefisioterapia.com/servicios-especializados#plantillas-ortopedicas',
+      },
+    },
+    {
+      '@type': 'ListItem',
+      position: 4,
+      item: {
+        '@type': 'MedicalTherapy',
+        name: 'Rehabilitación Deportiva Avanzada',
+        alternateName: 'Sports Rehabilitation',
+        description: 'Programas especializados de recuperación para atletas, con enfoque en retorno seguro al deporte y prevención de recaídas.',
+        url: 'https://physicalcarefisioterapia.com/servicios-especializados#rehabilitacion-deportiva',
+        relevantSpecialty: 'Medicina Deportiva',
+      },
+    },
+    {
+      '@type': 'ListItem',
+      position: 5,
+      item: {
+        '@type': 'MedicalTherapy',
+        name: 'Terapia Manual Ortopédica',
+        description: 'Técnicas manuales especializadas para dolor de espalda, rigidez articular y problemas musculoesqueléticos.',
+        url: 'https://physicalcarefisioterapia.com/servicios-especializados#terapia-manual',
+      },
+    },
+    {
+      '@type': 'ListItem',
+      position: 6,
+      item: {
+        '@type': 'MedicalTherapy',
+        name: 'Tecarterapia',
+        alternateName: 'TECAR Therapy',
+        description: 'Tecnología de radiofrecuencia terapéutica para acelerar la recuperación muscular, reducir inflamación y mejorar la circulación.',
+        url: 'https://physicalcarefisioterapia.com/servicios-especializados#tecarterapia',
+      },
+    },
+    {
+      '@type': 'ListItem',
+      position: 7,
+      item: {
+        '@type': 'MedicalTherapy',
+        name: 'Masajes Terapéuticos',
+        description: 'Masajes profesionales para alivio de tensión muscular, mejora de la circulación y recuperación física.',
+        url: 'https://physicalcarefisioterapia.com/servicios-especializados#masajes-terapeuticos',
+      },
+    },
+    {
+      '@type': 'ListItem',
+      position: 8,
+      item: {
+        '@type': 'MedicalTherapy',
+        name: 'Rehabilitación Pre y Post Cirugía',
+        description: 'Preparación quirúrgica y recuperación guiada después de cirugías ortopédicas para mejores resultados.',
+        url: 'https://physicalcarefisioterapia.com/servicios-especializados#rehabilitacion-cirugia',
+      },
+    },
+  ],
+};
+
 export const metadata: Metadata = {
   title: 'Servicios de Terapia Física y Fisioterapia para Adultos Mayores | Physical Care Costa Rica',
   description:
@@ -77,6 +171,10 @@ export default function Page() {
   return (
     <>
       <BreadcrumbSchema items={breadcrumbItems} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
+      />
       <ServiciosEspecializadosPage />
     </>
   );

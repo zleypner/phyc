@@ -8,8 +8,8 @@ import { Shield, FileCheck, Heart, ArrowRight } from 'lucide-react';
 // Insurance logos - automatically imported from public/images/insurances
 // To add new insurances, simply add the image file to that folder and add the entry here
 const insuranceLogos = [
-  { src: '/images/insurances/palig.webp', alt: 'PALIG' },
-  { src: '/images/insurances/maprelogo.webp', alt: 'MAPFRE' },
+  { src: '/images/insurances/palig.webp', alt: 'PALIG Seguros - Cobertura de fisioterapia y rehabilitación en Costa Rica' },
+  { src: '/images/insurances/maprelogo.webp', alt: 'MAPFRE Seguros - Seguro médico con cobertura de terapia física' },
 ];
 
 const benefits = [
@@ -147,7 +147,7 @@ export default function InsuranceSection() {
             <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[300px] lg:min-h-[350px]">
               <Image
                 src="/images/sesion1/ondasdechoque.webp"
-                alt="Equipo de ondas de choque STORZ Medical"
+                alt="Equipo de ondas de choque STORZ Medical para tratamiento de lesiones crónicas y tendinitis en Physical Care Costa Rica"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"

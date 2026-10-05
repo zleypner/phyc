@@ -78,7 +78,7 @@ export default function MissionVision() {
           <div className="relative w-full max-w-2xl aspect-[2/3] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl bg-[#35B7C8]">
             <Image
               src="/images/sesion1/founders.webp"
-              alt="Fundadores de Physical Care Fisioterapia - Enmanuel Li y Yamilah Solano"
+              alt="Fundadores de Physical Care Fisioterapia - Msc. Enmanuel Li y Msc. Yamilah Solano, fisioterapeutas especializados en San José Costa Rica"
               fill
               className="object-contain"
               sizes="(max-width: 1024px) 100vw, 672px"

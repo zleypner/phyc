@@ -20,6 +20,7 @@ const services = [
     id: 'adulto-mayor',
     title: 'Atención Especializada del Adulto Mayor',
     image: '/images/services/adultomayor.webp',
+    alt: 'Fisioterapia geriátrica para adultos mayores - Ejercicios de equilibrio y prevención de caídas en Physical Care Costa Rica',
     description: [
       'Después de más de 40 años observando la evolución de miles de pacientes, hemos comprobado que el envejecimiento saludable depende en gran medida de mantenerse activo, fuerte y funcional.',
       'Nuestro programa de atención para adultos mayores está diseñado para preservar la independencia física, mejorar el equilibrio y prevenir complicaciones asociadas al envejecimiento.',
@@ -38,6 +39,7 @@ const services = [
     id: 'ondas-de-choque',
     title: 'Terapia de Ondas de Choque',
     image: '/images/sesion1/ondasdechoque1.webp',
+    alt: 'Tratamiento con ondas de choque para fascitis plantar y tendinitis - Terapia avanzada en San José Costa Rica',
     description: [
       'La terapia por ondas de choque representa uno de los avances más importantes en el tratamiento de lesiones musculoesqueléticas crónicas.',
       'Esta tecnología utiliza impulsos mecánicos de alta energía para estimular los procesos naturales de reparación del cuerpo, favoreciendo la regeneración de tejidos y disminuyendo el dolor.',
@@ -62,6 +64,7 @@ const services = [
     id: 'plantillas-ortopedicas',
     title: 'Plantillas Ortopédicas Personalizadas',
     image: '/images/services/plantillas-ort.webp',
+    alt: 'Plantillas ortopédicas personalizadas para corrección postural y alivio del dolor de pies en Costa Rica',
     description: [
       'La forma en que sus pies interactúan con el suelo influye directamente en tobillos, rodillas, caderas y columna vertebral.',
       'Nuestras plantillas ortopédicas son diseñadas para corregir alteraciones biomecánicas, mejorar la distribución de cargas y optimizar la alineación corporal.',
@@ -78,6 +81,7 @@ const services = [
     id: 'rehabilitacion-deportiva',
     title: 'Rehabilitación Deportiva Avanzada',
     image: '/images/sesion1/Physical Care Fisioterapia-93.webp',
+    alt: 'Rehabilitación deportiva para atletas - Recuperación de lesiones y retorno al deporte en Physical Care',
     description: [
       'Recuperarse de una lesión no significa únicamente eliminar el dolor.',
       'Nuestro objetivo es que cada atleta vuelva a competir con seguridad, confianza y el máximo rendimiento posible.',
@@ -95,6 +99,7 @@ const services = [
     id: 'terapia-manual',
     title: 'Terapia Manual Ortopédica',
     image: '/images/sesion1/Physical Care Fisioterapia-80.webp',
+    alt: 'Terapia manual ortopédica para dolor de espalda y problemas musculoesqueléticos en San Pedro Costa Rica',
     description: [
       'La terapia manual sigue siendo una de las herramientas más efectivas para restaurar movimiento y disminuir dolor.',
       'A través de técnicas especializadas realizamos movilizaciones articulares, liberación de tejidos blandos y corrección de restricciones biomecánicas.',
@@ -111,6 +116,7 @@ const services = [
     id: 'tecarterapia',
     title: 'Tecarterapia',
     image: '/images/sesion1/pacient1.webp',
+    alt: 'Sesión de tecarterapia con radiofrecuencia terapéutica para recuperación muscular rápida',
     description: [
       'La Tecarterapia utiliza radiofrecuencia terapéutica para estimular los mecanismos naturales de reparación de los tejidos.',
       'Esta tecnología favorece la circulación sanguínea, acelera procesos de recuperación y reduce significativamente la inflamación.',
@@ -127,6 +133,7 @@ const services = [
     id: 'masajes-terapeuticos',
     title: 'Masajes Terapéuticos',
     image: '/images/sesion1/masajes.jpeg',
+    alt: 'Masajes terapéuticos profesionales para alivio de tensión muscular y estrés en Physical Care',
     description: [
       'Los masajes terapéuticos son una herramienta clínica para disminuir tensiones musculares, mejorar la circulación y favorecer la recuperación física.',
       'Cada tratamiento es adaptado a las necesidades específicas de cada paciente.',
@@ -143,6 +150,7 @@ const services = [
     id: 'rehabilitacion-cirugia',
     title: 'Rehabilitación Pre y Post Cirugía',
     image: '/images/sesion1/Physical Care Fisioterapia-98.webp',
+    alt: 'Rehabilitación pre y post quirúrgica - Recuperación guiada después de cirugía ortopédica en Costa Rica',
     description: [
       'Una recuperación exitosa comienza incluso antes de la cirugía.',
       'La preparación adecuada puede mejorar significativamente los resultados quirúrgicos y acelerar el proceso de recuperación posterior.',
@@ -363,7 +371,7 @@ function ServiceSection({
             <div className="relative aspect-[4/3] w-full rounded-3xl overflow-hidden shadow-2xl shadow-[#0E3A4A]/10">
               <Image
                 src={service.image}
-                alt={service.title}
+                alt={service.alt}
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"

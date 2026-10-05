@@ -11,41 +11,49 @@ const services = [
     name: 'Atención del Adulto Mayor',
     description: 'Cuidado especializado para mejorar movilidad y calidad de vida.',
     image: '/images/services/adultomayor.webp',
+    alt: 'Fisioterapia geriátrica para adultos mayores en Costa Rica - Ejercicios de movilidad y equilibrio',
   },
   {
     name: 'Ondas de Choque',
     description: 'Tratamiento avanzado para lesiones crónicas y tendinosas.',
     image: '/images/sesion1/ondasdechoque1.webp',
+    alt: 'Tratamiento con ondas de choque para tendinitis y lesiones crónicas en San José Costa Rica',
   },
   {
     name: 'Plantillas Ortopédicas',
     description: 'Corrección postural y alivio del dolor en pies y columna.',
     image: '/images/services/plantillas-ort.webp',
+    alt: 'Plantillas ortopédicas personalizadas para corrección postural y dolor de pies',
   },
   {
     name: 'Rehabilitación Deportiva',
     description: 'Recuperación óptima para atletas y deportistas activos.',
     image: '/images/sesion1/Physical Care Fisioterapia-93.webp',
+    alt: 'Rehabilitación deportiva para atletas - Recuperación de lesiones en Physical Care Costa Rica',
   },
   {
     name: 'Terapia Manual Ortopédica',
     description: 'Técnicas manuales especializadas para dolor musculoesquelético.',
     image: '/images/sesion1/Physical Care Fisioterapia-80.webp',
+    alt: 'Terapia manual ortopédica para dolor de espalda y problemas musculoesqueléticos',
   },
   {
     name: 'Tecarterapia',
     description: 'Tecnología de radiofrecuencia para acelerar la recuperación.',
     image: '/images/sesion1/pacient1.webp',
+    alt: 'Sesión de tecarterapia con radiofrecuencia para acelerar recuperación muscular',
   },
   {
     name: 'Masajes Terapéuticos',
     description: 'Alivio de tensión muscular y mejora de la circulación.',
     image: '/images/sesion1/masajes.jpeg',
+    alt: 'Masajes terapéuticos profesionales para alivio de tensión muscular y estrés',
   },
   {
     name: 'Rehabilitación Pre y Post Cirugía',
     description: 'Preparación y recuperación integral para intervenciones quirúrgicas.',
     image: '/images/sesion1/Physical Care Fisioterapia-98.webp',
+    alt: 'Rehabilitación post quirúrgica - Recuperación guiada después de cirugía ortopédica',
   },
 ];
 
@@ -133,7 +141,7 @@ export default function SpecializedServices() {
                 <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-[#0E3A4A] to-[#06B8BF]">
                   <Image
                     src={service.image}
-                    alt={service.name}
+                    alt={service.alt}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"

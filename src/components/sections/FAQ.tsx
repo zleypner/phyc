@@ -288,7 +288,7 @@ export default function FAQ() {
             <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
               <Image
                 src="/images/sesion1/clinic1.webp"
-                alt="Recepción de Physical Care Fisioterapia"
+                alt="Instalaciones de Physical Care Fisioterapia - Centro de terapia física moderno en San Pedro, San José Costa Rica"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 40vw"

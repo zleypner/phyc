@@ -178,14 +178,14 @@ const benefits = [
 
 // Photos for gallery carousel
 const patientPhotos = [
-  { src: '/images/sesion1/pacient1.webp', alt: 'Paciente en tratamiento' },
-  { src: '/images/sesion1/pacient1.2.webp', alt: 'Sesion de fisioterapia' },
-  { src: '/images/sesion1/pacient1.3.webp', alt: 'Rehabilitacion' },
-  { src: '/images/sesion1/pacient2.1.webp', alt: 'Tratamiento personalizado' },
-  { src: '/images/sesion1/pacient2.2.webp', alt: 'Atencion al paciente' },
-  { src: '/images/sesion1/pacient2.3.webp', alt: 'Recuperacion exitosa' },
-  { src: '/images/sesion1/founders4.webp', alt: 'Equipo en accion' },
-  { src: '/images/sesion1/founders5.webp', alt: 'Fisioterapia profesional' },
+  { src: '/images/sesion1/pacient1.webp', alt: 'Paciente recibiendo tecarterapia en Physical Care Fisioterapia Costa Rica' },
+  { src: '/images/sesion1/pacient1.2.webp', alt: 'Sesión de fisioterapia con equipo especializado en San Pedro San José' },
+  { src: '/images/sesion1/pacient1.3.webp', alt: 'Rehabilitación deportiva con tecnología avanzada en clínica de fisioterapia' },
+  { src: '/images/sesion1/pacient2.1.webp', alt: 'Tratamiento personalizado de terapia física para dolor muscular' },
+  { src: '/images/sesion1/pacient2.2.webp', alt: 'Atención profesional de fisioterapia para recuperación de lesiones' },
+  { src: '/images/sesion1/pacient2.3.webp', alt: 'Recuperación exitosa de paciente con terapia manual ortopédica' },
+  { src: '/images/sesion1/founders4.webp', alt: 'Fisioterapeutas de Physical Care aplicando tratamiento especializado' },
+  { src: '/images/sesion1/founders5.webp', alt: 'Equipo profesional de fisioterapia en sesión de rehabilitación' },
 ];
 
 // Condition icon mapping
@@ -445,7 +445,7 @@ export default function Testimonials() {
           <div className="relative w-full max-w-[600px] h-[300px] sm:h-[400px] md:h-[450px] rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.12)] ring-1 ring-black/5">
             <Image
               src="/images/sesion1/founders.webp"
-              alt="Fundadores de Physical Care - Enmanuel Li y Yamilah Solano"
+              alt="Fundadores de Physical Care Fisioterapia - Msc. Enmanuel Li y Msc. Yamilah Solano, especialistas en terapia física en Costa Rica"
               fill
               sizes="(max-width: 640px) 100vw, 600px"
               className="object-cover"
