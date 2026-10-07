@@ -278,7 +278,7 @@ export function ChatbotPanel({ isOpen, onClose, className, pageContext }: Chatbo
 
                 <button
                   type="button"
-                  onClick={() => window.open(`tel:${config.contact?.phone || '+50689680947'}`, '_self')}
+                  onClick={() => window.open(`tel:${config.contact?.phone || '+50687337942'}`, '_self')}
                   className={cn(
                     "w-full flex items-center justify-center gap-2 px-3 py-2 rounded-xl",
                     "bg-gray-100 hover:bg-gray-200",

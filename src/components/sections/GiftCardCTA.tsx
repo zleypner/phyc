@@ -66,7 +66,7 @@ export default function GiftCardCTA() {
               </ul>
 
               <a
-                href="https://wa.me/50689680947?text=Hola!%20Quiero%20regalar%20sesiones%20de%20terapia%20fisica%20a%20un%20ser%20querido.%20Quisiera%20información%20sobre%20la%20Gift%20Card."
+                href="https://wa.me/50687337942?text=Hola!%20Quiero%20regalar%20sesiones%20de%20terapia%20fisica%20a%20un%20ser%20querido.%20Quisiera%20información%20sobre%20la%20Gift%20Card."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 sm:gap-3 h-11 sm:h-14 px-6 sm:px-8 bg-white text-[#6B9930] rounded-full font-bold text-sm sm:text-base shadow-lg shadow-black/10 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"

@@ -25,7 +25,7 @@ const WhatsAppIcon = () => (
 const socialLinks = [
   { icon: FacebookIcon, href: 'https://www.facebook.com/Physicalcarecr', label: 'Facebook' },
   { icon: InstagramIcon, href: 'https://www.instagram.com/physicalcareft?utm_source=qr', label: 'Instagram' },
-  { icon: WhatsAppIcon, href: 'https://wa.me/50689680947', label: 'WhatsApp' },
+  { icon: WhatsAppIcon, href: 'https://wa.me/50687337942', label: 'WhatsApp' },
 ];
 
 const mainNavLinks = [
@@ -147,11 +147,11 @@ export default function Footer() {
             </h4>
             <div className="space-y-2 sm:space-y-3">
               <a
-                href="tel:+50689680947"
+                href="tel:+50687337942"
                 className="flex items-center gap-2 sm:gap-3 text-white/70 hover:text-white transition-colors text-xs sm:text-sm"
               >
                 <Phone size={14} className="flex-shrink-0 sm:w-4 sm:h-4" />
-                <span>+506 8968-0947</span>
+                <span>+506 8733-7942</span>
               </a>
               <a
                 href="https://maps.app.goo.gl/LhScDFZjcrYvjdXf7"

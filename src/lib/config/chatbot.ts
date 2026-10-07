@@ -137,7 +137,7 @@ export const defaultConfig: ChatbotConfig = {
   },
 
   whatsapp: {
-    number: "50689680947",
+    number: "50687337942",
   },
 
   // Professionals
@@ -164,9 +164,9 @@ export const defaultConfig: ChatbotConfig = {
 
   // Contact Information
   contact: {
-    phone: "+506 8968-0947",
+    phone: "+506 8733-7942",
     email: "terapiafisicali@gmail.com",
-    whatsapp: "50689680947",
+    whatsapp: "50687337942",
   },
 
   // Social Media

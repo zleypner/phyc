@@ -118,10 +118,10 @@ export default function LocationSection() {
                   <div className="min-w-0">
                     <h4 className="font-semibold text-sm text-[#0E3A4A] mb-0.5">Teléfono</h4>
                     <a
-                      href="tel:+50689680947"
+                      href="tel:+50687337942"
                       className="text-[#1E88A8] text-xs font-medium hover:underline"
                     >
-                      +506 8968-0947
+                      +506 8733-7942
                     </a>
                   </div>
                 </div>
@@ -183,7 +183,7 @@ export default function LocationSection() {
                   Escríbenos para programar tu cita.
                 </p>
                 <a
-                  href="https://wa.me/50689680947?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
+                  href="https://wa.me/50687337942?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-white text-[#25D366] font-bold py-2.5 px-5 rounded-full hover:bg-slate-50 transition-colors shadow-lg text-sm w-fit"

@@ -156,10 +156,10 @@ export default function ContactoPage() {
                     <div className="min-w-0">
                       <h3 className="font-semibold text-xs sm:text-sm text-[#1F2937] mb-0.5">Teléfono</h3>
                       <a
-                        href="tel:+50689680947"
+                        href="tel:+50687337942"
                         className="text-[#06B8BF] text-[11px] sm:text-xs font-medium hover:underline"
                       >
-                        +506 8968-0947
+                        +506 8733-7942
                       </a>
                     </div>
                   </div>
@@ -257,7 +257,7 @@ export default function ContactoPage() {
                     Escríbenos para programar tu cita.
                   </p>
                   <a
-                    href="https://wa.me/50689680947?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
+                    href="https://wa.me/50687337942?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 sm:gap-2 bg-white text-[#25D366] font-bold py-2 sm:py-2.5 px-4 sm:px-5 rounded-full hover:bg-slate-50 transition-colors shadow-lg text-xs sm:text-sm w-fit"
@@ -298,7 +298,7 @@ export default function ContactoPage() {
                     Nuestro compromiso es brindarte atención personalizada y ayudarte a recuperar tu bienestar.
                   </p>
                   <a
-                    href="https://wa.me/50689680947?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
+                    href="https://wa.me/50687337942?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-[#0E3A4A] hover:bg-[#06B8BF] text-white py-2.5 sm:py-3 px-5 sm:px-6 rounded-lg sm:rounded-xl font-semibold text-xs sm:text-sm transition-all duration-300 shadow-md w-fit"

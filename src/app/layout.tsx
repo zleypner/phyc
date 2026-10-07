@@ -156,7 +156,7 @@ export default function RootLayout({
     description:
       'Centro líder de terapia física y fisioterapia en Costa Rica. Especialistas en rehabilitación deportiva, ondas de choque, tecarterapia y tratamientos basados en evidencia.',
     url: 'https://physicalcarefisioterapia.com',
-    telephone: '+50689680947',
+    telephone: '+50687337942',
     email: 'gerencia@physicalcarefisioterapia.com',
     image: 'https://physicalcarefisioterapia.com/og-image.jpg',
     logo: 'https://physicalcarefisioterapia.com/images/logo/favicon.png',

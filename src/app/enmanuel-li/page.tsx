@@ -184,7 +184,7 @@ function PersonalBrandHero() {
                 {/* CTA Section */}
                 <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
                   <a
-                    href="https://wa.me/50689680947?text=Hola!%20Quiero%20agendar%20una%20valoración%20con%20el%20Lic.%20Enmanuel%20Li."
+                    href="https://wa.me/50687337942?text=Hola!%20Quiero%20agendar%20una%20valoración%20con%20el%20Lic.%20Enmanuel%20Li."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group inline-flex items-center justify-center gap-2.5 h-[52px] sm:h-[56px] px-6 sm:px-8 bg-[#25D366] text-white rounded-full font-semibold text-[15px] sm:text-[16px] shadow-[0_8px_32px_rgba(37,211,102,0.35)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,211,102,0.45)] active:translate-y-0 active:scale-[0.98]"
@@ -1085,7 +1085,7 @@ function FinalCTASection() {
           </p>
 
           <a
-            href="https://wa.me/50689680947?text=Hola!%20Quiero%20agendar%20una%20valoración%20con%20el%20Lic.%20Enmanuel%20Li."
+            href="https://wa.me/50687337942?text=Hola!%20Quiero%20agendar%20una%20valoración%20con%20el%20Lic.%20Enmanuel%20Li."
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center justify-center gap-3 h-[56px] sm:h-[60px] px-8 sm:px-10 bg-[#25D366] text-white rounded-full font-semibold text-[16px] sm:text-[17px] shadow-[0_8px_32px_rgba(37,211,102,0.4)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(37,211,102,0.5)] active:translate-y-0"
@@ -1096,7 +1096,7 @@ function FinalCTASection() {
           </a>
 
           <p className="mt-6 text-[14px] text-white/50">
-            +506 8968-0947
+            +506 8733-7942
           </p>
         </motion.div>
       </div>
@@ -1127,7 +1127,7 @@ function ContactInfoSection() {
     {
       icon: Phone,
       label: 'Teléfono',
-      value: '8968-0947 (WhatsApp)',
+      value: '8733-7942 (WhatsApp)',
       subvalue: '2253-1860',
     },
     {

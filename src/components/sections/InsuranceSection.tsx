@@ -170,7 +170,7 @@ export default function InsuranceSection() {
                   Nuestro equipo puede ayudarte a verificar la cobertura y responder cualquier consulta antes de tu cita.
                 </p>
                 <a
-                  href="https://wa.me/50689680947?text=Hola!%20Tengo%20dudas%20sobre%20la%20cobertura%20de%20mi%20seguro%20médico%20para%20tratamientos%20de%20fisioterapia."
+                  href="https://wa.me/50687337942?text=Hola!%20Tengo%20dudas%20sobre%20la%20cobertura%20de%20mi%20seguro%20médico%20para%20tratamientos%20de%20fisioterapia."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-white inline-flex items-center gap-2 sm:gap-3"

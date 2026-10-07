@@ -210,7 +210,7 @@ function HeroSection() {
               className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start"
             >
               <a
-                href="https://wa.me/50689680947?text=Hola!%20Quiero%20información%20sobre%20plantillas%20ortopédicas."
+                href="https://wa.me/50687337942?text=Hola!%20Quiero%20información%20sobre%20plantillas%20ortopédicas."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 h-12 sm:h-14 px-6 sm:px-8 bg-[#25D366] text-white rounded-full font-semibold text-sm sm:text-base shadow-lg shadow-[#25D366]/25 hover:shadow-xl hover:shadow-[#25D366]/30 hover:-translate-y-0.5 transition-all duration-300"
@@ -431,7 +431,7 @@ function ProductsSection() {
 
                 {/* CTA */}
                 <a
-                  href={`https://wa.me/50689680947?text=${product.whatsappMessage}`}
+                  href={`https://wa.me/50687337942?text=${product.whatsappMessage}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`flex items-center justify-center gap-2 w-full py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-semibold text-xs sm:text-sm transition-all duration-300 ${
@@ -514,7 +514,7 @@ function GiftCardSection() {
               </ul>
 
               <a
-                href="https://wa.me/50689680947?text=Hola!%20Quiero%20regalar%20sesiones%20de%20terapia%20fisica%20a%20un%20ser%20querido.%20Quisiera%20información%20sobre%20la%20Gift%20Card."
+                href="https://wa.me/50687337942?text=Hola!%20Quiero%20regalar%20sesiones%20de%20terapia%20fisica%20a%20un%20ser%20querido.%20Quisiera%20información%20sobre%20la%20Gift%20Card."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 sm:gap-3 h-11 sm:h-14 px-6 sm:px-8 bg-white text-[#6B9930] rounded-full font-bold text-sm sm:text-base shadow-lg shadow-black/10 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
@@ -775,7 +775,7 @@ function FinalCTASection() {
           </p>
 
           <a
-            href="https://wa.me/50689680947?text=Hola!%20Quiero%20información%20sobre%20plantillas%20ortopédicas%20y%20agendar%20una%20evaluación."
+            href="https://wa.me/50687337942?text=Hola!%20Quiero%20información%20sobre%20plantillas%20ortopédicas%20y%20agendar%20una%20evaluación."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 sm:gap-3 h-12 sm:h-14 md:h-16 px-6 sm:px-8 md:px-12 bg-[#25D366] text-white rounded-full font-semibold text-sm sm:text-base md:text-lg shadow-lg shadow-[#25D366]/25 hover:shadow-xl hover:shadow-[#25D366]/30 hover:-translate-y-0.5 transition-all duration-300"

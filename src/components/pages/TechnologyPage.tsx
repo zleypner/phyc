@@ -196,7 +196,7 @@ function HeroSection() {
             className="flex flex-col sm:flex-row gap-4"
           >
             <a
-              href="https://wa.me/50689680947?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
+              href="https://wa.me/50687337942?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2.5 h-14 px-8 bg-gradient-to-r from-[#06B8BF] to-[#06B8BF] text-white rounded-full font-semibold text-base shadow-lg shadow-[#06B8BF]/25 hover:shadow-xl hover:shadow-[#06B8BF]/30 hover:-translate-y-0.5 transition-all duration-300"
@@ -205,7 +205,7 @@ function HeroSection() {
               <ArrowRight size={18} />
             </a>
             <a
-              href="https://wa.me/50689680947?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
+              href="https://wa.me/50687337942?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2.5 h-14 px-8 bg-[#25D366] text-white rounded-full font-semibold text-base shadow-lg shadow-[#25D366]/25 hover:shadow-xl hover:shadow-[#25D366]/30 hover:-translate-y-0.5 transition-all duration-300"
@@ -670,7 +670,7 @@ function FinalCTASection() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://wa.me/50689680947?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
+              href="https://wa.me/50687337942?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2.5 h-14 px-10 bg-gradient-to-r from-[#06B8BF] to-[#06B8BF] text-white rounded-full font-semibold text-base shadow-lg shadow-[#06B8BF]/25 hover:shadow-xl hover:shadow-[#06B8BF]/30 hover:-translate-y-0.5 transition-all duration-300"
@@ -679,7 +679,7 @@ function FinalCTASection() {
               <ArrowRight size={18} />
             </a>
             <a
-              href="https://wa.me/50689680947?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
+              href="https://wa.me/50687337942?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2.5 h-14 px-10 bg-[#25D366] text-white rounded-full font-semibold text-base shadow-lg shadow-[#25D366]/25 hover:shadow-xl hover:shadow-[#25D366]/30 hover:-translate-y-0.5 transition-all duration-300"
