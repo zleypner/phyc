@@ -336,7 +336,7 @@ function TechnologyCard({
   // Check if technology has multiple images
   const hasMultipleImages = 'images' in technology && Array.isArray(technology.images);
   const singleImage = 'image' in technology ? technology.image : null;
-  const singleAlt = 'alt' in technology ? technology.alt : technology.name;
+  const singleAlt = ('alt' in technology ? technology.alt : technology.name) || technology.name;
   const multipleAlts = 'alts' in technology ? (technology as { alts: string[] }).alts : [];
 
   return (
