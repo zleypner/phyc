@@ -48,6 +48,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.75,
     },
+    // Blog articles
+    {
+      url: `${baseUrl}/blog/mas-alla-del-dolor-fisioterapia-costa-rica`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
     // Anchor sections (for comprehensive indexing)
     {
       url: `${baseUrl}/#servicios`,

@@ -2,8 +2,25 @@
 
 import { useRef, useState, useCallback, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Play, Video, X } from 'lucide-react';
+import { ArrowRight, Play, Video, X, FileText, Clock } from 'lucide-react';
+
+// Blog articles data
+const blogArticles = [
+  {
+    id: 'a1',
+    slug: 'mas-alla-del-dolor-fisioterapia-costa-rica',
+    title: 'Más allá del dolor: fisioterapia avanzada, Magnetolith y ondas de choque en Costa Rica',
+    description:
+      'El Lic. Enmanuel Li Torres presentó en un congreso internacional en Colombia un enfoque de rehabilitación que integra magnetotransducción EMTT, ondas de choque y ejercicio terapéutico.',
+    image: '/images/emma-personalbrand/collombia/WhatsApp Image 2026-09-14 at 16.55.52 (3).jpeg',
+    category: 'Investigación y Fisioterapia',
+    author: 'Lic. Enmanuel Li Torres',
+    date: '14 de octubre de 2026',
+    readingTime: '10 min',
+  },
+];
 
 // Helper function to extract YouTube video ID from various URL formats
 const getYouTubeVideoId = (url: string): string => {
@@ -90,6 +107,7 @@ const categoryColors: Record<string, string> = {
   'Ejercicios': 'bg-[#8DC741]/15 text-[#6B9930]',
   'Bienestar': 'bg-[#8DC741]/15 text-[#6B9930]',
   'Tratamientos': 'bg-[#8DC741]/15 text-[#6B9930]',
+  'Investigacion y Fisioterapia': 'bg-[#1E88A8]/15 text-[#1E88A8]',
 };
 
 // Video Modal Component
@@ -193,7 +211,98 @@ export default function Blog() {
 
   return (
     <>
-      <section ref={ref} id="blog" className="section-padding bg-white">
+      {/* Featured Articles Section */}
+      <section ref={ref} id="articulos" className="section-padding bg-[#F4F7F8]">
+        <div className="container">
+          {/* Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-3xl mx-auto mb-12"
+          >
+            <span className="inline-block px-4 py-2 rounded-full bg-[#1E88A8]/15 text-[#1E88A8] text-sm font-medium mb-4">
+              <FileText className="w-4 h-4 inline-block mr-2 -mt-0.5" />
+              Articulos Destacados
+            </span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0E3A4A] mb-6">
+              Investigacion y Conocimiento
+            </h2>
+            <p className="text-[#6B7280]">
+              Articulos especializados sobre fisioterapia, rehabilitacion y tecnologias de tratamiento desarrollados por nuestro equipo clinico.
+            </p>
+          </motion.div>
+
+          {/* Articles Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {blogArticles.map((article, index) => (
+              <motion.div
+                key={article.id}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Link
+                  href={`/blog/${article.slug}`}
+                  className="group block h-full"
+                >
+                  <article className="h-full bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                    {/* Image */}
+                    <div className="relative h-64 overflow-hidden">
+                      <Image
+                        src={article.image}
+                        alt={article.title}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      {/* Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                      {/* Article badge */}
+                      <div className="absolute top-4 left-4 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#1E88A8] text-white text-xs font-medium">
+                        <FileText className="w-3 h-3" />
+                        Articulo
+                      </div>
+                      {/* Reading time */}
+                      <div className="absolute bottom-4 left-4 flex items-center gap-1.5 text-white/90 text-sm">
+                        <Clock className="w-4 h-4" />
+                        {article.readingTime}
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-6">
+                      <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-3 ${categoryColors[article.category] || 'bg-[#1E88A8]/15 text-[#1E88A8]'}`}>
+                        {article.category}
+                      </span>
+                      <h3 className="text-xl font-bold text-[#0E3A4A] mb-3 group-hover:text-[#1E88A8] transition-colors line-clamp-2">
+                        {article.title}
+                      </h3>
+                      <p className="text-sm text-[#6B7280] mb-4 line-clamp-3">
+                        {article.description}
+                      </p>
+                      <div className="flex items-center justify-between text-xs text-[#9CA3AF]">
+                        <div className="flex items-center gap-2">
+                          <span className="font-medium text-[#0E3A4A]">{article.author}</span>
+                          <span>|</span>
+                          <span>{article.date}</span>
+                        </div>
+                        <span className="inline-flex items-center gap-1 text-[#1E88A8] font-medium group-hover:text-[#0E3A4A]">
+                          Leer mas
+                          <ArrowRight size={12} />
+                        </span>
+                      </div>
+                    </div>
+                  </article>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Videos Section */}
+      <section id="blog" className="section-padding bg-white">
         <div className="container">
           {/* Section Header */}
           <motion.div
@@ -210,7 +319,7 @@ export default function Blog() {
               La Camilla CR
             </h2>
             <p className="text-[#6B7280]">
-              Contenido audiovisual desarrollado por nuestros especialistas para ayudarle en su proceso de rehabilitación y bienestar físico.
+              Contenido audiovisual desarrollado por nuestros especialistas para ayudarle en su proceso de rehabilitacion y bienestar fisico.
             </p>
           </motion.div>
 
