@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   ],
   authors: [
     {
-      name: 'Lic. Enmanuel Li Torres',
+      name: 'MSc. Enmanuel Li Torres',
       url: `${baseUrl}/enmanuel-li`,
     },
   ],
@@ -47,13 +47,13 @@ export const metadata: Metadata = {
     locale: 'es_CR',
     type: 'article',
     publishedTime: publishDate,
-    authors: ['Lic. Enmanuel Li Torres'],
+    authors: ['MSc. Enmanuel Li Torres'],
     images: [
       {
         url: `${baseUrl}${heroImage}`,
         width: 1200,
         height: 630,
-        alt: 'Lic. Enmanuel Li Torres presentando en el congreso ISMST-OCC 2026 sobre fisioterapia avanzada',
+        alt: 'MSc. Enmanuel Li Torres presentando en el congreso ISMST-OCC 2026 sobre fisioterapia avanzada',
       },
     ],
   },
@@ -106,7 +106,7 @@ const breadcrumbSchema = {
 const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  name: 'Lic. Enmanuel Li Torres',
+  name: 'MSc. Enmanuel Li Torres',
   jobTitle: 'Director Clínico y General',
   worksFor: {
     '@type': 'MedicalClinic',
@@ -160,7 +160,7 @@ const articleSchema = {
   '@type': 'BlogPosting',
   headline: 'Más allá del dolor: fisioterapia avanzada, Magnetolith y ondas de choque en Costa Rica',
   description:
-    'El Lic. Enmanuel Li Torres presentó en un congreso internacional en Colombia un enfoque de rehabilitación que integra magnetotransducción EMTT, ondas de choque y ejercicio terapéutico.',
+    'El MSc. Enmanuel Li Torres presentó en un congreso internacional en Colombia un enfoque de rehabilitación que integra magnetotransducción EMTT, ondas de choque y ejercicio terapéutico.',
   image: `${baseUrl}${heroImage}`,
   author: personSchema,
   publisher: organizationSchema,

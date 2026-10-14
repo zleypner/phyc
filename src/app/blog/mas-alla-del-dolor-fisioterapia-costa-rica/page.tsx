@@ -30,8 +30,8 @@ const articleData = {
   title: 'Más allá del dolor: fisioterapia avanzada, Magnetolith y ondas de choque en Costa Rica',
   badge: 'Investigación y Fisioterapia',
   description:
-    'El Lic. Enmanuel Li Torres, director clínico de Physical Care Fisioterapia, presentó en un congreso internacional en Colombia un enfoque de rehabilitación que integra magnetotransducción EMTT, ondas de choque y ejercicio terapéutico para abordar lesiones musculoesqueléticas persistentes.',
-  author: 'Lic. Enmanuel Li Torres',
+    'El MSc. Enmanuel Li Torres, director clínico de Physical Care Fisioterapia, presentó en un congreso internacional en Colombia un enfoque de rehabilitación que integra magnetotransducción EMTT, ondas de choque y ejercicio terapéutico para abordar lesiones musculoesqueléticas persistentes.',
+  author: 'MSc. Enmanuel Li Torres',
   authorRole: 'Director Clínico y General, Physical Care Fisioterapia',
   readingTime: '10 minutos de lectura',
   publishDate: '2026-10-14',
@@ -42,7 +42,7 @@ const articleData = {
 const galleryImages = [
   {
     src: '/images/emma-personalbrand/collombia/WhatsApp Image 2026-09-14 at 16.55.52 (3).jpeg',
-    alt: 'Lic. Enmanuel Li Torres presentando sobre fundamentos biofísicos de EMTT en el congreso ISMST-OCC 2026 en Barranquilla, Colombia',
+    alt: 'MSc. Enmanuel Li Torres presentando sobre fundamentos biofísicos de EMTT en el congreso ISMST-OCC 2026 en Barranquilla, Colombia',
     caption: 'Presentación sobre fundamentos biofísicos de la terapia EMTT',
   },
   {
@@ -62,7 +62,7 @@ const galleryImages = [
   },
   {
     src: '/images/emma-personalbrand/collombia/WhatsApp Image 2026-09-14 at 16.55.53.jpeg',
-    alt: 'Lic. Enmanuel Li Torres presentando dosimetría y protocolo Physical Care para tratamiento con EMTT y ondas de choque',
+    alt: 'MSc. Enmanuel Li Torres presentando dosimetría y protocolo Physical Care para tratamiento con EMTT y ondas de choque',
     caption: 'Presentación sobre dosimetría y protocolo clínico Physical Care',
   },
 ];
@@ -561,7 +561,7 @@ function ArticleContent() {
           </p>
         </div>
         <p className="text-[#64748B] leading-relaxed mb-4">
-          Esta perspectiva fue el eje de la presentación científica titulada <em>Más allá del dolor: mecanotransducción multimodal en condiciones musculoesqueléticas persistentes</em>, desarrollada por el Lic. Enmanuel Li Torres, director clínico y general de Physical Care Fisioterapia, durante el congreso ISMST-OCC 2026 en Barranquilla, Colombia.
+          Esta perspectiva fue el eje de la presentación científica titulada <em>Más allá del dolor: mecanotransducción multimodal en condiciones musculoesqueléticas persistentes</em>, desarrollada por el MSc. Enmanuel Li Torres, director clínico y general de Physical Care Fisioterapia, durante el congreso ISMST-OCC 2026 en Barranquilla, Colombia.
         </p>
         <p className="text-[#64748B] leading-relaxed mb-4">
           La exposición reunió fundamentos científicos, investigaciones clínicas y una serie de cinco casos atendidos en Physical Care.
@@ -932,7 +932,7 @@ function ArticleContent() {
           Physical Care Fisioterapia: conocimiento internacional aplicado a la rehabilitación en Costa Rica
         </h2>
         <p className="text-[#64748B] leading-relaxed mb-4">
-          La participación del Lic. Enmanuel Li Torres en el congreso ISMST-OCC 2026 permitió presentar experiencias clínicas desarrolladas en Physical Care y compartir conocimientos sobre rehabilitación musculoesquelética.
+          La participación del MSc. Enmanuel Li Torres en el congreso ISMST-OCC 2026 permitió presentar experiencias clínicas desarrolladas en Physical Care y compartir conocimientos sobre rehabilitación musculoesquelética.
         </p>
         <p className="text-[#64748B] leading-relaxed mb-4">
           La exposición destacó la importancia de integrar investigación, tecnología y ejercicio terapéutico para abordar problemas funcionales complejos.

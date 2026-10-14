@@ -13,10 +13,10 @@ const blogArticles = [
     slug: 'mas-alla-del-dolor-fisioterapia-costa-rica',
     title: 'Más allá del dolor: fisioterapia avanzada, Magnetolith y ondas de choque en Costa Rica',
     description:
-      'El Lic. Enmanuel Li Torres presentó en un congreso internacional en Colombia un enfoque de rehabilitación que integra magnetotransducción EMTT, ondas de choque y ejercicio terapéutico.',
+      'El MSc. Enmanuel Li Torres presentó en un congreso internacional en Colombia un enfoque de rehabilitación que integra magnetotransducción EMTT, ondas de choque y ejercicio terapéutico.',
     image: '/images/emma-personalbrand/collombia/WhatsApp Image 2026-09-14 at 16.55.52 (3).jpeg',
     category: 'Investigación y Fisioterapia',
-    author: 'Lic. Enmanuel Li Torres',
+    author: 'MSc. Enmanuel Li Torres',
     date: '14 de octubre de 2026',
     readingTime: '10 min',
   },
