@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import ServiciosEspecializadosPage from '@/components/pages/ServiciosEspecializadosPage';
-import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
+import { BreadcrumbSchema, FAQSchema, HowToSchema } from '@/components/seo';
 
 const breadcrumbItems = [
   { name: 'Inicio', url: 'https://physicalcarefisioterapia.com' },
@@ -167,6 +167,60 @@ export const metadata: Metadata = {
   },
 };
 
+// FAQ data for AEO (Answer Engine Optimization)
+const serviciosFAQs = [
+  {
+    question: '¿Qué es la fisioterapia geriátrica y para quién es ideal?',
+    answer: 'La fisioterapia geriátrica es una especialidad enfocada en adultos mayores de 60 años. Ayuda a prevenir caídas, mejorar el equilibrio, fortalecer músculos y mantener la independencia funcional. Es ideal para personas con artritis, osteoporosis, después de cirugías o que quieren envejecer activamente.',
+  },
+  {
+    question: '¿Cómo funcionan las ondas de choque y qué condiciones tratan?',
+    answer: 'Las ondas de choque son pulsos acústicos de alta energía que estimulan la regeneración tisular y reducen el dolor. Son muy efectivas para fascitis plantar, tendinitis, epicondilitis (codo de tenista), calcificaciones y lesiones crónicas que no responden a tratamientos convencionales.',
+  },
+  {
+    question: '¿Cuántas sesiones de fisioterapia necesito para ver resultados?',
+    answer: 'El número de sesiones varía según la condición. Generalmente, los pacientes notan mejoras en 3-5 sesiones para condiciones agudas. Condiciones crónicas pueden requerir 8-12 sesiones. Durante la evaluación inicial, establecemos un plan personalizado con objetivos claros.',
+  },
+  {
+    question: '¿Qué diferencia hay entre tecarterapia y ondas de choque?',
+    answer: 'La tecarterapia usa radiofrecuencia para calentar tejidos profundos, acelerando la circulación y recuperación muscular. Las ondas de choque usan energía mecánica para estimular regeneración en tendones y huesos. Ambas son complementarias y se eligen según el tipo de lesión.',
+  },
+  {
+    question: '¿Puedo recibir fisioterapia después de una cirugía de rodilla o cadera?',
+    answer: 'Sí, la rehabilitación post-quirúrgica es fundamental para una recuperación exitosa. Iniciamos con ejercicios suaves para recuperar movilidad, progresando hacia fortalecimiento y retorno a actividades normales. El protocolo se adapta al tipo de cirugía y las indicaciones del cirujano.',
+  },
+  {
+    question: '¿Aceptan seguros médicos o cómo funciona el pago?',
+    answer: 'Aceptamos pago en efectivo, tarjetas de crédito/débito, SINPE Móvil y transferencias bancarias en colones o dólares. Para seguros médicos, proporcionamos facturas electrónicas para que tramites el reembolso con tu aseguradora.',
+  },
+];
+
+// HowTo schema for appointment booking (AEO)
+const howToBookAppointment = {
+  name: 'Cómo agendar una cita de fisioterapia en Physical Care',
+  description: 'Guía paso a paso para agendar tu primera consulta de fisioterapia en Physical Care Fisioterapia, San Pedro, Costa Rica.',
+  steps: [
+    {
+      name: 'Contactar por WhatsApp',
+      text: 'Envía un mensaje de WhatsApp al +506 8733-7942 indicando tu nombre y el tipo de consulta que necesitas (evaluación inicial, seguimiento, tratamiento específico).',
+      url: 'https://wa.me/50687337942',
+    },
+    {
+      name: 'Describir tu condición',
+      text: 'Cuéntanos brevemente qué molestias tienes, cuánto tiempo llevas con el problema y si tienes algún diagnóstico médico previo.',
+    },
+    {
+      name: 'Seleccionar fecha y hora',
+      text: 'Te ofreceremos las opciones disponibles de lunes a viernes de 8am a 8pm y sábados de 9am a 2pm. Elige la que mejor se ajuste a tu horario.',
+    },
+    {
+      name: 'Confirmar la cita',
+      text: 'Recibirás una confirmación con la dirección exacta en San Pedro de Montes de Oca y recomendaciones para tu primera visita (ropa cómoda, estudios previos si los tienes).',
+    },
+  ],
+  totalTime: 'PT5M',
+};
+
 export default function Page() {
   return (
     <>
@@ -174,6 +228,14 @@ export default function Page() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
+      />
+      <FAQSchema faqs={serviciosFAQs} id="servicios-faq-schema" />
+      <HowToSchema
+        name={howToBookAppointment.name}
+        description={howToBookAppointment.description}
+        steps={howToBookAppointment.steps}
+        totalTime={howToBookAppointment.totalTime}
+        id="booking-howto-schema"
       />
       <ServiciosEspecializadosPage />
     </>

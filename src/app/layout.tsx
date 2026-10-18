@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Lora, Raleway } from "next/font/google";
 import Script from "next/script";
 import { Chatbot } from "@/components/chatbot";
+import { WebsiteSchema, LocalBusinessSchema } from "@/components/seo";
 import "./globals.css";
 
 // Google Analytics 4 Measurement ID
@@ -303,6 +304,30 @@ export default function RootLayout({
       <body className="min-h-screen bg-[#F4F7F8] text-[#111827] antialiased">
         {children}
         <Chatbot />
+        {/* SEO/GEO/AEO Schema Components */}
+        <WebsiteSchema />
+        <LocalBusinessSchema
+          reviews={[
+            {
+              author: 'María González',
+              reviewBody: 'Excelente atención y profesionalismo. El tratamiento de ondas de choque me ayudó mucho con mi fascitis plantar. Muy recomendado.',
+              reviewRating: 5,
+              datePublished: '2026-08-15',
+            },
+            {
+              author: 'Carlos Rodríguez',
+              reviewBody: 'Mi mamá de 78 años ha mejorado muchísimo su equilibrio y movilidad gracias a la fisioterapia geriátrica. El equipo es muy paciente y cariñoso.',
+              reviewRating: 5,
+              datePublished: '2026-09-22',
+            },
+            {
+              author: 'Andrea Vargas',
+              reviewBody: 'Después de mi cirugía de rodilla, Physical Care me ayudó a recuperar mi movilidad completamente. Tecnología de primera y excelentes profesionales.',
+              reviewRating: 5,
+              datePublished: '2026-07-10',
+            },
+          ]}
+        />
         {/* Google Analytics 4 - loaded lazily to avoid preload warnings */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
