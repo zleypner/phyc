@@ -13,10 +13,12 @@ import {
   X,
   ChevronLeft,
   ExternalLink,
-  MapPin,
-  GraduationCap,
+  Award,
+  Users,
   Building2,
   Zap,
+  Globe,
+  Mic,
 } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -30,13 +32,13 @@ const WhatsAppIcon = ({ className = '' }: { className?: string }) => (
 
 // Article data
 const articleData = {
-  title: 'Physical Care en Argentina: capacitación, innovación y experiencia en instituciones deportivas de alto rendimiento',
-  badge: 'Capacitación Internacional',
+  title: 'Physical Care en Argentina: fisioterapeuta costarricense capacita a instituciones deportivas de élite',
+  badge: 'Capacitador Internacional',
   description:
-    'El MSc. Enmanuel Li Torres, director clínico de Physical Care Fisioterapia, realizó una visita profesional a Argentina, donde participó en actividades de capacitación y conoció diferentes instituciones vinculadas con la medicina deportiva y la rehabilitación.',
+    'El MSc. Enmanuel Li Torres, director clínico de Physical Care Fisioterapia, fue invitado a Argentina para impartir capacitaciones en instituciones deportivas de alto rendimiento, incluyendo River Plate, San Lorenzo y el Comité Olímpico Argentino.',
   author: 'MSc. Enmanuel Li Torres',
   authorRole: 'Director Clínico y General, Physical Care Fisioterapia',
-  readingTime: '6 minutos de lectura',
+  readingTime: '7 minutos de lectura',
   publishDate: '2026-11-13',
   publishDateFormatted: '13 de noviembre de 2026',
 };
@@ -45,18 +47,18 @@ const articleData = {
 const galleryImages = [
   {
     src: '/images/emma-personalbrand/argentina/1.jpeg',
-    alt: 'MSc. Enmanuel Li Torres durante su visita profesional a Argentina para capacitación en medicina deportiva y rehabilitación',
-    caption: 'Visita profesional a instituciones deportivas de Argentina',
+    alt: 'MSc. Enmanuel Li Torres impartiendo capacitación en fisioterapia deportiva en Argentina',
+    caption: 'Capacitación en instituciones deportivas de Argentina',
   },
   {
     src: '/images/emma-personalbrand/argentina/2.jpeg',
-    alt: 'Enmanuel Li Torres en actividades de capacitación e innovación tecnológica en Argentina',
-    caption: 'Capacitación e innovación en medicina deportiva',
+    alt: 'Enmanuel Li Torres como instructor experto en tecnologías de rehabilitación STORZ MEDICAL',
+    caption: 'Instrucción en tecnologías avanzadas de rehabilitación',
   },
   {
     src: '/images/emma-personalbrand/argentina/3.jpeg',
-    alt: 'Experiencia internacional de Physical Care Fisioterapia en instituciones deportivas de alto rendimiento',
-    caption: 'Experiencia en instituciones de alto rendimiento',
+    alt: 'Fisioterapeuta costarricense capacitando equipos médicos de clubes de fútbol argentinos',
+    caption: 'Formación a equipos médicos de alto rendimiento',
   },
 ];
 
@@ -66,48 +68,77 @@ const heroImage = galleryImages[0];
 // FAQ data
 const faqData = [
   {
-    question: '¿Qué instituciones visitó el director clínico de Physical Care en Argentina?',
+    question: '¿En qué instituciones impartió capacitaciones el MSc. Enmanuel Li Torres en Argentina?',
     answer:
-      'El MSc. Enmanuel Li Torres visitó clínicas, el Comité Olímpico Argentino y los clubes profesionales River Plate y San Lorenzo de Almagro.',
+      'El MSc. Enmanuel Li Torres fue invitado como capacitador experto a instituciones de élite incluyendo el Club Atlético River Plate, el Club Atlético San Lorenzo de Almagro, el Comité Olímpico Argentino y diversas clínicas especializadas en medicina deportiva.',
   },
   {
-    question: '¿Qué importancia tiene la capacitación internacional en fisioterapia?',
+    question: '¿Qué tipo de capacitaciones impartió Physical Care en Argentina?',
     answer:
-      'Permite conocer nuevas investigaciones, tecnologías y enfoques profesionales que pueden contribuir a la actualización del conocimiento clínico.',
+      'Las capacitaciones abarcaron tecnologías avanzadas de rehabilitación como ondas de choque, magnetotransducción EMTT con Magnetolith, protocolos de recuperación deportiva y metodologías de tratamiento basadas en evidencia científica.',
   },
   {
-    question: '¿Physical Care ofrece rehabilitación deportiva?',
+    question: '¿Por qué instituciones argentinas invitaron a un fisioterapeuta de Costa Rica?',
     answer:
-      'Sí. Physical Care cuenta con servicios de fisioterapia y rehabilitación deportiva, orientados a la recuperación funcional y al regreso progresivo a las actividades físicas.',
+      'El MSc. Enmanuel Li Torres es reconocido internacionalmente por su expertise en tecnologías de rehabilitación de STORZ MEDICAL y su experiencia clínica de más de 9 años. Su participación en congresos internacionales y publicaciones lo posicionan como referente en fisioterapia avanzada.',
   },
   {
-    question: '¿Cómo puedo agendar una valoración?',
+    question: '¿Physical Care ofrece la misma calidad de atención que reciben los atletas de élite?',
     answer:
-      'Puedes comunicarte con Physical Care Fisioterapia mediante WhatsApp para consultar disponibilidad y conocer las opciones de atención.',
+      'Sí. En Physical Care Fisioterapia aplicamos los mismos protocolos, tecnologías y metodologías que utilizamos para capacitar a instituciones deportivas de alto rendimiento. Cada paciente recibe atención especializada independientemente de si es deportista profesional o no.',
+  },
+  {
+    question: '¿Cómo puedo agendar una valoración con el equipo de Physical Care?',
+    answer:
+      'Puedes agendar tu valoración contactando a Physical Care Fisioterapia por WhatsApp al +506 8733-7942. Estamos ubicados en San Pedro de Montes de Oca, San José, Costa Rica.',
   },
 ];
 
-// Institutions visited
-const institutionsVisited = [
+// Institutions where training was given
+const institutionsTrained = [
   {
     name: 'Club Atlético River Plate',
-    description: 'Uno de los clubes más reconocidos del fútbol argentino.',
+    description: 'Capacitación al equipo médico de uno de los clubes más grandes de Sudamérica.',
     icon: Building2,
+    highlight: 'Fútbol Profesional',
   },
   {
     name: 'Club Atlético San Lorenzo de Almagro',
-    description: 'Institución histórica del fútbol de primera división.',
+    description: 'Formación en protocolos de rehabilitación deportiva de alto rendimiento.',
     icon: Building2,
+    highlight: 'Primera División',
   },
   {
     name: 'Comité Olímpico Argentino',
-    description: 'Organización vinculada con el desarrollo del deporte olímpico.',
-    icon: GraduationCap,
+    description: 'Instrucción en tecnologías avanzadas para atletas olímpicos.',
+    icon: Award,
+    highlight: 'Deporte Olímpico',
   },
   {
-    name: 'Clínicas y centros especializados',
-    description: 'Centros relacionados con la atención y rehabilitación física.',
-    icon: MapPin,
+    name: 'Clínicas especializadas',
+    description: 'Talleres sobre protocolos EMTT y ondas de choque para profesionales de salud.',
+    icon: Users,
+    highlight: 'Profesionales de Salud',
+  },
+];
+
+// Training topics
+const trainingTopics = [
+  {
+    title: 'Ondas de Choque Focales y Radiales',
+    description: 'Protocolos avanzados de dosimetría y aplicación clínica para tendinopatías y lesiones musculoesqueléticas.',
+  },
+  {
+    title: 'Magnetotransducción EMTT',
+    description: 'Uso del Magnetolith para rehabilitación de tejidos blandos y potenciación de resultados clínicos.',
+  },
+  {
+    title: 'Rehabilitación Deportiva',
+    description: 'Metodologías de retorno al deporte seguro y progresivo para atletas de alto rendimiento.',
+  },
+  {
+    title: 'NEUROLITH - Nueva Tecnología',
+    description: 'Participación como instructor experto en el lanzamiento de tecnología de estimulación transcraneal.',
   },
 ];
 
@@ -325,8 +356,8 @@ function HeroSection() {
         >
           {/* Badge */}
           <motion.div variants={fadeInUp} className="mb-6">
-            <span className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white/[0.08] backdrop-blur-md border border-white/[0.12] text-white/90 text-sm font-medium">
-              <span className="w-2 h-2 rounded-full bg-[#5EEAD4] animate-pulse" />
+            <span className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#8DC741]/20 backdrop-blur-md border border-[#8DC741]/30 text-white text-sm font-medium">
+              <Globe className="w-4 h-4 text-[#8DC741]" />
               {articleData.badge}
             </span>
           </motion.div>
@@ -337,11 +368,14 @@ function HeroSection() {
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.15] tracking-[-0.02em] mb-6"
             style={{ fontFamily: 'var(--font-lora), Georgia, serif' }}
           >
-            Physical Care en{' '}
+            Fisioterapeuta costarricense{' '}
+            <span className="bg-gradient-to-r from-[#8DC741] via-[#A8E063] to-[#8DC741] bg-clip-text text-transparent">
+              capacita
+            </span>{' '}
+            a instituciones deportivas de élite en{' '}
             <span className="bg-gradient-to-r from-[#06B8BF] via-[#5EEAD4] to-[#06B8BF] bg-clip-text text-transparent">
               Argentina
             </span>
-            : capacitación e innovación en deporte de alto rendimiento
           </motion.h1>
 
           {/* Description */}
@@ -396,7 +430,7 @@ function Breadcrumb() {
         </li>
         <ChevronRight size={14} className="text-[#9CA3AF]" />
         <li className="text-[#0E3A4A] font-medium truncate max-w-[200px] sm:max-w-none">
-          Physical Care en Argentina
+          Capacitador Internacional en Argentina
         </li>
       </ol>
     </nav>
@@ -434,9 +468,9 @@ function ImageGallery() {
     <>
       <div className="my-12">
         <h3 className="text-2xl font-bold text-[#0E3A4A] mb-6">
-          Galería de la visita a Argentina
+          Galería: capacitaciones en Argentina
         </h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 gap-4">
           {galleryImagesWithoutHero.map((image, index) => (
             <button
               key={index}
@@ -482,7 +516,7 @@ function ImageGallery() {
 function InstitutionsGrid() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
-      {institutionsVisited.map((institution, index) => {
+      {institutionsTrained.map((institution, index) => {
         const Icon = institution.icon;
         return (
           <motion.div
@@ -497,14 +531,47 @@ function InstitutionsGrid() {
               <div className="w-12 h-12 rounded-xl bg-[#1E88A8]/10 flex items-center justify-center flex-shrink-0">
                 <Icon className="w-6 h-6 text-[#1E88A8]" />
               </div>
-              <div>
-                <h4 className="font-bold text-[#0E3A4A] mb-1">{institution.name}</h4>
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-1">
+                  <h4 className="font-bold text-[#0E3A4A]">{institution.name}</h4>
+                </div>
+                <span className="inline-block px-2 py-0.5 text-xs font-medium bg-[#8DC741]/15 text-[#6B9930] rounded-full mb-2">
+                  {institution.highlight}
+                </span>
                 <p className="text-sm text-[#64748B]">{institution.description}</p>
               </div>
             </div>
           </motion.div>
         );
       })}
+    </div>
+  );
+}
+
+// ============================================
+// TRAINING TOPICS COMPONENT
+// ============================================
+function TrainingTopics() {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
+      {trainingTopics.map((topic, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ delay: index * 0.1 }}
+          viewport={{ once: true }}
+          className="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 hover:border-[#1E88A8]/30 transition-colors"
+        >
+          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#1E88A8] to-[#0E3A4A] flex items-center justify-center flex-shrink-0">
+            <Mic className="w-5 h-5 text-white" />
+          </div>
+          <div>
+            <h4 className="font-bold text-[#0E3A4A] mb-1">{topic.title}</h4>
+            <p className="text-sm text-[#64748B]">{topic.description}</p>
+          </div>
+        </motion.div>
+      ))}
     </div>
   );
 }
@@ -534,50 +601,75 @@ function ArticleContent() {
           sizes="(max-width: 1024px) 100vw, 1024px"
           priority
         />
+        <div className="absolute bottom-4 left-4 right-4">
+          <span className="inline-flex items-center gap-2 px-4 py-2 bg-black/60 backdrop-blur-sm rounded-full text-white text-sm font-medium">
+            <Globe className="w-4 h-4" />
+            MSc. Enmanuel Li Torres impartiendo capacitación internacional
+          </span>
+        </div>
+      </motion.div>
+
+      {/* Key achievement highlight */}
+      <motion.div variants={fadeInUp} className="bg-gradient-to-r from-[#0E3A4A] to-[#1E88A8] rounded-2xl p-6 sm:p-8 mb-12 text-white">
+        <div className="flex items-start gap-4">
+          <Award className="w-10 h-10 text-[#8DC741] flex-shrink-0" />
+          <div>
+            <h2 className="text-xl sm:text-2xl font-bold mb-2 text-white">Reconocimiento Internacional</h2>
+            <p className="text-white/90 m-0">
+              El MSc. Enmanuel Li Torres fue invitado como <strong>capacitador experto</strong> por STORZ MEDICAL para instruir a profesionales de instituciones deportivas de élite en Argentina, incluyendo equipos de la primera división del fútbol argentino y el Comité Olímpico.
+            </p>
+          </div>
+        </div>
       </motion.div>
 
       {/* Introduction */}
       <motion.section variants={fadeInUp}>
+        <h2 className="text-2xl sm:text-3xl font-bold text-[#0E3A4A] mb-6">
+          De Costa Rica a Argentina: expertise que cruza fronteras
+        </h2>
         <p className="text-[#64748B] leading-relaxed mb-4 text-lg">
-          La fisioterapia evoluciona constantemente. Nuevas investigaciones, tecnologías y metodologías están transformando la manera de abordar las lesiones, la rehabilitación y la recuperación física.
+          Cuando hablamos de terapia física de alto nivel, el conocimiento no tiene fronteras. El MSc. Enmanuel Li Torres, director clínico de Physical Care Fisioterapia, fue convocado por STORZ MEDICAL para llevar su expertise a Argentina y capacitar a equipos médicos de las instituciones deportivas más importantes del país.
         </p>
         <p className="text-[#64748B] leading-relaxed mb-4">
-          Con el compromiso de mantenerse actualizado, el MSc. Enmanuel Li Torres, director clínico de Physical Care Fisioterapia, realizó una visita profesional a Argentina, donde participó en actividades de capacitación y conoció diferentes instituciones vinculadas con la medicina deportiva y la rehabilitación.
+          Esta invitación no es casualidad. Con más de 9 años de experiencia clínica, certificaciones internacionales en tecnologías de rehabilitación y una trayectoria de presentaciones en congresos internacionales, Enmanuel se ha posicionado como un referente latinoamericano en fisioterapia avanzada.
         </p>
         <p className="text-[#64748B] leading-relaxed">
-          Durante esta experiencia visitó clínicas, el Comité Olímpico Argentino y dos reconocidos clubes del fútbol profesional: River Plate y San Lorenzo de Almagro.
+          Durante su visita a Argentina, impartió capacitaciones especializadas en instituciones que atienden a atletas de élite y deportistas profesionales, compartiendo los mismos protocolos y metodologías que aplica diariamente en Physical Care Fisioterapia.
         </p>
       </motion.section>
 
-      {/* High performance sports section */}
+      {/* Institutions trained section */}
       <motion.section variants={fadeInUp} className="mt-12">
         <h2 className="text-2xl sm:text-3xl font-bold text-[#0E3A4A] mb-6">
-          Experiencia y aprendizaje en el deporte de alto rendimiento
+          Instituciones capacitadas
         </h2>
-        <p className="text-[#64748B] leading-relaxed mb-4">
-          La recuperación de un deportista requiere mucho más que tratar una lesión. Implica comprender las exigencias físicas de su disciplina, evaluar su evolución y desarrollar estrategias para regresar a la actividad de manera segura.
-        </p>
         <p className="text-[#64748B] leading-relaxed mb-6">
-          Durante su visita a Argentina, Enmanuel tuvo la oportunidad de conocer entornos vinculados con el deporte profesional y ampliar su perspectiva sobre la rehabilitación y el rendimiento físico.
+          El programa de capacitación incluyó sesiones teórico-prácticas en algunas de las instituciones deportivas más prestigiosas de Argentina:
         </p>
-
-        <h3 className="text-xl font-bold text-[#0E3A4A] mb-4">
-          Instituciones visitadas
-        </h3>
         <InstitutionsGrid />
-
         <p className="text-[#64748B] leading-relaxed mt-6">
-          Estas experiencias forman parte de su proceso de actualización profesional y permiten conocer diferentes perspectivas sobre el trabajo en salud y deporte.
+          En cada institución, los equipos médicos recibieron formación intensiva sobre el uso correcto de tecnologías de rehabilitación, protocolos basados en evidencia científica y estrategias de recuperación para deportistas de alto rendimiento.
         </p>
+      </motion.section>
+
+      {/* Training topics section */}
+      <motion.section variants={fadeInUp} className="mt-12">
+        <h2 className="text-2xl sm:text-3xl font-bold text-[#0E3A4A] mb-6">
+          Temas de capacitación impartidos
+        </h2>
+        <p className="text-[#64748B] leading-relaxed mb-6">
+          Las capacitaciones abarcaron las tecnologías y metodologías más avanzadas en rehabilitación deportiva:
+        </p>
+        <TrainingTopics />
       </motion.section>
 
       {/* NEUROLITH section */}
       <motion.section variants={fadeInUp} className="mt-12">
         <h2 className="text-2xl sm:text-3xl font-bold text-[#0E3A4A] mb-6">
-          Capacitación e innovación tecnológica
+          Instructor en el lanzamiento de NEUROLITH
         </h2>
         <p className="text-[#64748B] leading-relaxed mb-4">
-          Otro aspecto importante de esta experiencia fue su participación en actividades de capacitación y en el lanzamiento de NEUROLITH, una tecnología desarrollada por STORZ MEDICAL.
+          Como parte de esta visita, el MSc. Enmanuel Li Torres participó como instructor experto en el lanzamiento regional de NEUROLITH, la nueva tecnología de STORZ MEDICAL para estimulación transcraneal por pulsos acústicos.
         </p>
 
         <div className="bg-gradient-to-r from-[#1E88A8]/10 to-[#1E88A8]/5 rounded-2xl p-6 border-l-4 border-[#1E88A8] my-8">
@@ -586,66 +678,61 @@ function ArticleContent() {
             <div>
               <h4 className="font-bold text-[#0E3A4A] mb-2">NEUROLITH - STORZ MEDICAL</h4>
               <p className="text-[#64748B] m-0">
-                NEUROLITH utiliza estimulación transcraneal por pulsos acústicos, una tecnología que se investiga como posible intervención complementaria para personas con enfermedad de Alzheimer.
+                NEUROLITH representa la frontera de la innovación en neurociencias. El MSc. Li Torres fue seleccionado para instruir sobre esta tecnología debido a su dominio de los equipos STORZ MEDICAL y su capacidad para traducir conceptos complejos en aplicaciones clínicas prácticas.
               </p>
             </div>
           </div>
         </div>
 
-        <p className="text-[#64748B] leading-relaxed mb-4">
-          Aunque los estudios iniciales muestran resultados de interés, todavía se necesita más investigación para establecer su eficacia clínica a largo plazo. No se ha demostrado que cure el Alzheimer.
-        </p>
         <p className="text-[#64748B] leading-relaxed">
-          Conocer este tipo de innovaciones permite ampliar la comprensión de los avances científicos y tecnológicos en las ciencias de la salud.
+          Esta participación refuerza el posicionamiento de Physical Care Fisioterapia como centro de referencia en tecnologías de rehabilitación avanzada en Latinoamérica.
         </p>
       </motion.section>
 
       {/* Gallery */}
       <ImageGallery />
 
-      {/* What this means for Physical Care */}
+      {/* What this means for patients */}
       <motion.section variants={fadeInUp} className="mt-12">
         <h2 className="text-2xl sm:text-3xl font-bold text-[#0E3A4A] mb-6">
-          ¿Qué significa esta experiencia para Physical Care?
+          ¿Qué significa esto para los pacientes de Physical Care?
         </h2>
         <p className="text-[#64748B] leading-relaxed mb-4">
-          En Physical Care creemos que la formación continua es fundamental para ofrecer una atención profesional y actualizada.
-        </p>
-        <p className="text-[#64748B] leading-relaxed mb-4">
-          La experiencia internacional de nuestro director clínico fortalece su perspectiva sobre la rehabilitación, la recuperación funcional y el movimiento humano.
-        </p>
-        <p className="text-[#64748B] leading-relaxed">
-          Nuestro enfoque es comprender las necesidades de cada persona y desarrollar programas de fisioterapia adaptados a sus objetivos.
+          Cuando un profesional es invitado a capacitar a instituciones deportivas de élite en otro país, sus pacientes son los principales beneficiados.
         </p>
 
         <div className="bg-gradient-to-r from-[#8DC741]/10 to-[#8DC741]/5 rounded-2xl p-6 border-l-4 border-[#8DC741] my-8">
           <p className="text-[#0E3A4A] font-semibold text-lg m-0">
-            Ya sea que practiques deporte, tengas una lesión o presentes molestias que afectan tus actividades diarias, una valoración profesional puede ayudarte a identificar el camino adecuado para tu recuperación.
+            Los mismos protocolos, tecnologías y metodologías que se enseñan a los equipos médicos de River Plate, San Lorenzo y el Comité Olímpico Argentino están disponibles para ti en Physical Care Fisioterapia, en San Pedro de Montes de Oca, Costa Rica.
           </p>
         </div>
+
+        <p className="text-[#64748B] leading-relaxed mb-4">
+          No necesitas ser deportista profesional para recibir atención de nivel internacional. En Physical Care, cada paciente —sea atleta de élite, deportista recreativo o persona con dolor crónico— recibe el mismo estándar de excelencia.
+        </p>
+        <p className="text-[#64748B] leading-relaxed">
+          La experiencia internacional de nuestro director clínico se traduce directamente en mejores resultados para nuestros pacientes: diagnósticos más precisos, tratamientos más efectivos y recuperaciones más rápidas.
+        </p>
       </motion.section>
 
       {/* CTA inline */}
       <motion.section variants={fadeInUp} className="mt-12">
         <h2 className="text-2xl sm:text-3xl font-bold text-[#0E3A4A] mb-6">
-          Tu recuperación también merece atención especializada
+          Recibe atención de nivel internacional en Costa Rica
         </h2>
-        <p className="text-[#64748B] leading-relaxed mb-4">
-          No necesitas ser deportista profesional para darle importancia a tu salud física.
-        </p>
         <p className="text-[#64748B] leading-relaxed mb-6">
-          Si presentas dolor muscular, lesiones deportivas, molestias articulares o dificultades de movilidad, en <Link href="/" className="text-[#1E88A8] hover:underline">Physical Care Fisioterapia</Link> podemos orientarte.
+          Ya sea que tengas una lesión deportiva, dolor crónico, necesites rehabilitación post-quirúrgica o simplemente quieras mejorar tu rendimiento físico, en <Link href="/" className="text-[#1E88A8] hover:underline font-medium">Physical Care Fisioterapia</Link> tenemos la expertise y la tecnología para ayudarte.
         </p>
 
         <div className="bg-[#F4F7F8] rounded-2xl p-6 sm:p-8">
           <h3 className="text-xl font-bold text-[#0E3A4A] mb-4">
-            Agenda tu valoración
+            Agenda tu valoración con el equipo de Physical Care
           </h3>
           <p className="text-[#64748B] mb-6">
-            Cuéntanos qué molestias tienes y conoce las opciones de rehabilitación disponibles para ti.
+            Conversemos sobre tu situación y diseñemos un plan de tratamiento personalizado con la misma calidad que reciben los atletas de élite.
           </p>
           <a
-            href="https://wa.me/50687337942?text=Hola!%20Quiero%20agendar%20una%20valoracion.%20Lei%20el%20articulo%20sobre%20la%20visita%20a%20Argentina."
+            href="https://wa.me/50687337942?text=Hola!%20Quiero%20agendar%20una%20valoracion.%20Lei%20el%20articulo%20sobre%20las%20capacitaciones%20en%20Argentina."
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center justify-center gap-2.5 h-14 px-8 bg-[#25D366] text-white rounded-full font-semibold text-base shadow-xl shadow-[#25D366]/25 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#25D366]/30 hover:bg-[#20BA5C]"
@@ -717,36 +804,34 @@ function CTASection() {
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(ellipse 60% 60% at 50% 50%, rgba(94, 234, 212, 0.12) 0%, transparent 70%)',
+            'radial-gradient(ellipse 60% 60% at 50% 50%, rgba(141, 199, 65, 0.15) 0%, transparent 70%)',
         }}
       />
 
       {/* Content */}
       <div className="relative z-10 px-6 sm:px-10 lg:px-16 text-center">
+        <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 bg-[#8DC741]/20 rounded-full text-white text-sm font-medium mb-6">
+          <Award className="w-4 h-4 text-[#8DC741]" />
+          Expertise internacional a tu alcance
+        </motion.div>
         <motion.h2
           variants={fadeInUp}
           className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight mb-4"
         >
-          Agende una valoración en Physical Care Fisioterapia
+          Agende una valoración con el equipo que capacita a instituciones de élite
         </motion.h2>
         <motion.p
           variants={fadeInUp}
           className="text-lg text-white/80 leading-relaxed mb-8 max-w-2xl mx-auto"
         >
-          Si experimenta dolor muscular, lesiones deportivas, molestias articulares o dificultades para recuperar su movilidad, una valoración profesional puede ayudarle a comprender su condición y las alternativas de tratamiento disponibles.
-        </motion.p>
-        <motion.p
-          variants={fadeInUp}
-          className="text-white/70 mb-10"
-        >
-          En Physical Care Fisioterapia, cada programa se adapta a las necesidades y objetivos de la persona.
+          El mismo nivel de atención que reciben los atletas de River Plate, San Lorenzo y el Comité Olímpico Argentino está disponible para usted en Physical Care Fisioterapia, San Pedro, Costa Rica.
         </motion.p>
         <motion.div
           variants={fadeInUp}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <a
-            href="https://wa.me/50687337942?text=Hola!%20Quiero%20agendar%20una%20valoracion.%20Lei%20el%20articulo%20sobre%20la%20visita%20a%20Argentina."
+            href="https://wa.me/50687337942?text=Hola!%20Quiero%20agendar%20una%20valoracion.%20Lei%20el%20articulo%20sobre%20las%20capacitaciones%20en%20Argentina."
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center justify-center gap-2.5 h-14 px-8 bg-[#25D366] text-white rounded-full font-semibold text-base shadow-xl shadow-[#25D366]/25 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#25D366]/30 hover:bg-[#20BA5C]"

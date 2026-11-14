@@ -7,9 +7,9 @@ const heroImage = '/images/emma-personalbrand/argentina/1.jpeg';
 const publishDate = '2026-11-13';
 
 export const metadata: Metadata = {
-  title: 'Terapia Física Costa Rica: Capacitación Internacional en Argentina | Physical Care',
+  title: 'Fisioterapeuta Costarricense Capacita a River Plate y San Lorenzo en Argentina | Physical Care',
   description:
-    'El MSc. Enmanuel Li Torres, fisioterapeuta especialista en Costa Rica, visitó instituciones deportivas de élite en Argentina: River Plate, San Lorenzo y el Comité Olímpico Argentino. Conoce la capacitación internacional que respalda la terapia física de Physical Care.',
+    'El MSc. Enmanuel Li Torres fue invitado como capacitador experto a Argentina para instruir a instituciones deportivas de élite: River Plate, San Lorenzo y el Comité Olímpico Argentino. Terapia física de nivel internacional en Costa Rica.',
   keywords: [
     // Primary - Terapia Física Costa Rica
     'terapia fisica costa rica',
@@ -63,9 +63,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Terapia Física Costa Rica: Capacitación Internacional en Instituciones Deportivas de Argentina',
+    title: 'Fisioterapeuta Costarricense Capacita a Instituciones Deportivas de Élite en Argentina',
     description:
-      'El director clínico de Physical Care visitó River Plate, San Lorenzo y el Comité Olímpico Argentino. Experiencia internacional al servicio de la rehabilitación deportiva en Costa Rica.',
+      'El MSc. Enmanuel Li Torres fue invitado como instructor experto a River Plate, San Lorenzo y el Comité Olímpico Argentino. El mismo expertise disponible en Physical Care Costa Rica.',
     url: articleUrl,
     siteName: 'Physical Care Fisioterapia',
     locale: 'es_CR',

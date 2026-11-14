@@ -11,14 +11,14 @@ const blogArticles = [
   {
     id: 'a2',
     slug: 'physical-care-argentina-capacitacion-instituciones-deportivas',
-    title: 'Physical Care en Argentina: capacitación, innovación y experiencia en instituciones deportivas',
+    title: 'Fisioterapeuta costarricense capacita a River Plate, San Lorenzo y Comité Olímpico Argentino',
     description:
-      'El MSc. Enmanuel Li Torres visitó Argentina para capacitación profesional, conociendo el Comité Olímpico Argentino, River Plate, San Lorenzo y el lanzamiento de NEUROLITH.',
+      'El MSc. Enmanuel Li Torres fue invitado como instructor experto a Argentina para capacitar a instituciones deportivas de élite en tecnologías avanzadas de rehabilitación.',
     image: '/images/emma-personalbrand/argentina/1.jpeg',
-    category: 'Capacitación Internacional',
+    category: 'Capacitador Internacional',
     author: 'MSc. Enmanuel Li Torres',
     date: '13 de noviembre de 2026',
-    readingTime: '6 min',
+    readingTime: '7 min',
   },
   {
     id: 'a1',
@@ -121,6 +121,7 @@ const categoryColors: Record<string, string> = {
   'Tratamientos': 'bg-[#8DC741]/15 text-[#6B9930]',
   'Investigacion y Fisioterapia': 'bg-[#1E88A8]/15 text-[#1E88A8]',
   'Capacitación Internacional': 'bg-[#1E88A8]/15 text-[#1E88A8]',
+  'Capacitador Internacional': 'bg-[#8DC741]/15 text-[#6B9930]',
 };
 
 // Video Modal Component
