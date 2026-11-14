@@ -9,6 +9,18 @@ import { ArrowRight, Play, Video, X, FileText, Clock } from 'lucide-react';
 // Blog articles data
 const blogArticles = [
   {
+    id: 'a2',
+    slug: 'physical-care-argentina-capacitacion-instituciones-deportivas',
+    title: 'Physical Care en Argentina: capacitación, innovación y experiencia en instituciones deportivas',
+    description:
+      'El MSc. Enmanuel Li Torres visitó Argentina para capacitación profesional, conociendo el Comité Olímpico Argentino, River Plate, San Lorenzo y el lanzamiento de NEUROLITH.',
+    image: '/images/emma-personalbrand/argentina/1.jpeg',
+    category: 'Capacitación Internacional',
+    author: 'MSc. Enmanuel Li Torres',
+    date: '13 de noviembre de 2026',
+    readingTime: '6 min',
+  },
+  {
     id: 'a1',
     slug: 'mas-alla-del-dolor-fisioterapia-costa-rica',
     title: 'Más allá del dolor: fisioterapia avanzada, Magnetolith y ondas de choque en Costa Rica',
@@ -108,6 +120,7 @@ const categoryColors: Record<string, string> = {
   'Bienestar': 'bg-[#8DC741]/15 text-[#6B9930]',
   'Tratamientos': 'bg-[#8DC741]/15 text-[#6B9930]',
   'Investigacion y Fisioterapia': 'bg-[#1E88A8]/15 text-[#1E88A8]',
+  'Capacitación Internacional': 'bg-[#1E88A8]/15 text-[#1E88A8]',
 };
 
 // Video Modal Component

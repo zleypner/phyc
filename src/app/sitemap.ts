@@ -75,6 +75,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     // Blog articles
     {
+      url: `${baseUrl}/blog/physical-care-argentina-capacitacion-instituciones-deportivas`,
+      lastModified: new Date('2026-11-13'),
+      changeFrequency: 'monthly',
+      priority: 0.85,
+      images: [
+        `${baseUrl}/images/emma-personalbrand/argentina/1.jpeg`,
+        `${baseUrl}/images/emma-personalbrand/argentina/2.jpeg`,
+        `${baseUrl}/images/emma-personalbrand/argentina/3.jpeg`,
+      ],
+    },
+    {
       url: `${baseUrl}/blog/mas-alla-del-dolor-fisioterapia-costa-rica`,
       lastModified: new Date('2026-10-14'),
       changeFrequency: 'monthly',
