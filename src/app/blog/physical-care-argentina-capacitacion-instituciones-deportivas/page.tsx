@@ -80,7 +80,7 @@ const faqData = [
   {
     question: '¿Por qué instituciones argentinas invitaron a un fisioterapeuta de Costa Rica?',
     answer:
-      'El MSc. Enmanuel Li Torres es reconocido internacionalmente por su expertise en tecnologías de rehabilitación de STORZ MEDICAL y su experiencia clínica de más de 9 años. Su participación en congresos internacionales y publicaciones lo posicionan como referente en fisioterapia avanzada.',
+      'El MSc. Enmanuel Li Torres es reconocido internacionalmente por su expertise en tecnologías de rehabilitación de STORZ MEDICAL y su experiencia clínica de más de 12 años. Su participación en congresos internacionales y publicaciones lo posicionan como referente en fisioterapia avanzada.',
   },
   {
     question: '¿Physical Care ofrece la misma calidad de atención que reciben los atletas de élite?',

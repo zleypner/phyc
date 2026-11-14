@@ -43,11 +43,24 @@ export const metadata: Metadata = {
     'physical care fisioterapia',
     'mejor fisioterapeuta costa rica',
     'clinica fisioterapia san pedro',
+    // Capacitación internacional
+    'fisioterapeuta capacitador internacional',
+    'capacitacion fisioterapia argentina',
+    'capacitacion fisioterapia colombia',
+    'fisioterapeuta river plate',
+    'fisioterapeuta san lorenzo',
+    'comite olimpico argentino fisioterapia',
+    // Ubicaciones internacionales
+    'fisioterapia buenos aires',
+    'fisioterapia bogota colombia',
+    'capacitador latinoamericano fisioterapia',
     // English keywords
     'physical therapy costa rica',
     'sports rehabilitation costa rica',
     'sports physiotherapy san jose',
     'physical therapist costa rica',
+    'international physical therapy trainer',
+    'elite sports rehabilitation',
   ],
   authors: [
     {
@@ -142,7 +155,7 @@ const personSchema = {
   familyName: 'Li Torres',
   honorificPrefix: 'MSc.',
   jobTitle: 'Director Clínico y Fisioterapeuta Especialista',
-  description: 'Fisioterapeuta especialista en rehabilitación deportiva con más de 9 años de experiencia. Director clínico de Physical Care Fisioterapia en Costa Rica.',
+  description: 'Fisioterapeuta especialista en rehabilitación deportiva con más de 12 años de experiencia clínica. Director clínico de Physical Care Fisioterapia en Costa Rica. Capacitador internacional en Buenos Aires, Argentina y Bogotá, Colombia.',
   worksFor: {
     '@type': 'MedicalClinic',
     name: 'Physical Care Fisioterapia',
@@ -348,8 +361,12 @@ const articleSchema = {
       name: 'Club Atlético River Plate',
       sport: 'Football',
       location: {
-        '@type': 'Country',
-        name: 'Argentina',
+        '@type': 'City',
+        name: 'Buenos Aires',
+        containedInPlace: {
+          '@type': 'Country',
+          name: 'Argentina',
+        },
       },
     },
     {
@@ -357,14 +374,31 @@ const articleSchema = {
       name: 'Club Atlético San Lorenzo de Almagro',
       sport: 'Football',
       location: {
-        '@type': 'Country',
-        name: 'Argentina',
+        '@type': 'City',
+        name: 'Buenos Aires',
+        containedInPlace: {
+          '@type': 'Country',
+          name: 'Argentina',
+        },
       },
     },
     {
       '@type': 'Organization',
       name: 'Comité Olímpico Argentino',
       description: 'Organización vinculada con el desarrollo del deporte olímpico en Argentina.',
+      location: {
+        '@type': 'Country',
+        name: 'Argentina',
+      },
+    },
+    {
+      '@type': 'City',
+      name: 'Bogotá',
+      containedInPlace: {
+        '@type': 'Country',
+        name: 'Colombia',
+      },
+      description: 'Ciudad donde el MSc. Enmanuel Li Torres también ha impartido capacitaciones internacionales en fisioterapia.',
     },
   ],
   citation: [
@@ -391,7 +425,7 @@ const faqSchema = {
       name: '¿Dónde encontrar terapia física de calidad en Costa Rica?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Physical Care Fisioterapia, ubicada en San Pedro de Montes de Oca, San José, es un centro especializado en terapia física con más de 9 años de experiencia. El equipo está liderado por el MSc. Enmanuel Li Torres, quien cuenta con capacitación internacional en instituciones deportivas de élite como River Plate, San Lorenzo y el Comité Olímpico Argentino.',
+        text: 'Physical Care Fisioterapia, ubicada en San Pedro de Montes de Oca, San José, es un centro especializado en terapia física con más de 12 años de experiencia. El equipo está liderado por el MSc. Enmanuel Li Torres, quien cuenta con capacitación internacional en instituciones deportivas de élite como River Plate, San Lorenzo y el Comité Olímpico Argentino.',
       },
     },
     {
@@ -399,7 +433,15 @@ const faqSchema = {
       name: '¿Qué instituciones visitó el director clínico de Physical Care en Argentina?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'El MSc. Enmanuel Li Torres visitó el Club Atlético River Plate, el Club Atlético San Lorenzo de Almagro, el Comité Olímpico Argentino y diversas clínicas especializadas en medicina deportiva y rehabilitación.',
+        text: 'El MSc. Enmanuel Li Torres visitó el Club Atlético River Plate, el Club Atlético San Lorenzo de Almagro, el Comité Olímpico Argentino y diversas clínicas especializadas en medicina deportiva y rehabilitación en Buenos Aires, Argentina.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿En qué otros países ha dado capacitaciones el MSc. Enmanuel Li Torres?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Además de Buenos Aires, Argentina, el MSc. Enmanuel Li Torres también ha impartido capacitaciones en Bogotá, Colombia, consolidando su rol como capacitador internacional en fisioterapia y rehabilitación deportiva en Latinoamérica.',
       },
     },
     {
@@ -432,6 +474,30 @@ const faqSchema = {
       acceptedAnswer: {
         '@type': 'Answer',
         text: 'Physical Care Fisioterapia es reconocido como uno de los mejores centros de terapia física en San José, Costa Rica. Con más de 450 pacientes satisfechos, calificación de 4.9/5 estrellas, y un equipo liderado por profesionales con capacitación internacional, ofrece tratamientos especializados en rehabilitación deportiva, ondas de choque, tecarterapia y fisioterapia geriátrica.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Quién es Enmanuel Li Torres y cuál es su experiencia?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'El MSc. Enmanuel Li Torres es el director clínico de Physical Care Fisioterapia en Costa Rica. Con más de 12 años de experiencia clínica, es fisioterapeuta especialista en rehabilitación deportiva y capacitador internacional certificado por STORZ MEDICAL. Ha impartido capacitaciones en instituciones deportivas de élite en Argentina (River Plate, San Lorenzo, Comité Olímpico Argentino) y Colombia (Bogotá).',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Qué tecnologías de rehabilitación utiliza Physical Care?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Physical Care Fisioterapia utiliza tecnologías avanzadas de rehabilitación incluyendo ondas de choque focales y radiales, Magnetolith EMTT (magnetotransducción), tecarterapia, y protocolos basados en evidencia científica. El equipo está certificado por STORZ MEDICAL en el uso de estas tecnologías.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Physical Care atiende a deportistas profesionales?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sí. Physical Care Fisioterapia aplica los mismos protocolos y metodologías utilizados para capacitar a instituciones deportivas de alto rendimiento como River Plate y San Lorenzo. Cada paciente, sea deportista profesional, atleta amateur o persona con dolor crónico, recibe atención de nivel internacional.',
       },
     },
   ],
