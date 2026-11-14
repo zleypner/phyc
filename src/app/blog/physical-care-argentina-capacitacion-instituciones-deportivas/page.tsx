@@ -138,7 +138,7 @@ const trainingTopics = [
   },
   {
     title: 'NEUROLITH - Nueva Tecnología',
-    description: 'Participación como instructor experto en el lanzamiento de tecnología de estimulación transcraneal.',
+    description: 'Invitado al lanzamiento del primer equipo en Latinoamérica para formarse en esta tecnología de estimulación transcraneal.',
   },
 ];
 
@@ -666,10 +666,10 @@ function ArticleContent() {
       {/* NEUROLITH section */}
       <motion.section variants={fadeInUp} className="mt-12">
         <h2 className="text-2xl sm:text-3xl font-bold text-[#0E3A4A] mb-6">
-          Instructor en el lanzamiento de NEUROLITH
+          Invitado al lanzamiento de NEUROLITH
         </h2>
         <p className="text-[#64748B] leading-relaxed mb-4">
-          Como parte de esta visita, el MSc. Enmanuel Li Torres participó como instructor experto en el lanzamiento regional de NEUROLITH, la nueva tecnología de STORZ MEDICAL para estimulación transcraneal por pulsos acústicos.
+          Como parte de esta visita, el MSc. Enmanuel Li Torres fue invitado al lanzamiento del primer equipo NEUROLITH en Latinoamérica, la nueva tecnología de STORZ MEDICAL para estimulación transcraneal por pulsos acústicos. Esta invitación representa una oportunidad única para formarse en esta innovadora terapia y evaluar su implementación en Costa Rica.
         </p>
 
         <div className="bg-gradient-to-r from-[#1E88A8]/10 to-[#1E88A8]/5 rounded-2xl p-6 border-l-4 border-[#1E88A8] my-8">
@@ -678,7 +678,7 @@ function ArticleContent() {
             <div>
               <h4 className="font-bold text-[#0E3A4A] mb-2">NEUROLITH - STORZ MEDICAL</h4>
               <p className="text-[#64748B] m-0">
-                NEUROLITH representa la frontera de la innovación en neurociencias. El MSc. Li Torres fue seleccionado para instruir sobre esta tecnología debido a su dominio de los equipos STORZ MEDICAL y su capacidad para traducir conceptos complejos en aplicaciones clínicas prácticas.
+                NEUROLITH representa la frontera de la innovación en neurociencias. El MSc. Li Torres fue invitado a este evento inaugural para conocer de primera mano esta tecnología y explorar las posibilidades de traer este tipo de terapia avanzada a Costa Rica en el futuro, ampliando así las opciones de tratamiento para los pacientes centroamericanos.
               </p>
             </div>
           </div>
