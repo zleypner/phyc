@@ -631,7 +631,7 @@ function ArticleContent() {
           Cuando hablamos de terapia física de alto nivel, el conocimiento no tiene fronteras. El MSc. Enmanuel Li Torres, director clínico de Physical Care Fisioterapia, fue convocado por STORZ MEDICAL para llevar su expertise a Argentina y capacitar a equipos médicos de las instituciones deportivas más importantes del país.
         </p>
         <p className="text-[#64748B] leading-relaxed mb-4">
-          Esta invitación no es casualidad. Con más de 9 años de experiencia clínica, certificaciones internacionales en tecnologías de rehabilitación y una trayectoria de presentaciones en congresos internacionales, Enmanuel se ha posicionado como un referente latinoamericano en fisioterapia avanzada.
+          Esta invitación no es casualidad. Con más de 12 años de experiencia clínica, certificaciones internacionales en tecnologías de rehabilitación y una trayectoria de presentaciones en congresos internacionales, Enmanuel se ha posicionado como un referente latinoamericano en fisioterapia avanzada. Además de Buenos Aires, Argentina, también ha impartido capacitaciones en Bogotá, Colombia, consolidando su rol como capacitador internacional.
         </p>
         <p className="text-[#64748B] leading-relaxed">
           Durante su visita a Argentina, impartió capacitaciones especializadas en instituciones que atienden a atletas de élite y deportistas profesionales, compartiendo los mismos protocolos y metodologías que aplica diariamente en Physical Care Fisioterapia.
