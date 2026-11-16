@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import Script from 'next/script';
 
 const baseUrl = 'https://www.physicalcarefisioterapia.com';
 const articleUrl = `${baseUrl}/blog/physical-care-argentina-capacitacion-instituciones-deportivas`;
@@ -155,7 +154,7 @@ const personSchema = {
   familyName: 'Li Torres',
   honorificPrefix: 'MSc.',
   jobTitle: 'Director Clínico y Fisioterapeuta Especialista',
-  description: 'Fisioterapeuta especialista en rehabilitación deportiva con más de 12 años de experiencia clínica. Director clínico de Physical Care Fisioterapia en Costa Rica. Capacitador internacional en Buenos Aires, Argentina y Bogotá, Colombia.',
+  description: 'Fisioterapeuta especialista en rehabilitación deportiva con más de 14 años de experiencia clínica. Director clínico de Physical Care Fisioterapia en Costa Rica. Capacitador internacional en Buenos Aires, Argentina y Bogotá, Colombia.',
   worksFor: {
     '@type': 'MedicalClinic',
     name: 'Physical Care Fisioterapia',
@@ -425,7 +424,7 @@ const faqSchema = {
       name: '¿Dónde encontrar terapia física de calidad en Costa Rica?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Physical Care Fisioterapia, ubicada en San Pedro de Montes de Oca, San José, es un centro especializado en terapia física con más de 12 años de experiencia. El equipo está liderado por el MSc. Enmanuel Li Torres, quien cuenta con capacitación internacional en instituciones deportivas de élite como River Plate, San Lorenzo y el Comité Olímpico Argentino.',
+        text: 'Physical Care Fisioterapia, ubicada en San Pedro de Montes de Oca, San José, es un centro especializado en terapia física con más de 14 años de experiencia. El equipo está liderado por el MSc. Enmanuel Li Torres, quien cuenta con capacitación internacional en instituciones deportivas de élite como River Plate, San Lorenzo y el Comité Olímpico Argentino.',
       },
     },
     {
@@ -481,7 +480,7 @@ const faqSchema = {
       name: '¿Quién es Enmanuel Li Torres y cuál es su experiencia?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'El MSc. Enmanuel Li Torres es el director clínico de Physical Care Fisioterapia en Costa Rica. Con más de 12 años de experiencia clínica, es fisioterapeuta especialista en rehabilitación deportiva y capacitador internacional certificado por STORZ MEDICAL. Ha impartido capacitaciones en instituciones deportivas de élite en Argentina (River Plate, San Lorenzo, Comité Olímpico Argentino) y Colombia (Bogotá).',
+        text: 'El MSc. Enmanuel Li Torres es el director clínico de Physical Care Fisioterapia en Costa Rica. Con más de 14 años de experiencia clínica, es fisioterapeuta especialista en rehabilitación deportiva y capacitador internacional certificado por STORZ MEDICAL. Ha impartido capacitaciones en instituciones deportivas de élite en Argentina (River Plate, San Lorenzo, Comité Olímpico Argentino) y Colombia (Bogotá).',
       },
     },
     {
@@ -556,6 +555,19 @@ const medicalWebPageSchema = {
   ],
 };
 
+// Combine all schemas into a single JSON-LD graph for better performance
+const combinedSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    breadcrumbSchema,
+    personSchema,
+    organizationSchema,
+    articleSchema,
+    faqSchema,
+    medicalWebPageSchema,
+  ],
+};
+
 export default function ArticleLayout({
   children,
 }: {
@@ -563,42 +575,10 @@ export default function ArticleLayout({
 }) {
   return (
     <>
-      {/* Structured Data - SEO, GEO, AEO Optimized */}
-      <Script
-        id="breadcrumb-schema"
+      {/* Structured Data - Combined into single script for faster parsing */}
+      <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-        strategy="afterInteractive"
-      />
-      <Script
-        id="person-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
-        strategy="afterInteractive"
-      />
-      <Script
-        id="organization-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-        strategy="afterInteractive"
-      />
-      <Script
-        id="article-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-        strategy="afterInteractive"
-      />
-      <Script
-        id="faq-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        strategy="afterInteractive"
-      />
-      <Script
-        id="medical-webpage-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalWebPageSchema) }}
-        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(combinedSchema) }}
       />
       {children}
     </>

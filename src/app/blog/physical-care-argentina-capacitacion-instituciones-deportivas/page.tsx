@@ -1,27 +1,27 @@
-'use client';
-
-import { useRef, useState, useCallback, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion, useInView, AnimatePresence } from 'framer-motion';
+import dynamic from 'next/dynamic';
 import {
   ArrowRight,
   Clock,
   User,
   ChevronRight,
-  ChevronDown,
-  X,
-  ChevronLeft,
-  ExternalLink,
   Award,
   Users,
   Building2,
-  Zap,
   Globe,
   Mic,
 } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+
+// Dynamic imports for interactive components (reduces initial bundle)
+const ImageGallery = dynamic(() => import('./ImageGallery'), {
+  loading: () => <div className="my-12 h-64 bg-gray-100 rounded-2xl animate-pulse" />,
+});
+const FAQSection = dynamic(() => import('./FAQSection'), {
+  loading: () => <div className="mt-16 pt-12 h-96 bg-gray-50 rounded-2xl animate-pulse" />,
+});
 
 // WhatsApp SVG Icon
 const WhatsAppIcon = ({ className = '' }: { className?: string }) => (
@@ -80,7 +80,7 @@ const faqData = [
   {
     question: '¿Por qué instituciones argentinas invitaron a un fisioterapeuta de Costa Rica?',
     answer:
-      'El MSc. Enmanuel Li Torres es reconocido internacionalmente por su expertise en tecnologías de rehabilitación de STORZ MEDICAL y su experiencia clínica de más de 12 años. Su participación en congresos internacionales y publicaciones lo posicionan como referente en fisioterapia avanzada.',
+      'El MSc. Enmanuel Li Torres es reconocido internacionalmente por su expertise en tecnologías de rehabilitación de STORZ MEDICAL y su experiencia clínica de más de 14 años. Su participación en congresos internacionales y publicaciones lo posicionan como referente en fisioterapia avanzada.',
   },
   {
     question: '¿Physical Care ofrece la misma calidad de atención que reciben los atletas de élite?',
@@ -138,179 +138,13 @@ const trainingTopics = [
   },
   {
     title: 'NEUROLITH - Nueva Tecnología',
-    description: 'Participación en la inauguración del primer equipo NEUROLITH en la región.',
+    description: 'Participación en la inauguración del primer equipo NEUROLITH en Argentina.',
   },
 ];
 
-// Animation variants
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
-  },
-};
-
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 },
-  },
-};
 
 // ============================================
-// LIGHTBOX COMPONENT
-// ============================================
-function Lightbox({
-  images,
-  currentIndex,
-  onClose,
-  onPrev,
-  onNext,
-}: {
-  images: typeof galleryImages;
-  currentIndex: number;
-  onClose: () => void;
-  onPrev: () => void;
-  onNext: () => void;
-}) {
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-      if (e.key === 'ArrowLeft') onPrev();
-      if (e.key === 'ArrowRight') onNext();
-    };
-    document.addEventListener('keydown', handleKeyDown);
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'unset';
-    };
-  }, [onClose, onPrev, onNext]);
-
-  return (
-    <AnimatePresence>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm"
-        onClick={onClose}
-      >
-        {/* Close button */}
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 z-10 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
-          aria-label="Cerrar galería"
-        >
-          <X size={24} />
-        </button>
-
-        {/* Navigation buttons */}
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            onPrev();
-          }}
-          className="absolute left-4 z-10 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
-          aria-label="Imagen anterior"
-        >
-          <ChevronLeft size={24} />
-        </button>
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            onNext();
-          }}
-          className="absolute right-4 z-10 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
-          aria-label="Imagen siguiente"
-        >
-          <ChevronRight size={24} />
-        </button>
-
-        {/* Image container */}
-        <motion.div
-          key={currentIndex}
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.9 }}
-          transition={{ duration: 0.3 }}
-          className="relative w-[90vw] h-[80vh] max-w-6xl"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <Image
-            src={images[currentIndex].src}
-            alt={images[currentIndex].alt}
-            fill
-            className="object-contain"
-            sizes="90vw"
-            priority
-          />
-        </motion.div>
-
-        {/* Caption */}
-        <div className="absolute bottom-8 left-0 right-0 text-center">
-          <p className="text-white/90 text-lg font-medium mb-2">
-            {images[currentIndex].caption}
-          </p>
-          <p className="text-white/60 text-sm">
-            {currentIndex + 1} / {images.length}
-          </p>
-        </div>
-      </motion.div>
-    </AnimatePresence>
-  );
-}
-
-// ============================================
-// FAQ ITEM COMPONENT
-// ============================================
-function FAQItem({
-  question,
-  answer,
-  isOpen,
-  onClick,
-}: {
-  question: string;
-  answer: string;
-  isOpen: boolean;
-  onClick: () => void;
-}) {
-  return (
-    <div className="border-b border-gray-200 last:border-b-0">
-      <button
-        onClick={onClick}
-        className="w-full py-6 flex items-center justify-between text-left hover:text-[#1E88A8] transition-colors"
-        aria-expanded={isOpen}
-      >
-        <span className="text-lg font-semibold text-[#0E3A4A] pr-4">{question}</span>
-        <ChevronDown
-          className={`w-5 h-5 text-[#1E88A8] flex-shrink-0 transition-transform duration-300 ${
-            isOpen ? 'rotate-180' : ''
-          }`}
-        />
-      </button>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="overflow-hidden"
-          >
-            <p className="pb-6 text-[#64748B] leading-relaxed">{answer}</p>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-}
-
-// ============================================
-// HERO SECTION
+// HERO SECTION (Server Component - no animations for faster load)
 // ============================================
 function HeroSection() {
   return (
@@ -325,46 +159,25 @@ function HeroSection() {
               'radial-gradient(ellipse 60% 50% at 70% 50%, rgba(53, 183, 200, 0.12) 0%, transparent 60%)',
           }}
         />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'radial-gradient(ellipse 80% 30% at 30% 0%, rgba(255, 255, 255, 0.05) 0%, transparent 50%)',
-          }}
-        />
       </div>
 
-      {/* Floating elements */}
-      <motion.div
-        animate={{ y: [0, -20, 0], opacity: [0.2, 0.35, 0.2] }}
-        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute top-[20%] right-[10%] w-[300px] h-[300px] lg:w-[450px] lg:h-[450px] rounded-full bg-[#35B7C8]/10 blur-[100px] z-10"
-      />
-      <motion.div
-        animate={{ y: [0, 15, 0], opacity: [0.15, 0.25, 0.15] }}
-        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-        className="absolute bottom-[30%] left-[5%] w-[200px] h-[200px] lg:w-[350px] lg:h-[350px] rounded-full bg-[#5EEAD4]/10 blur-[80px] z-10"
-      />
+      {/* Static floating elements (CSS only, no JS animation) */}
+      <div className="absolute top-[20%] right-[10%] w-[300px] h-[300px] lg:w-[450px] lg:h-[450px] rounded-full bg-[#35B7C8]/10 blur-[100px] z-10 animate-pulse" />
+      <div className="absolute bottom-[30%] left-[5%] w-[200px] h-[200px] lg:w-[350px] lg:h-[350px] rounded-full bg-[#5EEAD4]/10 blur-[80px] z-10" />
 
       {/* Content */}
       <div className="relative z-20 w-full max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 pt-32 pb-20 lg:pt-40 lg:pb-28">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={staggerContainer}
-          className="max-w-4xl"
-        >
+        <div className="max-w-4xl">
           {/* Badge */}
-          <motion.div variants={fadeInUp} className="mb-6">
+          <div className="mb-6">
             <span className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#8DC741]/20 backdrop-blur-md border border-[#8DC741]/30 text-white text-sm font-medium">
               <Globe className="w-4 h-4 text-[#8DC741]" />
               {articleData.badge}
             </span>
-          </motion.div>
+          </div>
 
           {/* Title */}
-          <motion.h1
-            variants={fadeInUp}
+          <h1
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.15] tracking-[-0.02em] mb-6"
             style={{ fontFamily: 'var(--font-lora), Georgia, serif' }}
           >
@@ -376,21 +189,15 @@ function HeroSection() {
             <span className="bg-gradient-to-r from-[#06B8BF] via-[#5EEAD4] to-[#06B8BF] bg-clip-text text-transparent">
               Argentina
             </span>
-          </motion.h1>
+          </h1>
 
           {/* Description */}
-          <motion.p
-            variants={fadeInUp}
-            className="text-lg sm:text-xl text-white/80 leading-relaxed mb-8 max-w-3xl"
-          >
+          <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-8 max-w-3xl">
             {articleData.description}
-          </motion.p>
+          </p>
 
           {/* Meta info */}
-          <motion.div
-            variants={fadeInUp}
-            className="flex flex-wrap items-center gap-6 text-white/70"
-          >
+          <div className="flex flex-wrap items-center gap-6 text-white/70">
             <div className="flex items-center gap-2">
               <User size={18} className="text-[#5EEAD4]" />
               <span className="font-medium text-white">{articleData.author}</span>
@@ -400,8 +207,8 @@ function HeroSection() {
               <span>{articleData.readingTime}</span>
             </div>
             <span className="text-white/50">{articleData.publishDateFormatted}</span>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
 
       {/* Bottom gradient fade */}
@@ -438,80 +245,7 @@ function Breadcrumb() {
 }
 
 // ============================================
-// IMAGE GALLERY COMPONENT
-// ============================================
-function ImageGallery() {
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  const openLightbox = useCallback((index: number) => {
-    setCurrentImageIndex(index);
-    setLightboxOpen(true);
-  }, []);
-
-  const closeLightbox = useCallback(() => {
-    setLightboxOpen(false);
-  }, []);
-
-  const goToPrev = useCallback(() => {
-    setCurrentImageIndex((prev) => (prev === 0 ? galleryImages.length - 1 : prev - 1));
-  }, []);
-
-  const goToNext = useCallback(() => {
-    setCurrentImageIndex((prev) => (prev === galleryImages.length - 1 ? 0 : prev + 1));
-  }, []);
-
-  // Skip the first image (hero) in the gallery
-  const galleryImagesWithoutHero = galleryImages.slice(1);
-
-  return (
-    <>
-      <div className="my-12">
-        <h3 className="text-2xl font-bold text-[#0E3A4A] mb-6">
-          Galería: capacitaciones en Argentina
-        </h3>
-        <div className="grid grid-cols-2 gap-4">
-          {galleryImagesWithoutHero.map((image, index) => (
-            <button
-              key={index}
-              onClick={() => openLightbox(index + 1)}
-              className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <Image
-                src={image.src}
-                alt={image.alt}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                sizes="(max-width: 768px) 50vw, 25vw"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center">
-                  <ExternalLink className="w-5 h-5 text-[#0E3A4A]" />
-                </div>
-              </div>
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Lightbox */}
-      {lightboxOpen && (
-        <Lightbox
-          images={galleryImages}
-          currentIndex={currentImageIndex}
-          onClose={closeLightbox}
-          onPrev={goToPrev}
-          onNext={goToNext}
-        />
-      )}
-    </>
-  );
-}
-
-// ============================================
-// INSTITUTIONS GRID COMPONENT
+// INSTITUTIONS GRID COMPONENT (Server Component - no animations)
 // ============================================
 function InstitutionsGrid() {
   return (
@@ -519,13 +253,9 @@ function InstitutionsGrid() {
       {institutionsTrained.map((institution, index) => {
         const Icon = institution.icon;
         return (
-          <motion.div
+          <div
             key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
-            viewport={{ once: true }}
-            className="bg-gradient-to-br from-[#F4F7F8] to-white rounded-2xl p-6 border border-gray-100 hover:shadow-lg transition-all duration-300"
+            className="bg-gradient-to-br from-[#F4F7F8] to-white rounded-2xl p-6 border border-gray-100 hover:shadow-lg transition-shadow duration-300"
           >
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-xl bg-[#1E88A8]/10 flex items-center justify-center flex-shrink-0">
@@ -541,7 +271,7 @@ function InstitutionsGrid() {
                 <p className="text-sm text-[#64748B]">{institution.description}</p>
               </div>
             </div>
-          </motion.div>
+          </div>
         );
       })}
     </div>
@@ -549,18 +279,14 @@ function InstitutionsGrid() {
 }
 
 // ============================================
-// TRAINING TOPICS COMPONENT
+// TRAINING TOPICS COMPONENT (Server Component - no animations)
 // ============================================
 function TrainingTopics() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
       {trainingTopics.map((topic, index) => (
-        <motion.div
+        <div
           key={index}
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ delay: index * 0.1 }}
-          viewport={{ once: true }}
           className="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 hover:border-[#1E88A8]/30 transition-colors"
         >
           <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#1E88A8] to-[#0E3A4A] flex items-center justify-center flex-shrink-0">
@@ -570,29 +296,20 @@ function TrainingTopics() {
             <h4 className="font-bold text-[#0E3A4A] mb-1">{topic.title}</h4>
             <p className="text-sm text-[#64748B]">{topic.description}</p>
           </div>
-        </motion.div>
+        </div>
       ))}
     </div>
   );
 }
 
 // ============================================
-// ARTICLE CONTENT COMPONENT
+// ARTICLE CONTENT COMPONENT (Server Component - no animations)
 // ============================================
 function ArticleContent() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
-
   return (
-    <motion.article
-      ref={ref}
-      initial="hidden"
-      animate={isInView ? 'visible' : 'hidden'}
-      variants={staggerContainer}
-      className="prose prose-lg max-w-none"
-    >
+    <article className="prose prose-lg max-w-none">
       {/* Main hero image */}
-      <motion.div variants={fadeInUp} className="relative aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl mb-12">
+      <div className="relative aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl mb-12">
         <Image
           src={heroImage.src}
           alt={heroImage.alt}
@@ -607,10 +324,10 @@ function ArticleContent() {
             MSc. Enmanuel Li Torres impartiendo capacitación internacional
           </span>
         </div>
-      </motion.div>
+      </div>
 
       {/* Key achievement highlight */}
-      <motion.div variants={fadeInUp} className="bg-gradient-to-r from-[#0E3A4A] to-[#1E88A8] rounded-2xl p-6 sm:p-8 mb-12 text-white">
+      <div className="bg-gradient-to-r from-[#0E3A4A] to-[#1E88A8] rounded-2xl p-6 sm:p-8 mb-12 text-white">
         <div className="flex items-start gap-4">
           <Award className="w-10 h-10 text-[#8DC741] flex-shrink-0" />
           <div>
@@ -620,10 +337,10 @@ function ArticleContent() {
             </p>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Introduction */}
-      <motion.section variants={fadeInUp}>
+      <section>
         <h2 className="text-2xl sm:text-3xl font-bold text-[#0E3A4A] mb-6">
           De Costa Rica a Argentina: expertise que cruza fronteras
         </h2>
@@ -631,15 +348,15 @@ function ArticleContent() {
           Cuando hablamos de terapia física de alto nivel, el conocimiento no tiene fronteras. El MSc. Enmanuel Li Torres, director clínico de Physical Care Fisioterapia, fue convocado por STORZ MEDICAL para llevar su expertise a Argentina y capacitar a equipos médicos de las instituciones deportivas más importantes del país.
         </p>
         <p className="text-[#64748B] leading-relaxed mb-4">
-          Esta invitación no es casualidad. Con más de 12 años de experiencia clínica, certificaciones internacionales en tecnologías de rehabilitación y una trayectoria de presentaciones en congresos internacionales, Enmanuel se ha posicionado como un referente latinoamericano en fisioterapia avanzada. Además de Buenos Aires, Argentina, también ha impartido capacitaciones en Bogotá, Colombia, consolidando su rol como capacitador internacional.
+          Esta invitación no es casualidad. Con más de 14 años de experiencia clínica, certificaciones internacionales en tecnologías de rehabilitación y una trayectoria de presentaciones en congresos internacionales, Enmanuel se ha posicionado como un referente latinoamericano en fisioterapia avanzada. Además de Buenos Aires, Argentina, también ha impartido capacitaciones en Bogotá, Colombia, consolidando su rol como capacitador internacional.
         </p>
         <p className="text-[#64748B] leading-relaxed">
           Durante su visita a Argentina, impartió capacitaciones especializadas en instituciones que atienden a atletas de élite y deportistas profesionales, compartiendo los mismos protocolos y metodologías que aplica diariamente en Physical Care Fisioterapia.
         </p>
-      </motion.section>
+      </section>
 
       {/* Institutions trained section */}
-      <motion.section variants={fadeInUp} className="mt-12">
+      <section className="mt-12">
         <h2 className="text-2xl sm:text-3xl font-bold text-[#0E3A4A] mb-6">
           Instituciones capacitadas
         </h2>
@@ -650,10 +367,10 @@ function ArticleContent() {
         <p className="text-[#64748B] leading-relaxed mt-6">
           En cada institución, los equipos médicos recibieron formación intensiva sobre el uso correcto de tecnologías de rehabilitación, protocolos basados en evidencia científica y estrategias de recuperación para deportistas de alto rendimiento.
         </p>
-      </motion.section>
+      </section>
 
       {/* Training topics section */}
-      <motion.section variants={fadeInUp} className="mt-12">
+      <section className="mt-12">
         <h2 className="text-2xl sm:text-3xl font-bold text-[#0E3A4A] mb-6">
           Temas de capacitación impartidos
         </h2>
@@ -661,27 +378,27 @@ function ArticleContent() {
           Las capacitaciones abarcaron las tecnologías y metodologías más avanzadas en rehabilitación deportiva:
         </p>
         <TrainingTopics />
-      </motion.section>
+      </section>
 
       {/* NEUROLITH section */}
-      <motion.section variants={fadeInUp} className="mt-12">
+      <section className="mt-12">
         <h2 className="text-2xl sm:text-3xl font-bold text-[#0E3A4A] mb-6">
           Inauguración de NEUROLITH
         </h2>
         <p className="text-[#64748B] leading-relaxed mb-4">
-          Como parte de esta visita, el MSc. Enmanuel Li Torres tuvo la oportunidad de participar en la inauguración del primer equipo NEUROLITH en la región, la nueva tecnología de STORZ MEDICAL para estimulación transcraneal por pulsos acústicos.
+          Como parte de esta visita, el MSc. Enmanuel Li Torres tuvo la oportunidad de participar en la inauguración del primer equipo NEUROLITH en Argentina, la nueva tecnología de STORZ MEDICAL para estimulación transcraneal por pulsos acústicos.
         </p>
 
         <p className="text-[#64748B] leading-relaxed">
           Esta participación refuerza el posicionamiento de Physical Care Fisioterapia como centro de referencia en tecnologías de rehabilitación avanzada en Latinoamérica.
         </p>
-      </motion.section>
+      </section>
 
-      {/* Gallery */}
+      {/* Gallery - Dynamically loaded client component */}
       <ImageGallery />
 
       {/* What this means for patients */}
-      <motion.section variants={fadeInUp} className="mt-12">
+      <section className="mt-12">
         <h2 className="text-2xl sm:text-3xl font-bold text-[#0E3A4A] mb-6">
           ¿Qué significa esto para los pacientes de Physical Care?
         </h2>
@@ -701,10 +418,10 @@ function ArticleContent() {
         <p className="text-[#64748B] leading-relaxed">
           La experiencia internacional de nuestro director clínico se traduce directamente en mejores resultados para nuestros pacientes: diagnósticos más precisos, tratamientos más efectivos y recuperaciones más rápidas.
         </p>
-      </motion.section>
+      </section>
 
       {/* CTA inline */}
-      <motion.section variants={fadeInUp} className="mt-12">
+      <section className="mt-12">
         <h2 className="text-2xl sm:text-3xl font-bold text-[#0E3A4A] mb-6">
           Recibe atención de nivel internacional en Costa Rica
         </h2>
@@ -729,63 +446,17 @@ function ArticleContent() {
             Agendar valoración por WhatsApp
           </a>
         </div>
-      </motion.section>
-    </motion.article>
+      </section>
+    </article>
   );
 }
 
 // ============================================
-// FAQ SECTION
-// ============================================
-function FAQSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
-
-  return (
-    <motion.section
-      ref={ref}
-      initial="hidden"
-      animate={isInView ? 'visible' : 'hidden'}
-      variants={staggerContainer}
-      className="mt-16 pt-12 border-t border-gray-200"
-    >
-      <motion.h2
-        variants={fadeInUp}
-        className="text-2xl sm:text-3xl font-bold text-[#0E3A4A] mb-8"
-      >
-        Preguntas frecuentes
-      </motion.h2>
-      <motion.div variants={fadeInUp} className="bg-white rounded-2xl border border-gray-200 p-6 sm:p-8">
-        {faqData.map((faq, index) => (
-          <FAQItem
-            key={index}
-            question={faq.question}
-            answer={faq.answer}
-            isOpen={openIndex === index}
-            onClick={() => setOpenIndex(openIndex === index ? null : index)}
-          />
-        ))}
-      </motion.div>
-    </motion.section>
-  );
-}
-
-// ============================================
-// CTA SECTION
+// CTA SECTION (Server Component - no animations)
 // ============================================
 function CTASection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
-
   return (
-    <motion.section
-      ref={ref}
-      initial="hidden"
-      animate={isInView ? 'visible' : 'hidden'}
-      variants={staggerContainer}
-      className="mt-16 relative py-16 sm:py-20 lg:py-24 rounded-3xl overflow-hidden"
-    >
+    <section className="mt-16 relative py-16 sm:py-20 lg:py-24 rounded-3xl overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#0E3A4A] via-[#156378] to-[#1E88A8]" />
       <div
@@ -798,26 +469,17 @@ function CTASection() {
 
       {/* Content */}
       <div className="relative z-10 px-6 sm:px-10 lg:px-16 text-center">
-        <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 bg-[#8DC741]/20 rounded-full text-white text-sm font-medium mb-6">
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#8DC741]/20 rounded-full text-white text-sm font-medium mb-6">
           <Award className="w-4 h-4 text-[#8DC741]" />
           Expertise internacional a tu alcance
-        </motion.div>
-        <motion.h2
-          variants={fadeInUp}
-          className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight mb-4"
-        >
+        </div>
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight mb-4">
           Agende una valoración con el equipo que capacita a instituciones de élite
-        </motion.h2>
-        <motion.p
-          variants={fadeInUp}
-          className="text-lg text-white/80 leading-relaxed mb-8 max-w-2xl mx-auto"
-        >
+        </h2>
+        <p className="text-lg text-white/80 leading-relaxed mb-8 max-w-2xl mx-auto">
           El mismo nivel de atención que reciben los atletas de River Plate, San Lorenzo y el Comité Olímpico Argentino está disponible para usted en Physical Care Fisioterapia, San Pedro, Costa Rica.
-        </motion.p>
-        <motion.div
-          variants={fadeInUp}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
+        </p>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="https://wa.me/50687337942?text=Hola!%20Quiero%20agendar%20una%20valoracion.%20Lei%20el%20articulo%20sobre%20las%20capacitaciones%20en%20Argentina."
             target="_blank"
@@ -834,9 +496,9 @@ function CTASection() {
             Conocer nuestros tratamientos
             <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
           </Link>
-        </motion.div>
+        </div>
       </div>
-    </motion.section>
+    </section>
   );
 }
 
