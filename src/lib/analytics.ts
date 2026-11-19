@@ -15,6 +15,7 @@ export interface AnalyticsEventProperties {
   intent?: string;
   intentLabel?: string;
   service?: string;
+  location?: string;
   [key: string]: unknown;
 }
 
@@ -92,8 +93,8 @@ export const analytics = {
     track("intent_selected", { intent, intentLabel });
   },
 
-  whatsappClicked: (service?: string) => {
-    track("whatsapp_clicked", { service });
+  whatsappClicked: (location: string, service?: string) => {
+    track("whatsapp_clicked", { location, service });
   },
 
   chatRestarted: () => {

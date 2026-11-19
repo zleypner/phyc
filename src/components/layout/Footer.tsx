@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { MapPin, Phone, Clock, Gift, Headphones } from 'lucide-react';
+import { analytics } from '@/lib/analytics';
 
 const FacebookIcon = () => (
   <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
@@ -77,6 +78,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
+                  onClick={social.label === 'WhatsApp' ? () => analytics.whatsappClicked('footer_social') : undefined}
                   className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#06B8BF] transition-colors"
                 >
                   <social.icon />

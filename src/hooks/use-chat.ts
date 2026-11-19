@@ -92,7 +92,7 @@ export function useChat(options: UseChatOptions = {}) {
       };
       const url = generateWhatsAppUrl(leadData, config.whatsapp.number);
       window.open(url, "_blank", "noopener,noreferrer");
-      analytics.whatsappClicked(lastOption || undefined);
+      analytics.whatsappClicked("chatbot", lastOption || undefined);
       return;
     }
 
@@ -140,7 +140,7 @@ export function useChat(options: UseChatOptions = {}) {
     };
     const url = generateWhatsAppUrl(leadData, config.whatsapp.number);
     window.open(url, "_blank", "noopener,noreferrer");
-    analytics.whatsappClicked(lastOption || undefined);
+    analytics.whatsappClicked("chatbot", lastOption || undefined);
   }, [config.whatsapp.number, lastOption]);
 
   const openCalendar = useCallback(() => {

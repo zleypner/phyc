@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { analytics } from '@/lib/analytics';
 
 const WhatsAppIcon = ({ size = 24, className = '' }: { size?: number; className?: string }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -108,6 +109,7 @@ export default function Header() {
                 href="https://wa.me/50687337942?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => analytics.whatsappClicked('header_desktop')}
                 className="hidden min-h-[44px] items-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[#25D366]/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#20BA5C] hover:shadow-xl hover:shadow-[#25D366]/25 sm:flex"
                 aria-label="Agendar cita por WhatsApp"
               >
@@ -230,6 +232,7 @@ export default function Header() {
                   href="https://wa.me/50687337942?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => analytics.whatsappClicked('header_mobile')}
                   className="flex w-full items-center justify-center gap-2.5 sm:gap-3 rounded-xl sm:rounded-2xl bg-[#25D366] py-3.5 sm:py-4 font-semibold text-white text-sm sm:text-base shadow-lg shadow-[#25D366]/20 transition-colors hover:bg-[#20BA5C]"
                 >
                   <WhatsAppIcon size={18} className="sm:w-5 sm:h-5" />

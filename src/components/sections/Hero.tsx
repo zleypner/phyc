@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { User, CheckCircle, Calendar, Heart } from 'lucide-react';
 import Image from 'next/image';
+import { analytics } from '@/lib/analytics';
 
 // WhatsApp SVG Icon
 const WhatsAppIcon = ({ className = '' }: { className?: string }) => (
@@ -204,6 +205,7 @@ export default function Hero() {
                     href="https://wa.me/50687337942?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => analytics.whatsappClicked('hero')}
                     className="group inline-flex items-center justify-center gap-2.5 h-[52px] sm:h-[56px] px-6 sm:px-8 bg-[#25D366] text-white rounded-full font-semibold text-[15px] sm:text-[16px] shadow-[0_8px_32px_rgba(37,211,102,0.35)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,211,102,0.45)] active:translate-y-0 active:scale-[0.98] w-full sm:w-auto"
                     aria-label="Agendar cita por WhatsApp"
                   >

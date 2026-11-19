@@ -6,6 +6,7 @@ import {
   MessageCircle,
   ArrowRight,
 } from 'lucide-react';
+import { analytics } from '@/lib/analytics';
 
 // WhatsApp SVG Icon
 const WhatsAppIcon = ({ size = 24, className = '' }: { size?: number; className?: string }) => (
@@ -102,6 +103,7 @@ export default function Contact() {
                 href="https://wa.me/50687337942?text=Hola!%20Quiero%20agendar%20una%20cita.%0AParte%20del%20cuerpo%20que%20me%20duele:"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => analytics.whatsappClicked('contact_section')}
                 className="group flex items-center justify-center gap-2 sm:gap-3 w-full bg-[#25D366] text-white py-3 sm:py-3.5 md:py-4 rounded-full font-semibold text-sm sm:text-base md:text-lg hover:bg-[#22C55E] transition-all duration-300 shadow-lg shadow-[#25D366]/25 hover:shadow-xl hover:shadow-[#25D366]/30 hover:-translate-y-0.5"
               >
                 <WhatsAppIcon size={18} className="sm:w-5 sm:h-5 md:w-[22px] md:h-[22px]" />

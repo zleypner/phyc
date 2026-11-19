@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
+import { analytics } from '@/lib/analytics';
 
 const WhatsAppIcon = ({ size = 24, className = '' }: { size?: number; className?: string }) => (
   <svg
@@ -49,6 +50,7 @@ export default function WhatsAppButton() {
                 href={`https://wa.me/${phoneNumber}?text=${message}`}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => analytics.whatsappClicked('floating_button')}
                 className="block w-full bg-[#25D366] text-white text-center py-2 rounded-lg font-medium hover:bg-[#20BA5C] transition-colors"
               >
                 Iniciar Chat
